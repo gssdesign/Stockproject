@@ -387,6 +387,8 @@
   const cur = c => c === "INR" ? "₹" : "$";
   const fmt = (v, c, dp = 2) => v == null ? "—" : cur(c) + Number(v).toLocaleString(c === "INR" ? "en-IN" : "en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
   const short = (v, c) => fmt(v, c, Number.isInteger(v) ? 0 : 2);
+  // Compact form for the scan list: whole units once a price is 1,000 or more.
+  const compact = (v, c) => fmt(v, c, Number.isInteger(v) || Math.abs(v) >= 1000 ? 0 : 2);
   const pct = v => v == null || isNaN(v) ? "—" : (v > 0 ? "+" : "") + v.toFixed(1) + "%";
   const cls = v => v == null ? "" : v > 0 ? "up" : v < 0 ? "down" : "";
   const fdate = d => d ? new Date(d + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "—";
@@ -556,7 +558,7 @@
   }
   function checksBlock(p) {
     const chips = (p.checks || []).map(ch => `<span class="ck ${ch.pass ? "ck-ok" : "ck-bad"}" title="${esc(ch.detail)}">${ch.pass ? "✓" : "✗"} ${esc(ch.name)}</span>`).join("");
-    const ev = p.eventRisk ? `<div class="vline warn">⚠ ${esc(p.eventRisk)}. That's a binary event: size the position accordingly.</div>` : "";
+    const ev = p.eventRisk ? `<div class="vline warn">⚠ ${esc(p.eventRisk)}. Results can move the stock sharply: reassess before the report and size the position accordingly.</div>` : "";
     return (chips ? `<div class="checks"><span class="ck-h">Rule checks at the pick date</span>${chips}</div>` : "") + ev;
   }
 
@@ -565,7 +567,7 @@
     const lp = isLatest ? livePrice(p) : { price: p.refPrice, asOf: p.refDate, live: false, change: null };
     const mid = (p.buyLow + p.buyHigh) / 2;
     const up = (p.target / mid - 1) * 100, dn = (p.stop / mid - 1) * 100, rr = (p.target - mid) / (mid - p.stop);
-    const buyZone = `${short(p.buyLow, c)}–${short(p.buyHigh, c).replace(/^[$₹]/, "")}`;
+    const buyZone = `${compact(p.buyLow, c)}–${compact(p.buyHigh, c).replace(/^[$₹]/, "")}`;
     let priceCell;
     if (isLatest) {
       const [zk, zt] = zoneOf(p, lp.price);
@@ -711,7 +713,7 @@
 
   function resRow(b, p) {
     const o = outcome(b, p), s = o.s, c = p.currency;
-    const buyZone = `${short(p.buyLow, c)}–${short(p.buyHigh, c).replace(/^[$₹]/, "")}`;
+    const buyZone = `${compact(p.buyLow, c)}–${compact(p.buyHigh, c).replace(/^[$₹]/, "")}`;
     const closeSub = o.close == null ? (o.running ? "window still open" : "no price data")
       : `${o.final ? CLOSE_LABEL[b.horizon || "monthly"] : "latest close, so far"} · ${fdate(o.closeDate)}`;
     const metSub = o.close == null ? "" : `closed ${pct(o.vsTarget)} vs target`;

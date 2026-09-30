@@ -78,7 +78,64 @@ window.PICKS = {
               "Business Standard – Stock market live, Sep 30, 2026",
               "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 425.0,
+            "date": "2026-09-30",
+            "researchPrice": 425.0,
+            "researchDate": "2026-09-30",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹332 cr (min ₹100 cr), price ₹425.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹422.38"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +11.9 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+15.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.79% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.79,
+            "sma20": 422.38,
+            "sma50": 415.42,
+            "sma200": 433.92,
+            "rs1m": 11.89,
+            "rs3m": 3.31,
+            "fromHigh52": -13.49,
+            "fromLow52": 14.99,
+            "avgValue20": 3319540442
+          }
         },
         {
           "market": "IN",
@@ -132,7 +189,64 @@ window.PICKS = {
               "Baird Maritime – Adani Ports Q1 profit",
               "https://www.bairdmaritime.com/shipping/ports/adani-ports-beats-global-trade-headwinds-with-higher-q1-2026-profit"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1798.3,
+            "date": "2026-09-30",
+            "researchPrice": 1798.3,
+            "researchDate": "2026-09-30",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹356 cr (min ₹100 cr), price ₹1,798.3"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1760.85"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +15.2 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+39.2% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.33% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.33,
+            "sma20": 1760.85,
+            "sma50": 1722.2,
+            "sma200": 1631.75,
+            "rs1m": 15.21,
+            "rs3m": 2.38,
+            "fromHigh52": -4.91,
+            "fromLow52": 39.19,
+            "avgValue20": 3557101243
+          }
         }
       ],
       "marketSources": [
@@ -441,7 +555,64 @@ window.PICKS = {
               "Business Standard – Stock market live, Sep 30, 2026",
               "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1162.0,
+            "date": "2026-09-30",
+            "researchPrice": 1162.0,
+            "researchDate": "2026-09-30",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹169 cr (min ₹100 cr), price ₹1,162.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹1140.66, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +8.3 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+39.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.6% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.6,
+            "sma20": 1150.28,
+            "sma50": 1140.66,
+            "sma200": 1012.55,
+            "rs1m": 5.56,
+            "rs3m": 8.31,
+            "fromHigh52": -5.69,
+            "fromLow52": 39.08,
+            "avgValue20": 1688957930
+          }
         },
         {
           "market": "IN",
@@ -495,7 +666,64 @@ window.PICKS = {
               "BusinessToday – SAIL share price",
               "https://www.businesstoday.in/stocks/steel-authority-of-india-ltd-sail-share-price-361308"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 181.49,
+            "date": "2026-09-30",
+            "researchPrice": 181.49,
+            "researchDate": "2026-09-30",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹280 cr (min ₹100 cr), price ₹181.49"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹178.69, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +13.3 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+46.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.24% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.24,
+            "sma20": 182.41,
+            "sma50": 178.69,
+            "sma200": 168.98,
+            "rs1m": 0.1,
+            "rs3m": 13.26,
+            "fromHigh52": -13.45,
+            "fromLow52": 46.36,
+            "avgValue20": 2801097661
+          }
         }
       ],
       "marketSources": [
@@ -804,7 +1032,64 @@ window.PICKS = {
               "BusinessToday – Paytm jumps 5%, company clarifies on AI report",
               "https://www.businesstoday.in/markets/stocks/story/paytm-shares-jump-5-to-hit-52-week-high-company-clarifies-on-ai-report-554234-2026-09-09"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1678.0,
+            "date": "2026-09-30",
+            "researchPrice": 1678.0,
+            "researchDate": "2026-09-30",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹744 cr (min ₹100 cr), price ₹1,678.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹1605.66, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +43.8 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+80.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.56% of price (max 4.5% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 2.00 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.56,
+            "sma20": 1733.73,
+            "sma50": 1605.66,
+            "sma200": 1273.44,
+            "rs1m": 8.78,
+            "rs3m": 43.81,
+            "fromHigh52": -9.57,
+            "fromLow52": 80.31,
+            "avgValue20": 7442140171
+          }
         },
         {
           "market": "IN",
@@ -858,7 +1143,65 @@ window.PICKS = {
               "Trendlyne – Laurus Labs",
               "https://trendlyne.com/equity/4984/LAURUSLABS/laurus-labs-ltd/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1980.0,
+            "date": "2026-09-30",
+            "researchPrice": 1980.0,
+            "researchDate": "2026-09-30",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹317 cr (min ₹100 cr), price ₹1,980.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹1873.1, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +34.8 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+139.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.34% of price (max 4.5% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 2.00 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.34,
+            "sma20": 1957.37,
+            "sma50": 1873.1,
+            "sma200": 1358.28,
+            "rs1m": 12.42,
+            "rs3m": 34.81,
+            "fromHigh52": -3.66,
+            "fromLow52": 139.35,
+            "avgValue20": 3166146382
+          },
+          "eventRisk": "Earnings on 2026-10-22, inside the holding window"
         }
       ],
       "marketSources": [

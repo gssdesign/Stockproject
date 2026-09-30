@@ -4,6 +4,879 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-01-daily-v2",
+      "horizon": "daily",
+      "date": "2026-10-01",
+      "horizonDays": 1,
+      "expires": "2026-10-01",
+      "criteriaVersion": "2026-09-30",
+      "revisionOf": "2026-10-01-daily",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7670.84,
+          "summary": "Coming before the US open: the 1 Oct US daily picks will be added by the morning routine, because they need the 30 Sep close and Micron's results (due after that close)."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22620.45,
+          "summary": "Risk-off: the Nifty 50 closed at 22,620.45 on 2026-09-30, below both its 50-day (23,902) and 200-day (24,373) averages (3-month -6.4%), with FIIs selling. Only stocks beating the falling index with a dated catalyst qualify, so this list is shorter than usual. NSE is closed Fri 2 Oct (Gandhi Jayanti)."
+        }
+      },
+      "picks": [
+        {
+          "market": "IN",
+          "symbol": "COALINDIA",
+          "yahoo": "COALINDIA.NS",
+          "name": "Coal India",
+          "sector": "Energy / Coal",
+          "currency": "INR",
+          "refPrice": 425.0,
+          "refDate": "2026-09-30",
+          "buyLow": 421.95,
+          "buyHigh": 426.5,
+          "target": 433.75,
+          "stop": 418.5,
+          "risk": "Low–Medium",
+          "thesis": "Monthly production and dispatch data are due on the session day, and the stock is already beating the index.",
+          "reasons": [
+            "Coal India files September production and offtake in the first days of October. In August, offtake (dispatches) rose 5.5% YoY to 60.6 MT even as output fell. Easing monsoon rains usually lift both.",
+            "It's up 5.8% in a month against a falling Nifty (+11.9 pts relative), trading just above its 20-day average with low volatility (ATR 1.8%).",
+            "It's a defensive PSU with a high dividend, the kind of stock that holds up when FIIs are selling."
+          ],
+          "data": [
+            [
+              "Close (09/30)",
+              "₹425.0"
+            ],
+            [
+              "3-month vs index",
+              "1-month vs index +11.9 pts"
+            ],
+            [
+              "Aug offtake",
+              "60.6 MT (+5.5% YoY)"
+            ],
+            [
+              "ATR",
+              "1.8% of price"
+            ]
+          ],
+          "watch": "If September production disappoints, the stock can slip. Skip it if it opens outside ₹421.95–426.50. It's the last session before a 3-day holiday, so expect some profit-taking late in the day.",
+          "sources": [
+            [
+              "Discovery Alert – Coal India August 2026 offtake vs production",
+              "https://discoveryalert.com/analysis/coal-india-august-offtake-production-risk-september-2026/"
+            ],
+            [
+              "Ministry of Coal – Production and supplies",
+              "https://coal.gov.in/major-statistics/production-and-supplies"
+            ],
+            [
+              "Business Standard – Stock market live, Sep 30, 2026",
+              "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "ADANIPORTS",
+          "yahoo": "ADANIPORTS.NS",
+          "name": "Adani Ports & SEZ",
+          "sector": "Infrastructure / Ports",
+          "currency": "INR",
+          "refPrice": 1798.3,
+          "refDate": "2026-09-30",
+          "buyLow": 1781.55,
+          "buyHigh": 1806.65,
+          "target": 1846.45,
+          "stop": 1762.75,
+          "risk": "Medium",
+          "thesis": "September cargo numbers are due around 1–3 Oct, after a record August.",
+          "reasons": [
+            "August cargo was an all-time monthly record of 50 MMT (+19% YoY; dry cargo +25%, containers +15%). Year to date it's +16%.",
+            "It trades above its 20-, 50- and 200-day averages, 4.9% below its 52-week high, and beat the Nifty by 15 pts over the last month.",
+            "Brokers expect FY27 volumes and profit to grow faster than peers (Business Standard, 23 Sep)."
+          ],
+          "data": [
+            [
+              "Close (09/30)",
+              "₹1,798.3"
+            ],
+            [
+              "3-month vs index",
+              "1-month vs index +15.2 pts"
+            ],
+            [
+              "Aug cargo",
+              "50 MMT (+19% YoY)"
+            ],
+            [
+              "From 52-week high",
+              "-4.9%"
+            ]
+          ],
+          "watch": "Adani-group headlines can move it sharply. If the September number disappoints or the release slips past Oct 1, the trade has no trigger. Skip it if it opens outside ₹1,781.55–1,806.65.",
+          "sources": [
+            [
+              "Business Standard – Adani Ports cargo +19% in Aug'26",
+              "https://www.business-standard.com/markets/capital-market-news/adani-ports-handled-cargo-volumes-jump-19-yoy-in-aug-26-126090200186_1.html"
+            ],
+            [
+              "Business Standard – Adani Ports may outperform on FY27 volumes",
+              "https://www.business-standard.com/amp/markets/news/adani-ports-may-outperform-on-volume-profit-growth-expectations-for-fy27-126092301115_1.html"
+            ],
+            [
+              "Baird Maritime – Adani Ports Q1 profit",
+              "https://www.bairdmaritime.com/shipping/ports/adani-ports-beats-global-trade-headwinds-with-higher-q1-2026-profit"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Business Standard – Stock market live, Sep 30, 2026",
+          "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
+        ],
+        [
+          "ZeeBiz – NSE/BSE holidays October 2026",
+          "https://www.zeebiz.com/market-news/news-stock-market-holiday-october-2026-nse-bse-to-remain-closed-for-11-days-check-full-list-402881"
+        ],
+        [
+          "Yahoo Finance – Stock market news for Sep 29, 2026",
+          "https://finance.yahoo.com/markets/stocks/articles/stock-market-news-sep-29-083000758.html"
+        ]
+      ]
+    },
+    {
+      "id": "2026-10-01-weekly",
+      "horizon": "weekly",
+      "date": "2026-10-01",
+      "horizonDays": 7,
+      "expires": "2026-10-08",
+      "criteriaVersion": "2026-09-30",
+      "revisionOf": "2026-09-30-weekly",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7670.84,
+          "summary": "Risk-on: the S&P 500 closed at 7,670.84 on 2026-09-29, above its rising 50-day average (1-month -0.5%, 3-month +2.3%). Leadership is in software/AI, refiners and healthcare. Picks come only from stocks that pass every rule check and have a fresh analyst or business catalyst. Prices are exact exchange closes and will be re-anchored to the 30 Sep close automatically after the US session."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22620.45,
+          "summary": "Risk-off: the Nifty 50 closed at 22,620.45 on 2026-09-30, below both its 50-day (23,902) and 200-day (24,373) averages (3-month -6.4%), with FIIs selling. Only stocks beating the falling index with a dated catalyst qualify, so this list is shorter than usual. NSE is closed Fri 2 Oct (Gandhi Jayanti)."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "META",
+          "yahoo": "META",
+          "name": "Meta Platforms",
+          "sector": "Communication Services",
+          "currency": "USD",
+          "refPrice": 738.79,
+          "refDate": "2026-09-29",
+          "buyLow": 724.88,
+          "buyHigh": 745.74,
+          "target": 797.89,
+          "stop": 700.55,
+          "risk": "Medium",
+          "thesis": "A 3-month leader that bounced right back from a pullback, with a fresh target raise.",
+          "reasons": [
+            "Monness Crespi raised its target to $830 from $730 on 28 Sep (Buy). Consensus is about $809.",
+            "It's up 31% over 3 months (+29 pts vs the S&P 500), above a rising 50-day average and 5% below its 52-week high.",
+            "It closed +3.2% on 29 Sep after a 4.8% dip, a sign buyers are defending the uptrend."
+          ],
+          "data": [
+            [
+              "Close (09/29)",
+              "$738.79"
+            ],
+            [
+              "3-month vs index",
+              "+28.9 pts"
+            ],
+            [
+              "Monness target",
+              "$830 (from $730)"
+            ],
+            [
+              "From 52-week high",
+              "-5.3%"
+            ]
+          ],
+          "watch": "Worries about AI spending can quickly pull mega-cap tech down. Q3 results come in late October, after this window.",
+          "sources": [
+            [
+              "Tradingkey – META closed up 3.26% on Sep 29",
+              "https://www.tradingkey.com/news/market-movers/262192693-market-movers-meta-20260929"
+            ],
+            [
+              "Daily Trade Alert – Analyst upgrades Sep 28 (Monness $830)",
+              "https://dailytradealert.com/2026/09/28/analyst-upgrades-and-downgrades-for-monday-9-28/"
+            ],
+            [
+              "Yahoo Finance – Stock market news for Sep 29, 2026",
+              "https://finance.yahoo.com/markets/stocks/articles/stock-market-news-sep-29-083000758.html"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "PLTR",
+          "yahoo": "PLTR",
+          "name": "Palantir Technologies",
+          "sector": "Information Technology",
+          "currency": "USD",
+          "refPrice": 186.97,
+          "refDate": "2026-09-29",
+          "buyLow": 183.71,
+          "buyHigh": 188.6,
+          "target": 200.81,
+          "stop": 178.01,
+          "risk": "High",
+          "thesis": "The strongest large cap in the US screen, with its third target raise of the year from UBS.",
+          "reasons": [
+            "After AIPCon, UBS raised its target to $250 (Buy), its third increase this year ($200 → $220 → $250), citing record bookings and 157% net dollar retention.",
+            "The US Army awarded a $48.1M contract on 17 Sep to replace nine ammunition-tracking systems.",
+            "It's up about 58 pts vs the S&P 500 over 3 months and above a rising 50-day average."
+          ],
+          "data": [
+            [
+              "Close (09/29)",
+              "$186.97"
+            ],
+            [
+              "3-month vs index",
+              "+58.0 pts"
+            ],
+            [
+              "UBS target",
+              "$250"
+            ],
+            [
+              "Army award",
+              "$48.1M (17 Sep)"
+            ]
+          ],
+          "watch": "It's very expensive, so any risk-off day hits it hard (ATR 3.5%). Use a small position and honor the stop.",
+          "sources": [
+            [
+              "TheStreet – UBS resets Palantir price target",
+              "https://www.thestreet.com/investing/stocks/ubs-raises-palantir-stock-price-target-for-rest-of-2026"
+            ],
+            [
+              "Yahoo Finance – UBS resets Palantir target for 2026",
+              "https://finance.yahoo.com/markets/stocks/articles/ubs-resets-palantir-stock-price-160300094.html"
+            ],
+            [
+              "Palantir – Press releases",
+              "https://www.palantir.com/newsroom/press-releases/"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "PSX",
+          "yahoo": "PSX",
+          "name": "Phillips 66",
+          "sector": "Energy / Refining",
+          "currency": "USD",
+          "refPrice": 252.25,
+          "refDate": "2026-09-29",
+          "buyLow": 248.1,
+          "buyHigh": 254.32,
+          "target": 269.87,
+          "stop": 240.85,
+          "risk": "Medium",
+          "thesis": "The refining boom has one more beneficiary, with two target raises in September.",
+          "reasons": [
+            "BMO raised its target to $310 from $260 (17 Sep, Outperform), and UBS to $300 from $235 (8 Sep, Buy).",
+            "Q2 net income was $3.85B, up from $877M a year ago, its strongest quarter since 2022, on refining margins inflated by the US–Iran conflict.",
+            "It's up about 47 pts vs the S&P 500 over 3 months and above a rising 50-day average."
+          ],
+          "data": [
+            [
+              "Close (09/29)",
+              "$252.25"
+            ],
+            [
+              "3-month vs index",
+              "+46.9 pts"
+            ],
+            [
+              "BMO / UBS targets",
+              "$310 / $300"
+            ],
+            [
+              "Q2 net income",
+              "$3.85B"
+            ]
+          ],
+          "watch": "A Gulf ceasefire or a US diesel-export ban would compress margins fast. It moves with MPC and VLO, so don't hold several refiners in size.",
+          "sources": [
+            [
+              "Yahoo Finance – BMO sees Phillips 66 breaking into new highs",
+              "https://finance.yahoo.com/markets/stocks/articles/bmo-sees-phillips-66-psx-163523482.html"
+            ],
+            [
+              "Yahoo Finance – UBS sees Phillips 66 blazing past its record high",
+              "https://finance.yahoo.com/markets/stocks/articles/ubs-sees-phillips-66-psx-151252128.html"
+            ],
+            [
+              "SEC – Phillips 66 Q2 2026 10-Q",
+              "https://www.sec.gov/Archives/edgar/data/0001534701/000153470126000032/psx-20260630.htm"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "VEEV",
+          "yahoo": "VEEV",
+          "name": "Veeva Systems",
+          "sector": "Health Care / Software",
+          "currency": "USD",
+          "refPrice": 278.57,
+          "refDate": "2026-09-29",
+          "buyLow": 274.24,
+          "buyHigh": 280.73,
+          "target": 296.96,
+          "stop": 266.67,
+          "risk": "Medium",
+          "thesis": "Fresh upgrades plus a new top-20 pharma customer.",
+          "reasons": [
+            "CFRA upgraded it to Buy on 18 Sep. Another broker moved it to Overweight with a target raised from $290 to $330.",
+            "It announced a new top-20 biopharma customer commitment on 23 Sep, and the stock rose 3.8% that day.",
+            "It's up about 55 pts vs the S&P 500 over 3 months and above a rising 50-day average."
+          ],
+          "data": [
+            [
+              "Close (09/29)",
+              "$278.57"
+            ],
+            [
+              "3-month vs index",
+              "+54.7 pts"
+            ],
+            [
+              "New customer",
+              "Top-20 biopharma (23 Sep)"
+            ],
+            [
+              "Consensus target",
+              "≈ $297"
+            ]
+          ],
+          "watch": "Morgan Stanley stays at Hold (19 Sep). The stock is close to consensus targets, so upside may be limited without new news.",
+          "sources": [
+            [
+              "GuruFocus – Veeva after 3.8% rally",
+              "https://www.gurufocus.com/news/9094268/is-it-too-late-to-buy-veeva-systems-inc-veev-after-38-rally-gf-value-says-undervalued"
+            ],
+            [
+              "StockTitan – Veeva news",
+              "https://www.stocktitan.net/news/VEEV/"
+            ],
+            [
+              "The Globe and Mail – Veeva stock and news",
+              "https://www.theglobeandmail.com/investing/markets/stocks/VEEV-N/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "ZYDUSLIFE",
+          "yahoo": "ZYDUSLIFE.NS",
+          "name": "Zydus Lifesciences",
+          "sector": "Healthcare / Pharma",
+          "currency": "INR",
+          "refPrice": 1162.0,
+          "refDate": "2026-09-30",
+          "buyLow": 1146.9,
+          "buyHigh": 1169.55,
+          "target": 1226.1,
+          "stop": 1120.55,
+          "risk": "Medium",
+          "thesis": "A clean US FDA inspection removes a key risk for the fifth-largest US generics supplier.",
+          "reasons": [
+            "The US FDA inspected its New Jersey pharmacovigilance office from 22–25 Sep with zero observations (disclosed 26 Sep).",
+            "It won two injectables with 180-day exclusivity in August (Indocyanine Green, Ascorbic Acid).",
+            "It's up about 8 pts vs the Nifty over 3 months and above a rising 50-day average in a falling market."
+          ],
+          "data": [
+            [
+              "Close (09/30)",
+              "₹1,162.0"
+            ],
+            [
+              "3-month vs index",
+              "+8.3 pts"
+            ],
+            [
+              "FDA inspection",
+              "Nil observations (26 Sep)"
+            ],
+            [
+              "Exclusivities",
+              "2 × 180-day CGT (Aug)"
+            ]
+          ],
+          "watch": "It fell 3.2% on 30 Sep. If it breaks below ₹1,120.55, the setup has failed. Pharma margins are under pressure sector-wide.",
+          "sources": [
+            [
+              "Business Upturn – Zydus USFDA inspection nil observations",
+              "https://businessupturn.com/business/usfda-inspection-of-zydus-lifesciences-new-jersey-office-concludes-successfully-with-nil-observations/"
+            ],
+            [
+              "MarketScreener – Zydus USFDA approvals",
+              "https://www.marketscreener.com/news/zydus-lifesciences-limited-receives-final-approval-from-usfda-for-leuprolide-acetate-injection-14-m-ce7d51dbdc89ff2c"
+            ],
+            [
+              "Business Standard – Stock market live, Sep 30, 2026",
+              "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "SAIL",
+          "yahoo": "SAIL.NS",
+          "name": "Steel Authority of India",
+          "sector": "Metals / Steel",
+          "currency": "INR",
+          "refPrice": 181.49,
+          "refDate": "2026-09-30",
+          "buyLow": 178.55,
+          "buyHigh": 182.95,
+          "target": 194.0,
+          "stop": 173.4,
+          "risk": "Medium",
+          "thesis": "A second steel price hike is expected soon, and metals are one of the few sectors rising.",
+          "reasons": [
+            "BusinessToday (21 Sep): SAIL is likely to raise prices by about ₹1,000/t on flat and long products, after an earlier ₹1,100/t hike on flats, citing post-monsoon demand.",
+            "India Ratings upgraded SAIL to AA+ (Stable) on 3 Sep.",
+            "It's up about 13 pts vs the Nifty over 3 months and above a rising 50-day average. Metals outperformed on 23 Sep and 29 Sep."
+          ],
+          "data": [
+            [
+              "Close (09/30)",
+              "₹181.49"
+            ],
+            [
+              "3-month vs index",
+              "+13.3 pts"
+            ],
+            [
+              "Expected hike",
+              "≈ ₹1,000/t"
+            ],
+            [
+              "Credit rating",
+              "IND AA+ (upgraded 3 Sep)"
+            ]
+          ],
+          "watch": "It's a high-beta PSU (ATR 3.2%). If the hike is delayed or China cuts export prices, it can reverse quickly.",
+          "sources": [
+            [
+              "BusinessToday – SAIL likely to hike steel prices again",
+              "https://www.businesstoday.in/markets/stocks/story/sail-likely-to-hike-steel-prices-again-say-sources-556783-2026-09-21"
+            ],
+            [
+              "Business Standard – Nifty Metal up; SAIL soars",
+              "https://www.business-standard.com/amp/markets/news/nifty-metal-index-up-over-1-sail-welpsun-corp-soar-up-to-4-here-s-why-126092300387_1.html"
+            ],
+            [
+              "BusinessToday – SAIL share price",
+              "https://www.businesstoday.in/stocks/steel-authority-of-india-ltd-sail-share-price-361308"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Business Standard – Stock market live, Sep 30, 2026",
+          "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
+        ],
+        [
+          "ZeeBiz – NSE/BSE holidays October 2026",
+          "https://www.zeebiz.com/market-news/news-stock-market-holiday-october-2026-nse-bse-to-remain-closed-for-11-days-check-full-list-402881"
+        ],
+        [
+          "Yahoo Finance – Stock market news for Sep 29, 2026",
+          "https://finance.yahoo.com/markets/stocks/articles/stock-market-news-sep-29-083000758.html"
+        ]
+      ]
+    },
+    {
+      "id": "2026-10-01-monthly",
+      "horizon": "monthly",
+      "date": "2026-10-01",
+      "horizonDays": 30,
+      "expires": "2026-10-31",
+      "criteriaVersion": "2026-09-30",
+      "revisionOf": "2026-09-30-monthly",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7670.84,
+          "summary": "Risk-on: the S&P 500 closed at 7,670.84 on 2026-09-29, above its rising 50-day average (1-month -0.5%, 3-month +2.3%). Leadership is in software/AI, refiners and healthcare. Picks come only from stocks that pass every rule check and have a fresh analyst or business catalyst. Prices are exact exchange closes and will be re-anchored to the 30 Sep close automatically after the US session."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22620.45,
+          "summary": "Risk-off: the Nifty 50 closed at 22,620.45 on 2026-09-30, below both its 50-day (23,902) and 200-day (24,373) averages (3-month -6.4%), with FIIs selling. Only stocks beating the falling index with a dated catalyst qualify, so this list is shorter than usual. NSE is closed Fri 2 Oct (Gandhi Jayanti)."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "MSFT",
+          "yahoo": "MSFT",
+          "name": "Microsoft",
+          "sector": "Information Technology",
+          "currency": "USD",
+          "refPrice": 508.96,
+          "refDate": "2026-09-29",
+          "buyLow": 500.05,
+          "buyHigh": 511.93,
+          "target": 547.58,
+          "stop": 485.19,
+          "risk": "Low",
+          "thesis": "One of the last holdout analysts turned bullish, and targets are rising, with steady, low-volatility gains.",
+          "reasons": [
+            "Stifel upgraded it to Buy from Hold on 23 Sep (target $575 from $530), citing Azure growth, Microsoft 365 Copilot adoption and OpenAI-related revenue.",
+            "Piper Sandler raised its target to $610 from $550 on 29 Sep. 52 of 55 analysts rate it Buy (avg target ≈ $576).",
+            "It's up about 34 pts vs the S&P 500 over 3 months and above a rising 50-day average, with low volatility (ATR 2.3%)."
+          ],
+          "data": [
+            [
+              "Close (09/29)",
+              "$508.96"
+            ],
+            [
+              "3-month vs index",
+              "+34.1 pts"
+            ],
+            [
+              "Stifel",
+              "Upgrade to Buy, $575"
+            ],
+            [
+              "Piper target",
+              "$610 (29 Sep)"
+            ]
+          ],
+          "watch": "Q1 FY27 results come in late October, inside this window: reassess before the report. AI capex headlines can swing the stock.",
+          "sources": [
+            [
+              "CNBC – Microsoft will get a boost from Azure and Copilot, Stifel says",
+              "https://www.cnbc.com/2026/09/23/microsoft-will-get-a-boost-from-azure-and-copilot-stifel-says.html"
+            ],
+            [
+              "Bloomberg – Microsoft rises as one of last analyst holdouts gets bullish",
+              "https://www.bloomberg.com/news/articles/2026-09-23/microsoft-rises-as-one-of-last-analyst-holdouts-turns-bullish"
+            ],
+            [
+              "TheStreet – Stifel upgrades Microsoft",
+              "https://www.thestreet.com/investing/stocks/stifel-upgrades-microsoft-stock-rating-price-target-msft"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "TMO",
+          "yahoo": "TMO",
+          "name": "Thermo Fisher Scientific",
+          "sector": "Health Care",
+          "currency": "USD",
+          "refPrice": 679.61,
+          "refDate": "2026-09-29",
+          "buyLow": 667.92,
+          "buyHigh": 683.51,
+          "target": 730.27,
+          "stop": 648.44,
+          "risk": "Low–Medium",
+          "thesis": "A low-volatility healthcare leader with an upgrade and target raises this month.",
+          "reasons": [
+            "UBS upgraded it to Buy from Neutral (8 Sep), raising its target to $730 from $540. Deutsche Bank raised its target to $720 from $635 (25 Sep).",
+            "Management keeps FY26 EPS guidance of $24.93–25.33. The stock is up 47% in a year.",
+            "It's up about 33 pts vs the S&P 500 over 3 months, above a rising 50-day average, with ATR of only 2.3%."
+          ],
+          "data": [
+            [
+              "Close (09/29)",
+              "$679.61"
+            ],
+            [
+              "3-month vs index",
+              "+33.3 pts"
+            ],
+            [
+              "UBS",
+              "Upgrade to Buy, $730"
+            ],
+            [
+              "Deutsche target",
+              "$720 (25 Sep)"
+            ]
+          ],
+          "watch": "Q3 results on 21 Oct fall inside this window: reassess before the report. Bernstein stays at Hold (26 Sep).",
+          "sources": [
+            [
+              "Yahoo Finance – Why analysts are watching Thermo Fisher",
+              "https://finance.yahoo.com/news/why-analysts-closely-watching-thermo-020838610.html"
+            ],
+            [
+              "Thermo Fisher – Investor relations",
+              "https://ir.thermofisher.com/investors/overview/default.aspx"
+            ],
+            [
+              "Simply Wall St – Thermo Fisher forecast",
+              "https://simplywall.st/stocks/us/pharmaceuticals-biotech/nyse-tmo/thermo-fisher-scientific/future"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "MPC",
+          "yahoo": "MPC",
+          "name": "Marathon Petroleum",
+          "sector": "Energy / Refining",
+          "currency": "USD",
+          "refPrice": 392.03,
+          "refDate": "2026-09-29",
+          "buyLow": 381.19,
+          "buyHigh": 395.64,
+          "target": 439.0,
+          "stop": 363.13,
+          "risk": "Medium",
+          "thesis": "The leader in the market's strongest sector, while refining margins sit near records.",
+          "reasons": [
+            "The US 3-2-1 crack spread was about $73/bbl on 22 Sep, near the all-time record. The August average ($65.61) was the highest monthly figure since 2006.",
+            "It's up about 51 pts vs the S&P 500 over 3 months, and within 1 ATR of its 20-day average after a pullback from the Sep high.",
+            "Q3 profits will reflect record margins. Results come after this window (early November)."
+          ],
+          "data": [
+            [
+              "Close (09/29)",
+              "$392.03"
+            ],
+            [
+              "3-month vs index",
+              "+51.0 pts"
+            ],
+            [
+              "3-2-1 crack (22 Sep)",
+              "$73.12/bbl"
+            ],
+            [
+              "From 52-week high",
+              "-9.1%"
+            ]
+          ],
+          "watch": "A Gulf ceasefire or a US diesel-export ban would compress margins fast. Don't also hold PSX (weekly) in size.",
+          "sources": [
+            [
+              "thetrading.tools – 3-2-1 crack spread",
+              "https://www.thetrading.tools/crack-spread"
+            ],
+            [
+              "Seeking Alpha – biggest one-month energy gainers (Sep)",
+              "https://seekingalpha.com/news/4647494-these-10-energy-stocks-posted-the-biggest-one-month-gains-as-september-ends"
+            ],
+            [
+              "Forbes – Refining stocks soar as crack spread hits record",
+              "https://www.forbes.com/sites/garthfriesen/2026/07/23/refining-stocks-soar-as-crack-spread-hits-record-high-in-2026/"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "GILD",
+          "yahoo": "GILD",
+          "name": "Gilead Sciences",
+          "sector": "Health Care / Biotech",
+          "currency": "USD",
+          "refPrice": 151.28,
+          "refDate": "2026-09-29",
+          "buyLow": 148.59,
+          "buyHigh": 152.18,
+          "target": 162.94,
+          "stop": 144.1,
+          "risk": "Low–Medium",
+          "thesis": "A steady large-cap biotech with its HIV-prevention franchise widening and a raised target.",
+          "reasons": [
+            "HSBC raised its target to $175 from $155 (10 Sep).",
+            "It expanded lenacapavir licensing to a once-yearly PrEP formulation (16 Sep) and agreed a PAHO access pathway for 14 countries (15 Sep).",
+            "It's up about 17 pts vs the S&P 500 over 3 months and above a rising 50-day average, with ATR of 2.4%."
+          ],
+          "data": [
+            [
+              "Close (09/29)",
+              "$151.28"
+            ],
+            [
+              "3-month vs index",
+              "+17.4 pts"
+            ],
+            [
+              "HSBC target",
+              "$175 (from $155)"
+            ],
+            [
+              "Lenacapavir",
+              "Once-yearly PrEP in Phase 3"
+            ]
+          ],
+          "watch": "Q3 results come in late October, inside this window: reassess before them. Drug-pricing policy headlines are the main risk.",
+          "sources": [
+            [
+              "Gilead – Newsroom",
+              "https://www.gilead.com/news"
+            ],
+            [
+              "Yahoo Finance – Can lenacapavir power Gilead's next growth phase?",
+              "https://finance.yahoo.com/healthcare/articles/lenacapavir-power-gilead-sciences-gild-235203626.html"
+            ],
+            [
+              "CNBC – Gilead quote and news",
+              "https://www.cnbc.com/quotes/GILD"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "PAYTM",
+          "yahoo": "PAYTM.NS",
+          "name": "One 97 Communications (Paytm)",
+          "sector": "Financial Services / Fintech",
+          "currency": "INR",
+          "refPrice": 1678.0,
+          "refDate": "2026-09-30",
+          "buyLow": 1633.15,
+          "buyHigh": 1692.95,
+          "target": 1872.4,
+          "stop": 1558.35,
+          "risk": "High",
+          "thesis": "A new UPI merchant fee starts inside this window, and the leader has pulled back from its high.",
+          "reasons": [
+            "NPCI will apply a 0.4% merchant discount rate on person-to-merchant UPI payments above ₹2,000 from 15 Oct 2026. That's a direct revenue line for Paytm.",
+            "Bernstein made it a top pick (target ₹2,200). Jefferies raised to ₹2,100 from ₹1,600, and Ambit rates it Buy (₹2,100).",
+            "It's up about 44 pts vs the Nifty over 3 months and has pulled back about 7% from its 11 Sep post-listing high of ₹1,807.50."
+          ],
+          "data": [
+            [
+              "Close (09/30)",
+              "₹1,678.0"
+            ],
+            [
+              "3-month vs index",
+              "+43.8 pts"
+            ],
+            [
+              "UPI MDR",
+              "0.4% from 15 Oct"
+            ],
+            [
+              "Broker targets",
+              "₹2,100–2,200"
+            ]
+          ],
+          "watch": "It's volatile (ATR 3.6%) and depends on the regulator. If the MDR start is delayed, the thesis weakens. Q2 results come in late October.",
+          "sources": [
+            [
+              "BusinessToday – Paytm hits 52-week high; brokerage expects IPO price",
+              "https://www.businesstoday.in/markets/stocks/story/paytm-shares-hit-52-week-high-brokerage-expects-stock-to-cross-ipo-price-554904-2026-09-11"
+            ],
+            [
+              "BusinessToday – Paytm shares to rally to ₹1,800?",
+              "https://www.businesstoday.in/markets/story/paytm-shares-to-rally-to-rs-1800-analyst-decode-strong-momentum-should-you-buy-551502-2026-08-26"
+            ],
+            [
+              "BusinessToday – Paytm jumps 5%, company clarifies on AI report",
+              "https://www.businesstoday.in/markets/stocks/story/paytm-shares-jump-5-to-hit-52-week-high-company-clarifies-on-ai-report-554234-2026-09-09"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "LAURUSLABS",
+          "yahoo": "LAURUSLABS.NS",
+          "name": "Laurus Labs",
+          "sector": "Healthcare / Pharma CDMO",
+          "currency": "INR",
+          "refPrice": 1980.0,
+          "refDate": "2026-09-30",
+          "buyLow": 1945.25,
+          "buyHigh": 1991.6,
+          "target": 2130.5,
+          "stop": 1887.4,
+          "risk": "Medium",
+          "thesis": "Record highs backed by earnings, with Q2 results due inside the window.",
+          "reasons": [
+            "Q1 FY27 revenue was ₹2,026 cr (+29% YoY) and net profit ₹368 cr (+126% YoY).",
+            "It set successive all-time highs on 21–24 Sep (₹2,050) and closed at ₹1,980 on 30 Sep, a shallow pullback.",
+            "It's up about 35 pts vs the Nifty over 3 months and above a rising 50-day average, in a falling market."
+          ],
+          "data": [
+            [
+              "Close (09/30)",
+              "₹1,980.0"
+            ],
+            [
+              "3-month vs index",
+              "+34.8 pts"
+            ],
+            [
+              "Q1 FY27 profit",
+              "₹368 cr (+126%)"
+            ],
+            [
+              "All-time high",
+              "₹2,050 (24 Sep)"
+            ]
+          ],
+          "watch": "Q2 FY27 results come in late October: reassess before them. After a 96% six-month run, any earnings miss would be punished.",
+          "sources": [
+            [
+              "Business Standard – Laurus Labs company page",
+              "https://www.business-standard.com/company/laurus-labs-45955.html"
+            ],
+            [
+              "Screener – Laurus Labs financials",
+              "https://www.screener.in/company/LAURUSLABS/consolidated/"
+            ],
+            [
+              "Trendlyne – Laurus Labs",
+              "https://trendlyne.com/equity/4984/LAURUSLABS/laurus-labs-ltd/"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Business Standard – Stock market live, Sep 30, 2026",
+          "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
+        ],
+        [
+          "ZeeBiz – NSE/BSE holidays October 2026",
+          "https://www.zeebiz.com/market-news/news-stock-market-holiday-october-2026-nse-bse-to-remain-closed-for-11-days-check-full-list-402881"
+        ],
+        [
+          "Yahoo Finance – Stock market news for Sep 29, 2026",
+          "https://finance.yahoo.com/markets/stocks/articles/stock-market-news-sep-29-083000758.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-01-daily",
       "horizon": "daily",
       "date": "2026-10-01",
@@ -895,7 +1768,11 @@ window.PICKS = {
           "Kiplinger – Earnings this week (Sep 28–Oct 2)",
           "https://www.kiplinger.com/investing/stocks/17494/next-week-earnings-calendar-stocks"
         ]
-      ]
+      ],
+      "superseded": {
+        "by": "2026-10-01-daily-v2",
+        "reason": "Replaced on 30 Sep 2026 after the stock-selection review: prices were checked against official exchange closes, and several picks failed the new rule checks (trend, relative strength, falling-knife, earnings-risk) in CRITERIA.md."
+      }
     },
     {
       "id": "2026-09-30-weekly",
@@ -2103,7 +2980,11 @@ window.PICKS = {
           "ChartRow – S&P 500 sector performance 2026",
           "https://chartrow.com/sp500/sector-performance"
         ]
-      ]
+      ],
+      "superseded": {
+        "by": "2026-10-01-weekly",
+        "reason": "Replaced on 30 Sep 2026 after the stock-selection review: prices were checked against official exchange closes, and several picks failed the new rule checks (trend, relative strength, falling-knife, earnings-risk) in CRITERIA.md."
+      }
     },
     {
       "id": "2026-09-30-monthly",
@@ -3284,7 +4165,11 @@ window.PICKS = {
           "ChartRow – S&P 500 sector performance 2026",
           "https://chartrow.com/sp500/sector-performance"
         ]
-      ]
+      ],
+      "superseded": {
+        "by": "2026-10-01-monthly",
+        "reason": "Replaced on 30 Sep 2026 after the stock-selection review: prices were checked against official exchange closes, and several picks failed the new rule checks (trend, relative strength, falling-knife, earnings-risk) in CRITERIA.md."
+      }
     }
   ]
 };

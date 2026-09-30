@@ -23,8 +23,8 @@ HORIZONS = {
                 "min_rr": 1.5, "max_atr_pct": 4.0},
     "weekly":  {"zl": 0.50, "zh": 0.25, "stop": 1.25, "target": 2.25, "stop_pct": (2.0, 7.0),
                 "min_rr": 1.8, "max_atr_pct": 5.0},
-    "monthly": {"zl": 0.75, "zh": 0.25, "stop": 2.00, "target": 4.00, "stop_pct": (4.0, 12.0),
-                "min_rr": 2.0, "max_atr_pct": 6.0},
+    "monthly": {"zl": 0.75, "zh": 0.25, "stop": 1.75, "target": 3.50, "stop_pct": (4.0, 10.0),
+                "min_rr": 2.0, "max_atr_pct": 4.5},
 }
 LIQUIDITY = {  # 20-day average traded value, local currency
     "US": {"min_value": 50e6, "min_price": 10.0, "label": "$50M"},

@@ -116,6 +116,18 @@
   .chip.risk-High { background: var(--down-soft); color: var(--down); }
   .chip.risk-Low { background: var(--up-soft); color: var(--up); }
   .chip.risk-Medium { background: var(--warn-soft); color: var(--warn); }
+  .vbadge { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 999px; margin-left: 6px; vertical-align: 2px; white-space: nowrap; }
+  .v-ok { background: var(--up-soft); color: var(--up); }
+  .v-adj { background: var(--accent-soft); color: var(--accent); }
+  .v-warn { background: var(--warn-soft); color: var(--warn); }
+  .v-pend { background: var(--surface-2); color: var(--muted); }
+  .vline { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+  .vline.warn { color: var(--warn); }
+  .checks { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 8px; }
+  .ck-h { font-size: 11.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); margin-right: 4px; }
+  .ck { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; cursor: help; }
+  .ck-ok { background: var(--up-soft); color: var(--up); }
+  .ck-bad { background: var(--down-soft); color: var(--down); }
   /* ---------- archive navigation ---------- */
   .batch-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 14px 0 0; font-size: 13.5px; }
   .batch-nav label { font-weight: 600; color: var(--muted); }
@@ -126,6 +138,7 @@
   .batch-links { padding: 0 16px 10px; font-size: 12.5px; color: var(--muted); }
   .goto { display: inline-block; margin-top: 10px; font-weight: 600; font-size: 13px; }
   .scope { font-size: 12.5px; margin: 12px 0 0; }
+  .batch.replaced { opacity: .75; border-style: dashed; }
   .zone { font-weight: 600; }
   .zone.in { color: var(--up); } .zone.above { color: var(--warn); } .zone.below { color: var(--down); }
 
@@ -295,45 +308,59 @@
   <section id="view-method" role="tabpanel" hidden>
     <div class="prose">
       <h3>How picks are chosen</h3>
-      <p>The same four-step screen is used for all three holding periods. Only the time window and the size of the targets change.</p>
+      <p>All three holding periods follow one rulebook (<span class="num">CRITERIA.md</span> in the repo). A stock is published only if it passes <b>every</b> check below and has a dated reason to move. If fewer than 5 qualify, fewer are published; the list is never padded.</p>
       <ol>
-        <li><b>Market backdrop first:</b> find the sectors that are rising while the index falls.</li>
-        <li><b>A dated catalyst inside the window:</b> earnings, a contract, an upgrade, monthly data or a policy decision.</li>
-        <li><b>Hard numbers behind the story:</b> estimates, margins, order values and price levels, with sources on every pick.</li>
-        <li><b>An exit plan before entry:</b> each pick gets a buy zone, a sell target and a stop-loss. The target is usually further away than the stop.</li>
+        <li><b>Read the market regime.</b> The S&amp;P 500 and Nifty 50 are compared with their 50- and 200-day averages. In a weak ("risk-off") market, picks lean to steadier leaders and there are fewer of them.</li>
+        <li><b>Screen for strength.</b> Liquid stocks in an uptrend that are beating their index (details below). Research on momentum shows 3–12-month winners tend to keep winning, while stocks that just spiked tend to give some back, so the screen favors steady leaders over last week's rockets.</li>
+        <li><b>Require a dated catalyst.</b> Ranked by evidence: earnings that beat and raised guidance (prices keep drifting after good news for weeks), fresh analyst upgrades, material order wins, scheduled data (monthly sales, rate decisions), and a sector tailwind. Buying just before an unreported earnings result is a coin flip: it's never used for daily picks, and at most once per weekly or monthly list, clearly flagged. Any earnings date inside a pick's window is shown on the pick.</li>
+        <li><b>Set levels from real volatility.</b> Buy zone, stop and target are sized with ATR (the stock's average daily range), so every pick's risk is proportionate to how much it normally moves.</li>
       </ol>
+      <h3>Hard checks (all must pass)</h3>
       <table>
         <tr><th></th><th>Daily</th><th>Weekly</th><th>Monthly</th></tr>
-        <tr><td>Holding window</td><td>1 session (open → close)</td><td>≤ 7 calendar days</td><td>≤ 30 calendar days</td></tr>
-        <tr><td>Typical target</td><td>+2% to +5%</td><td>+3% to +8%</td><td>+6% to +11%</td></tr>
-        <tr><td>Typical stop</td><td>−1.5% to −4%</td><td>−2% to −6%</td><td>−4% to −9%</td></tr>
-        <tr><td>Catalyst</td><td>Lands that day or overnight</td><td>Must land this week</td><td>Must land within the month</td></tr>
-        <tr><td>New picks</td><td>Every trading day, before 9 AM IST</td><td>Every Monday, before 9 AM IST</td><td>1st of the month, before 9 AM IST</td></tr>
+        <tr><td>Liquidity (20-day avg traded value)</td><td colspan="3">US ≥ $50M · India ≥ ₹100 cr · price ≥ $10 / ₹50</td></tr>
+        <tr><td>Trend</td><td>above 20-day avg</td><td colspan="2">above a rising 50-day avg</td></tr>
+        <tr><td>Beating the index</td><td>over 1 month</td><td colspan="2">over 3 months</td></tr>
+        <tr><td>Not a falling knife</td><td colspan="3">≥ 10% above its 52-week low</td></tr>
+        <tr><td>Not overextended</td><td colspan="3">≤ 3 ATRs above its 20-day avg</td></tr>
+        <tr><td>Volatility (ATR % of price)</td><td>≤ 4%</td><td>≤ 5%</td><td>≤ 4.5%</td></tr>
+        <tr><td>Stop / target (from the buy-zone middle)</td><td>0.75 / 1.25 ATR</td><td>1.25 / 2.25 ATR</td><td>1.75 / 3.5 ATR</td></tr>
+        <tr><td>Minimum reward : risk</td><td>1.5</td><td>1.8</td><td>2.0</td></tr>
+        <tr><td>New picks</td><td>trading days, before 9 AM IST</td><td>Mondays, before 9 AM IST</td><td>1st of the month, before 9 AM IST</td></tr>
       </table>
+      <p>Also: at most 2 picks per sector, at most 2 high-risk picks, and no Indian stocks under NSE surveillance (ASM/GSM) or, for daily picks, in the F&amp;O ban list.</p>
+      <h3>How prices are kept accurate</h3>
+      <ul>
+        <li><b>Real exchange closes.</b> A GitHub job runs after each market close. It downloads official daily prices (Yahoo Finance) for the S&amp;P 500 and Nifty 200 and computes every average, ATR and relative-strength figure. Picks are priced from that data, not from news snippets.</li>
+        <li><b>Automatic verification.</b> After new picks are published, the same job checks each reference price against the official close of the last completed session. <span class="vbadge v-ok">✓ verified close</span> means it matched. <span class="vbadge v-adj">↻ re-anchored</span> means it was more than 0.3% off, so the buy zone, target and stop were shifted by the same percentage (the original numbers are shown on the pick). <span class="vbadge v-pend">⏳ pending</span> means the reference session hasn't closed yet.</li>
+        <li><b>Rule checks on every pick.</b> Open a pick to see which checks it passed at the pick date. Hover over a chip for the numbers.</li>
+        <li><b>Sources:</b> exchange filings, company releases, Reuters, Bloomberg, Business Standard, Economic Times, Mint, Moneycontrol, CNBC and similar. Sources must be recent (≤ 3 days for daily, 7 for weekly, 21 for monthly). No SEO blogs or social-media tips.</li>
+      </ul>
       <h3>Reading a pick</h3>
       <ul>
-        <li><b>Today's price</b>: the latest close. It refreshes automatically once the daily price update is running; until then it shows the research-date close.</li>
-        <li><b>Buy zone</b>: the range to enter in. The label under the price tells you if it's in the zone, above it (wait) or below it (check why).</li>
-        <li><b>Sell target / Stop-loss</b>: take profit here, or exit here if the idea is wrong. <b>R:R</b> is reward-to-risk measured from the middle of the buy zone.</li>
-        <li>Open any row to see the reasons, the numbers, what could go wrong, and the sources.</li>
+        <li><b>Today's price</b>: the latest official close. The label under it says whether it's in the buy zone, above it (wait, don't chase) or below it (check why).</li>
+        <li><b>Buy zone</b>: enter only inside it. <b>Sell target</b>: take profit. <b>Stop-loss</b>: exit if wrong. <b>R:R</b> = reward ÷ risk from the middle of the zone.</li>
       </ul>
       <h3>How past picks are judged</h3>
       <ul>
-        <li><b>Suggested buy</b>: the buy zone given on the day of the pick, plus the reference close that all returns are measured from.</li>
-        <li><b>Expected return</b>: the gain if the sell target is reached.</li>
-        <li><b>Closed at</b>: the closing price at the end of the holding period. For daily picks that's the session close, for weekly the close on the last day of the week, and for monthly the close on the last day of the month. While a window is still open, it shows the latest close so far.</li>
-        <li><b>Actual return</b>: the closing price compared with the reference entry.</li>
-        <li><b>Target met?</b>: ✅ Yes if the price touched the target at any point in the window, ❌ No if it didn't. The ± figure shows how far the closing price ended from the target.</li>
-        <li>Open a row to see the stop-loss and what happened if you followed the plan exactly (sell at the target, the stop or the end, whichever came first). Each batch is also compared with its market index (S&amp;P 500 or Nifty 50) over the same window.</li>
+        <li><b>Suggested buy</b>, <b>Expected return</b> (if the target is reached), <b>Closed at</b> (the session, week-end or month-end close), <b>Actual return</b> (vs the reference close), and <b>Target met?</b> (✅ if the price touched the target at any point, with how far the close ended from it).</li>
+        <li>Open a row for the stop-loss and what happened if you followed the plan exactly. Each batch is compared with its index over the same window. The rolling hit rate feeds back into the next picks: targets are tightened if too few are reached, and entries are tightened if too many stops are hit.</li>
       </ul>
       <h3>Your history is kept permanently</h3>
-      <p>Every batch ever published, daily, weekly and monthly, stays on the site with all its details: reasons, key numbers, risks, sources, the market backdrop at the time, and the final result. Use <b>Showing picks from</b> on the Picks tab to open any past date, or browse <b>Past picks &amp; results</b>, where batches are grouped by month. Batches that finished more than 45 days ago move into a permanent monthly archive (<span class="num">data/archive/</span>) that loads when you open it, so the page stays fast however long the history grows. Each batch also has its own link you can bookmark. Nothing is ever deleted, and the full change history is also in the GitHub repo.</p>
-      <h3>Keeping it fresh</h3>
-      <p>A GitHub Action runs <span class="num">scripts/update_prices.py</span> after the NSE and NYSE close each weekday. It updates prices and scores every past pick. To add new picks, put a new batch (with <span class="num">"horizon": "daily"</span>, <span class="num">"weekly"</span> or <span class="num">"monthly"</span>) at the top of <span class="num">data/picks.js</span>.</p>
+      <p>Every batch ever published stays on the site with all its details and final result. Use <b>Showing picks from</b> on the Picks tab, or browse <b>Past picks &amp; results</b> by month. Finished batches move into a monthly archive after 45 days that loads when you open it. Nothing is deleted.</p>
       <h3>Honest limitations</h3>
       <ul>
-        <li>Research-date prices come from news and quote pages, not an exchange feed. A few references are from a day or two earlier, and each card notes when.</li>
-        <li>Over a week or a month, much of a stock's move is noise. A good plan improves the odds but doesn't guarantee a profit.</li>
+        <li>Over days or weeks, much of a stock's move is noise. The rules improve the odds and cap the damage; they can't make every pick a winner. Watch the hit rate in Past picks &amp; results.</li>
+        <li>Returns shown exclude brokerage, taxes and slippage. Picks published before any automatic price check existed (30 Sep 2026) were researched from news prices and are marked by their verification badge.</li>
+      </ul>
+      <h3>Research behind the rules</h3>
+      <ul style="font-size:13px">
+        <li>Jegadeesh &amp; Titman (1993), <i>Returns to Buying Winners and Selling Losers</i>, Journal of Finance: medium-term momentum.</li>
+        <li>Jegadeesh (1990), <i>Evidence of Predictable Behavior of Security Returns</i>, Journal of Finance: short-term reversal.</li>
+        <li>Bernard &amp; Thomas (1989), <i>Post-Earnings-Announcement Drift</i>, Journal of Accounting Research.</li>
+        <li>Womack (1996), <i>Do Brokerage Analysts' Recommendations Have Investment Value?</i>, Journal of Finance.</li>
+        <li>Moskowitz &amp; Grinblatt (1999), <i>Do Industries Explain Momentum?</i>, Journal of Finance.</li>
+        <li>Wilder (1978), <i>New Concepts in Technical Trading Systems</i>: average true range (ATR).</li>
       </ul>
     </div>
   </section>
@@ -404,10 +431,10 @@
     const seen = new Set(), out = [];
     PICKS.batches.filter(b => (b.horizon || "monthly") === horizon).forEach(b => {
       seen.add(b.id);
-      out.push({ id: b.id, horizon, date: b.date, expires: b.expires, batch: b });
+      out.push({ id: b.id, horizon, date: b.date, expires: b.expires, batch: b, superseded: b.superseded || null });
     });
     AIDX.months.forEach(mo => mo.batches.filter(b => b.horizon === horizon && !seen.has(b.id))
-      .forEach(b => out.push({ ...b, month: mo.month, archived: true })));
+      .forEach(b => out.push({ ...b, month: mo.month, archived: true, superseded: b.superseded || null })));
     return out.sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
   }
   const hasMarket = (meta, m) => meta.batch ? meta.batch.picks.some(p => p.market === m) : !!(meta.markets && meta.markets[m] && meta.markets[m].n);
@@ -509,6 +536,30 @@
       </div></div>`;
   }
 
+  // Price verification (set by scripts/verify_prices.py in the Market data Action).
+  function verifyBadge(p) {
+    const v = p.verified;
+    if (!v) return `<span class="vbadge v-pend" title="The Market data job hasn't checked this price against the exchange close yet.">⏳ price check pending</span>`;
+    if (v.status === "ok") return `<span class="vbadge v-ok" title="Matches the ${esc(v.date)} close on Yahoo Finance.">✓ verified close</span>`;
+    if (v.status === "unverifiable") return `<span class="vbadge v-warn" title="${esc(v.note || "")}">⚠ unverified</span>`;
+    return `<span class="vbadge ${v.status === "mismatch" ? "v-warn" : "v-adj"}" title="Research price ${esc(v.researchPrice)} was ${esc(v.diffPct)}% off the real close; levels moved by the same %.">↻ re-anchored to real close</span>`;
+  }
+  function verifyLine(p) {
+    const v = p.verified, c = p.currency;
+    if (!v) return `<div class="vline">Price check pending: the reference price will be checked against the official close by the next Market data run.</div>`;
+    if (v.status === "unverifiable") return `<div class="vline warn">Couldn't verify this price automatically (${esc(v.note || "no data")}).</div>`;
+    const base = `Reference price is the official <b>${fdateY(v.date)}</b> close, <b class="num">${fmt(v.close, c)}</b> (${esc(v.source)}).`;
+    if (v.status === "ok") return `<div class="vline">✓ ${base}</div>`;
+    const o = v.original || {};
+    return `<div class="vline ${v.status === "mismatch" ? "warn" : ""}">↻ ${base} The research price was ${fmt(v.researchPrice, c)} (${pct(v.diffPct)} off), so the buy zone, target and stop were moved by the same percentage
+      (was buy ${fmt(o.buyLow, c)}–${fmt(o.buyHigh, c)}, target ${fmt(o.target, c)}, stop ${fmt(o.stop, c)}).${v.status === "mismatch" ? " The gap is large: re-check the setup before trading." : ""}</div>`;
+  }
+  function checksBlock(p) {
+    const chips = (p.checks || []).map(ch => `<span class="ck ${ch.pass ? "ck-ok" : "ck-bad"}" title="${esc(ch.detail)}">${ch.pass ? "✓" : "✗"} ${esc(ch.name)}</span>`).join("");
+    const ev = p.eventRisk ? `<div class="vline warn">⚠ ${esc(p.eventRisk)}. That's a binary event: size the position accordingly.</div>` : "";
+    return (chips ? `<div class="checks"><span class="ck-h">Rule checks at the pick date</span>${chips}</div>` : "") + ev;
+  }
+
   function pickRow(p, i, batch, isLatest) {
     const c = p.currency, o = isLatest ? null : outcome(batch, p);
     const lp = isLatest ? livePrice(p) : { price: p.refPrice, asOf: p.refDate, live: false, change: null };
@@ -535,7 +586,7 @@
     return `<details class="pick">
       <summary>
         <span class="rank">${i + 1}</span>
-        <span class="stock-name"><b>${esc(p.name)}</b><span class="tk num">${esc(p.symbol)}</span>
+        <span class="stock-name"><b>${esc(p.name)}</b><span class="tk num">${esc(p.symbol)}</span> ${verifyBadge(p)}
           <span class="th">${esc(p.thesis)}</span></span>
         <span class="stats">
           <span class="cell">${priceCell}</span>
@@ -549,6 +600,8 @@
       </summary>
       <div class="pick-body">
         ${result}
+        ${verifyLine(p)}
+        ${checksBlock(p)}
         <p class="sector">${esc(p.sector)} · ${p.market === "US" ? "NYSE/Nasdaq" : "NSE"}</p>
         ${ladder(p, dotPrice)}
         <div class="muted" style="font-size:12px">● = ${isLatest ? "today's price" : "closing price at the end of the window"} · shaded band = buy zone</div>
@@ -572,11 +625,12 @@
       $("listTitle").textContent = ""; $("picks").innerHTML = '<p class="empty">No picks for this holding period yet.</p>';
       return;
     }
-    const meta = metas.find(m => m.id === state.batch) || metas[0];
-    const isLatest = meta === metas[0];
+    const current = metas.find(m => !m.superseded) || metas[0];
+    const meta = metas.find(m => m.id === state.batch) || current;
+    const isLatest = meta === current;
     $("batchNav").hidden = false;
     $("batchSel").innerHTML = metas.map((m, i) =>
-      `<option value="${i === 0 ? "" : esc(m.id)}" ${m === meta ? "selected" : ""}>${esc(windowLabel(m))}${i === 0 ? " · latest" : ""}${hasMarket(m, state.market) ? "" : " · no " + mktName(state.market) + " picks"}</option>`).join("");
+      `<option value="${m === current ? "" : esc(m.id)}" ${m === meta ? "selected" : ""}>${esc(windowLabel(m))}${m === current ? " · latest" : ""}${m.superseded ? " · replaced" : ""}${hasMarket(m, state.market) ? "" : " · no " + mktName(state.market) + " picks"}</option>`).join("");
     $("batchCount").textContent = `${metas.length} ${state.horizon} batch${metas.length === 1 ? "" : "es"} on record`;
     $("latestBtn").hidden = isLatest;
     if (!meta.batch) {
@@ -594,7 +648,11 @@
     const start = new Date(batch.date + "T00:00:00"), end = new Date(batch.expires + "T23:59:59"), now = new Date();
     const isDaily = state.horizon === "daily";
     const list = batch.picks.filter(p => p.market === state.market);
-    if (!isLatest) {
+    if (batch.superseded) {
+      $("strip").innerHTML = `<span class="when">↺ Replaced list · ${esc(windowLabel(batch))}</span>
+        <span class="muted" style="font-size:13px">${esc(batch.superseded.reason)} Kept here for the record and not counted in results.
+          <a href="#" data-goto="${esc(batch.superseded.by)}">See the list that replaced it →</a></span>`;
+    } else if (!isLatest) {
       const os = list.map(p => outcome(batch, p)), priced = os.filter(o => o.closeRet != null);
       const done = priced.filter(o => o.final || o.hit), hits = done.filter(o => o.hit).length;
       const avg = priced.length ? priced.reduce((t, o) => t + o.closeRet, 0) / priced.length : null;
@@ -625,7 +683,7 @@
 
     if (!list.length) {
       $("listTitle").textContent = "No picks for this market";
-      $("picks").innerHTML = `<p class="empty">No ${mktName(state.market)} ${state.horizon} picks in this batch (usually a market holiday). Check the other market or pick another date.</p>`;
+      $("picks").innerHTML = `<p class="empty">No ${mktName(state.market)} ${state.horizon} picks in this batch. The market backdrop above explains why (for example a holiday, no stock passing every check, or picks still to be added).</p>`;
       return;
     }
     $("priceHead").textContent = isLatest ? "Today's price" : "Result";
@@ -692,7 +750,7 @@
   function batchHead(meta, st, running) {
     const avg = st.priced ? st.sumCloseRet / st.priced : null;
     return `<summary>
-      <span class="t"><b>${meta.horizon === "daily" ? fdateY(meta.date) : "Picks of " + fdateY(meta.date)}</b> <span class="chip">${running ? "Running" : meta.archived ? "Archived" : "Closed"}</span>
+      <span class="t"><b>${meta.horizon === "daily" ? fdateY(meta.date) : "Picks of " + fdateY(meta.date)}</b> <span class="chip">${meta.superseded ? "Replaced" : running ? "Running" : meta.archived ? "Archived" : "Closed"}</span>
         <div class="m">${meta.horizon === "daily" ? "Session" : `Window ${fdate(meta.date)} → ${fdate(meta.expires)}`} ·
           Target met <b>${st.finished ? `${st.hits}/${st.finished}` : "—"}</b> ·
           Avg actual <span class="num ${cls(avg)}">${pct(avg)}</span> vs expected <span class="num up">${pct(st.n ? st.sumExpected / st.n : null)}</span></div></span>
@@ -720,8 +778,12 @@
       const m = meta.date.slice(0, 7);
       if (m !== month) { month = m; html += `<h3 class="month-head">${esc(fmonth(m))}</h3>`; }
       const running = new Date() <= new Date(meta.expires + "T23:59:59");
-      const open = meta.id === state.batch || (!state.batch && idx === 0);
-      if (meta.batch) {
+      const open = meta.id === state.batch || (!state.batch && meta === metas.find(x => !x.superseded));
+      if (meta.superseded) {
+        const body = meta.batch ? batchBody(meta.batch) : { html: "" }, st = meta.batch ? statsFromRows(body.rows) : (meta.markets[state.market] || {});
+        html += `<details class="batch replaced" id="b-${esc(meta.id)}" ${meta.id === state.batch ? "open" : ""}>${batchHead(meta, st, false)}
+          <div class="batch-links">↺ ${esc(meta.superseded.reason || "Replaced by a revised list.")} Not counted in the totals above. <a href="#" data-goto="${esc(meta.superseded.by)}" data-view="history">Go to the replacement →</a></div>${body.html}</details>`;
+      } else if (meta.batch) {
         const body = batchBody(meta.batch), st = statsFromRows(body.rows);
         add(st);
         html += `<details class="batch" id="b-${esc(meta.id)}" ${open ? "open" : ""}>${batchHead(meta, st, running)}${body.html}</details>`;
@@ -761,7 +823,8 @@
 
     const note = $("histNote");
     note.hidden = totals.priced > 0 || !metas.length;
-    if (metas.length) note.innerHTML = `<b>Nothing has finished yet.</b> These are the first ${state.horizon} picks (${fdateY(metas[0].date)}). Each row already shows what I expected. Actual results fill in after each market close, and the final scorecard comes on <b>${fdateY(metas[0].expires)}</b>. Tap a row to see why I picked it.`;
+    const first = metas.find(m => !m.superseded) || metas[0];
+    if (metas.length) note.innerHTML = `<b>Nothing has finished yet.</b> The current ${state.horizon} picks started ${fdateY(first.date)}. Each row already shows what I expected. Actual results fill in after each market close, and the final scorecard comes on <b>${fdateY(first.expires)}</b>. Tap a row to see why I picked it.`;
   }
 
   // ---------- render ----------

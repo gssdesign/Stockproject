@@ -43,9 +43,15 @@ are implemented in `scripts/marketlib.py`; change both together.
 Rules:
 - The catalyst must land **inside the holding window** (daily: that session or overnight;
   weekly: ≤ 7 days; monthly: ≤ 30 days), or have happened within the last 3 / 7 / 21 days.
-- **Binary events** (earnings or FDA-style decisions not yet announced): **never** for daily;
-  at most **one** per weekly or monthly list per market, marked `"risk": "High"`, with the
-  event and date stated in `watch`. A pick that depends only on an unreported result is a coin flip, not a catalyst.
+- **Binary events** (earnings or FDA-style decisions not yet announced):
+  - **Daily:** never pick a stock that reports during or just before the session you're picking for.
+  - **Weekly:** a report inside the 7-day window counts as a binary event: at most **one** per list,
+    `"risk": "High"`, with the date in `watch`.
+  - **Monthly:** in earnings season most stocks report inside a 30-day window. That's allowed, but the
+    date must be stated in `watch` ("reassess before the report on …"). At most **one** pick per list
+    may have a thesis that *depends* on the unreported result, and it's marked `"risk": "High"`.
+  - A pick that depends only on an unreported result is a coin flip, not a catalyst. The Market data job
+    also flags any earnings date inside the window on the site automatically.
 - Momentum over 3–12 months tends to persist (Jegadeesh & Titman, 1993), but last week's
   biggest winners tend to give some back (Jegadeesh, 1990). So prefer **strong 3-month leaders on a
   pullback or tight consolidation**, not stocks that just spiked.
@@ -58,7 +64,7 @@ Rules:
 | **Relative strength** vs S&P 500 / Nifty 50 | 1-month > 0 | 3-month > 0 | 3-month > 0 |
 | **Not a falling knife** | ≥ 10% above 52-week low | same | same |
 | **Not overextended** | ≤ 3 ATR above 20-day avg | same | same |
-| **Volatility fits horizon** (ATR % of price) | ≤ 4% | ≤ 5% | ≤ 6% |
+| **Volatility fits horizon** (ATR % of price) | ≤ 4% | ≤ 5% | ≤ 4.5% |
 | **Reward : risk** from the buy-zone middle | ≥ 1.5 | ≥ 1.8 | ≥ 2.0 |
 
 India extras (check by search): skip stocks in NSE's ASM/GSM surveillance lists, stocks
@@ -69,7 +75,7 @@ stuck at circuit limits, and, for daily picks, stocks in the F&O ban list.
 |---|---|---|---|---|
 | Daily | C − 0.40 ATR … C + 0.20 ATR | 0.75 ATR | 1.25 ATR | 1.0%–3.5% |
 | Weekly | C − 0.50 ATR … C + 0.25 ATR | 1.25 ATR | 2.25 ATR | 2%–7% |
-| Monthly | C − 0.75 ATR … C + 0.25 ATR | 2.0 ATR | 4.0 ATR | 4%–12% |
+| Monthly | C − 0.75 ATR … C + 0.25 ATR | 1.75 ATR | 3.5 ATR | 4%–10% |
 
 ATR (Wilder, 1978) scales every level to how much the stock normally moves, so a sleepy
 utility and a volatile chip stock get stops and targets of fair size. `refPrice` is always

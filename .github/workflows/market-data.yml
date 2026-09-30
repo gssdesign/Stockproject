@@ -1,0 +1,61 @@
+name: Market data
+
+# Exact prices for the site. The research routines can't reach market-data
+# sites, so this job (which can) does all price work:
+#   1. market_snapshot.py - closes + technicals for S&P 500 / Nifty 200 -> data/market.js
+#   2. verify_prices.py   - check new picks against real closes, re-anchor if off
+#   3. update_prices.py   - latest quotes + score every open pick -> data/prices.js
+#   4. archive.py         - move batches finished 45+ days ago into data/archive/
+on:
+  schedule:
+    # 11:00 UTC = after NSE close (16:30 IST); 21:30 UTC = after NYSE close,
+    # so a fresh snapshot is ready before the 07:20 IST research routines.
+    - cron: "0 11 * * 1-5"
+    - cron: "30 21 * * 1-5"
+  push:
+    paths:
+      - "data/picks.js"
+      - "scripts/**"
+      - ".github/workflows/market-data.yml"
+      - "requirements.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python scripts/market_snapshot.py
+      - run: python scripts/verify_prices.py
+      - run: python scripts/update_prices.py
+      - run: python scripts/archive.py
+      - name: Commit data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          cp data/market.js "$RUNNER_TEMP/market.js"
+          for i in 1 2 3 4; do
+            git add data/
+            git diff --cached --quiet && exit 0
+            git commit -q -m "Market data $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push && exit 0
+            # Someone (a research routine) pushed meanwhile. Never merge over
+            # their picks: start again from their commit and recompute.
+            sleep $((i * 5))
+            git fetch -q origin "$GITHUB_REF_NAME"
+            git reset -q --hard "origin/$GITHUB_REF_NAME"
+            cp "$RUNNER_TEMP/market.js" data/market.js
+            python scripts/verify_prices.py && python scripts/update_prices.py && python scripts/archive.py
+          done
+          exit 1

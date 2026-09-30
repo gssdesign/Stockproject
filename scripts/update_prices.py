@@ -75,13 +75,25 @@ def score(pick: dict, bars: list[dict], batch: dict, today: str) -> dict:
         if b["high"] >= pick["target"]:
             result.update(status="Target hit", exitPrice=pick["target"], exitDate=b["date"])
             break
-    else:
-        if today > expires and window:
-            last = window[-1]
-            result.update(status="Expired", exitPrice=last["close"], exitDate=last["date"])
+    # The window is over once we're past expiry, or once the expiry session's
+    # own bar exists (the Action runs after each market's close).
+    final = bool(window) and (today > expires or window[-1]["date"] == expires)
+    if result["status"] == "Open" and final:
+        last = window[-1]
+        result.update(status="Expired", exitPrice=last["close"], exitDate=last["date"])
     mark = result["exitPrice"] if result["exitPrice"] is not None else (bars[-1]["close"] if bars else entry)
     result["markPrice"] = round(mark, 2)
     result["returnPct"] = round((mark / entry - 1) * 100, 2)
+    # Plain buy-and-hold view for the "Past picks" table: the close on the last
+    # session of the window (or the latest close so far), and whether the
+    # target / stop was touched at any point in the window.
+    if window:
+        result["periodClose"] = round(window[-1]["close"], 2)
+        result["periodCloseDate"] = window[-1]["date"]
+        result["periodFinal"] = final
+        result["closeReturnPct"] = round((window[-1]["close"] / entry - 1) * 100, 2)
+        result["targetHit"] = result["maxHigh"] >= pick["target"]
+        result["stopHit"] = result["minLow"] <= pick["stop"]
     return result
 
 

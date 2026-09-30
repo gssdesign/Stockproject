@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stock Picks Desk</title>
-<meta name="description" content="Weekly and monthly top-5 stock ideas for the US and Indian markets, with reasons, data, buy/sell levels and a record of how past picks performed against expectations.">
+<meta name="description" content="Daily, weekly and monthly top-5 stock ideas for the US and Indian markets, with reasons, data, buy/sell levels and a record of how past picks performed against expectations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -205,7 +205,10 @@
     .res > summary .rn { grid-area: nums; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) 1.3fr; gap: 8px; align-items: center; }
     .rn .lbl { display: block; font-size: 10.5px; font-weight: 600; text-transform: uppercase; color: var(--faint); letter-spacing: .04em; }
     .res > summary .rs .muted { display: none; }
-    .controls { display: grid; grid-template-columns: auto auto; justify-content: start; gap: 12px; padding-top: 12px; }
+    .controls { display: grid; grid-template-columns: 1fr; gap: 10px; padding-top: 12px; }
+    .controls .seg { display: flex; width: 100%; }
+    .controls .seg button { flex: 1; text-align: center; }
+    .ctl-label { display: none; }
     .seg button { padding: 7px 10px; font-size: 14px; }
     .seg button small { display: none; }
   }
@@ -214,7 +217,7 @@
 <body>
 <header class="top">
   <div class="wrap top-row">
-    <div class="brand">Stock Picks Desk<small>Weekly &amp; monthly ideas · US &amp; India</small></div>
+    <div class="brand">Stock Picks Desk<small>Daily, weekly &amp; monthly ideas · US &amp; India</small></div>
     <nav class="views" role="tablist" aria-label="Sections">
       <button role="tab" data-view="picks" aria-selected="true">Picks</button>
       <button role="tab" data-view="history" aria-selected="false">Past picks &amp; results</button>
@@ -236,6 +239,7 @@
     <div>
       <div class="ctl-label">Holding period</div>
       <div class="seg" role="group" aria-label="Holding period">
+        <button data-horizon="daily" aria-pressed="false">Daily<small>hold 1 session</small></button>
         <button data-horizon="weekly" aria-pressed="true">Weekly<small>hold ≤ 7 days</small></button>
         <button data-horizon="monthly" aria-pressed="false">Monthly<small>hold ≤ 30 days</small></button>
       </div>
@@ -269,7 +273,7 @@
   <section id="view-method" role="tabpanel" hidden>
     <div class="prose">
       <h3>How picks are chosen</h3>
-      <p>The same four-step screen is used for both holding periods. Only the time window and the size of the targets change.</p>
+      <p>The same four-step screen is used for all three holding periods. Only the time window and the size of the targets change.</p>
       <ol>
         <li><b>Market backdrop first:</b> find the sectors that are rising while the index falls.</li>
         <li><b>A dated catalyst inside the window:</b> earnings, a contract, an upgrade, monthly data or a policy decision.</li>
@@ -277,11 +281,12 @@
         <li><b>An exit plan before entry:</b> each pick gets a buy zone, a sell target and a stop-loss. The target is usually further away than the stop.</li>
       </ol>
       <table>
-        <tr><th></th><th>Weekly</th><th>Monthly</th></tr>
-        <tr><td>Holding window</td><td>≤ 7 calendar days</td><td>≤ 30 calendar days</td></tr>
-        <tr><td>Typical target</td><td>+3% to +8%</td><td>+6% to +11%</td></tr>
-        <tr><td>Typical stop</td><td>−2% to −6%</td><td>−4% to −9%</td></tr>
-        <tr><td>Catalyst</td><td>Must land this week</td><td>Must land within the month</td></tr>
+        <tr><th></th><th>Daily</th><th>Weekly</th><th>Monthly</th></tr>
+        <tr><td>Holding window</td><td>1 session (open → close)</td><td>≤ 7 calendar days</td><td>≤ 30 calendar days</td></tr>
+        <tr><td>Typical target</td><td>+2% to +5%</td><td>+3% to +8%</td><td>+6% to +11%</td></tr>
+        <tr><td>Typical stop</td><td>−1.5% to −4%</td><td>−2% to −6%</td><td>−4% to −9%</td></tr>
+        <tr><td>Catalyst</td><td>Lands that day or overnight</td><td>Must land this week</td><td>Must land within the month</td></tr>
+        <tr><td>New picks</td><td>Every trading day, before 9 AM IST</td><td>Every Monday, before 9 AM IST</td><td>1st of the month, before 9 AM IST</td></tr>
       </table>
       <h3>Reading a pick</h3>
       <ul>
@@ -297,7 +302,7 @@
         <li>Every batch is also compared with its market index (S&amp;P 500 or Nifty 50) over the same window.</li>
       </ul>
       <h3>Keeping it fresh</h3>
-      <p>A GitHub Action runs <span class="num">scripts/update_prices.py</span> after the NSE and NYSE close each weekday. It updates prices and scores every past pick. To add new picks, put a new batch (with <span class="num">"horizon": "weekly"</span> or <span class="num">"monthly"</span>) at the top of <span class="num">data/picks.js</span>.</p>
+      <p>A GitHub Action runs <span class="num">scripts/update_prices.py</span> after the NSE and NYSE close each weekday. It updates prices and scores every past pick. To add new picks, put a new batch (with <span class="num">"horizon": "daily"</span>, <span class="num">"weekly"</span> or <span class="num">"monthly"</span>) at the top of <span class="num">data/picks.js</span>.</p>
       <h3>Honest limitations</h3>
       <ul>
         <li>Research-date prices come from news and quote pages, not an exchange feed. A few references are from a day or two earlier, and each card notes when.</li>
@@ -349,7 +354,7 @@
     const [v, m, h] = (location.hash || "").slice(1).split("/");
     if (["picks", "history", "method"].includes(v)) state.view = v;
     if (["US", "IN"].includes(m)) state.market = m;
-    if (["weekly", "monthly"].includes(h)) state.horizon = h;
+    if (["daily", "weekly", "monthly"].includes(h)) state.horizon = h;
   })();
   document.querySelectorAll("nav.views button").forEach(b => b.addEventListener("click", () => setState({ view: b.dataset.view })));
   document.querySelectorAll("[data-market]").forEach(b => b.addEventListener("click", () => setState({ market: b.dataset.market })));
@@ -428,20 +433,30 @@
     const batch = batchesFor(state.horizon)[0];
     if (!batch) { $("picks").innerHTML = '<p class="empty">No picks for this holding period yet.</p>'; $("strip").innerHTML = ""; $("backdrop").innerHTML = ""; return; }
     const start = new Date(batch.date + "T00:00:00"), end = new Date(batch.expires + "T23:59:59"), now = new Date();
+    const isDaily = state.horizon === "daily";
     const total = Math.max(1, Math.round((new Date(batch.expires + "T00:00:00") - start) / 864e5));
     const left = Math.min(total, Math.max(0, Math.ceil((end - now) / 864e5) - 1));
     const done = Math.min(100, Math.max(0, (now - start) / (end - start) * 100));
-    $("strip").innerHTML = `<span class="when">Picked ${fdateY(batch.date)} → sell by ${fdateY(batch.expires)}</span>
+    const sessionState = now < start ? "Upcoming session" : now <= end ? "Session day" : "Session over. See Past picks & results";
+    $("strip").innerHTML = isDaily
+      ? `<span class="when">For the ${new Date(batch.date + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" })} session</span>
+         <span class="muted" style="font-size:13px">Buy near the open inside the buy zone · sell at the target, the stop, or the close, whichever comes first · ${sessionState}</span>`
+      : `<span class="when">Picked ${fdateY(batch.date)} → sell by ${fdateY(batch.expires)}</span>
       <div class="progress"><div class="bar"><i style="width:${done.toFixed(0)}%"></i></div>
       <div class="cap">${left > 0 ? `${left} of ${total} days left in this window` : "Window closed. See Past picks & results"}</div></div>`;
 
-    const ctx = batch.context[state.market];
+    const ctx = batch.context[state.market] || { benchmarkName: "", summary: "" };
     const first = ctx.summary.split(/(?<=\.)\s/)[0];
     $("backdrop").innerHTML = `<summary><span class="t"><b>Market backdrop · ${esc(ctx.benchmarkName)}</b><span>${esc(first)}</span></span>${CHEV}</summary>
       <div class="body">${esc(ctx.summary)}
         <ul>${(batch.marketSources || []).map(([t, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ul></div>`;
 
     const list = batch.picks.filter(p => p.market === state.market);
+    if (!list.length) {
+      $("listTitle").textContent = "No picks for this market";
+      $("picks").innerHTML = `<p class="empty">No ${state.market === "US" ? "US" : "India"} ${state.horizon} picks in this batch (usually a market holiday). Check the other market or holding period.</p>`;
+      return;
+    }
     $("listTitle").textContent = `Top ${list.length} ${state.market === "US" ? "US" : "India"} · ${state.horizon} picks`;
     $("picks").innerHTML = list.map(pickRow).join("");
     $("toggleAll").textContent = "Expand all";
@@ -507,7 +522,7 @@
   }
 
   function renderHistory() {
-    const batches = batchesFor(state.horizon);
+    const batches = batchesFor(state.horizon).filter(b => b.picks.some(p => p.market === state.market));
     const all = [];
     const html = batches.map((b, idx) => {
       const rows = b.picks.filter(p => p.market === state.market).map(p => resRow(b, p));

@@ -5,6 +5,8 @@ Writes data/prices.js (window.PRICES = {...}) which index.html reads.
 
 Scoring rules for each pick (entry = the pick's reference close):
   * Walk daily bars from the day after the pick date up to the expiry date.
+    Daily batches are dated with the session they are for, so that day
+    itself is included.
   * If a day's low touches the stop -> "Stopped out" at the stop price.
     (If the same day also touched the target we assume the stop came first:
     conservative scoring, no cherry-picking.)
@@ -51,8 +53,15 @@ def history(symbol: str, start: dt.date):
     ]
 
 
-def score(pick: dict, bars: list[dict], batch_date: str, expires: str, today: str) -> dict:
-    window = [b for b in bars if batch_date < b["date"] <= expires]
+def in_window(day: str, batch: dict) -> bool:
+    if batch.get("horizon") == "daily":
+        return batch["date"] <= day <= batch["expires"]
+    return batch["date"] < day <= batch["expires"]
+
+
+def score(pick: dict, bars: list[dict], batch: dict, today: str) -> dict:
+    expires = batch["expires"]
+    window = [b for b in bars if in_window(b["date"], batch)]
     entry = pick["refPrice"]
     result = {"status": "Open", "exitPrice": None, "exitDate": None,
               "maxHigh": None, "minLow": None}
@@ -107,9 +116,9 @@ def main() -> int:
     for batch in picks["batches"]:
         scored = {}
         for p in batch["picks"]:
-            scored[p["yahoo"]] = score(p, bars.get(p["yahoo"], []), batch["date"], batch["expires"], today)
+            scored[p["yahoo"]] = score(p, bars.get(p["yahoo"], []), batch, today)
         for key, ctx in batch["context"].items():
-            series = [b for b in bars.get(ctx["benchmark"], []) if batch["date"] < b["date"] <= batch["expires"]]
+            series = [b for b in bars.get(ctx["benchmark"], []) if in_window(b["date"], batch)]
             if series:
                 scored[ctx["benchmark"]] = {
                     "markPrice": round(series[-1]["close"], 2),

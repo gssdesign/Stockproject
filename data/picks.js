@@ -4,6 +4,583 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-01-daily",
+      "horizon": "daily",
+      "date": "2026-10-01",
+      "horizonDays": 1,
+      "expires": "2026-10-01",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7683.69,
+          "summary": "This is for Thursday's US session (Oct 1). Micron reports after the close on Sep 30 and Accenture before the open on Oct 1, and both will set the tone for tech. Oil is easing as Gulf exports recover, with Brent below $104 after a 2.6% drop on Sep 29, which helps airlines. The S&P 500 closed at 7,683.69 on Sep 29 with long-bond yields at a 24-year high, so keep day trades small."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22716.2,
+          "summary": "This is for Thursday's NSE session (Oct 1). NSE is closed Fri Oct 2 for Gandhi Jayanti, so this is the last session before a 3-day break, and traders often cut positions late in the day. On Sep 30 the Nifty traded near 22,790 (+0.3%), led by IT, PSU banks and oil & gas, and India VIX fell 5%. September auto sales come out on Oct 1."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "DAL",
+          "yahoo": "DAL",
+          "name": "Delta Air Lines",
+          "sector": "Airlines",
+          "currency": "USD",
+          "refPrice": 84.94,
+          "refDate": "2026-09-29",
+          "buyLow": 84.0,
+          "buyHigh": 85.5,
+          "target": 87.5,
+          "stop": 83.0,
+          "risk": "Medium",
+          "thesis": "Oil is finally falling, and airlines are the fastest way the market plays that.",
+          "reasons": [
+            "Brent fell 2.6% on Sep 29 and slipped below $104 as Gulf exports recover. Fuel is Delta's biggest variable cost.",
+            "Delta's latest fuel bill was about $4.4B at $3.93/gal, a record, so each dollar off crude flows almost directly into its profit.",
+            "Analyst targets run up to $115, far above the price. The stock closed near the top of its $83.56–$85.80 range."
+          ],
+          "data": [
+            [
+              "Price (Sep 29)",
+              "$84.94"
+            ],
+            [
+              "Day range",
+              "$83.56 – $85.80"
+            ],
+            [
+              "Record fuel bill",
+              "≈ $4.4B / quarter"
+            ],
+            [
+              "Top target",
+              "$115"
+            ]
+          ],
+          "watch": "This depends entirely on oil. Any flare-up in the Gulf reverses it within the day. Exit at the close either way.",
+          "sources": [
+            [
+              "Money Morning – Oil is finally falling: watch Delta (Sep 30, 2026)",
+              "https://moneymorning.com/2026/09/30/oil-falling-watch-delta-air-lines-dal-not-oil-major-september-2026"
+            ],
+            [
+              "Simply Wall St – Delta and airlines tied to lower oil",
+              "https://simplywall.st/stocks/us/transportation/nyse-dal/delta-air-lines/news/delta-air-lines-stock-and-2-travel-names-tied-to-lower-oil-p"
+            ],
+            [
+              "Schaeffer's – Delta dinged by fuel costs (context)",
+              "https://www.schaeffersresearch.com/content/news/2026/09/28/delta-stock-dinged-by-bear-note-higher-fuel-costs"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "ORCL",
+          "yahoo": "ORCL",
+          "name": "Oracle",
+          "sector": "Software / AI cloud",
+          "currency": "USD",
+          "refPrice": 137.79,
+          "refDate": "2026-09-29",
+          "buyLow": 136.0,
+          "buyHigh": 139.0,
+          "target": 142.5,
+          "stop": 134.0,
+          "risk": "Medium",
+          "thesis": "A rebound with two fresh positive headlines behind it.",
+          "reasons": [
+            "It closed up 3.91% at $137.79 on Sep 29 as its new 'Fusion Claw' launch helped it win back recent losses.",
+            "Bloom Energy confirmed the same day that Oracle's Project Jupiter AI data-center power build is on schedule, which supports Oracle's AI capacity story.",
+            "When a stock bounces with news behind it, the gains often carry into the next session."
+          ],
+          "data": [
+            [
+              "Close (Sep 29)",
+              "$137.79 (+3.91%)"
+            ],
+            [
+              "Catalyst",
+              "Fusion Claw launch"
+            ],
+            [
+              "AI build",
+              "Project Jupiter on track"
+            ],
+            [
+              "Setup",
+              "Rebound after losses"
+            ]
+          ],
+          "watch": "The rebound is only one day old. If it opens below $136, skip it.",
+          "sources": [
+            [
+              "Motley Fool – Oracle's Fusion Claw helps it claw back losses",
+              "https://www.fool.com/coverage/stock-market-today/2026/09/29/stock-market-today-sept-29-oracle-s-fusion-claw-helps-it-claws-back-losses/"
+            ],
+            [
+              "Yahoo Finance – Stock market today Sep 29",
+              "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-sept-29-213819662.html"
+            ],
+            [
+              "StocksToTrade – Bloom confirms Oracle Project Jupiter",
+              "https://stockstotrade.com/news/bloom-energy-corporation-be-news-2026_09_29/"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "ACN",
+          "yahoo": "ACN",
+          "name": "Accenture",
+          "sector": "IT services",
+          "currency": "USD",
+          "refPrice": 174.47,
+          "refDate": "2026-09-29",
+          "buyLow": 172.0,
+          "buyHigh": 177.0,
+          "target": 182.0,
+          "stop": 169.0,
+          "risk": "High",
+          "thesis": "Reports before the open. It has beaten estimates four quarters running and has bounced 26% in 30 days.",
+          "reasons": [
+            "It reports Q4 before the bell on Oct 1. Consensus EPS is about $3.18–3.19 (+5% YoY), and Accenture beat EPS estimates in each of the last four quarters.",
+            "The CFO promised the US federal-business drag would end this quarter. If that's confirmed, it removes the main worry.",
+            "The stock is down 24% over the year but up about 26% in the last 30 days. Citi's target is $190 and Wells Fargo's is $194."
+          ],
+          "data": [
+            [
+              "Close (Sep 29)",
+              "$174.47"
+            ],
+            [
+              "Q4 EPS est.",
+              "≈ $3.19 (+5%)"
+            ],
+            [
+              "Beat streak",
+              "4 quarters"
+            ],
+            [
+              "Targets",
+              "$190 (Citi) · $194 (WF)"
+            ]
+          ],
+          "watch": "The results will already be out when the market opens. Only buy if the stock opens and holds inside $172–177. If it gaps outside that range, skip it.",
+          "sources": [
+            [
+              "TIKR – Accenture reports Oct 1: what it must show",
+              "https://www.tikr.com/blog/accenture-reports-q4-earnings-october-1-what-the-stock-needs-to-show-to-break-its-slide"
+            ],
+            [
+              "Yahoo Finance – Accenture Q4 2026: what to expect",
+              "https://finance.yahoo.com/markets/stocks/articles/accenture-q4-2026-earnings-expect-074552883.html"
+            ],
+            [
+              "Tickeron – ACN +26% in 30 days",
+              "https://tickeron.com/blogs/accenture-acn-26-gain-over-30-days-recovery-after-the-selloff-15985/"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "SNDK",
+          "yahoo": "SNDK",
+          "name": "SanDisk",
+          "sector": "Semiconductors / AI storage",
+          "currency": "USD",
+          "refPrice": 1712.89,
+          "refDate": "2026-09-29",
+          "buyLow": 1690,
+          "buyHigh": 1730,
+          "target": 1790,
+          "stop": 1650,
+          "risk": "High",
+          "thesis": "A dip-buy in an AI memory leader the morning after Micron's results.",
+          "reasons": [
+            "It fell 3.65% to $1,712.89 on valuation worries. That's well off its $2,354 52-week high, after a huge AI-driven run.",
+            "Micron reports after the Sep 30 close, with revenue expected up about 353% to $51.2B. A strong read on memory demand usually lifts SanDisk too.",
+            "Analysts rate it Strong Buy. JPMorgan sees about 40% upside and Susquehanna sees close to 100%."
+          ],
+          "data": [
+            [
+              "Price (Sep 29)",
+              "$1,712.89 (-3.65%)"
+            ],
+            [
+              "52-week range",
+              "$112 – $2,354"
+            ],
+            [
+              "Micron rev. est.",
+              "$51.2B (+353%)"
+            ],
+            [
+              "JPM upside",
+              "≈ 40%"
+            ]
+          ],
+          "watch": "This depends on how the market reacts to Micron. If Micron disappoints, SanDisk will gap down. Only buy inside the buy zone at the open.",
+          "sources": [
+            [
+              "FX Leaders – SanDisk falls 3.65% (Sep 29, 2026)",
+              "https://www.fxleaders.com/news/2026/09/29/sandisk-stock-falls-ai-storage-valuation-pressure/"
+            ],
+            [
+              "Yahoo Finance – Micron earnings preview",
+              "https://finance.yahoo.com/markets/stocks/articles/micron-earnings-preview-analysts-see-022234081.html"
+            ],
+            [
+              "WallStreetZen – Stocks to buy in October 2026",
+              "https://www.wallstreetzen.com/news/4-stocks-to-buy-in-october-2026"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "VICR",
+          "yahoo": "VICR",
+          "name": "Vicor",
+          "sector": "Power electronics / AI",
+          "currency": "USD",
+          "refPrice": 281.96,
+          "refDate": "2026-09-28",
+          "buyLow": 276,
+          "buyHigh": 285,
+          "target": 296,
+          "stop": 270,
+          "risk": "High",
+          "thesis": "The month's top industrial gainer: up 45% in September after raising guidance.",
+          "reasons": [
+            "It raised Q3 revenue guidance to more than 20% growth over last quarter, from about 10%, after signing new licenses tied to AI hardware.",
+            "Royalty income from its Vertical Power Delivery (VPD) technology is growing, so each AI server using it pays Vicor.",
+            "It rose from about $176 on Sep 1 to about $283 on Sep 23 and leads September's industrial winners."
+          ],
+          "data": [
+            [
+              "Price (Sep 28)",
+              "≈ $281.96"
+            ],
+            [
+              "September gain",
+              "+44.9%"
+            ],
+            [
+              "Q3 growth guide",
+              "> 20% QoQ"
+            ],
+            [
+              "Driver",
+              "AI power royalties"
+            ]
+          ],
+          "watch": "It's extremely extended: GuruFocus values it far below the price, and insiders sold $410M of stock. Treat it strictly as a one-day momentum trade.",
+          "sources": [
+            [
+              "GuruFocus – Vicor surges 44.88% in September",
+              "https://www.gurufocus.com/news/9099950/vicor-corp-vicr-surges-4488-in-september-amid-strong-momentum"
+            ],
+            [
+              "Yahoo Finance – Vicor jumps after raising Q3 outlook",
+              "https://finance.yahoo.com/markets/stocks/articles/vicor-shares-jump-nearly-9-104938912.html"
+            ],
+            [
+              "Seeking Alpha – Vicor, Bloom lead September industrials",
+              "https://seekingalpha.com/news/4647608-industrial-stock-winners-vicor-bloom-energy-lead-septembers-top-ten"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "TCS",
+          "yahoo": "TCS.NS",
+          "name": "Tata Consultancy Services",
+          "sector": "IT services",
+          "currency": "INR",
+          "refPrice": 2085.6,
+          "refDate": "2026-09-30",
+          "buyLow": 2070,
+          "buyHigh": 2095,
+          "target": 2135,
+          "stop": 2050,
+          "risk": "Low–Medium",
+          "thesis": "It just ended a 6-day losing streak on heavy buying from big investors.",
+          "reasons": [
+            "It opened with a 2.4% gap up on Sep 30 and traded around ₹2,085 (+2.7%), beating both the IT sector (+1.9%) and a flat Sensex.",
+            "Delivery volume (shares bought to keep, not day-traded) jumped about 118% above its 5-day average. That's a sign big investors are buying after the correction.",
+            "TCS was the top Sensex gainer, and IT led the sectors. Q2 results in the second week of October give buyers a reason to stay in."
+          ],
+          "data": [
+            [
+              "Price (Sep 30, intraday)",
+              "≈ ₹2,085.60 (+2.7%)"
+            ],
+            [
+              "Prev. close",
+              "₹2,032.40"
+            ],
+            [
+              "Delivery volume",
+              "+118% vs 5-day avg"
+            ],
+            [
+              "Streak",
+              "Ended 6-day fall"
+            ]
+          ],
+          "watch": "The reference price is intraday on Sep 30, before the close. Check the close. Ahead of the holiday, some traders may sell late in the day.",
+          "sources": [
+            [
+              "MarketsMojo – TCS high-value trading amid recovery (Sep 30, 2026)",
+              "https://www.marketsmojo.com/news/stocks-in-action/tata-consultancy-services-ltd-sees-high-value-trading-amid-market-recovery-4209546"
+            ],
+            [
+              "India TV – Sep 30 market: TCS top gainer",
+              "https://www.indiatvnews.com/business/markets/30-september-2026-stock-market-updates-sensex-drops-88-points-nifty-near-22-700-tcs-top-gainer-2026-09-30-1055680"
+            ],
+            [
+              "LatestLY – TCS shares rally 2.55%",
+              "https://www.latestly.com/business/tata-consultancy-services-stock-update-shares-rally-2-55-7626381.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "TVSMOTOR",
+          "yahoo": "TVSMOTOR.NS",
+          "name": "TVS Motor",
+          "sector": "Auto (two-wheelers)",
+          "currency": "INR",
+          "refPrice": 4095.0,
+          "refDate": "2026-09-28",
+          "buyLow": 4060,
+          "buyHigh": 4110,
+          "target": 4200,
+          "stop": 4020,
+          "risk": "Medium",
+          "thesis": "September sales come out on Oct 1, and TVS has the highest growth estimate among two-wheeler makers.",
+          "reasons": [
+            "Brokers estimate about 6.45 lakh units, up 19–21% YoY. Bajaj is estimated at +10–12% and Hero at +4%.",
+            "Festive demand, easier financing and a low base (September 2025 buyers waited for the GST cut) all favor strong numbers.",
+            "The sales release is scheduled inside the session, so the stock tends to move on the day itself."
+          ],
+          "data": [
+            [
+              "Price (Sep 28)",
+              "₹4,095"
+            ],
+            [
+              "Sep volume est.",
+              "≈ 6.45 lakh (+19–21%)"
+            ],
+            [
+              "Peer est.",
+              "Bajaj +10–12% · Hero +4%"
+            ],
+            [
+              "Data date",
+              "Oct 1"
+            ]
+          ],
+          "watch": "If the number only matches the estimate, the stock may not move. The reference price is from Sep 28, so check where it opens.",
+          "sources": [
+            [
+              "ZeeBiz – September auto sales preview",
+              "https://www.zeebiz.com/automobile/news-september-auto-sales-why-could-maruti-tata-motors-ashok-leyland-tvs-report-higher-volumes-403099"
+            ],
+            [
+              "Autocar Professional – September auto sales seen strong",
+              "https://www.autocarpro.in/analysis/september-auto-sales-seen-strong-as-festive-demand-low-base-lift-volumes-134977"
+            ],
+            [
+              "Kotak Neo – TVS Motor share price",
+              "https://www.kotakneo.com/stocks/tvs-motor-share-price/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "BANKBARODA",
+          "yahoo": "BANKBARODA.NS",
+          "name": "Bank of Baroda",
+          "sector": "Banking (PSU)",
+          "currency": "INR",
+          "refPrice": 241.2,
+          "refDate": "2026-09-29",
+          "buyLow": 239,
+          "buyHigh": 243,
+          "target": 248,
+          "stop": 236,
+          "risk": "Medium",
+          "thesis": "It led the PSU bank rally on Sep 30, and Q2 business updates are due in the first days of October.",
+          "reasons": [
+            "Union Bank, Bank of Baroda and PNB were the top Nifty PSU Bank gainers on Sep 30, one of the day's best sectors.",
+            "It closed up 1.47% at ₹241.20 in the previous session, so the move has been building.",
+            "PSU banks usually release quarterly loan and deposit numbers in early October, and those have moved the stocks 4–5% in the past."
+          ],
+          "data": [
+            [
+              "Close (Sep 29)",
+              "₹241.20 (+1.47%)"
+            ],
+            [
+              "Sep 30",
+              "Top PSU-bank gainer"
+            ],
+            [
+              "Next trigger",
+              "Q2 business update"
+            ],
+            [
+              "Sector",
+              "PSU banks outperforming"
+            ]
+          ],
+          "watch": "The RBI decision on Oct 7 can move rates either way, and PSU banks react sharply to it. Exit at the close.",
+          "sources": [
+            [
+              "Business Standard – Stock market live, Sep 30, 2026",
+              "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
+            ],
+            [
+              "LatestLY – Stocks to watch Sep 30: Bank of Baroda, TCS",
+              "https://www.latestly.com/business/stocks-to-buy-or-sell-today-september-30-2026-bank-of-baroda-tcs-and-biocon-among-shares-that-may-remain-in-spotlight-on-wednesday-7626085.html"
+            ],
+            [
+              "Upstox – PSU banks surge after business updates",
+              "https://upstox.com/news/market-news/stocks/bank-of-baroda-bank-of-maharashtra-and-other-psu-bank-stocks-surge-up-to-4-6-after-q4-business-updates/article-191682/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "INDIGO",
+          "yahoo": "INDIGO.NS",
+          "name": "InterGlobe Aviation (IndiGo)",
+          "sector": "Airlines",
+          "currency": "INR",
+          "refPrice": 4874.5,
+          "refDate": "2026-09-30",
+          "buyLow": 4840,
+          "buyHigh": 4890,
+          "target": 5000,
+          "stop": 4790,
+          "risk": "Medium",
+          "thesis": "Falling crude is good for India's dominant airline, and the stock is still lagging.",
+          "reasons": [
+            "Brent slipped below $104. On Sep 30, IndiGo and oil-sensitive stocks bounced 2–4% off their intraday lows as crude fell.",
+            "Goldman Sachs reiterated Buy with a ₹5,900 target, far above the price, citing cost leadership and market share of about 65% (up from 50% in FY20).",
+            "Fuel is the biggest cost line, so the stock reacts strongly to oil prices."
+          ],
+          "data": [
+            [
+              "Close (Sep 30)",
+              "₹4,874.50"
+            ],
+            [
+              "GS target",
+              "₹5,900"
+            ],
+            [
+              "Market share",
+              "≈ 65% (Aug 2026)"
+            ],
+            [
+              "Brent",
+              "< $104 and easing"
+            ]
+          ],
+          "watch": "It still closed down 1.3% on Sep 30. Buy only if crude keeps easing overnight. It also mirrors Delta's oil trade, so don't hold both in size.",
+          "sources": [
+            [
+              "Groww – InterGlobe Aviation share price",
+              "https://groww.in/stocks/interglobe-aviation-ltd"
+            ],
+            [
+              "Money Morning – Oil is finally falling (Sep 30, 2026)",
+              "https://moneymorning.com/2026/09/30/oil-falling-watch-delta-air-lines-dal-not-oil-major-september-2026"
+            ],
+            [
+              "Business Standard – Stock market live, Sep 30, 2026",
+              "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "ICICIBANK",
+          "yahoo": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "sector": "Banking (private)",
+          "currency": "INR",
+          "refPrice": 1307.0,
+          "refDate": "2026-09-30",
+          "buyLow": 1298,
+          "buyHigh": 1312,
+          "target": 1340,
+          "stop": 1285,
+          "risk": "Low–Medium",
+          "thesis": "A quality private bank rising with the market, still 12% below its high.",
+          "reasons": [
+            "It was among the Sensex gainers on Sep 30 as the index rose about 460 points by midday.",
+            "It trades at 15.5x earnings and 2.5x book, cheap for India's best-run large private lender, and 12% below its ₹1,480 52-week high.",
+            "Q2 business updates and the RBI policy decision in early October keep bank stocks in the spotlight."
+          ],
+          "data": [
+            [
+              "Price (Sep 30, AM)",
+              "≈ ₹1,307"
+            ],
+            [
+              "52-week range",
+              "₹1,187.60 – ₹1,480"
+            ],
+            [
+              "P/E · P/B",
+              "15.5x · 2.48x"
+            ],
+            [
+              "Sep 30",
+              "Sensex gainer"
+            ]
+          ],
+          "watch": "The reference price is from the morning of Sep 30. Check the close. Banks may drift lower if FIIs keep selling.",
+          "sources": [
+            [
+              "INDmoney – ICICI Bank share price (Sep 30, 2026)",
+              "https://www.indmoney.com/stocks/icici-bank-ltd-share-price"
+            ],
+            [
+              "India TV – Sep 30 market updates",
+              "https://www.indiatvnews.com/business/markets/30-september-2026-stock-market-updates-sensex-drops-88-points-nifty-near-22-700-tcs-top-gainer-2026-09-30-1055680"
+            ],
+            [
+              "Business Standard – Stock market live, Sep 30, 2026",
+              "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Business Standard – Stock market live, Sep 30, 2026",
+          "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
+        ],
+        [
+          "ZeeBiz – NSE/BSE holidays October 2026",
+          "https://www.zeebiz.com/market-news/news-stock-market-holiday-october-2026-nse-bse-to-remain-closed-for-11-days-check-full-list-402881"
+        ],
+        [
+          "Kiplinger – Earnings this week (Sep 28–Oct 2)",
+          "https://www.kiplinger.com/investing/stocks/17494/next-week-earnings-calendar-stocks"
+        ]
+      ]
+    },
+    {
       "id": "2026-09-30-weekly",
       "horizon": "weekly",
       "date": "2026-09-30",

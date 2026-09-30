@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stock Picks Desk</title>
+<meta name="description" content="Top 5 one-month stock ideas for the US and Indian markets, with reasons, data, buy/sell levels and a track record of past picks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f7f9; --surface: #ffffff; --surface-2: #f0f2f5; --border: #e2e5ea;
+    --text: #14171c; --muted: #5b6472; --faint: #8a93a1;
+    --accent: #2f5bea; --accent-soft: #e8eefe;
+    --up: #0f8a4f; --up-soft: #e3f5ec; --down: #c8322b; --down-soft: #fdeceb;
+    --warn: #9a6400; --warn-soft: #fff4dc;
+    --zone: #2f5bea33;
+    --shadow: 0 1px 2px rgba(16,24,40,.05), 0 1px 3px rgba(16,24,40,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1116; --surface: #161a21; --surface-2: #1d222b; --border: #2a303b;
+      --text: #e8ebf0; --muted: #a2abb9; --faint: #767f8d;
+      --accent: #7b9bff; --accent-soft: #1e2847;
+      --up: #3ecf8e; --up-soft: #12301f; --down: #ff6b61; --down-soft: #3a1714;
+      --warn: #f2b84b; --warn-soft: #332713;
+      --zone: #7b9bff40;
+      --shadow: none;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e1116; --surface: #161a21; --surface-2: #1d222b; --border: #2a303b;
+    --text: #e8ebf0; --muted: #a2abb9; --faint: #767f8d;
+    --accent: #7b9bff; --accent-soft: #1e2847;
+    --up: #3ecf8e; --up-soft: #12301f; --down: #ff6b61; --down-soft: #3a1714;
+    --warn: #f2b84b; --warn-soft: #332713;
+    --zone: #7b9bff40;
+    --shadow: none;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  a { color: var(--accent); }
+  .num, .mono { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+  header.top { border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 10; }
+  .top-row { display: flex; align-items: center; gap: 16px; min-height: 60px; flex-wrap: wrap; }
+  .brand { font-weight: 700; font-size: 17px; letter-spacing: -.01em; margin-right: auto; }
+  .brand small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
+  nav.tabs { display: flex; gap: 4px; }
+  nav.tabs button {
+    border: 0; background: none; color: var(--muted); font: inherit; font-weight: 600;
+    padding: 8px 12px; border-radius: 8px; cursor: pointer; white-space: nowrap;
+  }
+  nav.tabs button[aria-selected="true"] { background: var(--accent-soft); color: var(--accent); }
+  .theme-btn { border: 1px solid var(--border); background: var(--surface); color: var(--muted); border-radius: 8px; padding: 6px 10px; cursor: pointer; font: inherit; }
+
+  .banner { margin: 20px 0 8px; padding: 12px 14px; border-radius: 10px; background: var(--warn-soft); color: var(--warn); font-size: 13.5px; }
+  .meta-line { color: var(--muted); font-size: 13px; margin: 6px 0 18px; }
+
+  .seg { display: inline-flex; background: var(--surface-2); border-radius: 10px; padding: 3px; margin-bottom: 16px; }
+  .seg button { border: 0; background: none; font: inherit; font-weight: 600; color: var(--muted); padding: 7px 14px; border-radius: 8px; cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+
+  .context { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 18px; font-size: 14px; color: var(--muted); }
+  .context b { color: var(--text); }
+
+  .cards { display: grid; gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
+  .card-head { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
+  .rank { width: 30px; height: 30px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); font-weight: 700; display: grid; place-items: center; flex: none; }
+  .title { flex: 1 1 220px; min-width: 0; }
+  .title h3 { margin: 0; font-size: 17px; }
+  .title .sub { color: var(--muted); font-size: 13px; }
+  .chip { font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); white-space: nowrap; }
+  .chip.risk-High { background: var(--down-soft); color: var(--down); }
+  .chip.risk-Low { background: var(--up-soft); color: var(--up); }
+  .thesis { margin: 10px 0 14px; font-weight: 500; }
+
+  .levels { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
+  .lvl { background: var(--surface-2); border-radius: 10px; padding: 10px 12px; min-width: 0; }
+  .lvl .k { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+  .lvl .v { font-size: 17px; font-weight: 600; margin-top: 2px; overflow-wrap: anywhere; }
+  .lvl .d { font-size: 12.5px; color: var(--muted); }
+  .up { color: var(--up); } .down { color: var(--down); }
+
+  .ladder { margin: 16px 2px 6px; }
+  .ladder-track { position: relative; height: 10px; border-radius: 6px; background: linear-gradient(90deg, var(--down-soft), var(--surface-2) 45%, var(--up-soft)); }
+  .ladder-zone { position: absolute; top: 0; bottom: 0; background: var(--zone); border-radius: 4px; }
+  .ladder-dot { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; background: var(--text); border: 2px solid var(--surface); transform: translate(-50%,-50%); }
+  .ladder-labels { position: relative; height: 18px; font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+  .ladder-labels span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+  .ladder-labels span.l { transform: none; left: 0; }
+  .ladder-labels span.r { transform: none; right: 0; left: auto !important; }
+
+  .cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; margin-top: 14px; }
+  .cols h4 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  .cols ul { margin: 0; padding-left: 18px; }
+  .cols li { margin-bottom: 6px; }
+  table.kv { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.kv td { padding: 5px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.kv td:last-child { text-align: right; font-weight: 600; padding-left: 10px; }
+  .watch { margin-top: 12px; padding: 10px 12px; border-left: 3px solid var(--warn); background: var(--warn-soft); border-radius: 6px; font-size: 13.5px; }
+  details { margin-top: 10px; font-size: 13px; }
+  summary { cursor: pointer; color: var(--muted); font-weight: 600; }
+  details ol { margin: 6px 0 0; padding-left: 20px; }
+
+  /* Track record */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 12px 0 16px; }
+  .tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+  .tile .k { font-size: 12px; color: var(--muted); font-weight: 600; }
+  .tile .v { font-size: 22px; font-weight: 700; margin-top: 2px; }
+  .batch { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; margin-bottom: 18px; }
+  .batch h3 { margin: 0 0 4px; font-size: 16px; }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.trk { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 720px; }
+  table.trk th { text-align: left; font-size: 12px; color: var(--muted); font-weight: 600; padding: 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  table.trk td { padding: 9px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  table.trk td.r, table.trk th.r { text-align: right; }
+  .status { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+  .s-Open { background: var(--accent-soft); color: var(--accent); }
+  .s-Target { background: var(--up-soft); color: var(--up); }
+  .s-Stopped { background: var(--down-soft); color: var(--down); }
+  .s-Expired { background: var(--surface-2); color: var(--muted); }
+  .empty { color: var(--muted); padding: 10px 0; }
+
+  .prose { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; max-width: 820px; }
+  .prose h3 { margin-top: 18px; font-size: 16px; }
+  .prose h3:first-child { margin-top: 0; }
+  footer { color: var(--faint); font-size: 12.5px; padding: 28px 0 40px; }
+
+  [hidden] { display: none !important; }
+  @media (max-width: 760px) {
+    .levels { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .cols { grid-template-columns: 1fr; }
+    nav.tabs { order: 3; width: 100%; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-row">
+    <div class="brand">Stock Picks Desk<small>1-month ideas · US &amp; India</small></div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-tab="picks" aria-selected="true">Today's picks</button>
+      <button role="tab" data-tab="history" aria-selected="false">Track record</button>
+      <button role="tab" data-tab="method" aria-selected="false">Method</button>
+    </nav>
+    <button class="theme-btn" id="themeBtn" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="banner"><b>Not financial advice.</b> These are research ideas built from public news and price data, not a recommendation for your situation. Short-term trades can lose money quickly. Size positions so a stop-loss hit is survivable, and check live prices with your broker before placing any order.</div>
+
+  <!-- PICKS -->
+  <section id="tab-picks" role="tabpanel">
+    <div class="meta-line" id="picksMeta"></div>
+    <div class="seg" role="group" aria-label="Market">
+      <button data-mkt="US" aria-pressed="true">🇺🇸 US market</button>
+      <button data-mkt="IN" aria-pressed="false">🇮🇳 Indian market</button>
+    </div>
+    <div class="context" id="ctx"></div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <!-- HISTORY -->
+  <section id="tab-history" role="tabpanel" hidden>
+    <div class="meta-line">Every batch of picks is kept here and scored against its own buy/target/stop levels. Scoring is conservative: if the stop and the target are both touched on the same day, the stop counts. Returns are measured from each pick's reference close.</div>
+    <div class="tiles" id="overall"></div>
+    <div id="batches"></div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="tab-method" role="tabpanel" hidden>
+    <div class="prose">
+      <h3>How the picks are chosen</h3>
+      <p>The horizon is 1 month at most, so this isn't long-term value investing. It's a <b>catalyst + relative-strength</b> screen:</p>
+      <ol>
+        <li><b>Market regime first.</b> Figure out which sectors are rising while the index falls. In late Sep 2026: US energy and healthcare, Indian pharma, metals and defence.</li>
+        <li><b>A dated catalyst inside the window.</b> Earnings, a contract award, a broker upgrade, or monthly volume data. Something specific has to happen in the next ~30 days.</li>
+        <li><b>Hard numbers behind the story.</b> Estimates, margins, order values and price levels, each linked to its source on the card.</li>
+        <li><b>A defined exit before entry.</b> Every pick has a buy zone, a sell target and a stop-loss. The target is set near a recent high or at the size of move the catalyst justifies. The stop sits below nearby support and is usually a smaller distance than the target, so the reward is bigger than the risk.</li>
+      </ol>
+      <h3>Reading the levels</h3>
+      <ul>
+        <li><b>Today's price</b>: the latest close, refreshed automatically after each market close. Before the first refresh it shows the reference close from the research date.</li>
+        <li><b>Buy zone</b>: the range to enter in. If price has already run above it, skip it. Chasing ruins the risk/reward.</li>
+        <li><b>Sell target</b>: where to take profit. <b>Stop-loss</b>: where to exit if you're wrong. Both are closing-basis guides.</li>
+        <li><b>R:R</b>: reward-to-risk, measured from the middle of the buy zone.</li>
+      </ul>
+      <h3>How the data stays fresh</h3>
+      <p>A GitHub Action (<span class="mono">.github/workflows/update-prices.yml</span>) runs <span class="mono">scripts/update_prices.py</span> after the NSE and NYSE closes every weekday. It pulls daily bars from Yahoo Finance, updates the prices and scores every past pick in the Track record tab. To add a new batch, add an entry at the top of <span class="mono">data/picks.js</span>. Older batches automatically become history.</p>
+      <h3>Honest limitations</h3>
+      <ul>
+        <li>Prices on the research date came from news and quote pages, not an exchange feed. One reference (LLY) is a Sep 28 close.</li>
+        <li>A 1-month window is mostly noise and sentiment. Even a well-reasoned pick is close to a coin flip with better odds and a planned exit.</li>
+        <li>Brokerage, taxes (STT/STCG in India, short-term capital gains in the US) and slippage are not included in the returns shown.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>Data sources are linked on each card. Market data via Yahoo Finance (auto-refresh). For education and research only. <span id="updated"></span></footer>
+</main>
+
+<script src="data/picks.js"></script>
+<script src="data/prices.js"></script>
+<script>
+(function () {
+  const PICKS = window.PICKS || { batches: [] };
+  const PRICES = window.PRICES || { quotes: {}, tracking: {} };
+  const latest = PICKS.batches[0];
+  let market = "US";
+
+  // ---------- helpers ----------
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const sym = cur => cur === "INR" ? "₹" : "$";
+  const fmt = (v, cur) => v == null ? "—" : sym(cur) + Number(v).toLocaleString(cur === "INR" ? "en-IN" : "en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const pct = v => v == null ? "—" : (v > 0 ? "+" : "") + v.toFixed(2) + "%";
+  const cls = v => v == null ? "" : v > 0 ? "up" : v < 0 ? "down" : "";
+  const fdate = d => d ? new Date(d + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "—";
+
+  function livePrice(p) {
+    const q = PRICES.quotes && PRICES.quotes[p.yahoo];
+    return q ? { price: q.price, change: q.changePct, asOf: q.asOf, live: true }
+             : { price: p.refPrice, change: null, asOf: p.refDate, live: false };
+  }
+
+  // ---------- tabs ----------
+  const tabs = document.querySelectorAll("nav.tabs button");
+  function showTab(name) {
+    tabs.forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === name)));
+    document.querySelectorAll("[role=tabpanel]").forEach(s => s.hidden = s.id !== "tab-" + name);
+    try { history.replaceState(null, "", "#" + name); } catch (e) {}
+  }
+  tabs.forEach(b => b.addEventListener("click", () => showTab(b.dataset.tab)));
+  const initial = (location.hash || "").slice(1);
+  if (["picks", "history", "method"].includes(initial)) showTab(initial);
+
+  // ---------- theme ----------
+  const root = document.documentElement;
+  try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+  document.getElementById("themeBtn").addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+  });
+
+  // ---------- picks ----------
+  function ladder(p, price) {
+    const lo = Math.min(p.stop, price) * 0.99, hi = Math.max(p.target, price) * 1.01;
+    const x = v => ((v - lo) / (hi - lo) * 100).toFixed(2) + "%";
+    return `<div class="ladder" aria-label="Price ladder: stop, buy zone, current price and target">
+      <div class="ladder-track">
+        <div class="ladder-zone" style="left:${x(p.buyLow)};width:calc(${x(p.buyHigh)} - ${x(p.buyLow)})"></div>
+        <div class="ladder-dot" style="left:${x(price)}" title="Current ${fmt(price, p.currency)}"></div>
+      </div>
+      <div class="ladder-labels">
+        <span class="l down">Stop ${fmt(p.stop, p.currency)}</span>
+        <span style="left:${x((p.buyLow + p.buyHigh) / 2)}">Buy zone</span>
+        <span class="r up">Target ${fmt(p.target, p.currency)}</span>
+      </div>
+    </div>`;
+  }
+
+  function card(p, i) {
+    const lp = livePrice(p);
+    const mid = (p.buyLow + p.buyHigh) / 2;
+    const up = (p.target / mid - 1) * 100, dn = (p.stop / mid - 1) * 100;
+    const rr = (p.target - mid) / (mid - p.stop);
+    let zoneNote = "In zone";
+    if (lp.price > p.buyHigh) zoneNote = "Above zone: wait for a dip";
+    else if (lp.price < p.buyLow) zoneNote = lp.price <= p.stop ? "Below stop: idea invalid" : "Below zone: check why";
+    return `<article class="card">
+      <div class="card-head">
+        <div class="rank">${i + 1}</div>
+        <div class="title"><h3>${esc(p.name)} <span class="mono" style="color:var(--muted);font-size:13px">${esc(p.symbol)}</span></h3>
+          <div class="sub">${esc(p.sector)} · ${p.market === "US" ? "NYSE/Nasdaq" : "NSE"}</div></div>
+        <span class="chip risk-${esc(p.risk.split("–")[0])}">Risk: ${esc(p.risk)}</span>
+      </div>
+      <p class="thesis">${esc(p.thesis)}</p>
+      <div class="levels">
+        <div class="lvl"><div class="k">Today's price</div><div class="v num">${fmt(lp.price, p.currency)}</div>
+          <div class="d">${lp.change != null ? `<span class="${cls(lp.change)}">${pct(lp.change)}</span> · ` : ""}${lp.live ? "close " : "ref. close "}${fdate(lp.asOf)}</div></div>
+        <div class="lvl"><div class="k">Buy zone</div><div class="v num">${fmt(p.buyLow, p.currency).replace(/\.00$/, "")}–${fmt(p.buyHigh, p.currency).slice(1).replace(/\.00$/, "")}</div><div class="d">${zoneNote}</div></div>
+        <div class="lvl"><div class="k">Sell target</div><div class="v num up">${fmt(p.target, p.currency)}</div><div class="d">${pct(up)} from mid-zone</div></div>
+        <div class="lvl"><div class="k">Stop-loss</div><div class="v num down">${fmt(p.stop, p.currency)}</div><div class="d">${pct(dn)} · R:R ${rr.toFixed(1)}</div></div>
+      </div>
+      ${ladder(p, lp.price)}
+      <div class="cols">
+        <div><h4>Why buy</h4><ul>${p.reasons.map(r => `<li>${esc(r)}</li>`).join("")}</ul></div>
+        <div><h4>The data</h4><table class="kv">${p.data.map(([k, v]) => `<tr><td>${esc(k)}</td><td class="num">${esc(v)}</td></tr>`).join("")}</table></div>
+      </div>
+      <div class="watch"><b>Watch out:</b> ${esc(p.watch)}</div>
+      <details><summary>Sources (${p.sources.length})</summary><ol>${p.sources.map(([t, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ol></details>
+    </article>`;
+  }
+
+  function renderPicks() {
+    if (!latest) { document.getElementById("cards").innerHTML = '<p class="empty">No picks yet.</p>'; return; }
+    document.getElementById("picksMeta").innerHTML =
+      `Batch of <b>${fdate(latest.date)}</b> · holding window until <b>${fdate(latest.expires)}</b> (${latest.horizonDays} days)`;
+    const ctx = latest.context[market];
+    document.getElementById("ctx").innerHTML = `<b>Market backdrop (${esc(ctx.benchmarkName)}):</b> ${esc(ctx.summary)}`;
+    document.getElementById("cards").innerHTML = latest.picks.filter(p => p.market === market).map(card).join("");
+    document.querySelectorAll(".seg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.mkt === market)));
+  }
+  document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => { market = b.dataset.mkt; renderPicks(); }));
+
+  // ---------- track record ----------
+  function scored(batch, p) {
+    const t = (PRICES.tracking[batch.id] || {})[p.yahoo];
+    if (t) return t;
+    return { status: "Open", markPrice: p.refPrice, returnPct: 0, exitDate: null, pending: true };
+  }
+
+  function renderHistory() {
+    let all = [], closed = [];
+    const html = PICKS.batches.map((b, idx) => {
+      const rows = b.picks.map(p => {
+        const s = scored(b, p); all.push(s);
+        if (s.status !== "Open") closed.push(s);
+        const key = s.status.split(" ")[0];
+        return `<tr>
+          <td>${p.market === "US" ? "🇺🇸" : "🇮🇳"} <b>${esc(p.symbol)}</b></td>
+          <td class="r num">${fmt(p.refPrice, p.currency)}</td>
+          <td class="r num">${fmt(p.target, p.currency)}</td>
+          <td class="r num">${fmt(p.stop, p.currency)}</td>
+          <td class="r num">${fmt(s.markPrice, p.currency)}</td>
+          <td class="r num ${cls(s.returnPct)}">${s.pending ? "—" : pct(s.returnPct)}</td>
+          <td><span class="status s-${key}">${esc(s.status)}</span>${s.exitDate ? ` <span style="color:var(--muted);font-size:12px">${fdate(s.exitDate)}</span>` : ""}</td>
+        </tr>`;
+      }).join("");
+      const bench = Object.values(b.context).map(c => {
+        const t = (PRICES.tracking[b.id] || {})[c.benchmark];
+        return `${esc(c.benchmarkName)} <span class="num ${cls(t && t.returnPct)}">${t ? pct(t.returnPct) : "—"}</span>`;
+      }).join(" · ");
+      const isCurrent = idx === 0 && new Date() <= new Date(b.expires + "T23:59:59");
+      return `<div class="batch">
+        <h3>Picks of ${fdate(b.date)} ${isCurrent ? '<span class="chip" style="margin-left:6px">Current batch</span>' : ""}</h3>
+        <div class="meta-line" style="margin:0 0 10px">Window ${fdate(b.date)} → ${fdate(b.expires)} · Benchmarks over same window: ${bench}</div>
+        <div class="table-scroll"><table class="trk">
+          <thead><tr><th>Stock</th><th class="r">Entry (ref.)</th><th class="r">Target</th><th class="r">Stop</th><th class="r">Current / exit</th><th class="r">Return</th><th>Status</th></tr></thead>
+          <tbody>${rows}</tbody></table></div>
+      </div>`;
+    }).join("");
+    document.getElementById("batches").innerHTML = html || '<p class="empty">No history yet.</p>';
+
+    const live = all.filter(s => !s.pending);
+    const wins = closed.filter(s => s.returnPct > 0).length;
+    const avg = live.length ? live.reduce((a, s) => a + s.returnPct, 0) / live.length : null;
+    const tile = (k, v, c = "") => `<div class="tile"><div class="k">${k}</div><div class="v num ${c}">${v}</div></div>`;
+    document.getElementById("overall").innerHTML =
+      tile("Total picks", all.length) +
+      tile("Closed", closed.length) +
+      tile("Win rate (closed)", closed.length ? Math.round(wins / closed.length * 100) + "%" : "—") +
+      tile("Targets hit", closed.filter(s => s.status === "Target hit").length, "up") +
+      tile("Stopped out", closed.filter(s => s.status === "Stopped out").length, "down") +
+      tile("Avg return (all)", avg == null ? "—" : pct(avg), cls(avg));
+  }
+
+  renderPicks();
+  renderHistory();
+  document.getElementById("updated").textContent = PRICES.updated
+    ? "Prices last refreshed " + new Date(PRICES.updated).toLocaleString() + "."
+    : "Prices not yet auto-refreshed; showing research-date closes.";
+})();
+</script>
+</body>
+</html>

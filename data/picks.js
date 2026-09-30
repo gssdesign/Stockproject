@@ -301,12 +301,12 @@ window.PICKS = {
           "name": "Tata Consultancy Services",
           "sector": "IT services",
           "currency": "INR",
-          "refPrice": 2085.6,
+          "refPrice": 2050.6,
           "refDate": "2026-09-30",
-          "buyLow": 2070,
-          "buyHigh": 2095,
-          "target": 2135,
-          "stop": 2050,
+          "buyLow": 2035.25,
+          "buyHigh": 2059.85,
+          "target": 2099.15,
+          "stop": 2015.6,
           "risk": "Low–Medium",
           "thesis": "It just ended a 6-day losing streak on heavy buying from big investors.",
           "reasons": [
@@ -346,7 +346,72 @@ window.PICKS = {
               "LatestLY – TCS shares rally 2.55%",
               "https://www.latestly.com/business/tata-consultancy-services-stock-update-shares-rally-2-55-7626381.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 2050.6,
+            "date": "2026-09-30",
+            "researchPrice": 2085.6,
+            "researchDate": "2026-09-30",
+            "diffPct": 1.71,
+            "original": {
+              "refPrice": 2085.6,
+              "refDate": "2026-09-30",
+              "buyLow": 2070,
+              "buyHigh": 2095,
+              "target": 2135,
+              "stop": 2050
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹643 cr (min ₹100 cr), price ₹2,050.6"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 20-day avg ₹2167.21"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "1-month return vs index -7.4 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": false,
+              "detail": "+3.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-2.0 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.82% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.62 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.82,
+            "sma20": 2167.21,
+            "sma50": 2278.95,
+            "sma200": 2504.82,
+            "rs1m": -7.38,
+            "rs3m": 4.38,
+            "fromHigh52": -38.79,
+            "fromLow52": 3.73,
+            "avgValue20": 6425898271
+          }
         },
         {
           "market": "IN",
@@ -355,8 +420,8 @@ window.PICKS = {
           "name": "TVS Motor",
           "sector": "Auto (two-wheelers)",
           "currency": "INR",
-          "refPrice": 4095.0,
-          "refDate": "2026-09-28",
+          "refPrice": 4106.0,
+          "refDate": "2026-09-30",
           "buyLow": 4060,
           "buyHigh": 4110,
           "target": 4200,
@@ -400,7 +465,64 @@ window.PICKS = {
               "Kotak Neo – TVS Motor share price",
               "https://www.kotakneo.com/stocks/tvs-motor-share-price/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 4106.0,
+            "date": "2026-09-30",
+            "researchPrice": 4095.0,
+            "researchDate": "2026-09-28",
+            "diffPct": -0.27,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹254 cr (min ₹100 cr), price ₹4,106.0"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 20-day avg ₹4122.37"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +3.8 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+27.2% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.24% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.77 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.24,
+            "sma20": 4122.37,
+            "sma50": 4224.09,
+            "sma200": 3759.89,
+            "rs1m": 3.75,
+            "rs3m": 19.62,
+            "fromHigh52": -8.44,
+            "fromLow52": 27.2,
+            "avgValue20": 2540120210
+          }
         },
         {
           "market": "IN",
@@ -409,12 +531,12 @@ window.PICKS = {
           "name": "Bank of Baroda",
           "sector": "Banking (PSU)",
           "currency": "INR",
-          "refPrice": 241.2,
-          "refDate": "2026-09-29",
-          "buyLow": 239,
-          "buyHigh": 243,
-          "target": 248,
-          "stop": 236,
+          "refPrice": 230.55,
+          "refDate": "2026-09-30",
+          "buyLow": 228.45,
+          "buyHigh": 232.25,
+          "target": 237.05,
+          "stop": 225.6,
           "risk": "Medium",
           "thesis": "It led the PSU bank rally on Sep 30, and Q2 business updates are due in the first days of October.",
           "reasons": [
@@ -454,7 +576,72 @@ window.PICKS = {
               "Upstox – PSU banks surge after business updates",
               "https://upstox.com/news/market-news/stocks/bank-of-baroda-bank-of-maharashtra-and-other-psu-bank-stocks-surge-up-to-4-6-after-q4-business-updates/article-191682/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 230.55,
+            "date": "2026-09-30",
+            "researchPrice": 241.2,
+            "researchDate": "2026-09-29",
+            "diffPct": 4.62,
+            "original": {
+              "refPrice": 241.2,
+              "refDate": "2026-09-29",
+              "buyLow": 239,
+              "buyHigh": 243,
+              "target": 248,
+              "stop": 236
+            },
+            "status": "mismatch"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹151 cr (min ₹100 cr), price ₹230.55"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 20-day avg ₹234.8"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +3.0 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": false,
+              "detail": "+3.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-1.0 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.92% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.41 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.92,
+            "sma20": 234.8,
+            "sma50": 240.59,
+            "sma200": 269.96,
+            "rs1m": 3.05,
+            "rs3m": -2.15,
+            "fromHigh52": -29.17,
+            "fromLow52": 3.01,
+            "avgValue20": 1505022968
+          }
         },
         {
           "market": "IN",
@@ -463,12 +650,12 @@ window.PICKS = {
           "name": "InterGlobe Aviation (IndiGo)",
           "sector": "Airlines",
           "currency": "INR",
-          "refPrice": 4874.5,
+          "refPrice": 4984.0,
           "refDate": "2026-09-30",
-          "buyLow": 4840,
-          "buyHigh": 4890,
-          "target": 5000,
-          "stop": 4790,
+          "buyLow": 4948.7,
+          "buyHigh": 4999.85,
+          "target": 5112.3,
+          "stop": 4897.6,
           "risk": "Medium",
           "thesis": "Falling crude is good for India's dominant airline, and the stock is still lagging.",
           "reasons": [
@@ -508,7 +695,72 @@ window.PICKS = {
               "Business Standard – Stock market live, Sep 30, 2026",
               "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 4984.0,
+            "date": "2026-09-30",
+            "researchPrice": 4874.5,
+            "researchDate": "2026-09-30",
+            "diffPct": -2.2,
+            "original": {
+              "refPrice": 4874.5,
+              "refDate": "2026-09-30",
+              "buyLow": 4840,
+              "buyHigh": 4890,
+              "target": 5000,
+              "stop": 4790
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹278 cr (min ₹100 cr), price ₹4,984.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹4932.93"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +4.7 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+27.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.11% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.11,
+            "sma20": 4932.93,
+            "sma50": 5109.87,
+            "sma200": 4826.04,
+            "rs1m": 4.71,
+            "rs3m": -1.72,
+            "fromHigh52": -16.52,
+            "fromLow52": 27.95,
+            "avgValue20": 2776544729
+          }
         },
         {
           "market": "IN",
@@ -517,12 +769,12 @@ window.PICKS = {
           "name": "ICICI Bank",
           "sector": "Banking (private)",
           "currency": "INR",
-          "refPrice": 1307.0,
+          "refPrice": 1321.7,
           "refDate": "2026-09-30",
-          "buyLow": 1298,
-          "buyHigh": 1312,
-          "target": 1340,
-          "stop": 1285,
+          "buyLow": 1312.6,
+          "buyHigh": 1326.75,
+          "target": 1355.05,
+          "stop": 1299.45,
           "risk": "Low–Medium",
           "thesis": "A quality private bank rising with the market, still 12% below its high.",
           "reasons": [
@@ -562,7 +814,72 @@ window.PICKS = {
               "Business Standard – Stock market live, Sep 30, 2026",
               "https://www.business-standard.com/markets/news/stock-market-live-september-30-sensex-today-nifty-gift-nifty-crude-oil-price-adroit-industries-share-ipo-today-126093000100_1.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1321.7,
+            "date": "2026-09-30",
+            "researchPrice": 1307.0,
+            "researchDate": "2026-09-30",
+            "diffPct": -1.11,
+            "original": {
+              "refPrice": 1307.0,
+              "refDate": "2026-09-30",
+              "buyLow": 1298,
+              "buyHigh": 1312,
+              "target": 1340,
+              "stop": 1285
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹1,196 cr (min ₹100 cr), price ₹1,321.7"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 20-day avg ₹1360.49"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "1-month return vs index -2.0 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+11.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-1.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.61% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.75 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.61,
+            "sma20": 1360.49,
+            "sma50": 1402.69,
+            "sma200": 1353.5,
+            "rs1m": -2.03,
+            "rs3m": 0.07,
+            "fromHigh52": -10.7,
+            "fromLow52": 11.29,
+            "avgValue20": 11958393600
+          }
         }
       ],
       "marketSources": [
@@ -608,7 +925,7 @@ window.PICKS = {
           "name": "Meta Platforms",
           "sector": "Communication / AI ads",
           "currency": "USD",
-          "refPrice": 738.68,
+          "refPrice": 738.79,
           "refDate": "2026-09-29",
           "buyLow": 728,
           "buyHigh": 742,
@@ -653,7 +970,64 @@ window.PICKS = {
               "Daily Trade Alert – Analyst upgrades Sep 28",
               "https://dailytradealert.com/2026/09/28/analyst-upgrades-and-downgrades-for-monday-9-28/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 738.79,
+            "date": "2026-09-29",
+            "researchPrice": 738.68,
+            "researchDate": "2026-09-29",
+            "diffPct": -0.01,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $16,556M (min $50M), price $738.79"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $619.0, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +28.9 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+42.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.76% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.76 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.76,
+            "sma20": 676.06,
+            "sma50": 619.0,
+            "sma200": 627.21,
+            "rs1m": 28.34,
+            "rs3m": 28.87,
+            "fromHigh52": -5.26,
+            "fromLow52": 42.0,
+            "avgValue20": 16555679403
+          }
         },
         {
           "market": "US",
@@ -662,12 +1036,12 @@ window.PICKS = {
           "name": "Valero Energy",
           "sector": "Energy / Refining",
           "currency": "USD",
-          "refPrice": 389.57,
-          "refDate": "2026-09-28",
-          "buyLow": 382,
-          "buyHigh": 392,
-          "target": 404,
-          "stop": 376,
+          "refPrice": 387.72,
+          "refDate": "2026-09-29",
+          "buyLow": 380.19,
+          "buyHigh": 390.14,
+          "target": 402.08,
+          "stop": 374.21,
           "risk": "Medium",
           "thesis": "One of the strongest names in the market's best sector: +13% in September.",
           "reasons": [
@@ -707,7 +1081,72 @@ window.PICKS = {
               "thetrading.tools – 3-2-1 crack spread",
               "https://www.thetrading.tools/crack-spread"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 387.72,
+            "date": "2026-09-29",
+            "researchPrice": 389.57,
+            "researchDate": "2026-09-28",
+            "diffPct": 0.48,
+            "original": {
+              "refPrice": 389.57,
+              "refDate": "2026-09-28",
+              "buyLow": 382,
+              "buyHigh": 392,
+              "target": 404,
+              "stop": 376
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,547M (min $50M), price $387.72"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $349.66, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +46.6 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+149.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.86% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.54 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.86,
+            "sma20": 385.99,
+            "sma50": 349.66,
+            "sma200": 256.82,
+            "rs1m": 10.57,
+            "rs3m": 46.58,
+            "fromHigh52": -7.47,
+            "fromLow52": 149.67,
+            "avgValue20": 1547307541
+          }
         },
         {
           "market": "US",
@@ -716,12 +1155,12 @@ window.PICKS = {
           "name": "Bloom Energy",
           "sector": "Industrials / AI power",
           "currency": "USD",
-          "refPrice": 294.26,
-          "refDate": "2026-09-30",
-          "buyLow": 285,
-          "buyHigh": 298,
-          "target": 318,
-          "stop": 274,
+          "refPrice": 291.25,
+          "refDate": "2026-09-29",
+          "buyLow": 282.08,
+          "buyHigh": 294.95,
+          "target": 314.75,
+          "stop": 271.2,
           "risk": "High",
           "thesis": "A momentum breakout: AI data-center power demand plus fresh index-fund buying.",
           "reasons": [
@@ -761,7 +1200,72 @@ window.PICKS = {
               "Seeking Alpha – Vicor, Bloom lead September industrials",
               "https://seekingalpha.com/news/4647608-industrial-stock-winners-vicor-bloom-energy-lead-septembers-top-ten"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 291.25,
+            "date": "2026-09-29",
+            "researchPrice": 294.26,
+            "researchDate": "2026-09-30",
+            "diffPct": 1.03,
+            "original": {
+              "refPrice": 294.26,
+              "refDate": "2026-09-30",
+              "buyLow": 285,
+              "buyHigh": 298,
+              "target": 318,
+              "stop": 274
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $4,675M (min $50M), price $291.25"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close above 50-day avg $232.52, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "3-month return vs index -6.1 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+310.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": false,
+              "detail": "ATR 7.32% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.52 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 7.32,
+            "sma20": 263.35,
+            "sma50": 232.52,
+            "sma200": 204.67,
+            "rs1m": 38.71,
+            "rs3m": -6.07,
+            "fromHigh52": -17.09,
+            "fromLow52": 310.85,
+            "avgValue20": 4675319187
+          }
         },
         {
           "market": "US",
@@ -815,7 +1319,64 @@ window.PICKS = {
               "Investing.com – PFE quote",
               "https://www.investing.com/equities/pfizer"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 28.72,
+            "date": "2026-09-29",
+            "researchPrice": 28.72,
+            "researchDate": "2026-09-29",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $923M (min $50M), price $28.72"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $27.13, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +17.0 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+21.6% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.75% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.54 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.75,
+            "sma20": 28.11,
+            "sma50": 27.13,
+            "sma200": 26.37,
+            "rs1m": 3.25,
+            "rs3m": 16.98,
+            "fromHigh52": -1.68,
+            "fromLow52": 21.59,
+            "avgValue20": 923138070
+          }
         },
         {
           "market": "US",
@@ -824,12 +1385,12 @@ window.PICKS = {
           "name": "Nike",
           "sector": "Consumer / Apparel",
           "currency": "USD",
-          "refPrice": 36.48,
+          "refPrice": 35.84,
           "refDate": "2026-09-29",
-          "buyLow": 35.8,
-          "buyHigh": 36.8,
-          "target": 39.5,
-          "stop": 34.2,
+          "buyLow": 35.17,
+          "buyHigh": 36.15,
+          "target": 38.81,
+          "stop": 33.6,
           "risk": "High",
           "thesis": "A contrarian earnings bet: sentiment is so bearish that 'less bad' results could spark a sharp rally.",
           "reasons": [
@@ -869,7 +1430,73 @@ window.PICKS = {
               "Seeking Alpha – Nike: extreme bearishness",
               "https://seekingalpha.com/article/4950133-nike-earnings-preview-only-bullish-aspect-stock-extreme-bearishness"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 35.84,
+            "date": "2026-09-29",
+            "researchPrice": 36.48,
+            "researchDate": "2026-09-29",
+            "diffPct": 1.79,
+            "original": {
+              "refPrice": 36.48,
+              "refDate": "2026-09-29",
+              "buyLow": 35.8,
+              "buyHigh": 36.8,
+              "target": 39.5,
+              "stop": 34.2
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,208M (min $50M), price $35.84"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 50-day avg $39.38, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "3-month return vs index -15.0 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": false,
+              "detail": "+1.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.74% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.53 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.74,
+            "sma20": 36.78,
+            "sma50": 39.38,
+            "sma200": 49.21,
+            "rs1m": -8.96,
+            "rs3m": -14.98,
+            "fromHigh52": -53.44,
+            "fromLow52": 1.76,
+            "avgValue20": 1207676125
+          },
+          "eventRisk": "Earnings on 2026-10-01, inside the holding window"
         },
         {
           "market": "IN",
@@ -878,12 +1505,12 @@ window.PICKS = {
           "name": "State Bank of India",
           "sector": "Banking (PSU)",
           "currency": "INR",
-          "refPrice": 956.1,
+          "refPrice": 964.7,
           "refDate": "2026-09-29",
-          "buyLow": 948,
-          "buyHigh": 962,
-          "target": 992,
-          "stop": 932,
+          "buyLow": 956.55,
+          "buyHigh": 970.65,
+          "target": 1000.9,
+          "stop": 940.4,
           "risk": "Low–Medium",
           "thesis": "A rare large-cap that is rising while the market falls, with the RBI policy decision inside the week.",
           "reasons": [
@@ -923,7 +1550,72 @@ window.PICKS = {
               "Bajaj Broking – SBI share price",
               "https://www.bajajbroking.in/stock/state-bank-of-india-share-price"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 964.7,
+            "date": "2026-09-29",
+            "researchPrice": 956.1,
+            "researchDate": "2026-09-29",
+            "diffPct": -0.89,
+            "original": {
+              "refPrice": 956.1,
+              "refDate": "2026-09-29",
+              "buyLow": 948,
+              "buyHigh": 962,
+              "target": 992,
+              "stop": 932
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹826 cr (min ₹100 cr), price ₹964.7"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 50-day avg ₹1026.34, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "3-month return vs index -2.9 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+12.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-1.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.7% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.61 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.7,
+            "sma20": 994.28,
+            "sma50": 1026.34,
+            "sma200": 1042.35,
+            "rs1m": -2.95,
+            "rs3m": -2.89,
+            "fromHigh52": -21.87,
+            "fromLow52": 12.7,
+            "avgValue20": 8264889757
+          }
         },
         {
           "market": "IN",
@@ -932,12 +1624,12 @@ window.PICKS = {
           "name": "Bharat Electronics",
           "sector": "Defence electronics",
           "currency": "INR",
-          "refPrice": 385.0,
-          "refDate": "2026-09-28",
-          "buyLow": 380,
-          "buyHigh": 390,
-          "target": 404,
-          "stop": 372,
+          "refPrice": 387.75,
+          "refDate": "2026-09-29",
+          "buyLow": 382.7,
+          "buyHigh": 392.8,
+          "target": 406.9,
+          "stop": 374.65,
           "risk": "Medium",
           "thesis": "Defence order visibility plus a pending order approval that could land any day.",
           "reasons": [
@@ -977,7 +1669,72 @@ window.PICKS = {
               "Tickertape – BEL share price",
               "https://www.tickertape.in/stocks/bharat-electronics-BAJE"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 387.75,
+            "date": "2026-09-29",
+            "researchPrice": 385.0,
+            "researchDate": "2026-09-28",
+            "diffPct": -0.71,
+            "original": {
+              "refPrice": 385.0,
+              "refDate": "2026-09-28",
+              "buyLow": 380,
+              "buyHigh": 390,
+              "target": 404,
+              "stop": 372
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹384 cr (min ₹100 cr), price ₹387.75"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 50-day avg ₹401.64, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "3-month return vs index -1.2 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": false,
+              "detail": "+1.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-1.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.8% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.46 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.8,
+            "sma20": 398.13,
+            "sma50": 401.64,
+            "sma200": 418.4,
+            "rs1m": -0.4,
+            "rs3m": -1.21,
+            "fromHigh52": -18.1,
+            "fromLow52": 1.92,
+            "avgValue20": 3844973384
+          }
         },
         {
           "market": "IN",
@@ -986,12 +1743,12 @@ window.PICKS = {
           "name": "Mahindra & Mahindra",
           "sector": "Auto (SUV / tractors)",
           "currency": "INR",
-          "refPrice": 3035.0,
-          "refDate": "2026-09-25",
-          "buyLow": 3000,
-          "buyHigh": 3050,
-          "target": 3150,
-          "stop": 2950,
+          "refPrice": 2947.8,
+          "refDate": "2026-09-29",
+          "buyLow": 2913.8,
+          "buyHigh": 2962.35,
+          "target": 3059.5,
+          "stop": 2865.25,
           "risk": "Medium",
           "thesis": "September auto sales come out Oct 1, compared with an easy base last year.",
           "reasons": [
@@ -1031,7 +1788,72 @@ window.PICKS = {
               "5paisa – M&M closes at ₹3,150 (Sep 9)",
               "https://www.5paisa.com/blog/mahindra-and-mahindra-bank-stock-update-09-sep-26"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 2947.8,
+            "date": "2026-09-29",
+            "researchPrice": 3035.0,
+            "researchDate": "2026-09-25",
+            "diffPct": 2.96,
+            "original": {
+              "refPrice": 3035.0,
+              "refDate": "2026-09-25",
+              "buyLow": 3000,
+              "buyHigh": 3050,
+              "target": 3150,
+              "stop": 2950
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹589 cr (min ₹100 cr), price ₹2,947.8"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 50-day avg ₹3252.15, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "3-month return vs index -1.8 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": false,
+              "detail": "+1.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-2.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.0% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.67 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.0,
+            "sma20": 3082.06,
+            "sma50": 3252.15,
+            "sma200": 3278.14,
+            "rs1m": -4.14,
+            "rs3m": -1.8,
+            "fromHigh52": -23.23,
+            "fromLow52": 1.79,
+            "avgValue20": 5887976229
+          }
         },
         {
           "market": "IN",
@@ -1040,12 +1862,12 @@ window.PICKS = {
           "name": "Oil & Natural Gas Corp",
           "sector": "Energy (upstream)",
           "currency": "INR",
-          "refPrice": 228.2,
+          "refPrice": 230.0,
           "refDate": "2026-09-29",
-          "buyLow": 226,
-          "buyHigh": 230,
-          "target": 238,
-          "stop": 222,
+          "buyLow": 227.8,
+          "buyHigh": 231.8,
+          "target": 239.9,
+          "stop": 223.75,
           "risk": "Medium",
           "thesis": "Crude above $100 means higher prices for every barrel it produces, and the stock hasn't caught up.",
           "reasons": [
@@ -1085,7 +1907,72 @@ window.PICKS = {
               "Kotak Neo – ONGC share price",
               "https://www.kotakneo.com/stocks/oil-natural-gas-corpn-share-price/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 230.0,
+            "date": "2026-09-29",
+            "researchPrice": 228.2,
+            "researchDate": "2026-09-29",
+            "diffPct": -0.78,
+            "original": {
+              "refPrice": 228.2,
+              "refDate": "2026-09-29",
+              "buyLow": 226,
+              "buyHigh": 230,
+              "target": 238,
+              "stop": 222
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹229 cr (min ₹100 cr), price ₹230.0"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 50-day avg ₹237.4, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +2.8 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": false,
+              "detail": "+1.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-1.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.75% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.67 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.75,
+            "sma20": 234.78,
+            "sma50": 237.4,
+            "sma200": 257.06,
+            "rs1m": 5.26,
+            "rs3m": 2.84,
+            "fromHigh52": -25.2,
+            "fromLow52": 1.03,
+            "avgValue20": 2287165409
+          }
         },
         {
           "market": "IN",
@@ -1139,7 +2026,64 @@ window.PICKS = {
               "CNBC – Airport unit $1B fundraising",
               "https://www.cnbc.com/2026/09/09/adani-enterprises-airport-fundraise-shares.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 2972.9,
+            "date": "2026-09-29",
+            "researchPrice": 2972.9,
+            "researchDate": "2026-09-29",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹426 cr (min ₹100 cr), price ₹2,972.9"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 50-day avg ₹3001.95, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "3-month return vs index -1.1 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+69.6% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.78% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.70 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.78,
+            "sma20": 2965.67,
+            "sma50": 3001.95,
+            "sma200": 2574.17,
+            "rs1m": 10.02,
+            "rs3m": -1.07,
+            "fromHigh52": -8.39,
+            "fromLow52": 69.59,
+            "avgValue20": 4257859906
+          }
         }
       ],
       "marketSources": [
@@ -1234,7 +2178,65 @@ window.PICKS = {
               "GuruFocus – MU Q4 2026 preview",
               "https://www.gurufocus.com/news/9101080/micron-technology-mu-q4-2026-earnings-preview-analysts-optimistic"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1065.08,
+            "date": "2026-09-29",
+            "researchPrice": 1065.08,
+            "researchDate": "2026-09-29",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $24,971M (min $50M), price $1,065.08"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close above 50-day avg $949.71, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "3-month return vs index -10.0 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+565.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 4.41% of price (max 6.0% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.50 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 4.41,
+            "sma20": 1005.52,
+            "sma50": 949.71,
+            "sma200": 669.11,
+            "rs1m": 14.7,
+            "rs3m": -10.02,
+            "fromHigh52": -15.13,
+            "fromLow52": 565.8,
+            "avgValue20": 24970750143
+          },
+          "eventRisk": "Earnings on 2026-09-30, inside the holding window"
         },
         {
           "market": "US",
@@ -1288,7 +2290,65 @@ window.PICKS = {
               "Seeking Alpha – 2nd major stealth jet program",
               "https://seekingalpha.com/news/4648316-boeing-wins-20b-navy-fighter-contract-its-2nd-major-stealth-jet-program"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 187.68,
+            "date": "2026-09-29",
+            "researchPrice": 187.68,
+            "researchDate": "2026-09-29",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,487M (min $50M), price $187.68"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 50-day avg $213.34, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "3-month return vs index -15.6 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": false,
+              "detail": "+6.2% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-2.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.27% of price (max 6.0% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.33 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.27,
+            "sma20": 202.63,
+            "sma50": 213.34,
+            "sma200": 220.95,
+            "rs1m": -10.02,
+            "rs3m": -15.59,
+            "fromHigh52": -26.21,
+            "fromLow52": 6.17,
+            "avgValue20": 1486513271
+          },
+          "eventRisk": "Earnings on 2026-10-28, inside the holding window"
         },
         {
           "market": "US",
@@ -1297,8 +2357,8 @@ window.PICKS = {
           "name": "Eli Lilly",
           "sector": "Healthcare / Pharma",
           "currency": "USD",
-          "refPrice": 1184.78,
-          "refDate": "2026-09-28",
+          "refPrice": 1184.63,
+          "refDate": "2026-09-29",
           "buyLow": 1165,
           "buyHigh": 1190,
           "target": 1265,
@@ -1342,7 +2402,65 @@ window.PICKS = {
               "Parameter – LLY 52-week peak on regulatory wins",
               "https://parameter.io/eli-lilly-lly-stock-hits-all-time-52-week-peak-on-regulatory-wins/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1184.63,
+            "date": "2026-09-29",
+            "researchPrice": 1184.78,
+            "researchDate": "2026-09-28",
+            "diffPct": 0.01,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $2,595M (min $50M), price $1,184.63"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close above 50-day avg $1178.28, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "3-month return vs index -3.5 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+65.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.0 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.63% of price (max 6.0% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.67 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.63,
+            "sma20": 1152.71,
+            "sma50": 1178.28,
+            "sma200": 1072.06,
+            "rs1m": 1.38,
+            "rs3m": -3.52,
+            "fromHigh52": -8.36,
+            "fromLow52": 65.43,
+            "avgValue20": 2594541319
+          },
+          "eventRisk": "Earnings on 2026-10-29, inside the holding window"
         },
         {
           "market": "US",
@@ -1351,7 +2469,7 @@ window.PICKS = {
           "name": "Marathon Petroleum",
           "sector": "Energy / Refining",
           "currency": "USD",
-          "refPrice": 391.99,
+          "refPrice": 392.03,
           "refDate": "2026-09-29",
           "buyLow": 382,
           "buyHigh": 394,
@@ -1396,7 +2514,64 @@ window.PICKS = {
               "Forbes – refining stocks soar as crack spread hits record",
               "https://www.forbes.com/sites/garthfriesen/2026/07/23/refining-stocks-soar-as-crack-spread-hits-record-high-in-2026/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 392.03,
+            "date": "2026-09-29",
+            "researchPrice": 391.99,
+            "researchDate": "2026-09-29",
+            "diffPct": -0.01,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,229M (min $50M), price $392.03"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $359.65, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +51.0 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+142.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-0.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.69% of price (max 6.0% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.55 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.69,
+            "sma20": 397.33,
+            "sma50": 359.65,
+            "sma200": 258.32,
+            "rs1m": 6.82,
+            "rs3m": 51.04,
+            "fromHigh52": -9.06,
+            "fromLow52": 142.1,
+            "avgValue20": 1228876765
+          }
         },
         {
           "market": "US",
@@ -1405,12 +2580,12 @@ window.PICKS = {
           "name": "JPMorgan Chase",
           "sector": "Financials / Banks",
           "currency": "USD",
-          "refPrice": 343.0,
+          "refPrice": 334.98,
           "refDate": "2026-09-29",
-          "buyLow": 336,
-          "buyHigh": 346,
-          "target": 364,
-          "stop": 327,
+          "buyLow": 328.14,
+          "buyHigh": 337.91,
+          "target": 355.49,
+          "stop": 319.35,
           "risk": "Low–Medium",
           "thesis": "It kicks off Q3 earnings season inside the 1-month window, and a steep yield curve helps it.",
           "reasons": [
@@ -1450,7 +2625,73 @@ window.PICKS = {
               "X / Markets Today – HSBC resumes bank coverage (Sep 28)",
               "https://x.com/marketsday/status/2104555743601189209"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 334.98,
+            "date": "2026-09-29",
+            "researchPrice": 343.0,
+            "researchDate": "2026-09-29",
+            "diffPct": 2.39,
+            "original": {
+              "refPrice": 343.0,
+              "refDate": "2026-09-29",
+              "buyLow": 336,
+              "buyHigh": 346,
+              "target": 364,
+              "stop": 327
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $2,785M (min $50M), price $334.98"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 50-day avg $353.18, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +0.1 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+20.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-2.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.96% of price (max 6.0% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.64 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.96,
+            "sma20": 349.16,
+            "sma50": 353.18,
+            "sma200": 321.56,
+            "rs1m": -5.8,
+            "rs3m": 0.05,
+            "fromHigh52": -8.6,
+            "fromLow52": 20.02,
+            "avgValue20": 2784634415
+          },
+          "eventRisk": "Earnings on 2026-10-13, inside the holding window"
         },
         {
           "market": "IN",
@@ -1504,7 +2745,65 @@ window.PICKS = {
               "HDFC Sky – Top gainers Sep 29, 2026",
               "https://hdfcsky.com/news/top-gainers-losers-september-29-2026-at-3-30-pm"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1251.9,
+            "date": "2026-09-29",
+            "researchPrice": 1251.9,
+            "researchDate": "2026-09-29",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹195 cr (min ₹100 cr), price ₹1,251.9"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close above 50-day avg ₹1174.43, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "3-month return vs index -1.6 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+13.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": false,
+              "detail": "+3.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.82% of price (max 6.0% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 2.16 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.82,
+            "sma20": 1175.83,
+            "sma50": 1174.43,
+            "sma200": 1247.99,
+            "rs1m": 14.49,
+            "rs3m": -1.6,
+            "fromHigh52": -11.52,
+            "fromLow52": 13.71,
+            "avgValue20": 1954684315
+          },
+          "eventRisk": "Earnings on 2026-10-23, inside the holding window"
         },
         {
           "market": "IN",
@@ -1513,12 +2812,12 @@ window.PICKS = {
           "name": "Sun Pharmaceutical",
           "sector": "Pharma (specialty)",
           "currency": "INR",
-          "refPrice": 1838.0,
+          "refPrice": 1865.0,
           "refDate": "2026-09-29",
-          "buyLow": 1815,
-          "buyHigh": 1845,
-          "target": 1965,
-          "stop": 1770,
+          "buyLow": 1841.65,
+          "buyHigh": 1872.1,
+          "target": 1993.85,
+          "stop": 1796.0,
           "risk": "Low",
           "thesis": "India's largest pharma company, with new specialty-drug news and three brokers' targets well above the price.",
           "reasons": [
@@ -1558,7 +2857,72 @@ window.PICKS = {
               "Business Standard – Sun Pharma Q1 FY27 results",
               "https://www.business-standard.com/companies/quarterly-results/quarterly-results-sun-pharma-q1fy27-profit-revenue-ebitda-results-126073100858_1.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1865.0,
+            "date": "2026-09-29",
+            "researchPrice": 1838.0,
+            "researchDate": "2026-09-29",
+            "diffPct": -1.45,
+            "original": {
+              "refPrice": 1838.0,
+              "refDate": "2026-09-29",
+              "buyLow": 1815,
+              "buyHigh": 1845,
+              "target": 1965,
+              "stop": 1770
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹264 cr (min ₹100 cr), price ₹1,865.0"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 50-day avg ₹1909.6, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +5.0 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+18.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-0.0 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.58% of price (max 6.0% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 2.25 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.58,
+            "sma20": 1865.6,
+            "sma50": 1909.6,
+            "sma200": 1808.83,
+            "rs1m": -0.0,
+            "rs3m": 5.05,
+            "fromHigh52": -8.89,
+            "fromLow52": 18.04,
+            "avgValue20": 2636432771
+          }
         },
         {
           "market": "IN",
@@ -1567,12 +2931,12 @@ window.PICKS = {
           "name": "Hindustan Aeronautics",
           "sector": "Defence",
           "currency": "INR",
-          "refPrice": 4682.9,
+          "refPrice": 4549.3,
           "refDate": "2026-09-29",
-          "buyLow": 4620,
-          "buyHigh": 4700,
-          "target": 5000,
-          "stop": 4480,
+          "buyLow": 4488.2,
+          "buyHigh": 4565.9,
+          "target": 4857.35,
+          "stop": 4352.2,
           "risk": "Medium",
           "thesis": "The stock has pulled back about 7% while its order book, the reason it rallied, is still growing.",
           "reasons": [
@@ -1612,7 +2976,72 @@ window.PICKS = {
               "Tickertape – HAL share price",
               "https://www.tickertape.in/stocks/hindustan-aeronautics-HIAE"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 4549.3,
+            "date": "2026-09-29",
+            "researchPrice": 4682.9,
+            "researchDate": "2026-09-29",
+            "diffPct": 2.94,
+            "original": {
+              "refPrice": 4682.9,
+              "refDate": "2026-09-29",
+              "buyLow": 4620,
+              "buyHigh": 4700,
+              "target": 5000,
+              "stop": 4480
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹388 cr (min ₹100 cr), price ₹4,549.3"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 50-day avg ₹4819.02, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +8.0 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+30.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-2.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.28% of price (max 6.0% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.89 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.28,
+            "sma20": 4817.54,
+            "sma50": 4819.02,
+            "sma200": 4409.31,
+            "rs1m": 0.79,
+            "rs3m": 7.97,
+            "fromHigh52": -11.66,
+            "fromLow52": 30.76,
+            "avgValue20": 3878688298
+          }
         },
         {
           "market": "IN",
@@ -1666,7 +3095,65 @@ window.PICKS = {
               "BusinessToday – Adani Ports target upgrade",
               "https://www.businesstoday.in/markets/stocks/story/adani-ports-share-price-target-52-week-low-adani-stock-gets-target-price-upgrade-554746-2026-09-11"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1822.0,
+            "date": "2026-09-29",
+            "researchPrice": 1822.0,
+            "researchDate": "2026-09-29",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹347 cr (min ₹100 cr), price ₹1,822.0"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close above 50-day avg ₹1722.62, 50-day avg falling"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +2.1 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+41.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.28% of price (max 6.0% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 2.00 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.28,
+            "sma20": 1754.57,
+            "sma50": 1722.62,
+            "sma200": 1630.33,
+            "rs1m": 20.41,
+            "rs3m": 2.12,
+            "fromHigh52": -3.65,
+            "fromLow52": 41.02,
+            "avgValue20": 3465124199
+          },
+          "eventRisk": "Earnings on 2026-10-28, inside the holding window"
         },
         {
           "market": "IN",
@@ -1720,7 +3207,64 @@ window.PICKS = {
               "Paterson – Pharma & metals lead September sector ranks",
               "https://patersoncapital.com/pharma-ipos-and-metals-lead-septembers-sector-rankings/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 955.2,
+            "date": "2026-09-29",
+            "researchPrice": 955.2,
+            "researchDate": "2026-09-29",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹326 cr (min ₹100 cr), price ₹955.2"
+            },
+            {
+              "name": "Trend",
+              "pass": false,
+              "detail": "close below 50-day avg ₹1005.21, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +6.0 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+28.2% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-1.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.24% of price (max 6.0% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": false,
+              "detail": "R:R 1.93 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.24,
+            "sma20": 988.81,
+            "sma50": 1005.21,
+            "sma200": 981.41,
+            "rs1m": 0.11,
+            "rs3m": 6.0,
+            "fromHigh52": -18.78,
+            "fromLow52": 28.24,
+            "avgValue20": 3256321606
+          }
         }
       ],
       "marketSources": [

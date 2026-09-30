@@ -116,6 +116,16 @@
   .chip.risk-High { background: var(--down-soft); color: var(--down); }
   .chip.risk-Low { background: var(--up-soft); color: var(--up); }
   .chip.risk-Medium { background: var(--warn-soft); color: var(--warn); }
+  /* ---------- archive navigation ---------- */
+  .batch-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 14px 0 0; font-size: 13.5px; }
+  .batch-nav label { font-weight: 600; color: var(--muted); }
+  .batch-nav select { font: inherit; font-weight: 600; color: var(--text); background: var(--surface); border: 1px solid var(--border-strong); border-radius: 8px; padding: 8px 10px; min-height: 40px; max-width: 100%; }
+  #batchCount { font-size: 12.5px; }
+  .result-box { margin: 12px 0 4px; padding: 10px 12px; border-radius: 8px; background: var(--accent-soft); font-size: 13.5px; line-height: 1.6; }
+  .month-head { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); margin: 18px 2px 8px; }
+  .batch-links { padding: 0 16px 10px; font-size: 12.5px; color: var(--muted); }
+  .goto { display: inline-block; margin-top: 10px; font-weight: 600; font-size: 13px; }
+  .scope { font-size: 12.5px; margin: 12px 0 0; }
   .zone { font-weight: 600; }
   .zone.in { color: var(--up); } .zone.above { color: var(--warn); } .zone.below { color: var(--down); }
 
@@ -253,6 +263,12 @@
 
   <!-- PICKS -->
   <section id="view-picks" role="tabpanel">
+    <div class="batch-nav" id="batchNav">
+      <label for="batchSel">Showing picks from</label>
+      <select id="batchSel"></select>
+      <button class="link-btn" id="latestBtn" hidden>← Back to latest</button>
+      <span class="muted" id="batchCount"></span>
+    </div>
     <div class="strip" id="strip"></div>
     <p class="disclaimer"><b>Not financial advice.</b> These are research ideas from public news and price data. Check live prices with your broker, and size each trade so hitting the stop-loss doesn't hurt much.</p>
     <details class="backdrop" id="backdrop"></details>
@@ -261,13 +277,14 @@
       <button class="link-btn" id="toggleAll">Expand all</button>
     </div>
     <div class="list-head" aria-hidden="true">
-      <span>#</span><span>Stock · why</span><span>Today's price</span><span>Buy zone</span><span>Sell target</span><span>Stop-loss</span><span>Risk</span><span></span>
+      <span>#</span><span>Stock · why</span><span id="priceHead">Today's price</span><span>Buy zone</span><span>Sell target</span><span>Stop-loss</span><span>Risk</span><span></span>
     </div>
     <div class="picks" id="picks"></div>
   </section>
 
   <!-- HISTORY -->
   <section id="view-history" role="tabpanel" hidden>
+    <p class="scope muted" id="histScope"></p>
     <div class="tiles" id="tiles"></div>
     <div class="note" id="histNote" hidden></div>
     <div id="batches"></div>
@@ -309,6 +326,8 @@
         <li><b>Target met?</b>: ✅ Yes if the price touched the target at any point in the window, ❌ No if it didn't. The ± figure shows how far the closing price ended from the target.</li>
         <li>Open a row to see the stop-loss and what happened if you followed the plan exactly (sell at the target, the stop or the end, whichever came first). Each batch is also compared with its market index (S&amp;P 500 or Nifty 50) over the same window.</li>
       </ul>
+      <h3>Your history is kept permanently</h3>
+      <p>Every batch ever published, daily, weekly and monthly, stays on the site with all its details: reasons, key numbers, risks, sources, the market backdrop at the time, and the final result. Use <b>Showing picks from</b> on the Picks tab to open any past date, or browse <b>Past picks &amp; results</b>, where batches are grouped by month. Batches that finished more than 45 days ago move into a permanent monthly archive (<span class="num">data/archive/</span>) that loads when you open it, so the page stays fast however long the history grows. Each batch also has its own link you can bookmark. Nothing is ever deleted, and the full change history is also in the GitHub repo.</p>
       <h3>Keeping it fresh</h3>
       <p>A GitHub Action runs <span class="num">scripts/update_prices.py</span> after the NSE and NYSE close each weekday. It updates prices and scores every past pick. To add new picks, put a new batch (with <span class="num">"horizon": "daily"</span>, <span class="num">"weekly"</span> or <span class="num">"monthly"</span>) at the top of <span class="num">data/picks.js</span>.</p>
       <h3>Honest limitations</h3>
@@ -324,13 +343,16 @@
 
 <script src="data/picks.js"></script>
 <script src="data/prices.js"></script>
+<script src="data/archive/index.js"></script>
 <script>
 (function () {
   const PICKS = window.PICKS || { batches: [] };
   const PRICES = window.PRICES || {};
   PRICES.quotes = PRICES.quotes || {}; PRICES.tracking = PRICES.tracking || {};
-  const state = { view: "picks", market: "US", horizon: "weekly" };
+  const AIDX = window.ARCHIVE_INDEX || { months: [] };
+  const state = { view: "picks", market: "US", horizon: "weekly", batch: "" };
   const CHEV = '<svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const CLOSE_LABEL = { daily: "session close", weekly: "week-end close", monthly: "month-end close" };
 
   // ---------- helpers ----------
   const $ = id => document.getElementById(id);
@@ -342,9 +364,9 @@
   const cls = v => v == null ? "" : v > 0 ? "up" : v < 0 ? "down" : "";
   const fdate = d => d ? new Date(d + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "—";
   const fdateY = d => d ? new Date(d + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "—";
+  const fmonth = m => new Date(m + "-01T00:00:00").toLocaleDateString("en-GB", { month: "long", year: "numeric" });
   const riskKey = r => r.split("–")[0];
-  const byDate = (a, b) => b.date.localeCompare(a.date);
-  const batchesFor = h => PICKS.batches.filter(b => (b.horizon || "monthly") === h).sort(byDate);
+  const mktName = m => m === "US" ? "US" : "India";
 
   function livePrice(p) {
     const q = PRICES.quotes[p.yahoo];
@@ -352,21 +374,73 @@
              : { price: p.refPrice, change: null, asOf: p.refDate, live: false };
   }
 
+  // ---------- data: active batches + permanent monthly archive ----------
+  // Recent batches live in data/picks.js. Finished ones are moved by
+  // scripts/archive.py into data/archive/<YYYY-MM>.js; data/archive/index.js
+  // lists them all with summary stats, and a month's file is fetched only when
+  // someone opens a batch from it.
+  const ARCH_TRACK = {};
+  const monthLoads = {};
+  function loadMonth(month) {
+    if (monthLoads[month]) return monthLoads[month];
+    monthLoads[month] = new Promise((resolve, reject) => {
+      const done = () => {
+        const a = (window.ARCHIVE || {})[month];
+        if (!a) { delete monthLoads[month]; return reject(new Error("missing " + month)); }
+        Object.assign(ARCH_TRACK, a.tracking || {});
+        resolve(a);
+      };
+      if ((window.ARCHIVE || {})[month]) return done();
+      const tag = document.createElement("script");
+      tag.src = `data/archive/${month}.js`;
+      tag.onload = done;
+      tag.onerror = () => { delete monthLoads[month]; reject(new Error("load " + month)); };
+      document.head.appendChild(tag);
+    });
+    return monthLoads[month];
+  }
+  // One list of every batch ever published for a holding period, newest first.
+  function metasFor(horizon) {
+    const seen = new Set(), out = [];
+    PICKS.batches.filter(b => (b.horizon || "monthly") === horizon).forEach(b => {
+      seen.add(b.id);
+      out.push({ id: b.id, horizon, date: b.date, expires: b.expires, batch: b });
+    });
+    AIDX.months.forEach(mo => mo.batches.filter(b => b.horizon === horizon && !seen.has(b.id))
+      .forEach(b => out.push({ ...b, month: mo.month, archived: true })));
+    return out.sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
+  }
+  const hasMarket = (meta, m) => meta.batch ? meta.batch.picks.some(p => p.market === m) : !!(meta.markets && meta.markets[m] && meta.markets[m].n);
+  const fullBatch = meta => meta.batch ? Promise.resolve(meta.batch)
+    : loadMonth(meta.month).then(a => a.batches.find(b => b.id === meta.id));
+  const trackOf = id => PRICES.tracking[id] || ARCH_TRACK[id] || {};
+  const windowLabel = m => m.horizon === "daily" ? `session ${fdateY(m.date)}` : `${fdate(m.date)} → ${fdateY(m.expires)}`;
+
   // ---------- state / routing ----------
+  // Hash: #view/market/horizon[/batchId], so any past batch has its own link.
   function setState(patch) {
+    if (("market" in patch || "horizon" in patch) && !("batch" in patch)) patch.batch = "";
     Object.assign(state, patch);
-    try { history.replaceState(null, "", `#${state.view}/${state.market}/${state.horizon}`); } catch (e) {}
+    try { history.replaceState(null, "", `#${state.view}/${state.market}/${state.horizon}${state.batch ? "/" + state.batch : ""}`); } catch (e) {}
     render();
   }
   (function readHash() {
-    const [v, m, h] = (location.hash || "").slice(1).split("/");
+    const [v, m, h, b] = (location.hash || "").slice(1).split("/");
     if (["picks", "history", "method"].includes(v)) state.view = v;
     if (["US", "IN"].includes(m)) state.market = m;
     if (["daily", "weekly", "monthly"].includes(h)) state.horizon = h;
+    if (b) state.batch = decodeURIComponent(b);
   })();
   document.querySelectorAll("nav.views button").forEach(b => b.addEventListener("click", () => setState({ view: b.dataset.view })));
   document.querySelectorAll("[data-market]").forEach(b => b.addEventListener("click", () => setState({ market: b.dataset.market })));
   document.querySelectorAll("[data-horizon]").forEach(b => b.addEventListener("click", () => setState({ horizon: b.dataset.horizon })));
+  $("batchSel").addEventListener("change", e => setState({ batch: e.target.value }));
+  $("latestBtn").addEventListener("click", () => setState({ batch: "" }));
+  // Links from results rows / archived banners jump to a batch's full picks.
+  document.addEventListener("click", e => {
+    const a = e.target.closest("[data-goto]");
+    if (a) { e.preventDefault(); setState({ view: a.dataset.view || "picks", batch: a.dataset.goto }); window.scrollTo(0, 0); }
+  });
 
   // ---------- theme ----------
   const root = document.documentElement;
@@ -376,6 +450,41 @@
     root.dataset.theme = dark ? "light" : "dark";
     try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
   });
+
+  // ---------- outcomes (shared by picks and results) ----------
+  function scored(batch, p) {
+    const t = trackOf(batch.id)[p.yahoo];
+    return t || { status: "Open", markPrice: p.refPrice, returnPct: 0, exitDate: null, pending: true };
+  }
+
+  // Everything the results need for one pick, derived from the scorer's output.
+  // Older tracking entries may lack the period-close fields, so fall back to
+  // the plan exit where that is the same thing.
+  function outcome(b, p) {
+    const s = scored(b, p);
+    const expected = (p.target / p.refPrice - 1) * 100;
+    const running = new Date() <= new Date(b.expires + "T23:59:59");
+    let close = s.periodClose, closeDate = s.periodCloseDate, final = s.periodFinal;
+    if (close == null && !s.pending) {
+      close = s.markPrice; closeDate = s.exitDate; final = s.status !== "Open";
+    }
+    const closeRet = close == null ? null : (close / p.refPrice - 1) * 100;
+    const vsTarget = close == null ? null : (close / p.target - 1) * 100;
+    const hit = s.targetHit != null ? s.targetHit : s.status === "Target hit";
+    let met;
+    if (s.pending || close == null) met = ["Pending", "v-wait"];
+    else if (hit) met = ["✅ Yes", "v-good"];
+    else if (final || !running) met = ["❌ No", "v-bad"];
+    else met = ["⏳ Not yet", "v-mid"];
+    return { s, expected, close, closeDate, final, closeRet, vsTarget, hit, met, running };
+  }
+
+  function planText(s, c) {
+    return s.pending ? "Waiting for price data" :
+      s.status === "Target hit" ? `Sold at target ${fmt(s.exitPrice, c)} on ${fdate(s.exitDate)} (${pct(s.returnPct)})` :
+      s.status === "Stopped out" ? `Stop-loss hit at ${fmt(s.exitPrice, c)} on ${fdate(s.exitDate)} (${pct(s.returnPct)})` :
+      s.status === "Expired" ? `Held to the end: ${fmt(s.exitPrice, c)} (${pct(s.returnPct)})` : "Still open";
+  }
 
   // ---------- picks view ----------
   function zoneOf(p, price) {
@@ -400,32 +509,49 @@
       </div></div>`;
   }
 
-  function pickRow(p, i) {
-    const lp = livePrice(p);
+  function pickRow(p, i, batch, isLatest) {
+    const c = p.currency, o = isLatest ? null : outcome(batch, p);
+    const lp = isLatest ? livePrice(p) : { price: p.refPrice, asOf: p.refDate, live: false, change: null };
     const mid = (p.buyLow + p.buyHigh) / 2;
     const up = (p.target / mid - 1) * 100, dn = (p.stop / mid - 1) * 100, rr = (p.target - mid) / (mid - p.stop);
-    const [zk, zt] = zoneOf(p, lp.price);
-    const buyZone = `${short(p.buyLow, p.currency)}–${short(p.buyHigh, p.currency).replace(/^[$₹]/, "")}`;
+    const buyZone = `${short(p.buyLow, c)}–${short(p.buyHigh, c).replace(/^[$₹]/, "")}`;
+    let priceCell;
+    if (isLatest) {
+      const [zk, zt] = zoneOf(p, lp.price);
+      priceCell = `<span class="lbl">Today's price</span><span class="v num">${fmt(lp.price, c)}</span><span class="s zone ${zk}">${zt}</span>`;
+    } else {
+      priceCell = `<span class="lbl">Result</span><span class="v"><span class="status ${o.met[1]}">${o.met[0]}</span></span>
+        <span class="s">${o.close == null ? "no price data" : `${fmt(o.close, c)} · <span class="${cls(o.closeRet)}">${pct(o.closeRet)}</span>`}</span>`;
+    }
+    const result = isLatest ? "" : `<div class="result-box">
+        <b>How it turned out:</b>
+        ${o.close == null ? "No price data for this pick yet." :
+          `Closed at <b class="num">${fmt(o.close, c)}</b> (${o.final ? CLOSE_LABEL[batch.horizon || "monthly"] : "latest so far"}, ${fdate(o.closeDate)}) ·
+           actual <b class="num ${cls(o.closeRet)}">${pct(o.closeRet)}</b> vs expected <b class="num up">${pct(o.expected)}</b> ·
+           target met: <b>${o.hit ? "Yes" : o.final || !o.running ? "No" : "not yet"}</b> (closed ${pct(o.vsTarget)} vs target) ·
+           if you followed the plan: <b>${esc(planText(o.s, c))}</b>`}
+      </div>`;
+    const dotPrice = isLatest ? lp.price : (o.close != null ? o.close : p.refPrice);
     return `<details class="pick">
       <summary>
         <span class="rank">${i + 1}</span>
         <span class="stock-name"><b>${esc(p.name)}</b><span class="tk num">${esc(p.symbol)}</span>
           <span class="th">${esc(p.thesis)}</span></span>
         <span class="stats">
-          <span class="cell"><span class="lbl">Today's price</span><span class="v num">${fmt(lp.price, p.currency)}</span>
-            <span class="s zone ${zk}">${zt}</span></span>
+          <span class="cell">${priceCell}</span>
           <span class="cell"><span class="lbl">Buy zone</span><span class="v num">${buyZone}</span>
-            <span class="s">${lp.live ? "close" : "ref. close"} ${fdate(lp.asOf)}${lp.change != null ? ` · <span class="${cls(lp.change)}">${pct(lp.change)}</span>` : ""}</span></span>
-          <span class="cell"><span class="lbl">Sell target</span><span class="v num up">${short(p.target, p.currency)}</span><span class="s">${pct(up)}</span></span>
-          <span class="cell"><span class="lbl">Stop-loss</span><span class="v num down">${short(p.stop, p.currency)}</span><span class="s">${pct(dn)} · R:R ${rr.toFixed(1)}</span></span>
+            <span class="s">${isLatest ? `${lp.live ? "close" : "ref. close"} ${fdate(lp.asOf)}` : `ref. ${fmt(p.refPrice, c)}`}${lp.change != null ? ` · <span class="${cls(lp.change)}">${pct(lp.change)}</span>` : ""}</span></span>
+          <span class="cell"><span class="lbl">Sell target</span><span class="v num up">${short(p.target, c)}</span><span class="s">${pct(up)}</span></span>
+          <span class="cell"><span class="lbl">Stop-loss</span><span class="v num down">${short(p.stop, c)}</span><span class="s">${pct(dn)} · R:R ${rr.toFixed(1)}</span></span>
           <span class="cell riskcell"><span class="chip risk-${esc(riskKey(p.risk))}">${esc(p.risk)}<span class="rsx"> risk</span></span></span>
         </span>
         ${CHEV}
       </summary>
       <div class="pick-body">
+        ${result}
         <p class="sector">${esc(p.sector)} · ${p.market === "US" ? "NYSE/Nasdaq" : "NSE"}</p>
-        ${ladder(p, lp.price)}
-        <div class="muted" style="font-size:12px">● = today's price · shaded band = buy zone</div>
+        ${ladder(p, dotPrice)}
+        <div class="muted" style="font-size:12px">● = ${isLatest ? "today's price" : "closing price at the end of the window"} · shaded band = buy zone</div>
         <div class="cols">
           <div><h4>Why buy</h4><ul>${p.reasons.map(r => `<li>${esc(r)}</li>`).join("")}</ul></div>
           <div><h4>Key numbers</h4><table class="kv">${p.data.map(([k, v]) => `<tr><td>${esc(k)}</td><td class="num">${esc(v)}</td></tr>`).join("")}</table></div>
@@ -437,36 +563,74 @@
     </details>`;
   }
 
+  let picksToken = 0;
   function renderPicks() {
-    const batch = batchesFor(state.horizon)[0];
-    if (!batch) { $("picks").innerHTML = '<p class="empty">No picks for this holding period yet.</p>'; $("strip").innerHTML = ""; $("backdrop").innerHTML = ""; return; }
+    const metas = metasFor(state.horizon);
+    const token = ++picksToken;
+    if (!metas.length) {
+      $("batchNav").hidden = true; $("strip").innerHTML = ""; $("backdrop").innerHTML = "";
+      $("listTitle").textContent = ""; $("picks").innerHTML = '<p class="empty">No picks for this holding period yet.</p>';
+      return;
+    }
+    const meta = metas.find(m => m.id === state.batch) || metas[0];
+    const isLatest = meta === metas[0];
+    $("batchNav").hidden = false;
+    $("batchSel").innerHTML = metas.map((m, i) =>
+      `<option value="${i === 0 ? "" : esc(m.id)}" ${m === meta ? "selected" : ""}>${esc(windowLabel(m))}${i === 0 ? " · latest" : ""}${hasMarket(m, state.market) ? "" : " · no " + mktName(state.market) + " picks"}</option>`).join("");
+    $("batchCount").textContent = `${metas.length} ${state.horizon} batch${metas.length === 1 ? "" : "es"} on record`;
+    $("latestBtn").hidden = isLatest;
+    if (!meta.batch) {
+      $("strip").innerHTML = `<span class="when">Loading ${esc(fmonth(meta.month))} from the archive…</span>`;
+      $("backdrop").innerHTML = ""; $("picks").innerHTML = ""; $("listTitle").textContent = "";
+    }
+    // Only a batch whose window is still running is shown "live" (today's
+    // price, buy-zone status). Anything finished is shown with its results.
+    const live = isLatest && new Date() <= new Date(meta.expires + "T23:59:59");
+    fullBatch(meta).then(batch => { if (token === picksToken) drawPicks(batch, live); })
+      .catch(() => { if (token === picksToken) $("strip").innerHTML = `<span class="when">Couldn't load the ${esc(fmonth(meta.month))} archive. Check your connection and try again.</span>`; });
+  }
+
+  function drawPicks(batch, isLatest) {
     const start = new Date(batch.date + "T00:00:00"), end = new Date(batch.expires + "T23:59:59"), now = new Date();
     const isDaily = state.horizon === "daily";
-    const total = Math.max(1, Math.round((new Date(batch.expires + "T00:00:00") - start) / 864e5));
-    const left = Math.min(total, Math.max(0, Math.ceil((end - now) / 864e5) - 1));
-    const done = Math.min(100, Math.max(0, (now - start) / (end - start) * 100));
-    const sessionState = now < start ? "Upcoming session" : now <= end ? "Session day" : "Session over. See Past picks & results";
-    $("strip").innerHTML = isDaily
-      ? `<span class="when">For the ${new Date(batch.date + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" })} session</span>
-         <span class="muted" style="font-size:13px">Buy near the open inside the buy zone · sell at the target, the stop, or the close, whichever comes first · ${sessionState}</span>`
-      : `<span class="when">Picked ${fdateY(batch.date)} → sell by ${fdateY(batch.expires)}</span>
+    const list = batch.picks.filter(p => p.market === state.market);
+    if (!isLatest) {
+      const os = list.map(p => outcome(batch, p)), priced = os.filter(o => o.closeRet != null);
+      const done = priced.filter(o => o.final || o.hit), hits = done.filter(o => o.hit).length;
+      const avg = priced.length ? priced.reduce((t, o) => t + o.closeRet, 0) / priced.length : null;
+      const exp = os.length ? os.reduce((t, o) => t + o.expected, 0) / os.length : null;
+      $("strip").innerHTML = `<span class="when">📁 Past picks · ${esc(windowLabel(batch))}</span>
+        <span class="muted" style="font-size:13px">${priced.length
+          ? `Target met <b>${hits} of ${done.length}</b> · actual avg <b class="num ${cls(avg)}">${pct(avg)}</b> vs expected <b class="num up">${pct(exp)}</b>`
+          : "No price data recorded for this batch yet"} ·
+          <a href="#" data-goto="${esc(batch.id)}" data-view="history">see it in Past picks &amp; results →</a></span>`;
+    } else if (isDaily) {
+      const sessionState = now < start ? "Upcoming session" : now <= end ? "Session day" : "Session over. See Past picks & results";
+      $("strip").innerHTML = `<span class="when">For the ${new Date(batch.date + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" })} session</span>
+         <span class="muted" style="font-size:13px">Buy near the open inside the buy zone · sell at the target, the stop, or the close, whichever comes first · ${sessionState}</span>`;
+    } else {
+      const total = Math.max(1, Math.round((new Date(batch.expires + "T00:00:00") - start) / 864e5));
+      const left = Math.min(total, Math.max(0, Math.ceil((end - now) / 864e5) - 1));
+      const done = Math.min(100, Math.max(0, (now - start) / (end - start) * 100));
+      $("strip").innerHTML = `<span class="when">Picked ${fdateY(batch.date)} → sell by ${fdateY(batch.expires)}</span>
       <div class="progress"><div class="bar"><i style="width:${done.toFixed(0)}%"></i></div>
       <div class="cap">${left > 0 ? `${left} of ${total} days left in this window` : "Window closed. See Past picks & results"}</div></div>`;
+    }
 
     const ctx = batch.context[state.market] || { benchmarkName: "", summary: "" };
     const first = ctx.summary.split(/(?<=\.)\s/)[0];
-    $("backdrop").innerHTML = `<summary><span class="t"><b>Market backdrop · ${esc(ctx.benchmarkName)}</b><span>${esc(first)}</span></span>${CHEV}</summary>
+    $("backdrop").innerHTML = ctx.summary ? `<summary><span class="t"><b>Market backdrop${isLatest ? "" : " at the time"} · ${esc(ctx.benchmarkName)}</b><span>${esc(first)}</span></span>${CHEV}</summary>
       <div class="body">${esc(ctx.summary)}
-        <ul>${(batch.marketSources || []).map(([t, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ul></div>`;
+        <ul>${(batch.marketSources || []).map(([t, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ul></div>` : "";
 
-    const list = batch.picks.filter(p => p.market === state.market);
     if (!list.length) {
       $("listTitle").textContent = "No picks for this market";
-      $("picks").innerHTML = `<p class="empty">No ${state.market === "US" ? "US" : "India"} ${state.horizon} picks in this batch (usually a market holiday). Check the other market or holding period.</p>`;
+      $("picks").innerHTML = `<p class="empty">No ${mktName(state.market)} ${state.horizon} picks in this batch (usually a market holiday). Check the other market or pick another date.</p>`;
       return;
     }
-    $("listTitle").textContent = `Top ${list.length} ${state.market === "US" ? "US" : "India"} · ${state.horizon} picks`;
-    $("picks").innerHTML = list.map(pickRow).join("");
+    $("priceHead").textContent = isLatest ? "Today's price" : "Result";
+    $("listTitle").textContent = `${isLatest ? "Top" : "Past"} ${list.length} ${mktName(state.market)} · ${state.horizon} picks`;
+    $("picks").innerHTML = list.map((p, i) => pickRow(p, i, batch, isLatest)).join("");
     $("toggleAll").textContent = "Expand all";
   }
   $("toggleAll").addEventListener("click", e => {
@@ -477,35 +641,6 @@
   });
 
   // ---------- history view ----------
-  function scored(batch, p) {
-    const t = (PRICES.tracking[batch.id] || {})[p.yahoo];
-    return t || { status: "Open", markPrice: p.refPrice, returnPct: 0, exitDate: null, pending: true };
-  }
-
-  const CLOSE_LABEL = { daily: "session close", weekly: "week-end close", monthly: "month-end close" };
-
-  // Everything the results table needs for one pick, derived from the scorer's
-  // output. Older tracking entries may lack the period-close fields, so fall
-  // back to the plan exit where that is the same thing.
-  function outcome(b, p) {
-    const s = scored(b, p);
-    const expected = (p.target / p.refPrice - 1) * 100;
-    const running = new Date() <= new Date(b.expires + "T23:59:59");
-    let close = s.periodClose, closeDate = s.periodCloseDate, final = s.periodFinal;
-    if (close == null && !s.pending) {
-      close = s.markPrice; closeDate = s.exitDate; final = s.status !== "Open";
-    }
-    const closeRet = close == null ? null : (close / p.refPrice - 1) * 100;
-    const vsTarget = close == null ? null : (close / p.target - 1) * 100;
-    const hit = s.targetHit != null ? s.targetHit : s.status === "Target hit";
-    let met;
-    if (s.pending || close == null) met = ["Pending", "v-wait"];
-    else if (hit) met = ["✅ Yes", "v-good"];
-    else if (final || !running) met = ["❌ No", "v-bad"];
-    else met = ["⏳ Not yet", "v-mid"];
-    return { s, expected, close, closeDate, final, closeRet, vsTarget, hit, met, running };
-  }
-
   function meter(p, price) {
     const lo = p.stop, hi = p.target, v = Math.min(Math.max(price, lo), hi);
     const x = val => ((val - lo) / (hi - lo) * 100).toFixed(1) + "%";
@@ -522,10 +657,6 @@
     const closeSub = o.close == null ? (o.running ? "window still open" : "no price data")
       : `${o.final ? CLOSE_LABEL[b.horizon || "monthly"] : "latest close, so far"} · ${fdate(o.closeDate)}`;
     const metSub = o.close == null ? "" : `closed ${pct(o.vsTarget)} vs target`;
-    const plan = s.pending ? "Waiting for price data" :
-      s.status === "Target hit" ? `Sold at target ${fmt(s.exitPrice, c)} on ${fdate(s.exitDate)} (${pct(s.returnPct)})` :
-      s.status === "Stopped out" ? `Stop-loss hit at ${fmt(s.exitPrice, c)} on ${fdate(s.exitDate)} (${pct(s.returnPct)})` :
-      s.status === "Expired" ? `Held to the end: ${fmt(s.exitPrice, c)} (${pct(s.returnPct)})` : "Still open";
     return { ...o, html: `<details class="res">
       <summary>
         <span class="rs"><b>${esc(p.symbol)}</b> <span class="muted" style="font-size:12.5px">${esc(p.name)}</span></span>
@@ -542,51 +673,95 @@
         <div><b style="color:var(--text)">Why I expected it:</b> ${esc(p.thesis)}</div>
         <div class="facts">
           <span>Stop-loss <b class="num down">${fmt(p.stop, c)}</b> (${pct((p.stop / p.refPrice - 1) * 100)})</span>
-          <span>If you followed the plan: <b>${esc(plan)}</b></span>
+          <span>If you followed the plan: <b>${esc(planText(s, c))}</b></span>
           ${s.maxHigh != null ? `<span>Range in window <b class="num">${fmt(s.minLow, c)} – ${fmt(s.maxHigh, c)}</b></span>` : ""}
         </div>
         ${o.close != null ? `<div style="margin-top:8px">${meter(p, o.close)}</div>` : ""}
+        <a href="#" class="goto" data-goto="${esc(b.id)}">See the full original pick (reasons, numbers, sources) →</a>
       </div></details>` };
   }
 
+  // Summary numbers for one batch + market: from real rows when the batch is
+  // loaded, or from the archive index when it isn't.
+  function statsFromRows(rows) {
+    const priced = rows.filter(r => r.closeRet != null), done = priced.filter(r => r.final || r.hit);
+    return { n: rows.length, priced: priced.length, finished: done.length, hits: done.filter(r => r.hit).length,
+             sumExpected: rows.reduce((t, r) => t + r.expected, 0), sumCloseRet: priced.reduce((t, r) => t + r.closeRet, 0) };
+  }
+
+  function batchHead(meta, st, running) {
+    const avg = st.priced ? st.sumCloseRet / st.priced : null;
+    return `<summary>
+      <span class="t"><b>${meta.horizon === "daily" ? fdateY(meta.date) : "Picks of " + fdateY(meta.date)}</b> <span class="chip">${running ? "Running" : meta.archived ? "Archived" : "Closed"}</span>
+        <div class="m">${meta.horizon === "daily" ? "Session" : `Window ${fdate(meta.date)} → ${fdate(meta.expires)}`} ·
+          Target met <b>${st.finished ? `${st.hits}/${st.finished}` : "—"}</b> ·
+          Avg actual <span class="num ${cls(avg)}">${pct(avg)}</span> vs expected <span class="num up">${pct(st.n ? st.sumExpected / st.n : null)}</span></div></span>
+      ${CHEV}
+    </summary>`;
+  }
+
+  function batchBody(b) {
+    const rows = b.picks.filter(p => p.market === state.market).map(p => resRow(b, p));
+    const ctx = b.context[state.market] || {};
+    const bt = trackOf(b.id)[ctx.benchmark];
+    return { rows, html: `
+      <div class="batch-links">${ctx.benchmarkName ? `${esc(ctx.benchmarkName)} over the same window: <span class="num ${cls(bt && bt.returnPct)}">${bt ? pct(bt.returnPct) : "—"}</span> · ` : ""}
+        <a href="#" data-goto="${esc(b.id)}">Open these picks in full →</a></div>
+      <div class="res-head" aria-hidden="true"><span>Stock</span><span>Suggested buy</span><span>Expected return</span><span>Closed at (${CLOSE_LABEL[b.horizon || "monthly"]})</span><span>Actual return</span><span>Target met?</span><span></span></div>
+      ${rows.map(r => r.html).join("")}` };
+  }
+
   function renderHistory() {
-    const batches = batchesFor(state.horizon).filter(b => b.picks.some(p => p.market === state.market));
-    const all = [];
-    const html = batches.map((b, idx) => {
-      const rows = b.picks.filter(p => p.market === state.market).map(p => resRow(b, p));
-      rows.forEach(r => all.push(r));
-      const ctx = b.context[state.market];
-      const bt = (PRICES.tracking[b.id] || {})[ctx.benchmark];
-      const live = rows.filter(r => r.closeRet != null);
-      const avg = live.length ? live.reduce((t, r) => t + r.closeRet, 0) / live.length : null;
-      const running = new Date() <= new Date(b.expires + "T23:59:59");
-      return `<details class="batch" ${idx === 0 ? "open" : ""}>
-        <summary>
-          <span class="t"><b>Picks of ${fdateY(b.date)}</b> <span class="chip">${running ? "Running" : "Closed"}</span>
-            <div class="m">${b.horizon === "daily" ? `Session ${fdate(b.date)}` : `Window ${fdate(b.date)} → ${fdate(b.expires)}`} · Picks avg <span class="num ${cls(avg)}">${avg == null ? "—" : pct(avg)}</span> vs ${esc(ctx.benchmarkName)} <span class="num ${cls(bt && bt.returnPct)}">${bt ? pct(bt.returnPct) : "—"}</span></div></span>
-          ${CHEV}
-        </summary>
-        <div class="res-head" aria-hidden="true"><span>Stock</span><span>Suggested buy</span><span>Expected return</span><span>Closed at (${CLOSE_LABEL[b.horizon || "monthly"]})</span><span>Actual return</span><span>Target met?</span><span></span></div>
-        ${rows.map(r => r.html).join("")}
-      </details>`;
-    }).join("");
+    const metas = metasFor(state.horizon).filter(m => hasMarket(m, state.market));
+    const totals = { n: 0, priced: 0, finished: 0, hits: 0, sumExpected: 0, sumCloseRet: 0 };
+    const add = st => Object.keys(totals).forEach(k => totals[k] += st[k] || 0);
+    let html = "", month = "";
+    metas.forEach((meta, idx) => {
+      const m = meta.date.slice(0, 7);
+      if (m !== month) { month = m; html += `<h3 class="month-head">${esc(fmonth(m))}</h3>`; }
+      const running = new Date() <= new Date(meta.expires + "T23:59:59");
+      const open = meta.id === state.batch || (!state.batch && idx === 0);
+      if (meta.batch) {
+        const body = batchBody(meta.batch), st = statsFromRows(body.rows);
+        add(st);
+        html += `<details class="batch" id="b-${esc(meta.id)}" ${open ? "open" : ""}>${batchHead(meta, st, running)}${body.html}</details>`;
+      } else {
+        const st = meta.markets[state.market];
+        add(st);
+        html += `<details class="batch" id="b-${esc(meta.id)}" data-arch="${esc(meta.id)}" ${open ? "open" : ""}>${batchHead(meta, st, running)}
+          <div class="arch-body"><p class="empty" style="padding:10px 16px">Loading from the ${esc(fmonth(meta.month))} archive…</p></div></details>`;
+      }
+    });
     $("batches").innerHTML = html || '<p class="empty">No past picks for this market and holding period yet.</p>';
 
-    const live = all.filter(r => r.closeRet != null);
-    const done = live.filter(r => r.final || r.hit);
-    const avg = arr => arr.length ? arr.reduce((t, v) => t + v, 0) / arr.length : null;
-    const exp = avg(all.map(r => r.expected)), act = avg(live.map(r => r.closeRet));
-    const hits = done.filter(r => r.hit).length;
+    // Archived batches load their month file the first time they're opened.
+    const fill = el => {
+      const meta = metas.find(m => m.id === el.dataset.arch);
+      if (!meta || el.dataset.loaded) return;
+      el.dataset.loaded = "1";
+      fullBatch(meta).then(b => { el.querySelector(".arch-body").innerHTML = batchBody(b).html; })
+        .catch(() => { delete el.dataset.loaded; el.querySelector(".arch-body").innerHTML = '<p class="empty" style="padding:10px 16px">Couldn\'t load this month\'s archive. Close and reopen to retry.</p>'; });
+    };
+    document.querySelectorAll("#batches details[data-arch]").forEach(el => {
+      if (el.open) fill(el);
+      el.addEventListener("toggle", () => { if (el.open) fill(el); });
+    });
+    if (state.batch) { const el = $("b-" + state.batch); if (el) setTimeout(() => el.scrollIntoView({ block: "start" }), 0); }
+
+    const exp = totals.n ? totals.sumExpected / totals.n : null, act = totals.priced ? totals.sumCloseRet / totals.priced : null;
     const tile = (k, v, c, s) => `<div class="tile"><div class="k">${k}</div><div class="v num ${c || ""}">${v}</div><div class="s">${s || ""}</div></div>`;
     $("tiles").innerHTML =
-      tile("Expected return (avg)", pct(exp), "up", "if every target were hit") +
-      tile("Actual return (avg)", pct(act), cls(act), live.length ? `at the ${CLOSE_LABEL[state.horizon]} · ${live.length} picks` : "no price data yet") +
-      tile("Target met", done.length ? `${hits} / ${done.length}` : "—", hits ? "up" : "", done.length ? `${Math.round(hits / done.length * 100)}% of finished picks` : "none finished yet") +
+      tile("Expected return (avg)", pct(exp), "up", `if every target were hit · ${totals.n} picks`) +
+      tile("Actual return (avg)", pct(act), cls(act), totals.priced ? `at the ${CLOSE_LABEL[state.horizon]} · ${totals.priced} picks` : "no price data yet") +
+      tile("Target met", totals.finished ? `${totals.hits} / ${totals.finished}` : "—", totals.hits ? "up" : "", totals.finished ? `${Math.round(totals.hits / totals.finished * 100)}% of finished picks` : "none finished yet") +
       tile("Delivered vs expected", act == null ? "—" : Math.round(act / exp * 100) + "%", cls(act), "actual ÷ expected");
+    $("histScope").textContent = metas.length
+      ? `All ${metas.length} ${state.horizon} batch${metas.length === 1 ? "" : "es"} since ${fdateY(metas[metas.length - 1].date)}, kept permanently. Older months load when you open them.`
+      : "";
 
     const note = $("histNote");
-    note.hidden = live.length > 0 || !batches.length;
-    if (batches.length) note.innerHTML = `<b>Nothing has finished yet.</b> These are the first ${state.horizon} picks (${fdateY(batches[0].date)}). Each row already shows what I expected. Actual results and verdicts fill in after each market close, and the final scorecard comes on <b>${fdateY(batches[0].expires)}</b>. Tap a row to see why I picked it.`;
+    note.hidden = totals.priced > 0 || !metas.length;
+    if (metas.length) note.innerHTML = `<b>Nothing has finished yet.</b> These are the first ${state.horizon} picks (${fdateY(metas[0].date)}). Each row already shows what I expected. Actual results fill in after each market close, and the final scorecard comes on <b>${fdateY(metas[0].expires)}</b>. Tap a row to see why I picked it.`;
   }
 
   // ---------- render ----------

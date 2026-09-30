@@ -33,7 +33,7 @@ PRICES_JS = ROOT / "data" / "prices.js"
 
 def load_picks() -> dict:
     text = PICKS_JS.read_text(encoding="utf-8")
-    start = text.index("{", text.index("window.PICKS"))
+    start = text.index("{", text.index("window.PICKS = "))
     return json.loads(text[start: text.rindex("}") + 1])
 
 
@@ -100,7 +100,8 @@ def score(pick: dict, bars: list[dict], batch: dict, today: str) -> dict:
 def main() -> int:
     picks = load_picks()
     today = dt.date.today().isoformat()
-    earliest = min(dt.date.fromisoformat(b["date"]) for b in picks["batches"]) - dt.timedelta(days=7)
+    earliest = min((dt.date.fromisoformat(b["date"]) for b in picks["batches"]),
+                   default=dt.date.today()) - dt.timedelta(days=7)
 
     symbols = {p["yahoo"] for b in picks["batches"] for p in b["picks"]}
     symbols |= {c["benchmark"] for b in picks["batches"] for c in b["context"].values()}

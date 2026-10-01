@@ -301,6 +301,7 @@
   const MSG = "Mr. Sandhu Welcomes you to Super Intelligence stock suggestion world.";
   const intro = document.getElementById("intro"), msgEl = document.getElementById("introMsg");
   const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const SHOW_MS = 5000, t0 = performance.now();  // splash stays 5 s, then fades
   let done = false, raf = 0, timer = 0;
   function close() {
     if (done) return; done = true;
@@ -309,7 +310,7 @@
   }
   intro.addEventListener("click", close);
   document.addEventListener("keydown", e => { if (e.key === "Escape" || e.key === "Enter") close(); }, { once: true });
-  if (reduce) { msgEl.textContent = MSG; timer = setTimeout(close, 2600); return; }
+  if (reduce) { msgEl.textContent = MSG; timer = setTimeout(close, SHOW_MS); return; }
 
   // Code rain
   const cv = document.getElementById("rain"), ctx = cv.getContext("2d");
@@ -355,10 +356,10 @@
     }
     msgEl.innerHTML = html;
     if (fixed < MSG.length) setTimeout(decode, perChar);
-    else { msgEl.textContent = MSG; timer = setTimeout(close, 1700); }
+    else { msgEl.textContent = MSG; timer = setTimeout(close, Math.max(1200, SHOW_MS - (performance.now() - t0))); }
   }
   setTimeout(decode, startAt);
-  setTimeout(close, 9000);  // safety net
+  setTimeout(close, SHOW_MS + 4000);  // safety net
 })();
 </script>
 <header class="top">

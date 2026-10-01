@@ -494,18 +494,22 @@
     const expected = (p.target / p.refPrice - 1) * 100;
     const running = new Date() <= new Date(b.expires + "T23:59:59");
     let close = s.periodClose, closeDate = s.periodCloseDate, final = s.periodFinal;
-    if (close == null && !s.pending) {
+    // No session traded inside the window yet: markPrice is still the
+    // reference close, so don't present it as a result.
+    const started = s.maxHigh != null || s.periodClose != null || s.exitDate != null;
+    if (close == null && !s.pending && started) {
       close = s.markPrice; closeDate = s.exitDate; final = s.status !== "Open";
     }
     const closeRet = close == null ? null : (close / p.refPrice - 1) * 100;
     const vsTarget = close == null ? null : (close / p.target - 1) * 100;
     const hit = s.targetHit != null ? s.targetHit : s.status === "Target hit";
     let met;
-    if (s.pending || close == null) met = ["Pending", "v-wait"];
+    if (!started && !s.pending) met = ["⏳ Awaiting close", "v-wait"];
+    else if (s.pending || close == null) met = ["Pending", "v-wait"];
     else if (hit) met = ["✅ Yes", "v-good"];
     else if (final || !running) met = ["❌ No", "v-bad"];
     else met = ["⏳ Not yet", "v-mid"];
-    return { s, expected, close, closeDate, final, closeRet, vsTarget, hit, met, running };
+    return { s, expected, close, closeDate, final, closeRet, vsTarget, hit, met, running, started };
   }
 
   function planText(s, c) {
@@ -714,7 +718,7 @@
   function resRow(b, p) {
     const o = outcome(b, p), s = o.s, c = p.currency;
     const buyZone = `${compact(p.buyLow, c)}–${compact(p.buyHigh, c).replace(/^[$₹]/, "")}`;
-    const closeSub = o.close == null ? (o.running ? "window still open" : "no price data")
+    const closeSub = o.close == null ? (!o.started && o.running ? "after the first close" : o.running ? "window still open" : "no price data")
       : `${o.final ? CLOSE_LABEL[b.horizon || "monthly"] : "latest close, so far"} · ${fdate(o.closeDate)}`;
     const metSub = o.close == null ? "" : `closed ${pct(o.vsTarget)} vs target`;
     return { ...o, html: `<details class="res">
@@ -826,7 +830,11 @@
     const note = $("histNote");
     note.hidden = totals.priced > 0 || !metas.length;
     const first = metas.find(m => !m.superseded) || metas[0];
-    if (metas.length) note.innerHTML = `<b>Nothing has finished yet.</b> The current ${state.horizon} picks started ${fdateY(first.date)}. Each row already shows what I expected. Actual results fill in after each market close, and the final scorecard comes on <b>${fdateY(first.expires)}</b>. Tap a row to see why I picked it.`;
+    const posted = state.market === "IN" ? "the India close (results post around 4:30 PM IST)" : "the US close (results post around 3 AM IST)";
+    const earliest = metas[metas.length - 1].date;
+    if (metas.length) note.innerHTML = state.horizon === "daily"
+      ? `<b>No finished daily picks yet.</b> Daily picks started on ${fdateY(earliest)}, so there is no earlier day to score. The ${fdateY(first.date)} session gets its result after ${posted}, and from then on every day is kept here with its outcome.`
+      : `<b>Nothing has finished yet.</b> The current ${state.horizon} picks started ${fdateY(first.date)}. Each row already shows what I expected. Actual results fill in after ${posted}, and the final scorecard comes on <b>${fdateY(first.expires)}</b>. Tap a row to see why I picked it.`;
   }
 
   // ---------- render ----------

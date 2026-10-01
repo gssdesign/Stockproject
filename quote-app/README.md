@@ -20,8 +20,16 @@ Each option has its own line illustration and colour. The background is a slowly
 
 If someone reports feeling low and is dealing with a setback or asks for courage, the result also shows helpline numbers (Tele-MANAS 14416 in India, 988 in the US, findahelpline.com elsewhere).
 
+## Result screen
+The result is titled "Your magical words for today". It shows the quote with one of five magic charm illustrations (crystal ball, spellbook, scroll, wand, pouch), chosen at random per quote and day. Under the quote, **Copy quote** copies it, and **Story behind it** opens a short background note from `stories.js`: who said it, where, and what was going on. A note at the bottom says to come back tomorrow, with a countdown to midnight.
+
+The result is kept for the rest of the day: reopening the app shows the same words until local midnight, then the check-in starts again. To test a fresh check-in, open the page with `#fresh` at the end of the URL.
+
 ## Quotes
-67 quotes, each with its author and source, all from secular works: books, poems, letters, speeches, interviews and films. Nothing is taken from religious scriptures or devotional texts (for example the Bhagavad Gita, Tao Te Ching, Upanishads, Bible or Quran). Popular lines that are commonly misattributed (for example "Be the change you wish to see in the world" credited to Gandhi) are excluded. To add one, append an object to `quotes.js` with `m`, `a` and `n` tags.
+67 quotes, each with its author and source, all from secular works: books, poems, letters, speeches, interviews and films. Nothing is taken from religious scriptures or devotional texts (for example the Bhagavad Gita, Tao Te Ching, Upanishads, Bible or Quran). Popular lines that are commonly misattributed (for example "Be the change you wish to see in the world" credited to Gandhi) are excluded. To add one, append an object to `quotes.js` with `m`, `a` and `n` tags, and add its background note to `stories.js` under the same id.
+
+## Artwork
+The charm illustrations in `icons/` are cut from a licensed Shutterstock vector set (image 2589828173), with the background removed and exported as 320px WebP. The original EPS is not stored in this repo.
 
 ## Sources
 - Yale Center for Emotional Intelligence, RULER: [The Mood Meter](https://www.rulerapproach.org/wp-content/uploads/2020/07/MoodMeter_FC.pdf)

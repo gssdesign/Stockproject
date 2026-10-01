@@ -126,8 +126,11 @@ body {
   .statusbar .icons { display: flex; gap: 6px; align-items: center; }
   header.top { padding-top: 8px; }
   .screen h1 { font-size: 1.85rem; }
-  .screen .quote-card { padding: 34px 24px 26px; }
+  .screen .quote-card { padding: 34px 20px 24px; }
+  .screen .actions .btn { padding: 11px 13px; font-size: 0.875rem; }
   .screen .qtext { font-size: 1.55rem; }
+  .screen .today h1 { font-size: 1.45rem; gap: 8px; }
+  .screen .today h1 .twinkle { width: 13px; height: 13px; }
   .frame-note { display: block; font-size: 0.8125rem; color: var(--muted); margin: 0; text-align: center; }
 }
 
@@ -234,6 +237,18 @@ h1 {
   animation: bloom .8s cubic-bezier(.2, .9, .25, 1.2) both;
 }
 @keyframes bloom { from { opacity: 0; transform: scale(.9) translateY(12px); filter: blur(4px); } }
+.quote-card { margin-top: 46px; }
+.charm {
+  position: absolute; top: -62px; right: -6px; width: 100px; height: 100px; pointer-events: none;
+  animation: pop .8s cubic-bezier(.2, .9, .3, 1.4) .25s both;
+}
+.charm img {
+  width: 100%; height: 100%; display: block; object-fit: contain;
+  filter: drop-shadow(0 10px 14px rgb(20 10 40 / 0.28));
+  animation: float 4.5s ease-in-out infinite;
+}
+@keyframes pop { from { opacity: 0; transform: scale(.3) rotate(-25deg); } }
+@keyframes float { 50% { transform: translateY(-7px) rotate(4deg); } }
 .quote-card .mark {
   position: absolute; top: -18px; left: 22px; width: 40px; height: 40px; border-radius: 50%;
   display: grid; place-items: center; background: var(--c); color: var(--surface);
@@ -247,6 +262,36 @@ blockquote { margin: 0; }
 .qby { margin: 0; font-weight: 600; }
 .qsrc { margin: 2px 0 0; font-size: 0.875rem; color: var(--muted); font-style: italic; }
 .actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.actions .btn { display: inline-flex; align-items: center; gap: 7px; }
+.actions .btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.btn.ghost { border-color: color-mix(in srgb, var(--c) 45%, var(--line)); background: color-mix(in srgb, var(--c) 8%, transparent); }
+.btn.ghost:hover { border-color: var(--c); }
+.btn.ghost[aria-expanded="true"] { background: color-mix(in srgb, var(--c) 18%, transparent); }
+.story {
+  border-top: 1px dashed color-mix(in srgb, var(--c) 40%, var(--line)); padding-top: 16px;
+  display: grid; gap: 6px; animation: unfold .4s ease-out both;
+}
+.story p { margin: 0; color: var(--muted); font-size: 0.9375rem; line-height: 1.6; }
+@keyframes unfold { from { opacity: 0; transform: translateY(-6px); } }
+
+.today { display: grid; justify-items: center; gap: 4px; text-align: center; }
+.today h1 {
+  margin: 0; font-style: italic; font-weight: 400; font-size: clamp(1.5rem, 4.6vw, 1.9rem);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.today h1 .twinkle { width: 16px; height: 16px; background: var(--star); flex: none;
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+  animation: twinkle 2.4s ease-in-out infinite; opacity: .9; }
+.today h1 .twinkle:last-child { animation-delay: -1.2s; }
+.today p { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+.tomorrow {
+  display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; align-items: center;
+  padding: 16px 18px; border-radius: 18px; border: 1px solid color-mix(in srgb, var(--star) 40%, var(--line));
+  background: color-mix(in srgb, var(--star) 9%, var(--surface)); animation: rise .5s ease-out .7s both;
+}
+.tomorrow .ico { --c: var(--star); grid-row: span 2; }
+.tomorrow strong { font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; }
+.tomorrow span { color: var(--muted); font-size: 0.875rem; font-variant-numeric: tabular-nums; }
 .toast { font-size: 0.875rem; color: var(--accent); margin: 0; }
 .toast:empty { display: none; }
 
@@ -275,6 +320,9 @@ footer p { margin: 0 0 6px; }
 @keyframes leave { to { opacity: 0; transform: translateY(-8px) scale(.99); filter: blur(3px); } }
 
 @media (max-width: 420px) {
+  .actions .btn { padding: 11px 13px; font-size: 0.875rem; }
+  .charm { width: 88px; height: 88px; top: -54px; }
+  .today h1 { font-size: 1.45rem; gap: 8px; }
   .quad .opt { min-height: 140px; padding: 12px; }
   .opt .d { font-size: 0.8125rem; }
 }
@@ -317,6 +365,7 @@ footer p { margin: 0 0 6px; }
 <p class="frame-note">Phone preview, 390 &times; 844. On a phone the app fills the screen.</p>
 
 <script src="quotes.js"></script>
+<script src="stories.js"></script>
 <script>
 (() => {
   // Line icons, 24x24, stroked with the option's colour.
@@ -332,6 +381,8 @@ footer p { margin: 0 0 6px; }
     push: '<path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2"/><path d="M9 15 6 12c1-4 5-9 13-9 0 8-5 12-9 13z"/><circle cx="14.5" cy="9.5" r="1.5"/>',
     calm: '<path d="M2 7c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0"/><path d="M2 12c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0"/><path d="M2 17c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0"/>',
     courage: '<path d="M12 22c4 0 7-2.7 7-6.5 0-4-3-6-4-9.5-1 2-2 3-3.5 3.5C11 7 11 4.5 12 2 7 4.5 5 9.5 5 15.5 5 19.3 8 22 12 22z"/>',
+    book: '<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v17H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 4.5A1.5 1.5 0 0 0 18.5 3H13v17h5.5a1.5 1.5 0 0 0 1.5-1.5z"/>',
+    copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/>',
     wisdom: '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'
   };
   const svg = name => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICON[name]}</svg>`;
@@ -391,6 +442,21 @@ footer p { margin: 0 0 6px; }
     wisdom: "You asked for something to reflect on."
   };
   const W = { n: 3, m: 2, a: 2 };
+
+  // Magic charms shown with the quote. The pick is random per quote and day,
+  // so a reload on the same day shows the same charm.
+  const CHARMS = [
+    { file: "icons/crystal-ball.webp", alt: "A glowing crystal ball" },
+    { file: "icons/spellbook.webp", alt: "A spellbook with a jewel on its cover" },
+    { file: "icons/scroll.webp", alt: "A rolled-up scroll" },
+    { file: "icons/wand.webp", alt: "A magic wand trailing sparkles" },
+    { file: "icons/pouch.webp", alt: "A drawstring pouch with a gem" }
+  ];
+  function charmFor(id) {
+    let h = 0;
+    for (const ch of id + dayKey()) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+    return CHARMS[h % CHARMS.length];
+  }
 
   const root = document.documentElement;
   const app = document.getElementById("app");
@@ -592,12 +658,26 @@ footer p { margin: 0 0 6px; }
       return { q, s, seen: recent.includes(q.id) ? 1 : 0, r: Math.random() };
     }).sort((x, y) => y.s - x.s || x.seen - y.seen || x.r - y.r)[0].q;
     store.set("dc-recent", [best.id, ...recent.filter(x => x !== best.id)].slice(0, 25));
+    store.set("dc-today", { date: dayKey(), answers: { ...answers }, id: best.id });
     return best;
   }
 
-  function renderResult() {
-    const q = pick();
+  // One set of magical words per day: the result is kept until local midnight.
+  const dayKey = (d = new Date()) => `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+  function untilTomorrow() {
+    const now = new Date(), next = new Date(now);
+    next.setHours(24, 0, 0, 0);
+    const mins = Math.max(0, Math.ceil((next - now) / 60000));
+    return { mins, text: mins >= 60 ? `${Math.floor(mins / 60)} h ${mins % 60} min` : `${mins} min` };
+  }
+  let countdown = 0;
+
+  function renderResult(saved) {
+    const q = saved || pick();
     const mood = answers.m;
+    const story = (window.STORIES || {})[q.id];
+    const charm = charmFor(q.id);
+    about.hidden = true;
     const chips = ["m", "a", "n"].map(k => {
       const o = OPT[k + answers[k]];
       return `<span class="chip c-${o.c}">${svg(o.i)}${esc(LABEL[k][answers[k]])}</span>`;
@@ -606,15 +686,22 @@ footer p { margin: 0 0 6px; }
       ? `<div class="care"><strong>If today feels heavier than a quote can carry,</strong> talk to someone you trust. In India, Tele-MANAS is free and open 24/7 at <strong>14416</strong>. In the US, call or text <strong>988</strong>. Elsewhere, findahelpline.com lists local services.</div>`
       : "";
 
-    swap(`<section style="display:grid;gap:26px;padding-top:14px" aria-live="polite">
+    swap(`<section style="display:grid;gap:26px;padding-top:6px" aria-live="polite">
+      <div class="today">
+        <h1><span class="twinkle"></span>Your magical words for today<span class="twinkle"></span></h1>
+        <p>${saved ? "Welcome back. These are still yours until midnight." : "Chosen for how you feel right now."}</p>
+      </div>
       <article class="quote-card c-${MOOD_COLOR[mood]}">
         <span class="mark" aria-hidden="true">&ldquo;</span>
+        <span class="charm"><img src="${charm.file}" alt="${charm.alt}" width="100" height="100"></span>
         <blockquote><p class="qtext">${esc(q.t)}</p></blockquote>
         <div><p class="qby">${esc(q.by)}</p><p class="qsrc">${esc(q.src)}</p></div>
         <div class="actions">
-          <button type="button" class="btn primary" id="copy">Copy quote</button>
+          <button type="button" class="btn primary" id="copy">${svg("copy")}Copy quote</button>
+          ${story ? `<button type="button" class="btn ghost" id="story-btn" aria-expanded="false" aria-controls="story">${svg("book")}<span>Story behind it</span></button>` : ""}
           <p class="toast" id="toast"></p>
         </div>
+        ${story ? `<div class="story" id="story" hidden><p class="eyebrow">The story behind it</p><p>${esc(story)}</p></div>` : ""}
       </article>
       <div class="why">
         <p class="eyebrow">Why this one</p>
@@ -622,13 +709,34 @@ footer p { margin: 0 0 6px; }
         <p>${WHY_MOOD[mood]} ${WHY_NEED[answers.n]}</p>
       </div>
       ${care}
-      <div class="nav"><button type="button" class="btn link" id="restart">&larr; Check in again</button></div>
+      <div class="tomorrow">
+        <span class="ico">${svg("ease")}</span>
+        <strong>Come back tomorrow for new magical words.</strong>
+        <span id="countdown">New words in ${untilTomorrow().text}</span>
+      </div>
     </section>`, () => {
-      confetti(mood);
-      document.getElementById("restart").addEventListener("click", () => {
-        for (const k in answers) delete answers[k];
-        step = 0; renderQuestion();
+      if (!saved) confetti(mood);
+      const storyBtn = document.getElementById("story-btn");
+      if (storyBtn) storyBtn.addEventListener("click", () => {
+        const panel = document.getElementById("story");
+        const open = panel.hidden;
+        panel.hidden = !open;
+        storyBtn.setAttribute("aria-expanded", String(open));
+        storyBtn.querySelector("span").textContent = open ? "Hide story" : "Story behind it";
       });
+      clearInterval(countdown);
+      countdown = setInterval(() => {
+        const left = untilTomorrow();
+        const el = document.getElementById("countdown");
+        if (left.mins <= 0 || !el) {
+          clearInterval(countdown);
+          store.set("dc-today", null);
+          for (const k in answers) delete answers[k];
+          step = 0; renderQuestion();
+          return;
+        }
+        el.textContent = `New words in ${left.text}`;
+      }, 30000);
       document.getElementById("copy").addEventListener("click", () => {
         const text = `"${q.t}" — ${q.by}, ${q.src}`;
         const toast = document.getElementById("toast");
@@ -649,7 +757,18 @@ footer p { margin: 0 0 6px; }
   const tick = () => { const d = new Date(); clock.textContent = `${d.getHours() % 12 || 12}:${String(d.getMinutes()).padStart(2, "0")}`; };
   tick(); setInterval(tick, 30000);
 
-  renderQuestion();
+  // Open with #fresh to start a new check-in (for testing).
+  if (location.hash === "#fresh") store.set("dc-today", null);
+  const today = store.get("dc-today", null);
+  const savedQuote = today && today.date === dayKey() && window.QUOTES.find(x => x.id === today.id);
+  if (savedQuote) {
+    Object.assign(answers, today.answers);
+    step = QUESTIONS.length;
+    setAura(answers.m);
+    renderResult(savedQuote);
+  } else {
+    renderQuestion();
+  }
 })();
 </script>
 </body>

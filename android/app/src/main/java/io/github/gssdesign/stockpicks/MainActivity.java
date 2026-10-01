@@ -20,6 +20,9 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle state) {
         super.onCreate(state);
+        // Blend the system bars into the app's dark top and bottom bars.
+        getWindow().setStatusBarColor(Color.parseColor("#0E1116"));
+        getWindow().setNavigationBarColor(Color.parseColor("#171B22"));
         web = new WebView(this);
         web.setBackgroundColor(Color.parseColor("#0E1116"));
         WebSettings s = web.getSettings();

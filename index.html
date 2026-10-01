@@ -2,326 +2,298 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Stock Picks Desk</title>
-<meta name="description" content="Daily, weekly and monthly top-5 stock ideas for the US and Indian markets, with reasons, data, buy/sell levels and a record of how past picks performed against expectations.">
+<meta name="description" content="Daily, weekly and monthly stock ideas for the US and Indian markets, with reasons, data, buy/sell levels and a permanent record of how every past pick performed.">
+<meta name="theme-color" content="#0e1116">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f6f7f9; --surface: #ffffff; --surface-2: #f1f3f6; --border: #e3e6eb; --border-strong: #cfd4dc;
-    --text: #14171c; --muted: #5b6472; --faint: #8a93a1;
-    --accent: #2f5bea; --accent-soft: #e8eefe;
-    --up: #0f8a4f; --up-soft: #e3f5ec; --down: #c8322b; --down-soft: #fdeceb;
-    --warn: #8a5a00; --warn-soft: #fff4dc;
-    --zone: #2f5bea3a;
-    --shadow: 0 1px 2px rgba(16,24,40,.05), 0 1px 3px rgba(16,24,40,.06);
+    --bg: #f4f6f9; --surface: #ffffff; --surface-2: #eef1f5; --line: #e2e6ec;
+    --text: #12161c; --muted: #5a6371; --faint: #8b94a2;
+    --accent: #2f5bea; --accent-soft: #e7edfe;
+    --up: #0b875b; --up-soft: #e1f4ec; --down: #cc3a32; --down-soft: #fcebea;
+    --warn: #9a6200; --warn-soft: #fdf2dc;
+    --zone: rgba(47, 91, 234, .22);
+    --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 2px 8px rgba(16, 24, 40, .05);
+    --r: 16px;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0e1116; --surface: #161a21; --surface-2: #1d222b; --border: #2a303b; --border-strong: #3a4250;
-      --text: #e8ebf0; --muted: #a2abb9; --faint: #767f8d;
-      --accent: #7b9bff; --accent-soft: #1e2847;
-      --up: #3ecf8e; --up-soft: #12301f; --down: #ff6b61; --down-soft: #3a1714;
-      --warn: #f2b84b; --warn-soft: #332713;
-      --zone: #7b9bff45; --shadow: none;
+      --bg: #0e1116; --surface: #171b22; --surface-2: #1f242d; --line: #2a303a;
+      --text: #e9ecf1; --muted: #a3acba; --faint: #747d8b;
+      --accent: #7b9bff; --accent-soft: #1d2645;
+      --up: #3ccf8e; --up-soft: #11301f; --down: #ff6e64; --down-soft: #3a1714;
+      --warn: #f2b84b; --warn-soft: #33270f;
+      --zone: rgba(123, 155, 255, .30); --shadow: none;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0e1116; --surface: #161a21; --surface-2: #1d222b; --border: #2a303b; --border-strong: #3a4250;
-    --text: #e8ebf0; --muted: #a2abb9; --faint: #767f8d;
-    --accent: #7b9bff; --accent-soft: #1e2847;
-    --up: #3ecf8e; --up-soft: #12301f; --down: #ff6b61; --down-soft: #3a1714;
-    --warn: #f2b84b; --warn-soft: #332713;
-    --zone: #7b9bff45; --shadow: none;
+    --bg: #0e1116; --surface: #171b22; --surface-2: #1f242d; --line: #2a303a;
+    --text: #e9ecf1; --muted: #a3acba; --faint: #747d8b;
+    --accent: #7b9bff; --accent-soft: #1d2645;
+    --up: #3ccf8e; --up-soft: #11301f; --down: #ff6e64; --down-soft: #3a1714;
+    --warn: #f2b84b; --warn-soft: #33270f;
+    --zone: rgba(123, 155, 255, .30); --shadow: none;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  a { color: var(--accent); }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+  a { color: var(--accent); text-decoration: none; }
   button { font: inherit; color: inherit; }
-  .num { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-  .up { color: var(--up); } .down { color: var(--down); } .muted { color: var(--muted); }
   [hidden] { display: none !important; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
-
-  /* ---------- header ---------- */
-  header.top { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 20; }
-  .top-row { display: flex; align-items: center; gap: 12px; min-height: 58px; flex-wrap: wrap; }
-  .brand { font-weight: 700; font-size: 17px; letter-spacing: -.01em; margin-right: auto; }
-  .brand small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); letter-spacing: 0; }
-  nav.views { display: flex; gap: 2px; }
-  nav.views button { border: 0; background: none; color: var(--muted); font-weight: 600; padding: 10px 12px; border-radius: 8px; cursor: pointer; white-space: nowrap; min-height: 40px; }
-  nav.views button[aria-selected="true"] { background: var(--accent-soft); color: var(--accent); }
-  .icon-btn { border: 1px solid var(--border); background: var(--surface); color: var(--muted); border-radius: 8px; width: 40px; height: 40px; cursor: pointer; }
-
-  /* ---------- controls ---------- */
-  .controls { display: flex; gap: 12px 20px; flex-wrap: wrap; align-items: center; padding: 16px 0 4px; }
-  .seg { display: inline-flex; background: var(--surface-2); border: 1px solid var(--border); border-radius: 11px; padding: 3px; }
-  .seg button { white-space: nowrap; border: 0; background: none; font-weight: 600; color: var(--muted); padding: 7px 14px; border-radius: 8px; cursor: pointer; min-height: 40px; text-align: left; line-height: 1.2; }
-  .seg button small { display: block; font-size: 11px; font-weight: 500; color: var(--faint); }
-  .seg button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
-  .seg button[aria-pressed="true"] small { color: var(--muted); }
-  .ctl-label { font-size: 11.5px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--faint); margin-bottom: 4px; }
-
-  /* ---------- status strip ---------- */
-  .strip { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; margin: 12px 0; }
-  .strip .when { font-weight: 600; }
-  .progress { flex: 1 1 160px; min-width: 140px; }
-  .bar { height: 6px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
-  .bar > i { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
-  .progress .cap { font-size: 12px; color: var(--muted); margin-top: 4px; }
-  .disclaimer { font-size: 12.5px; color: var(--muted); margin: 0 0 12px; }
-  .disclaimer b { color: var(--warn); }
-
-  /* ---------- accordions (shared) ---------- */
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+  .num { font-variant-numeric: tabular-nums; }
+  .up { color: var(--up); } .down { color: var(--down); } .muted { color: var(--muted); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
   details > summary { list-style: none; cursor: pointer; }
   details > summary::-webkit-details-marker { display: none; }
-  .chev { width: 20px; height: 20px; color: var(--faint); transition: transform .15s ease; flex: none; }
+  .chev { width: 18px; height: 18px; color: var(--faint); transition: transform .15s; flex: none; }
   details[open] > summary .chev { transform: rotate(180deg); }
 
-  .backdrop { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px; }
-  .backdrop > summary { display: flex; gap: 10px; align-items: center; padding: 12px 14px; }
-  .backdrop > summary .t { flex: 1; min-width: 0; }
-  .backdrop > summary .t b { display: block; font-size: 13px; }
-  .backdrop > summary .t span { font-size: 13px; color: var(--muted); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .backdrop[open] > summary .t span { display: none; }
-  .backdrop .body { padding: 0 14px 14px; font-size: 14px; color: var(--muted); }
-  .backdrop .body ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; }
+  /* ---------- top bar ---------- */
+  .top { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--line); padding-top: env(safe-area-inset-top); }
+  .bar { display: flex; align-items: center; gap: 12px; height: 52px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; letter-spacing: -.01em; margin-right: auto; }
+  .logo { width: 30px; height: 30px; border-radius: 9px; background: var(--accent); display: grid; place-items: center; }
+  .tabs-top { display: flex; gap: 4px; }
+  .tabs-top button { border: 0; background: none; color: var(--muted); font-weight: 600; padding: 8px 14px; border-radius: 10px; cursor: pointer; min-height: 40px; }
+  .tabs-top button[aria-selected="true"] { background: var(--accent-soft); color: var(--accent); }
+  .icon-btn { border: 1px solid var(--line); background: var(--surface); color: var(--muted); border-radius: 10px; width: 40px; height: 40px; cursor: pointer; display: grid; place-items: center; }
+  .filters { display: flex; gap: 8px; padding: 0 0 10px; flex-wrap: wrap; }
+  .seg { display: flex; background: var(--surface-2); border-radius: 12px; padding: 3px; gap: 2px; }
+  .seg button { border: 0; background: none; color: var(--muted); font-weight: 600; font-size: 14px; padding: 0 12px; border-radius: 9px; cursor: pointer; min-height: 36px; white-space: nowrap; }
+  .seg button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+  .seg.h { flex: 1; } .seg.h button { flex: 1; }
 
-  /* ---------- pick list ---------- */
-  .list-head, .pick > summary { display: grid; grid-template-columns: 30px minmax(0, 2.3fr) repeat(4, minmax(0, 1fr)) 100px 20px; gap: 12px; align-items: center; }
-  .list-head { padding: 0 16px 6px; font-size: 11.5px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--faint); }
-  .list-tools { display: flex; justify-content: space-between; align-items: center; margin: 4px 0 8px; gap: 10px; }
-  .list-tools h2 { font-size: 15px; margin: 0; }
-  .link-btn { border: 0; background: none; color: var(--accent); font-weight: 600; font-size: 13px; cursor: pointer; padding: 8px 4px; }
-  .picks { display: grid; gap: 8px; }
-  .pick { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); }
-  .pick[open] { border-color: var(--border-strong); }
-  .pick > summary { padding: 14px 16px; min-height: 64px; }
-  .pick > summary:hover { background: var(--surface-2); border-radius: 12px; }
-  .pick[open] > summary:hover { border-radius: 12px 12px 0 0; }
-  .rank { width: 28px; height: 28px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 13px; display: grid; place-items: center; }
-  .stock-name { min-width: 0; }
-  .stock-name b { font-size: 15px; }
-  .stock-name .tk { font-size: 12px; color: var(--muted); margin-left: 6px; }
-  .stock-name .th { font-size: 13px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .cell { min-width: 0; }
-  .cell .lbl { display: none; }
-  .cell .v { display: block; font-weight: 600; font-size: 14.5px; white-space: nowrap; }
-  .cell .s { display: block; font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .chip { display: inline-block; font-size: 11.5px; font-weight: 600; padding: 3px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); white-space: nowrap; }
-  .chip.risk-High { background: var(--down-soft); color: var(--down); }
-  .chip.risk-Low { background: var(--up-soft); color: var(--up); }
-  .chip.risk-Medium { background: var(--warn-soft); color: var(--warn); }
-  .vbadge { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 999px; margin-left: 6px; vertical-align: 2px; white-space: nowrap; }
-  .v-ok { background: var(--up-soft); color: var(--up); }
-  .v-adj { background: var(--accent-soft); color: var(--accent); }
-  .v-warn { background: var(--warn-soft); color: var(--warn); }
-  .v-pend { background: var(--surface-2); color: var(--muted); }
-  .vline { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
-  .vline.warn { color: var(--warn); }
-  .checks { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 8px; }
-  .ck-h { font-size: 11.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); margin-right: 4px; }
-  .ck { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; cursor: help; }
-  .ck-ok { background: var(--up-soft); color: var(--up); }
-  .ck-bad { background: var(--down-soft); color: var(--down); }
-  /* ---------- archive navigation ---------- */
-  .batch-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 14px 0 0; font-size: 13.5px; }
-  .batch-nav label { font-weight: 600; color: var(--muted); }
-  .batch-nav select { font: inherit; font-weight: 600; color: var(--text); background: var(--surface); border: 1px solid var(--border-strong); border-radius: 8px; padding: 8px 10px; min-height: 40px; max-width: 100%; }
-  #batchCount { font-size: 12.5px; }
-  .result-box { margin: 12px 0 4px; padding: 10px 12px; border-radius: 8px; background: var(--accent-soft); font-size: 13.5px; line-height: 1.6; }
-  .month-head { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); margin: 18px 2px 8px; }
-  .batch-links { padding: 0 16px 10px; font-size: 12.5px; color: var(--muted); }
-  .goto { display: inline-block; margin-top: 10px; font-weight: 600; font-size: 13px; }
-  .scope { font-size: 12.5px; margin: 12px 0 0; }
-  .batch.replaced { opacity: .75; border-style: dashed; }
-  .zone { font-weight: 600; }
-  .zone.in { color: var(--up); } .zone.above { color: var(--warn); } .zone.below { color: var(--down); }
+  /* ---------- bottom tab bar (phones) ---------- */
+  .tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: none; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
+  .tabbar button { flex: 1; border: 0; background: none; color: var(--faint); display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 0 6px; font-size: 11.5px; font-weight: 600; cursor: pointer; min-height: 56px; }
+  .tabbar button svg { width: 24px; height: 24px; }
+  .tabbar button[aria-selected="true"] { color: var(--accent); }
 
-  .pick-body { padding: 4px 16px 16px; border-top: 1px solid var(--border); }
-  .pick-body .sector { font-size: 13px; color: var(--muted); margin: 12px 0 4px; }
-  .ladder { margin: 12px 2px 4px; }
-  .ladder-track { position: relative; height: 10px; border-radius: 6px; background: linear-gradient(90deg, var(--down-soft), var(--surface-2) 45%, var(--up-soft)); }
-  .ladder-zone { position: absolute; top: 0; bottom: 0; background: var(--zone); border-radius: 4px; }
-  .ladder-dot { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; background: var(--text); border: 2px solid var(--surface); transform: translate(-50%, -50%); }
-  .ladder-labels { position: relative; height: 18px; font-size: 11.5px; color: var(--muted); margin-top: 4px; }
-  .ladder-labels span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
-  .ladder-labels .l { transform: none; left: 0; } .ladder-labels .r { transform: none; right: 0; }
-  .cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; margin-top: 12px; }
-  .cols h4 { margin: 0 0 6px; font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--faint); }
-  .cols ul { margin: 0; padding-left: 18px; font-size: 14px; }
-  .cols li { margin-bottom: 6px; }
+  main.wrap { padding-top: 16px; padding-bottom: 32px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); }
+
+  /* ---------- notice ---------- */
+  .notice { display: flex; gap: 10px; align-items: flex-start; background: var(--warn-soft); color: var(--text); border-radius: 12px; padding: 10px 12px; font-size: 13px; margin-bottom: 12px; }
+  .notice b { color: var(--warn); }
+  .notice button { border: 0; background: none; color: var(--muted); font-size: 18px; line-height: 1; cursor: pointer; padding: 2px 4px; margin-left: auto; min-width: 32px; min-height: 32px; }
+
+  /* ---------- summary card ---------- */
+  .hero { padding: 16px; margin-bottom: 16px; }
+  .hero-top { display: flex; align-items: flex-start; gap: 10px; }
+  .hero h1 { font-size: 20px; line-height: 1.25; margin: 0; letter-spacing: -.01em; }
+  .hero .when { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+  .mood { margin-left: auto; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+  .mood.on { background: var(--up-soft); color: var(--up); }
+  .mood.off { background: var(--down-soft); color: var(--down); }
+  .mood.neutral { background: var(--warn-soft); color: var(--warn); }
+  .progress { height: 6px; background: var(--surface-2); border-radius: 4px; overflow: hidden; margin: 12px 0 0; }
+  .progress i { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+  .stat { background: var(--surface-2); border-radius: 12px; padding: 10px 12px; min-width: 0; }
+  .stat .v { font-size: 20px; font-weight: 700; line-height: 1.2; }
+  .stat .k { font-size: 12px; color: var(--muted); }
+  .backdrop { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; font-size: 13.5px; }
+  .backdrop > summary { display: flex; align-items: center; gap: 8px; color: var(--muted); min-height: 32px; }
+  .backdrop > summary span { flex: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .backdrop[open] > summary span { -webkit-line-clamp: unset; }
+  .backdrop > summary b { color: var(--text); }
+  .backdrop .body { color: var(--muted); padding-top: 6px; }
+  .backdrop ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; }
+  .banner { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; background: var(--accent-soft); border-radius: 12px; padding: 10px 12px; font-size: 13.5px; margin-bottom: 12px; }
+  .banner .btn { margin-left: auto; }
+  .btn { border: 0; background: var(--accent); color: #fff; font-weight: 600; font-size: 13.5px; border-radius: 10px; padding: 0 14px; min-height: 36px; cursor: pointer; }
+  .btn.ghost { background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+
+  /* ---------- pick cards ---------- */
+  .list-title { display: flex; align-items: baseline; justify-content: space-between; margin: 4px 2px 10px; }
+  .list-title h2 { font-size: 16px; margin: 0; }
+  .list-title span { font-size: 12.5px; color: var(--faint); }
+  .picks { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 760px) { .picks { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } }
+  .pick > summary { padding: 14px 16px 12px; display: block; }
+  .p-head { display: flex; align-items: center; gap: 10px; }
+  .rank { width: 26px; height: 26px; border-radius: 50%; background: var(--surface-2); color: var(--muted); font-size: 12.5px; font-weight: 700; display: grid; place-items: center; flex: none; }
+  .p-name { min-width: 0; flex: 1; }
+  .p-name b { font-size: 16px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .p-name small { display: block; color: var(--faint); font-size: 12px; font-weight: 600; letter-spacing: .02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pill { font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; white-space: nowrap; flex: none; }
+  .pill.good { background: var(--up-soft); color: var(--up); }
+  .pill.bad { background: var(--down-soft); color: var(--down); }
+  .pill.wait { background: var(--warn-soft); color: var(--warn); }
+  .pill.neutral { background: var(--surface-2); color: var(--muted); }
+
+  .ladder { margin: 16px 2px 0; }
+  .track { position: relative; height: 8px; border-radius: 6px; background: linear-gradient(90deg, var(--down-soft), var(--surface-2) 40%, var(--surface-2) 60%, var(--up-soft)); }
+  .track .zone { position: absolute; top: -3px; bottom: -3px; background: var(--zone); border-radius: 5px; }
+  .track .end { position: absolute; top: 50%; width: 10px; height: 10px; border-radius: 50%; transform: translate(-50%, -50%); }
+  .track .end.s { background: var(--down); } .track .end.t { background: var(--up); }
+  .track .dot { position: absolute; top: 50%; width: 16px; height: 16px; border-radius: 50%; background: var(--text); border: 3px solid var(--surface); transform: translate(-50%, -50%); box-shadow: 0 0 0 1px var(--line); }
+  .levels { display: grid; grid-template-columns: auto 1fr auto; gap: 8px; margin-top: 10px; font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .levels div:nth-child(2) { text-align: center; } .levels div:nth-child(3) { text-align: right; }
+  .levels b { display: block; font-size: 14px; color: var(--text); font-weight: 650; }
+  .levels .s b { color: var(--down); } .levels .t b { color: var(--up); }
+  .thesis { margin: 12px 0 0; font-size: 13.5px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .pick[open] .thesis { -webkit-line-clamp: unset; }
+  .p-foot { display: flex; align-items: center; gap: 12px; margin-top: 10px; font-size: 12.5px; color: var(--muted); flex-wrap: wrap; }
+  .p-foot .more { margin-left: auto; display: flex; align-items: center; gap: 2px; color: var(--accent); font-weight: 600; }
+  .pick[open] .p-foot .more .lbl-open, .pick:not([open]) .p-foot .more .lbl-close { display: none; }
+  .risk::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; background: var(--faint); }
+  .risk.High::before { background: var(--down); } .risk.Medium::before { background: var(--warn); } .risk.Low::before { background: var(--up); }
+  .flag { color: var(--warn); font-weight: 600; }
+
+  .p-body { border-top: 1px solid var(--line); padding: 4px 16px 16px; }
+  .p-body h4 { margin: 16px 0 6px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+  .p-body ul { margin: 0; padding-left: 18px; font-size: 14px; }
+  .p-body li { margin-bottom: 6px; }
+  .plan { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .plan div { background: var(--surface-2); border-radius: 10px; padding: 8px 10px; font-size: 12px; color: var(--muted); }
+  .plan b { display: block; font-size: 14.5px; color: var(--text); }
+  .watch { background: var(--warn-soft); border-radius: 10px; padding: 10px 12px; font-size: 13.5px; }
   table.kv { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-  table.kv td { padding: 5px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
-  table.kv td:last-child { text-align: right; font-weight: 600; padding-left: 10px; }
-  .watch { margin-top: 12px; padding: 10px 12px; border-left: 3px solid var(--warn); background: var(--warn-soft); border-radius: 6px; font-size: 13.5px; }
-  .sources { margin-top: 10px; font-size: 13px; }
-  .sources > summary { color: var(--muted); font-weight: 600; display: inline-flex; gap: 4px; align-items: center; padding: 6px 0; }
-  .sources ol { margin: 4px 0 0; padding-left: 20px; }
-  .sources li { margin-bottom: 3px; }
+  table.kv td { padding: 6px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.kv td:last-child { text-align: right; font-weight: 600; padding-left: 12px; }
+  .sources { margin: 0; padding-left: 18px; font-size: 13.5px; }
+  .sources li { margin-bottom: 4px; }
+  .sub { margin-top: 14px; border: 1px solid var(--line); border-radius: 12px; }
+  .sub > summary { display: flex; align-items: center; gap: 8px; padding: 10px 12px; font-size: 13px; font-weight: 600; color: var(--muted); min-height: 44px; }
+  .sub > summary span { flex: 1; }
+  .sub .in { padding: 0 12px 12px; font-size: 13px; color: var(--muted); }
+  .checks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .ck { font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; }
+  .ck.ok { background: var(--up-soft); color: var(--up); } .ck.no { background: var(--down-soft); color: var(--down); }
+  .result-box { margin-top: 14px; background: var(--accent-soft); border-radius: 10px; padding: 10px 12px; font-size: 13.5px; }
+  .empty { color: var(--muted); padding: 18px 4px; }
 
-  /* ---------- past results ---------- */
-  .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 12px 0; }
-  .tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; min-width: 0; }
-  .tile .k { font-size: 12px; color: var(--muted); font-weight: 600; }
-  .tile .v { font-size: 22px; font-weight: 700; margin-top: 2px; white-space: nowrap; }
-  .tile .s { font-size: 12px; color: var(--muted); }
-  .note { background: var(--accent-soft); border-radius: 12px; padding: 12px 14px; font-size: 14px; margin-bottom: 12px; }
-  .batch { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; }
-  .batch > summary { display: flex; gap: 10px; align-items: center; padding: 14px 16px; }
-  .batch > summary .t { flex: 1 1 240px; min-width: 0; }
+  /* ---------- results ---------- */
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 12px; margin: 0 -2px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips button { flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--muted); font-weight: 600; font-size: 13px; padding: 0 14px; min-height: 36px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  .chips button[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .score { padding: 16px; display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; margin-bottom: 16px; }
+  .ring { position: relative; width: 88px; height: 88px; }
+  .ring svg { width: 88px; height: 88px; transform: rotate(-90deg); }
+  .ring .lbl { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; line-height: 1.1; }
+  .ring .lbl b { font-size: 20px; display: block; }
+  .ring .lbl small { font-size: 10.5px; color: var(--muted); }
+  .score-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; }
+  .score-stats .k { font-size: 12px; color: var(--muted); }
+  .score-stats .v { font-size: 18px; font-weight: 700; }
+  .scope { font-size: 12.5px; color: var(--faint); margin: 0 2px 12px; }
+  .month-head { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); margin: 20px 2px 8px; }
+  .batch { margin-bottom: 12px; overflow: hidden; }
+  .batch > summary { display: flex; align-items: center; gap: 10px; padding: 14px 16px; }
+  .batch > summary .t { flex: 1; min-width: 0; }
   .batch > summary .t b { font-size: 15px; }
   .batch > summary .t .m { font-size: 12.5px; color: var(--muted); }
-  .batch .res-head, .res > summary { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr) minmax(0, .9fr) minmax(0, 1.2fr) minmax(0, .85fr) minmax(0, 1.2fr) 20px; gap: 12px; align-items: center; }
-  .res .rn > span > span, .res .rv > span { display: block; }
-  .sub2 { font-size: 12px; font-weight: 400; color: var(--muted); font-family: Inter, system-ui, sans-serif; }
-  .res .rv .status { display: inline-block; }
-  .batch .res-head { padding: 8px 16px; font-size: 11.5px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--faint); border-top: 1px solid var(--border); }
-  .res { border-top: 1px solid var(--border); }
-  .res > summary { padding: 11px 16px; }
-  .res > summary:hover { background: var(--surface-2); }
-  .res .body { padding: 2px 16px 14px; font-size: 13.5px; color: var(--muted); }
-  .res .body .facts { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 6px; }
-  .res .body .facts b { color: var(--text); }
-  .status { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
-  .v-good { background: var(--up-soft); color: var(--up); }
-  .v-bad { background: var(--down-soft); color: var(--down); }
-  .v-mid { background: var(--warn-soft); color: var(--warn); }
-  .v-wait { background: var(--surface-2); color: var(--muted); }
-  .meter { position: relative; width: 100%; max-width: 150px; height: 8px; border-radius: 4px; background: var(--surface-2); }
-  .meter-fill { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
-  .meter-fill.pos { background: var(--up); } .meter-fill.neg { background: var(--down); }
-  .meter-entry { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--muted); transform: translateX(-1px); }
-  .meter-dot { position: absolute; top: 50%; width: 12px; height: 12px; border-radius: 50%; background: var(--text); border: 2px solid var(--surface); transform: translate(-50%, -50%); }
-  .meter-cap { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--faint); max-width: 150px; margin-top: 3px; }
-  .empty { color: var(--muted); padding: 14px 0; }
+  .batch .bavg { font-weight: 700; font-size: 15px; }
+  .batch.replaced { opacity: .7; border-style: dashed; }
+  .tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); margin-left: 6px; vertical-align: 2px; }
+  .blinks { padding: 0 16px 10px; font-size: 12.5px; color: var(--muted); }
+  .res { border-top: 1px solid var(--line); }
+  .res > summary { padding: 12px 16px; }
+  .r-head { display: flex; align-items: center; gap: 10px; }
+  .r-head .ico { font-size: 18px; width: 24px; text-align: center; flex: none; }
+  .r-head .nm { flex: 1; min-width: 0; }
+  .r-head .nm b { font-size: 15px; }
+  .r-head .nm small { color: var(--faint); font-size: 12px; margin-left: 6px; }
+  .r-head .ret { font-size: 16px; font-weight: 700; text-align: right; }
+  .r-head .ret small { display: block; font-size: 11.5px; font-weight: 600; color: var(--muted); }
+  .r-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 10px 0 0 34px; }
+  .r-grid div { font-size: 11.5px; color: var(--faint); min-width: 0; }
+  .r-grid b { display: block; font-size: 13px; color: var(--text); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .res .body { padding: 0 16px 14px 50px; font-size: 13.5px; color: var(--muted); }
+  .res .body p { margin: 6px 0; }
+  .note { background: var(--accent-soft); border-radius: 12px; padding: 12px 14px; font-size: 14px; margin-bottom: 12px; }
+  .meter { position: relative; height: 6px; border-radius: 4px; background: var(--surface-2); max-width: 260px; margin-top: 8px; }
+  .meter i { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
+  .meter .e { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--muted); }
+  .meter .d { position: absolute; top: 50%; width: 12px; height: 12px; border-radius: 50%; background: var(--text); border: 2px solid var(--surface); transform: translate(-50%, -50%); }
+  .meter-cap { display: flex; justify-content: space-between; max-width: 260px; font-size: 10.5px; color: var(--faint); margin-top: 3px; }
 
   /* ---------- method ---------- */
-  .prose { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; max-width: 820px; margin-top: 16px; }
-  .prose h3 { margin: 18px 0 6px; font-size: 16px; }
+  .prose { padding: 18px 20px; max-width: 780px; }
+  .prose h3 { margin: 22px 0 6px; font-size: 16px; }
   .prose h3:first-child { margin-top: 0; }
-  .prose table { border-collapse: collapse; font-size: 14px; margin: 6px 0; }
-  .prose td, .prose th { border-bottom: 1px solid var(--border); padding: 6px 14px 6px 0; text-align: left; }
-  footer { color: var(--faint); font-size: 12.5px; padding: 28px 0 40px; }
+  .prose p, .prose li { font-size: 14.5px; }
+  .prose .tbl { overflow-x: auto; }
+  .prose table { border-collapse: collapse; font-size: 13.5px; margin: 6px 0; min-width: 520px; }
+  .prose td, .prose th { border-bottom: 1px solid var(--line); padding: 7px 12px 7px 0; text-align: left; vertical-align: top; }
 
-  /* ---------- responsive ---------- */
-  @media (min-width: 821px) {
-    .rsx { display: none; }
-    .pick > summary .stats, .res > summary .rn { display: contents; }
-    .res .rn .lbl { display: none; }
-  }
-  @media (max-width: 820px) {
-    nav.views { order: 3; width: 100%; overflow-x: auto; }
-    .list-head { display: none; }
-    .pick > summary { grid-template-columns: 28px minmax(0, 1fr) 20px; grid-template-areas: "rank name chev" "stats stats stats"; row-gap: 10px; }
-    .pick > summary .rank { grid-area: rank; } .pick > summary .stock-name { grid-area: name; } .pick > summary .chev { grid-area: chev; }
-    .pick > summary .stats { grid-area: stats; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-    .cell { background: var(--surface-2); border-radius: 8px; padding: 7px 9px; }
-    .cell .lbl { display: block; font-size: 10.5px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--faint); }
-    .cell.riskcell { background: none; padding: 0; grid-column: 1 / -1; }
-    .cols { grid-template-columns: 1fr; }
-    .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .batch .res-head { display: none; }
-    .res > summary { grid-template-columns: minmax(0, 1fr) auto 20px; grid-template-areas: "stock verdict chev" "nums nums nums"; row-gap: 8px; }
-    .res > summary .rs { grid-area: stock; } .res > summary .rv { grid-area: verdict; } .res > summary .chev { grid-area: chev; }
-    .res > summary .rn { grid-area: nums; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-    .res > summary .rn > span { background: var(--surface-2); border-radius: 8px; padding: 7px 9px; }
-    .res > summary .rv { text-align: right; }
-    .rn .lbl { display: block; font-size: 10.5px; font-weight: 600; text-transform: uppercase; color: var(--faint); letter-spacing: .04em; }
-    .res > summary .rs .muted { display: none; }
-    .controls { display: grid; grid-template-columns: 1fr; gap: 10px; padding-top: 12px; }
-    .controls .seg { display: flex; width: 100%; }
-    .controls .seg button { flex: 1; text-align: center; }
-    .ctl-label { display: none; }
-    .seg button { padding: 7px 10px; font-size: 14px; }
-    .seg button small { display: none; }
+  footer { color: var(--faint); font-size: 12px; padding: 8px 0 24px; text-align: center; }
+
+  @media (max-width: 759px) {
+    .tabs-top { display: none; }
+    .tabbar { display: flex; }
+    body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+    .r-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 </style>
 </head>
 <body>
 <header class="top">
-  <div class="wrap top-row">
-    <div class="brand">Stock Picks Desk<small>Daily, weekly &amp; monthly ideas · US &amp; India</small></div>
-    <nav class="views" role="tablist" aria-label="Sections">
-      <button role="tab" data-view="picks" aria-selected="true">Picks</button>
-      <button role="tab" data-view="history" aria-selected="false">Past picks &amp; results</button>
-      <button role="tab" data-view="method" aria-selected="false">Method</button>
-    </nav>
-    <button class="icon-btn" id="themeBtn" title="Toggle light/dark" aria-label="Toggle light or dark theme">◐</button>
+  <div class="wrap">
+    <div class="bar">
+      <div class="brand"><span class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>Stock Picks</div>
+      <nav class="tabs-top" role="tablist" aria-label="Sections">
+        <button role="tab" data-view="picks">Today</button>
+        <button role="tab" data-view="history">Results</button>
+        <button role="tab" data-view="method">How it works</button>
+      </nav>
+      <button class="icon-btn" id="themeBtn" title="Light or dark" aria-label="Toggle light or dark theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
+    </div>
+    <div class="filters" id="filters">
+      <div class="seg" role="group" aria-label="Market">
+        <button data-market="US">🇺🇸 US</button>
+        <button data-market="IN">🇮🇳 India</button>
+      </div>
+      <div class="seg h" role="group" aria-label="Holding period">
+        <button data-horizon="daily">Daily</button>
+        <button data-horizon="weekly">Weekly</button>
+        <button data-horizon="monthly">Monthly</button>
+      </div>
+    </div>
   </div>
 </header>
 
 <main class="wrap">
-  <div class="controls" id="controls">
-    <div>
-      <div class="ctl-label">Market</div>
-      <div class="seg" role="group" aria-label="Market">
-        <button data-market="US" aria-pressed="true">🇺🇸 US</button>
-        <button data-market="IN" aria-pressed="false">🇮🇳 India</button>
-      </div>
-    </div>
-    <div>
-      <div class="ctl-label">Holding period</div>
-      <div class="seg" role="group" aria-label="Holding period">
-        <button data-horizon="daily" aria-pressed="false">Daily<small>hold 1 session</small></button>
-        <button data-horizon="weekly" aria-pressed="true">Weekly<small>hold ≤ 7 days</small></button>
-        <button data-horizon="monthly" aria-pressed="false">Monthly<small>hold ≤ 30 days</small></button>
-      </div>
-    </div>
-  </div>
+  <div class="notice" id="notice" hidden><span><b>Not financial advice.</b> Research ideas from public news and official closing prices. Check the live price with your broker before buying, and size trades so a stop-loss doesn't hurt much.</span><button id="noticeX" aria-label="Dismiss">×</button></div>
 
-  <!-- PICKS -->
+  <!-- TODAY -->
   <section id="view-picks" role="tabpanel">
-    <div class="batch-nav" id="batchNav">
-      <label for="batchSel">Showing picks from</label>
-      <select id="batchSel"></select>
-      <button class="link-btn" id="latestBtn" hidden>← Back to latest</button>
-      <span class="muted" id="batchCount"></span>
-    </div>
-    <div class="strip" id="strip"></div>
-    <p class="disclaimer"><b>Not financial advice.</b> These are research ideas from public news and price data. Prices shown are official closes, not live quotes: check the live price with your broker before buying, and size each trade so hitting the stop-loss doesn't hurt much.</p>
-    <details class="backdrop" id="backdrop"></details>
-    <div class="list-tools">
-      <h2 id="listTitle">Top 5</h2>
-      <button class="link-btn" id="toggleAll">Expand all</button>
-    </div>
-    <div class="list-head" aria-hidden="true">
-      <span>#</span><span>Stock · why</span><span id="priceHead">Last close</span><span>Buy zone</span><span>Sell target</span><span>Stop-loss</span><span>Risk</span><span></span>
-    </div>
+    <div id="pickBanner"></div>
+    <div class="card hero" id="hero"></div>
+    <div class="list-title"><h2 id="listTitle"></h2><span id="listSub"></span></div>
     <div class="picks" id="picks"></div>
   </section>
 
-  <!-- HISTORY -->
+  <!-- RESULTS -->
   <section id="view-history" role="tabpanel" hidden>
-    <div class="batch-nav" id="histFilter" hidden>
-      <label for="histSel" id="histSelLabel">Date</label>
-      <select id="histSel"></select>
-      <button class="link-btn" id="histAll" hidden>Show all</button>
-    </div>
-    <p class="scope muted" id="histScope"></p>
-    <div class="tiles" id="tiles"></div>
+    <div class="chips" id="histChips" role="group" aria-label="Period"></div>
+    <div class="card score" id="score" hidden></div>
+    <p class="scope" id="histScope"></p>
     <div class="note" id="histNote" hidden></div>
     <div id="batches"></div>
-    <p class="disclaimer">Scoring is conservative: if the stop and the target are both touched on the same day, the stop counts. Returns are measured from each pick's reference close and exclude brokerage and taxes.</p>
+    <p class="scope">Scoring is conservative: if the stop and the target are touched on the same day, the stop counts. Returns are from each pick's reference close and exclude brokerage and taxes.</p>
   </section>
 
   <!-- METHOD -->
   <section id="view-method" role="tabpanel" hidden>
-    <div class="prose">
+    <div class="card prose">
       <h3>How picks are chosen</h3>
       <p>All three holding periods follow one rulebook (<span class="num">CRITERIA.md</span> in the repo). A stock is published only if it passes <b>every</b> check below and has a dated reason to move. If fewer than 5 qualify, fewer are published; the list is never padded.</p>
       <ol>
-        <li><b>Read the market regime.</b> The S&amp;P 500 and Nifty 50 are compared with their 50- and 200-day averages. In a weak ("risk-off") market, picks lean to steadier leaders and there are fewer of them.</li>
-        <li><b>Screen for strength.</b> Liquid stocks in an uptrend that are beating their index (details below). Research on momentum shows 3–12-month winners tend to keep winning, while stocks that just spiked tend to give some back, so the screen favors steady leaders over last week's rockets.</li>
-        <li><b>Require a dated catalyst.</b> Ranked by evidence: earnings that beat and raised guidance (prices keep drifting after good news for weeks), fresh analyst upgrades, material order wins, scheduled data (monthly sales, rate decisions), and a sector tailwind. Buying just before an unreported earnings result is a coin flip: it's never used for daily picks, and at most once per weekly or monthly list, clearly flagged. Any earnings date inside a pick's window is shown on the pick.</li>
-        <li><b>Set levels from real volatility.</b> Buy zone, stop and target are sized with ATR (the stock's average daily range), so every pick's risk is proportionate to how much it normally moves.</li>
+        <li><b>Read the market mood.</b> The S&amp;P 500 and Nifty 50 are compared with their 50- and 200-day averages. In a weak ("risk-off") market, picks lean to steadier leaders and there are at most 3.</li>
+        <li><b>Screen for strength.</b> Liquid stocks in an uptrend that are beating their index. Research shows 3–12-month winners tend to keep winning, while stocks that just spiked tend to give some back, so the screen favours steady leaders over last week's rockets.</li>
+        <li><b>Require a dated catalyst.</b> Earnings that beat and raised guidance, fresh analyst upgrades, order wins, scheduled data. Buying just before unreported earnings is a coin flip: never for daily picks, at most once per weekly or monthly list, and always flagged.</li>
+        <li><b>Size the levels to real volatility.</b> Buy zone, stop and target use ATR (the stock's average daily range), so each pick's risk fits how much it normally moves.</li>
       </ol>
       <h3>Hard checks (all must pass)</h3>
-      <table>
+      <div class="tbl"><table>
         <tr><th></th><th>Daily</th><th>Weekly</th><th>Monthly</th></tr>
         <tr><td>Liquidity (20-day avg traded value)</td><td colspan="3">US ≥ $50M · India ≥ ₹100 cr · price ≥ $10 / ₹50</td></tr>
         <tr><td>Trend</td><td>above 20-day avg</td><td colspan="2">above a rising 50-day avg</td></tr>
@@ -329,49 +301,53 @@
         <tr><td>Not a falling knife</td><td colspan="3">≥ 10% above its 52-week low</td></tr>
         <tr><td>Not overextended</td><td colspan="3">≤ 3 ATRs above its 20-day avg</td></tr>
         <tr><td>Volatility (ATR % of price)</td><td>≤ 4%</td><td>≤ 5%</td><td>≤ 4.5%</td></tr>
-        <tr><td>Stop / target (from the buy-zone middle)</td><td>0.75 / 1.25 ATR</td><td>1.25 / 2.25 ATR</td><td>1.75 / 3.5 ATR</td></tr>
+        <tr><td>Stop / target (from buy-zone middle)</td><td>0.75 / 1.25 ATR</td><td>1.25 / 2.25 ATR</td><td>1.75 / 3.5 ATR</td></tr>
         <tr><td>Minimum reward : risk</td><td>1.5</td><td>1.8</td><td>2.0</td></tr>
-        <tr><td>New picks</td><td>trading days, before 9 AM IST</td><td>Mondays, before 9 AM IST</td><td>1st of the month, before 9 AM IST</td></tr>
-      </table>
+        <tr><td>New picks</td><td>trading days, ~7 AM IST</td><td>Mondays, ~7 AM IST</td><td>1st of the month, ~7 AM IST</td></tr>
+      </table></div>
       <p>Also: at most 2 picks per sector, at most 2 high-risk picks, and no Indian stocks under NSE surveillance (ASM/GSM) or, for daily picks, in the F&amp;O ban list.</p>
-      <h3>How prices are kept accurate</h3>
-      <ul>
-        <li><b>Real exchange closes.</b> A GitHub job runs after each market close. It downloads official daily prices (Yahoo Finance) for the S&amp;P 500 and Nifty 200 and computes every average, ATR and relative-strength figure. Picks are priced from that data, not from news snippets.</li>
-        <li><b>Automatic verification.</b> After new picks are published, the same job checks each reference price against the official close of the last completed session. <span class="vbadge v-ok">✓ verified close</span> means it matched. <span class="vbadge v-adj">↻ re-anchored</span> means it was more than 0.3% off, so the buy zone, target and stop were shifted by the same percentage (the original numbers are shown on the pick). <span class="vbadge v-pend">⏳ pending</span> means the reference session hasn't closed yet.</li>
-        <li><b>Rule checks on every pick.</b> Open a pick to see which checks it passed at the pick date. Hover over a chip for the numbers.</li>
-        <li><b>Sources:</b> exchange filings, company releases, Reuters, Bloomberg, Business Standard, Economic Times, Mint, Moneycontrol, CNBC and similar. Sources must be recent (≤ 3 days for daily, 7 for weekly, 21 for monthly). No SEO blogs or social-media tips.</li>
-      </ul>
       <h3>Reading a pick</h3>
       <ul>
-        <li><b>Last close</b>: the official closing price of the most recent completed session (date shown), updated after each market close. It is not a live price: during market hours your broker (Kite, etc.) shows the live price, which will differ. The label under it says whether that close was in the buy zone, above it (wait, don't chase) or below it (check why). Always compare the live price with the buy zone before buying.</li>
-        <li><b>Buy zone</b>: enter only inside it. <b>Sell target</b>: take profit. <b>Stop-loss</b>: exit if wrong. <b>R:R</b> = reward ÷ risk from the middle of the zone.</li>
+        <li><b>Status pill</b>: <b>✓ Buy zone</b> means the last close sits inside the buy zone; <b>Wait</b> means it's above (don't chase); <b>Below zone</b> or <b>Below stop</b> means check why or skip.</li>
+        <li><b>The bar</b>: red dot = stop-loss, shaded band = buy zone, green dot = target, white dot = last close.</li>
+        <li><b>Prices are official closes</b> of the last completed session, updated after each market close (about 4:30 PM IST for India, 3 AM IST for the US). They are not live: your broker shows the live price, so compare it with the buy zone before buying.</li>
       </ul>
-      <h3>How past picks are judged</h3>
+      <h3>How prices are kept accurate</h3>
       <ul>
-        <li><b>Suggested buy</b>, <b>Expected return</b> (if the target is reached), <b>Closed at</b> (the session, week-end or month-end close), <b>Actual return</b> (vs the reference close), and <b>Target met?</b> (✅ if the price touched the target at any point, with how far the close ended from it).</li>
-        <li>Open a row for the stop-loss and what happened if you followed the plan exactly. Each batch is compared with its index over the same window. The rolling hit rate feeds back into the next picks: targets are tightened if too few are reached, and entries are tightened if too many stops are hit.</li>
+        <li>A GitHub job downloads official daily closes (Yahoo Finance) for the S&amp;P 500 and Nifty 200 after each close and computes every average, ATR and relative-strength figure. A session is never used until its market has closed.</li>
+        <li>New picks are re-checked against the official close of the last completed session. If the research price was more than 0.3% off, the buy zone, target and stop are moved by the same percentage ("re-anchored"); the details are inside each pick under <b>Price check &amp; rule checks</b>.</li>
+        <li>Sources: exchange filings, company releases, Reuters, Bloomberg, Business Standard, Economic Times, Mint, Moneycontrol, CNBC and similar, recent (≤ 3 days daily, 7 weekly, 21 monthly). No SEO blogs or social-media tips.</li>
       </ul>
-      <h3>Your history is kept permanently</h3>
-      <p>Every batch ever published stays on the site with all its details and final result. Use <b>Showing picks from</b> on the Picks tab, or browse <b>Past picks &amp; results</b> by month. Finished batches move into a monthly archive after 45 days that loads when you open it. Nothing is deleted.</p>
+      <h3>How results are judged</h3>
+      <ul>
+        <li>Each finished pick shows <b>Suggested buy</b>, <b>Expected</b> return (if the target is hit), <b>Closed at</b> (session, week-end or month-end close), <b>Actual</b> return, and <b>Target met?</b> (✅ if the price touched the target, with how far the close ended from it).</li>
+        <li>The <b>Results</b> tab keeps every list ever published, grouped by month; filter by date, week or month. Nothing is deleted. The hit rate feeds back into the rules: targets tighten if too few are reached, entries tighten if too many stops are hit.</li>
+      </ul>
       <h3>Honest limitations</h3>
       <ul>
-        <li>Over days or weeks, much of a stock's move is noise. The rules improve the odds and cap the damage; they can't make every pick a winner. Watch the hit rate in Past picks &amp; results.</li>
-        <li>Returns shown exclude brokerage, taxes and slippage. Picks published before any automatic price check existed (30 Sep 2026) were researched from news prices and are marked by their verification badge.</li>
+        <li>Over days or weeks much of a stock's move is noise. The rules improve the odds and cap the damage; they can't make every pick a winner. Judge them by the hit rate in Results.</li>
+        <li>Returns exclude brokerage, taxes and slippage.</li>
       </ul>
       <h3>Research behind the rules</h3>
       <ul style="font-size:13px">
-        <li>Jegadeesh &amp; Titman (1993), <i>Returns to Buying Winners and Selling Losers</i>, Journal of Finance: medium-term momentum.</li>
-        <li>Jegadeesh (1990), <i>Evidence of Predictable Behavior of Security Returns</i>, Journal of Finance: short-term reversal.</li>
+        <li>Jegadeesh &amp; Titman (1993), <i>Returns to Buying Winners and Selling Losers</i>, Journal of Finance.</li>
+        <li>Jegadeesh (1990), <i>Evidence of Predictable Behavior of Security Returns</i>, Journal of Finance.</li>
         <li>Bernard &amp; Thomas (1989), <i>Post-Earnings-Announcement Drift</i>, Journal of Accounting Research.</li>
         <li>Womack (1996), <i>Do Brokerage Analysts' Recommendations Have Investment Value?</i>, Journal of Finance.</li>
         <li>Moskowitz &amp; Grinblatt (1999), <i>Do Industries Explain Momentum?</i>, Journal of Finance.</li>
-        <li>Wilder (1978), <i>New Concepts in Technical Trading Systems</i>: average true range (ATR).</li>
+        <li>Wilder (1978), <i>New Concepts in Technical Trading Systems</i> (average true range).</li>
       </ul>
     </div>
   </section>
 
-  <footer>Sources are linked inside each pick. Price updates use Yahoo Finance data. For education and research only. <span id="updated"></span></footer>
+  <footer>Not financial advice · For education and research only · <span id="updated"></span></footer>
 </main>
+
+<nav class="tabbar" role="tablist" aria-label="Sections">
+  <button role="tab" data-view="picks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Today</button>
+  <button role="tab" data-view="history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>Results</button>
+  <button role="tab" data-view="method"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>How it works</button>
+</nav>
 
 <script src="data/picks.js"></script>
 <script src="data/prices.js"></script>
@@ -382,39 +358,35 @@
   const PRICES = window.PRICES || {};
   PRICES.quotes = PRICES.quotes || {}; PRICES.tracking = PRICES.tracking || {};
   const AIDX = window.ARCHIVE_INDEX || { months: [] };
-  const state = { view: "picks", market: "US", horizon: "weekly", batch: "", hf: "" };
+  const state = { view: "picks", market: "US", horizon: "daily", batch: "", hf: "" };
   const CHEV = '<svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const CLOSE_LABEL = { daily: "session close", weekly: "week-end close", monthly: "month-end close" };
+  const HNAME = { daily: "Daily", weekly: "Weekly", monthly: "Monthly" };
 
   // ---------- helpers ----------
   const $ = id => document.getElementById(id);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const cur = c => c === "INR" ? "₹" : "$";
-  const fmt = (v, c, dp = 2) => v == null ? "—" : cur(c) + Number(v).toLocaleString(c === "INR" ? "en-IN" : "en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
-  const short = (v, c) => fmt(v, c, Number.isInteger(v) ? 0 : 2);
-  // Compact form for the scan list: whole units once a price is 1,000 or more.
-  const compact = (v, c) => fmt(v, c, Number.isInteger(v) || Math.abs(v) >= 1000 ? 0 : 2);
+  const sym = c => c === "INR" ? "₹" : "$";
+  const fmt = (v, c, dp = 2) => v == null ? "—" : sym(c) + Number(v).toLocaleString(c === "INR" ? "en-IN" : "en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+  // Compact: whole units once a price is 1,000 or more.
+  const cmp = (v, c) => fmt(v, c, v == null || Number.isInteger(v) || Math.abs(v) >= 1000 ? 0 : 2);
   const pct = v => v == null || isNaN(v) ? "—" : (v > 0 ? "+" : "") + v.toFixed(1) + "%";
   const cls = v => v == null ? "" : v > 0 ? "up" : v < 0 ? "down" : "";
-  const fdate = d => d ? new Date(d + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "—";
-  const fdateY = d => d ? new Date(d + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "—";
+  const d0 = d => new Date(d + "T00:00:00");
+  const fdate = d => d ? d0(d).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "—";
+  const fdateY = d => d ? d0(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "—";
+  const fday = d => d0(d).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
   const fmonth = m => new Date(m + "-01T00:00:00").toLocaleDateString("en-GB", { month: "long", year: "numeric" });
-  const riskKey = r => r.split("–")[0];
   const mktName = m => m === "US" ? "US" : "India";
+  const riskKey = r => String(r || "").split("–")[0];
 
   function livePrice(p) {
     const q = PRICES.quotes[p.yahoo];
-    return q ? { price: q.price, change: q.changePct, asOf: q.asOf, live: true }
-             : { price: p.refPrice, change: null, asOf: p.refDate, live: false };
+    return q ? { price: q.price, asOf: q.asOf } : { price: p.refPrice, asOf: p.refDate };
   }
 
   // ---------- data: active batches + permanent monthly archive ----------
-  // Recent batches live in data/picks.js. Finished ones are moved by
-  // scripts/archive.py into data/archive/<YYYY-MM>.js; data/archive/index.js
-  // lists them all with summary stats, and a month's file is fetched only when
-  // someone opens a batch from it.
-  const ARCH_TRACK = {};
-  const monthLoads = {};
+  const ARCH_TRACK = {}, monthLoads = {};
   function loadMonth(month) {
     if (monthLoads[month]) return monthLoads[month];
     monthLoads[month] = new Promise((resolve, reject) => {
@@ -433,7 +405,7 @@
     });
     return monthLoads[month];
   }
-  // One list of every batch ever published for a holding period, newest first.
+  // Every batch ever published for a holding period, newest first.
   function metasFor(horizon) {
     const seen = new Set(), out = [];
     PICKS.batches.filter(b => (b.horizon || "monthly") === horizon).forEach(b => {
@@ -445,41 +417,38 @@
     return out.sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
   }
   const hasMarket = (meta, m) => meta.batch ? meta.batch.picks.some(p => p.market === m) : !!(meta.markets && meta.markets[m] && meta.markets[m].n);
-  const fullBatch = meta => meta.batch ? Promise.resolve(meta.batch)
-    : loadMonth(meta.month).then(a => a.batches.find(b => b.id === meta.id));
+  const fullBatch = meta => meta.batch ? Promise.resolve(meta.batch) : loadMonth(meta.month).then(a => a.batches.find(b => b.id === meta.id));
   const trackOf = id => PRICES.tracking[id] || ARCH_TRACK[id] || {};
-  const windowLabel = m => m.horizon === "daily" ? `session ${fdateY(m.date)}` : `${fdate(m.date)} → ${fdateY(m.expires)}`;
+  const windowLabel = m => m.horizon === "daily" ? fday(m.date) : `${fdate(m.date)} – ${fdate(m.expires)}`;
 
-  // ---------- state / routing ----------
-  // Hash: #view/market/horizon[/batchId], so any past batch has its own link.
+  // ---------- state / routing: #view/market/horizon[/batchId] ----------
   function setState(patch) {
     if (("market" in patch || "horizon" in patch) && !("batch" in patch)) patch.batch = "";
     if ("market" in patch || "horizon" in patch) patch.hf = "";
     Object.assign(state, patch);
     try { history.replaceState(null, "", `#${state.view}/${state.market}/${state.horizon}${state.batch ? "/" + state.batch : ""}`); } catch (e) {}
+    try { localStorage.setItem("spd-prefs", JSON.stringify({ market: state.market, horizon: state.horizon })); } catch (e) {}
     render();
   }
-  (function readHash() {
+  (function init() {
+    try { const p = JSON.parse(localStorage.getItem("spd-prefs") || "{}"); if (p.market) state.market = p.market; if (p.horizon) state.horizon = p.horizon; } catch (e) {}
     const [v, m, h, b] = (location.hash || "").slice(1).split("/");
     if (["picks", "history", "method"].includes(v)) state.view = v;
     if (["US", "IN"].includes(m)) state.market = m;
     if (["daily", "weekly", "monthly"].includes(h)) state.horizon = h;
     if (b) state.batch = decodeURIComponent(b);
   })();
-  document.querySelectorAll("nav.views button").forEach(b => b.addEventListener("click", () => setState({ view: b.dataset.view })));
+  document.querySelectorAll("[data-view]").forEach(b => b.addEventListener("click", () => { setState({ view: b.dataset.view }); window.scrollTo(0, 0); }));
   document.querySelectorAll("[data-market]").forEach(b => b.addEventListener("click", () => setState({ market: b.dataset.market })));
   document.querySelectorAll("[data-horizon]").forEach(b => b.addEventListener("click", () => setState({ horizon: b.dataset.horizon })));
-  $("batchSel").addEventListener("change", e => setState({ batch: e.target.value }));
-  $("latestBtn").addEventListener("click", () => setState({ batch: "" }));
-  $("histSel").addEventListener("change", e => setState({ hf: e.target.value, batch: "" }));
-  $("histAll").addEventListener("click", () => setState({ hf: "", batch: "" }));
-  // Links from results rows / archived banners jump to a batch's full picks.
   document.addEventListener("click", e => {
     const a = e.target.closest("[data-goto]");
-    if (a) { e.preventDefault(); setState({ view: a.dataset.view || "picks", batch: a.dataset.goto }); window.scrollTo(0, 0); }
+    if (a) { e.preventDefault(); setState({ view: a.dataset.gview || "picks", batch: a.dataset.goto }); window.scrollTo(0, 0); }
+    const c = e.target.closest("[data-hf]");
+    if (c) setState({ hf: c.dataset.hf, batch: "" });
   });
 
-  // ---------- theme ----------
+  // ---------- theme + notice ----------
   const root = document.documentElement;
   try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
   $("themeBtn").addEventListener("click", () => {
@@ -487,39 +456,32 @@
     root.dataset.theme = dark ? "light" : "dark";
     try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
   });
+  try { $("notice").hidden = localStorage.getItem("spd-notice") === "1"; } catch (e) { $("notice").hidden = false; }
+  $("noticeX").addEventListener("click", () => { $("notice").hidden = true; try { localStorage.setItem("spd-notice", "1"); } catch (e) {} });
 
-  // ---------- outcomes (shared by picks and results) ----------
+  // ---------- outcomes (shared) ----------
   function scored(batch, p) {
-    const t = trackOf(batch.id)[p.yahoo];
-    return t || { status: "Open", markPrice: p.refPrice, returnPct: 0, exitDate: null, pending: true };
+    return trackOf(batch.id)[p.yahoo] || { status: "Open", markPrice: p.refPrice, returnPct: 0, exitDate: null, pending: true };
   }
-
-  // Everything the results need for one pick, derived from the scorer's output.
-  // Older tracking entries may lack the period-close fields, so fall back to
-  // the plan exit where that is the same thing.
   function outcome(b, p) {
     const s = scored(b, p);
     const expected = (p.target / p.refPrice - 1) * 100;
     const running = new Date() <= new Date(b.expires + "T23:59:59");
     let close = s.periodClose, closeDate = s.periodCloseDate, final = s.periodFinal;
-    // No session traded inside the window yet: markPrice is still the
-    // reference close, so don't present it as a result.
+    // No session traded inside the window yet: markPrice is still the reference close.
     const started = s.maxHigh != null || s.periodClose != null || s.exitDate != null;
-    if (close == null && !s.pending && started) {
-      close = s.markPrice; closeDate = s.exitDate; final = s.status !== "Open";
-    }
+    if (close == null && !s.pending && started) { close = s.markPrice; closeDate = s.exitDate; final = s.status !== "Open"; }
     const closeRet = close == null ? null : (close / p.refPrice - 1) * 100;
     const vsTarget = close == null ? null : (close / p.target - 1) * 100;
     const hit = s.targetHit != null ? s.targetHit : s.status === "Target hit";
     let met;
-    if (!started && !s.pending) met = ["⏳ Awaiting close", "v-wait"];
-    else if (s.pending || close == null) met = ["Pending", "v-wait"];
-    else if (hit) met = ["✅ Yes", "v-good"];
-    else if (final || !running) met = ["❌ No", "v-bad"];
-    else met = ["⏳ Not yet", "v-mid"];
+    if (!started && !s.pending) met = ["⏳", "Awaiting close"];
+    else if (s.pending || close == null) met = ["⏳", "Pending"];
+    else if (hit) met = ["✅", "Target met"];
+    else if (final || !running) met = ["❌", s.status === "Stopped out" ? "Stopped out" : "Target missed"];
+    else met = ["⏳", "Running"];
     return { s, expected, close, closeDate, final, closeRet, vsTarget, hit, met, running, started };
   }
-
   function planText(s, c) {
     return s.pending ? "Waiting for price data" :
       s.status === "Target hit" ? `Sold at target ${fmt(s.exitPrice, c)} on ${fdate(s.exitDate)} (${pct(s.returnPct)})` :
@@ -527,105 +489,78 @@
       s.status === "Expired" ? `Held to the end: ${fmt(s.exitPrice, c)} (${pct(s.returnPct)})` : "Still open";
   }
 
-  // ---------- picks view ----------
+  // ---------- Today ----------
   function zoneOf(p, price) {
-    if (price <= p.stop) return ["below", "✕ Below stop: skip"];
-    if (price < p.buyLow) return ["below", "▼ Below zone: check why"];
-    if (price > p.buyHigh) return ["above", "▲ Above zone: wait"];
-    return ["in", "✓ In buy zone"];
+    if (price <= p.stop) return ["bad", "Below stop"];
+    if (price < p.buyLow) return ["bad", "Below zone"];
+    if (price > p.buyHigh) return ["wait", "Wait · above zone"];
+    return ["good", "✓ Buy zone"];
   }
-
+  function moodOf(summary) {
+    const m = /^(risk-on|risk-off|neutral)/i.exec(summary || "");
+    if (!m) return null;
+    const k = m[1].toLowerCase();
+    return k === "risk-on" ? ["on", "● Risk-on"] : k === "risk-off" ? ["off", "● Risk-off"] : ["neutral", "● Neutral"];
+  }
   function ladder(p, price) {
-    const lo = Math.min(p.stop, price) * 0.995, hi = Math.max(p.target, price) * 1.005;
+    const lo = Math.min(p.stop, price) * 0.997, hi = Math.max(p.target, price) * 1.003;
     const x = v => ((v - lo) / (hi - lo) * 100).toFixed(2) + "%";
-    return `<div class="ladder" role="img" aria-label="Stop ${short(p.stop, p.currency)}, buy zone ${short(p.buyLow, p.currency)} to ${short(p.buyHigh, p.currency)}, now ${fmt(price, p.currency)}, target ${short(p.target, p.currency)}">
-      <div class="ladder-track">
-        <div class="ladder-zone" style="left:${x(p.buyLow)};width:calc(${x(p.buyHigh)} - ${x(p.buyLow)})"></div>
-        <div class="ladder-dot" style="left:${x(price)}"></div>
-      </div>
-      <div class="ladder-labels">
-        <span class="l down">Stop ${short(p.stop, p.currency)}</span>
-        <span style="left:${x((p.buyLow + p.buyHigh) / 2)}">buy zone</span>
-        <span class="r up">Target ${short(p.target, p.currency)}</span>
-      </div></div>`;
+    return `<div class="ladder" role="img" aria-label="Stop ${cmp(p.stop, p.currency)}, buy zone ${cmp(p.buyLow, p.currency)} to ${cmp(p.buyHigh, p.currency)}, last close ${fmt(price, p.currency)}, target ${cmp(p.target, p.currency)}">
+      <div class="track"><span class="zone" style="left:${x(p.buyLow)};width:calc(${x(p.buyHigh)} - ${x(p.buyLow)})"></span>
+        <span class="end s" style="left:${x(p.stop)}"></span><span class="end t" style="left:${x(p.target)}"></span>
+        <span class="dot" style="left:${x(price)}"></span></div></div>`;
   }
+  // Research "Key numbers" can carry a pre-verification close; the verified
+  // reference close is shown separately, so drop those rows.
+  const dataRows = p => p.data.filter(([k]) => !/^(close|last close|price|cmp)\b/i.test(k));
 
-  // Price verification (set by scripts/verify_prices.py in the Market data Action).
-  function verifyBadge(p) {
-    const v = p.verified;
-    if (!v) return `<span class="vbadge v-pend" title="The Market data job hasn't checked this price against the exchange close yet.">⏳ price check pending</span>`;
-    if (v.status === "ok") return `<span class="vbadge v-ok" title="Matches the ${esc(v.date)} close on Yahoo Finance.">✓ verified close</span>`;
-    if (v.status === "unverifiable") return `<span class="vbadge v-warn" title="${esc(v.note || "")}">⚠ unverified</span>`;
-    return `<span class="vbadge ${v.status === "mismatch" ? "v-warn" : "v-adj"}" title="Research price ${esc(v.researchPrice)} was ${esc(v.diffPct)}% off the real close; levels moved by the same %.">↻ re-anchored to real close</span>`;
-  }
-  function verifyLine(p) {
-    const v = p.verified, c = p.currency;
-    if (!v) return `<div class="vline">Price check pending: the reference price will be checked against the official close by the next Market data run.</div>`;
-    if (v.status === "unverifiable") return `<div class="vline warn">Couldn't verify this price automatically (${esc(v.note || "no data")}).</div>`;
-    const base = `Reference price is the official <b>${fdateY(v.date)}</b> close, <b class="num">${fmt(v.close, c)}</b> (${esc(v.source)}).`;
-    if (v.status === "ok") return `<div class="vline">✓ ${base}</div>`;
-    const o = v.original || {};
-    return `<div class="vline ${v.status === "mismatch" ? "warn" : ""}">↻ ${base} The research price was ${fmt(v.researchPrice, c)} (${pct(v.diffPct)} off), so the buy zone, target and stop were moved by the same percentage
-      (was buy ${fmt(o.buyLow, c)}–${fmt(o.buyHigh, c)}, target ${fmt(o.target, c)}, stop ${fmt(o.stop, c)}).${v.status === "mismatch" ? " The gap is large: re-check the setup before trading." : ""}</div>`;
-  }
-  function checksBlock(p) {
-    const chips = (p.checks || []).map(ch => `<span class="ck ${ch.pass ? "ck-ok" : "ck-bad"}" title="${esc(ch.detail)}">${ch.pass ? "✓" : "✗"} ${esc(ch.name)}</span>`).join("");
-    const ev = p.eventRisk ? `<div class="vline warn">⚠ ${esc(p.eventRisk)}. Results can move the stock sharply: reassess before the report and size the position accordingly.</div>` : "";
-    return (chips ? `<div class="checks"><span class="ck-h">Rule checks at the pick date</span>${chips}</div>` : "") + ev;
-  }
-
-  function pickRow(p, i, batch, isLatest) {
-    const c = p.currency, o = isLatest ? null : outcome(batch, p);
-    const lp = isLatest ? livePrice(p) : { price: p.refPrice, asOf: p.refDate, live: false, change: null };
+  function pickCard(p, i, batch, live) {
+    const c = p.currency, o = live ? null : outcome(batch, p);
+    const lp = live ? livePrice(p) : { price: o.close != null ? o.close : p.refPrice, asOf: o.closeDate || p.refDate };
     const mid = (p.buyLow + p.buyHigh) / 2;
     const up = (p.target / mid - 1) * 100, dn = (p.stop / mid - 1) * 100, rr = (p.target - mid) / (mid - p.stop);
-    const buyZone = `${compact(p.buyLow, c)}–${compact(p.buyHigh, c).replace(/^[$₹]/, "")}`;
-    let priceCell;
-    if (isLatest) {
-      const [zk, zt] = zoneOf(p, lp.price);
-      priceCell = `<span class="lbl">Last close · ${fdate(lp.asOf)}</span><span class="v num" title="Official close on ${fdateY(lp.asOf)}. Not a live price: check your broker during market hours.">${fmt(lp.price, c)}</span><span class="s zone ${zk}">${zt}</span>`;
-    } else {
-      priceCell = `<span class="lbl">Result</span><span class="v"><span class="status ${o.met[1]}">${o.met[0]}</span></span>
-        <span class="s">${o.close == null ? "no price data" : `${fmt(o.close, c)} · <span class="${cls(o.closeRet)}">${pct(o.closeRet)}</span>`}</span>`;
-    }
-    const result = isLatest ? "" : `<div class="result-box">
-        <b>How it turned out:</b>
-        ${o.close == null ? "No price data for this pick yet." :
-          `Closed at <b class="num">${fmt(o.close, c)}</b> (${o.final ? CLOSE_LABEL[batch.horizon || "monthly"] : "latest so far"}, ${fdate(o.closeDate)}) ·
-           actual <b class="num ${cls(o.closeRet)}">${pct(o.closeRet)}</b> vs expected <b class="num up">${pct(o.expected)}</b> ·
-           target met: <b>${o.hit ? "Yes" : o.final || !o.running ? "No" : "not yet"}</b> (closed ${pct(o.vsTarget)} vs target) ·
-           if you followed the plan: <b>${esc(planText(o.s, c))}</b>`}
-      </div>`;
-    const dotPrice = isLatest ? lp.price : (o.close != null ? o.close : p.refPrice);
-    return `<details class="pick">
+    const [pk, pt] = live ? zoneOf(p, lp.price) : [o.hit ? "good" : o.final || !o.running ? (o.closeRet >= 0 ? "neutral" : "bad") : "neutral", `${o.met[0]} ${o.met[1]}`];
+    const v = p.verified;
+    const verify = !v ? "Price check pending: the reference price will be checked against the official close on the next data run."
+      : v.status === "unverifiable" ? `Couldn't verify this price automatically (${esc(v.note || "no data")}).`
+      : v.status === "ok" ? `✓ Reference price matches the official ${fdateY(v.date)} close, ${fmt(v.close, c)} (${esc(v.source)}).`
+      : `↻ Re-anchored to the official ${fdateY(v.date)} close, ${fmt(v.close, c)}. The research price was ${fmt(v.researchPrice, c)} (${pct(v.diffPct)} off), so the buy zone, target and stop moved by the same percentage (was buy ${fmt((v.original || {}).buyLow, c)}–${fmt((v.original || {}).buyHigh, c)}, target ${fmt((v.original || {}).target, c)}, stop ${fmt((v.original || {}).stop, c)}).`;
+    const checks = (p.checks || []).map(ch => `<span class="ck ${ch.pass ? "ok" : "no"}" title="${esc(ch.detail)}">${ch.pass ? "✓" : "✗"} ${esc(ch.name)}</span>`).join("");
+    const result = live ? "" : `<div class="result-box">${o.close == null ? "No result yet for this pick." :
+      `<b>${o.met[0]} ${o.met[1]}.</b> Closed at <b class="num">${fmt(o.close, c)}</b> (${o.final ? CLOSE_LABEL[batch.horizon || "monthly"] : "latest so far"}, ${fdate(o.closeDate)}) · actual <b class="num ${cls(o.closeRet)}">${pct(o.closeRet)}</b> vs expected <b class="num up">${pct(o.expected)}</b> · following the plan: ${esc(planText(o.s, c))}`}</div>`;
+    const ev = p.eventRisk ? /(\d{4}-\d{2}-\d{2})/.exec(p.eventRisk) : null;
+    return `<details class="card pick">
       <summary>
-        <span class="rank">${i + 1}</span>
-        <span class="stock-name"><b>${esc(p.name)}</b><span class="tk num">${esc(p.symbol)}</span> ${verifyBadge(p)}
-          <span class="th">${esc(p.thesis)}</span></span>
-        <span class="stats">
-          <span class="cell">${priceCell}</span>
-          <span class="cell"><span class="lbl">Buy zone</span><span class="v num">${buyZone}</span>
-            <span class="s">${isLatest ? `${lp.live ? "close" : "ref. close"} ${fdate(lp.asOf)}` : `ref. ${fmt(p.refPrice, c)}`}${lp.change != null ? ` · <span class="${cls(lp.change)}">${pct(lp.change)}</span>` : ""}</span></span>
-          <span class="cell"><span class="lbl">Sell target</span><span class="v num up">${short(p.target, c)}</span><span class="s">${pct(up)}</span></span>
-          <span class="cell"><span class="lbl">Stop-loss</span><span class="v num down">${short(p.stop, c)}</span><span class="s">${pct(dn)} · R:R ${rr.toFixed(1)}</span></span>
-          <span class="cell riskcell"><span class="chip risk-${esc(riskKey(p.risk))}">${esc(p.risk)}<span class="rsx"> risk</span></span></span>
-        </span>
-        ${CHEV}
-      </summary>
-      <div class="pick-body">
-        ${result}
-        ${verifyLine(p)}
-        ${checksBlock(p)}
-        <p class="sector">${esc(p.sector)} · ${p.market === "US" ? "NYSE/Nasdaq" : "NSE"}</p>
-        ${ladder(p, dotPrice)}
-        <div class="muted" style="font-size:12px">● = ${isLatest ? "last official close" : "closing price at the end of the window"} · shaded band = buy zone</div>
-        <div class="cols">
-          <div><h4>Why buy</h4><ul>${p.reasons.map(r => `<li>${esc(r)}</li>`).join("")}</ul></div>
-          <div><h4>Key numbers</h4><table class="kv">${p.data.map(([k, v]) => `<tr><td>${esc(k)}</td><td class="num">${esc(v)}</td></tr>`).join("")}</table></div>
+        <div class="p-head"><span class="rank">${i + 1}</span>
+          <span class="p-name"><b>${esc(p.name)}</b><small>${esc(p.symbol)} · ${esc(p.sector)}</small></span>
+          <span class="pill ${pk}">${esc(pt)}</span></div>
+        ${ladder(p, lp.price)}
+        <div class="levels num">
+          <div class="s">Stop<b>${cmp(p.stop, c)}</b>${pct(dn)}</div>
+          <div>Buy zone<b>${cmp(p.buyLow, c)}–${cmp(p.buyHigh, c).replace(/^[$₹]/, "")}</b>R:R ${rr.toFixed(1)}</div>
+          <div class="t">Target<b>${cmp(p.target, c)}</b>${pct(up)}</div>
         </div>
-        <div class="watch"><b>What could go wrong:</b> ${esc(p.watch)}</div>
-        <details class="sources"><summary>Sources (${p.sources.length}) ${CHEV}</summary>
-          <ol>${p.sources.map(([t, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ol></details>
+        <p class="thesis">${esc(p.thesis)}</p>
+        <div class="p-foot"><span class="risk ${esc(riskKey(p.risk))}">${esc(p.risk)} risk</span><span class="num">${live ? "Last close" : "Closed"} ${fmt(lp.price, c)} · ${fdate(lp.asOf)}</span>
+          ${ev ? `<span class="flag">⚠ Earnings ${fdate(ev[1])}</span>` : ""}
+          <span class="more"><span class="lbl-open">Details</span><span class="lbl-close">Less</span>${CHEV}</span></div>
+      </summary>
+      <div class="p-body">
+        ${result}
+        <h4>Why buy</h4><ul>${p.reasons.map(r => `<li>${esc(r)}</li>`).join("")}</ul>
+        <h4>Trade plan</h4>
+        <div class="plan num">
+          <div>Buy between<b>${fmt(p.buyLow, c)} – ${fmt(p.buyHigh, c)}</b></div>
+          <div>Sell at target<b class="up">${fmt(p.target, c)} (${pct(up)})</b></div>
+          <div>Stop-loss<b class="down">${fmt(p.stop, c)} (${pct(dn)})</b></div>
+          <div>${batch.horizon === "daily" ? "Hold" : "Sell by"}<b>${batch.horizon === "daily" ? "this session only" : fdateY(batch.expires)}</b></div>
+        </div>
+        <h4>What could go wrong</h4><div class="watch">${esc(p.watch)}${p.eventRisk ? `<br><b>⚠ ${esc(p.eventRisk)}.</b> Results can move the stock sharply.` : ""}</div>
+        <h4>Key numbers</h4>
+        <table class="kv num"><tr><td>Reference close (${fdate(p.refDate)})</td><td>${fmt(p.refPrice, c)}</td></tr>${dataRows(p).map(([k, val]) => `<tr><td>${esc(k)}</td><td>${esc(val)}</td></tr>`).join("")}</table>
+        <h4>Sources</h4><ol class="sources">${p.sources.map(([t, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ol>
+        <details class="sub"><summary><span>Price check &amp; rule checks</span>${CHEV}</summary>
+          <div class="in">${verify}${checks ? `<div class="checks">${checks}</div>` : ""}</div></details>
       </div>
     </details>`;
   }
@@ -635,157 +570,123 @@
     const metas = metasFor(state.horizon);
     const token = ++picksToken;
     if (!metas.length) {
-      $("batchNav").hidden = true; $("strip").innerHTML = ""; $("backdrop").innerHTML = "";
-      $("listTitle").textContent = ""; $("picks").innerHTML = '<p class="empty">No picks for this holding period yet.</p>';
+      $("pickBanner").innerHTML = ""; $("hero").innerHTML = `<p class="empty">No ${state.horizon} picks yet.</p>`;
+      $("listTitle").textContent = ""; $("listSub").textContent = ""; $("picks").innerHTML = "";
       return;
     }
     const current = metas.find(m => !m.superseded) || metas[0];
     const meta = metas.find(m => m.id === state.batch) || current;
-    const isLatest = meta === current;
-    $("batchNav").hidden = false;
-    $("batchSel").innerHTML = metas.map((m, i) =>
-      `<option value="${m === current ? "" : esc(m.id)}" ${m === meta ? "selected" : ""}>${esc(windowLabel(m))}${m === current ? " · latest" : ""}${m.superseded ? " · replaced" : ""}${hasMarket(m, state.market) ? "" : " · no " + mktName(state.market) + " picks"}</option>`).join("");
-    $("batchCount").textContent = `${metas.length} ${state.horizon} batch${metas.length === 1 ? "" : "es"} on record`;
-    $("latestBtn").hidden = isLatest;
-    if (!meta.batch) {
-      $("strip").innerHTML = `<span class="when">Loading ${esc(fmonth(meta.month))} from the archive…</span>`;
-      $("backdrop").innerHTML = ""; $("picks").innerHTML = ""; $("listTitle").textContent = "";
-    }
-    // Only a batch whose window is still running is shown "live" (today's
-    // price, buy-zone status). Anything finished is shown with its results.
-    const live = isLatest && new Date() <= new Date(meta.expires + "T23:59:59");
-    fullBatch(meta).then(batch => { if (token === picksToken) drawPicks(batch, live); })
-      .catch(() => { if (token === picksToken) $("strip").innerHTML = `<span class="when">Couldn't load the ${esc(fmonth(meta.month))} archive. Check your connection and try again.</span>`; });
+    const isCurrent = meta === current;
+    const live = isCurrent && new Date() <= new Date(meta.expires + "T23:59:59");
+    fullBatch(meta).then(b => { if (token === picksToken) drawPicks(b, meta, isCurrent, live); })
+      .catch(() => { if (token === picksToken) $("hero").innerHTML = `<p class="empty">Couldn't load this list from the archive. Check your connection and try again.</p>`; });
   }
 
-  function drawPicks(batch, isLatest) {
-    const start = new Date(batch.date + "T00:00:00"), end = new Date(batch.expires + "T23:59:59"), now = new Date();
-    const isDaily = state.horizon === "daily";
+  function drawPicks(batch, meta, isCurrent, live) {
     const list = batch.picks.filter(p => p.market === state.market);
-    if (batch.superseded) {
-      $("strip").innerHTML = `<span class="when">↺ Replaced list · ${esc(windowLabel(batch))}</span>
-        <span class="muted" style="font-size:13px">${esc(batch.superseded.reason)} Kept here for the record and not counted in results.
-          <a href="#" data-goto="${esc(batch.superseded.by)}">See the list that replaced it →</a></span>`;
-    } else if (!isLatest) {
-      const os = list.map(p => outcome(batch, p)), priced = os.filter(o => o.closeRet != null);
-      const done = priced.filter(o => o.final || o.hit), hits = done.filter(o => o.hit).length;
-      const avg = priced.length ? priced.reduce((t, o) => t + o.closeRet, 0) / priced.length : null;
-      const exp = os.length ? os.reduce((t, o) => t + o.expected, 0) / os.length : null;
-      $("strip").innerHTML = `<span class="when">📁 Past picks · ${esc(windowLabel(batch))}</span>
-        <span class="muted" style="font-size:13px">${priced.length
-          ? `Target met <b>${hits} of ${done.length}</b> · actual avg <b class="num ${cls(avg)}">${pct(avg)}</b> vs expected <b class="num up">${pct(exp)}</b>`
-          : "No price data recorded for this batch yet"} ·
-          <a href="#" data-goto="${esc(batch.id)}" data-view="history">see it in Past picks &amp; results →</a></span>`;
-    } else if (isDaily) {
-      const sessionState = now < start ? "Upcoming session" : now <= end ? "Session day" : "Session over. See Past picks & results";
-      $("strip").innerHTML = `<span class="when">For the ${new Date(batch.date + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" })} session</span>
-         <span class="muted" style="font-size:13px">Buy near the open inside the buy zone · sell at the target, the stop, or the close, whichever comes first · ${sessionState}</span>`;
-    } else {
-      const total = Math.max(1, Math.round((new Date(batch.expires + "T00:00:00") - start) / 864e5));
-      const left = Math.min(total, Math.max(0, Math.ceil((end - now) / 864e5) - 1));
-      const done = Math.min(100, Math.max(0, (now - start) / (end - start) * 100));
-      $("strip").innerHTML = `<span class="when">Picked ${fdateY(batch.date)} → sell by ${fdateY(batch.expires)}</span>
-      <div class="progress"><div class="bar"><i style="width:${done.toFixed(0)}%"></i></div>
-      <div class="cap">${left > 0 ? `${left} of ${total} days left in this window` : "Window closed. See Past picks & results"}</div></div>`;
-    }
+    const ctx = batch.context[state.market] || { summary: "" };
+    // Banner when looking at anything other than the current list.
+    $("pickBanner").innerHTML = isCurrent ? "" : `<div class="banner"><span>${batch.superseded
+      ? `↺ <b>Replaced list</b> · ${esc(windowLabel(meta))}. ${esc(batch.superseded.reason || "")}`
+      : `📁 <b>Past list</b> · ${esc(windowLabel(meta))}`}</span><button class="btn" data-goto="">Back to today</button></div>`;
 
-    const ctx = batch.context[state.market] || { benchmarkName: "", summary: "" };
-    const first = ctx.summary.split(/(?<=\.)\s/)[0];
-    $("backdrop").innerHTML = ctx.summary ? `<summary><span class="t"><b>Market backdrop${isLatest ? "" : " at the time"} · ${esc(ctx.benchmarkName)}</b><span>${esc(first)}</span></span>${CHEV}</summary>
-      <div class="body">${esc(ctx.summary)}
-        <ul>${(batch.marketSources || []).map(([t, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ul></div>` : "";
+    const now = new Date(), start = d0(batch.date), end = new Date(batch.expires + "T23:59:59");
+    let when, prog = "";
+    if (batch.horizon === "daily") {
+      when = `For the ${fday(batch.date)} session · ${now < start ? "upcoming" : now <= end ? "buy near the open, exit at target, stop or close" : "session over"}`;
+    } else {
+      const total = Math.max(1, Math.round((d0(batch.expires) - start) / 864e5));
+      const dayN = Math.min(total, Math.max(1, Math.floor((now - start) / 864e5) + 1));
+      when = `${fdate(batch.date)} – ${fdateY(batch.expires)} · ${now > end ? "finished" : `day ${dayN} of ${total}`}`;
+      prog = `<div class="progress"><i style="width:${Math.min(100, Math.max(2, (now - start) / (end - start) * 100)).toFixed(0)}%"></i></div>`;
+    }
+    const mood = moodOf(ctx.summary);
+    const prices = list.map(p => live ? livePrice(p).price : null);
+    const inZone = live ? list.filter((p, i) => prices[i] >= p.buyLow && prices[i] <= p.buyHigh).length : null;
+    const avgUp = list.length ? list.reduce((t, p) => t + (p.target / ((p.buyLow + p.buyHigh) / 2) - 1) * 100, 0) / list.length : null;
+    let third;
+    if (live) third = `<div class="stat"><div class="v num">${inZone}/${list.length}</div><div class="k">in buy zone</div></div>`;
+    else {
+      const os = list.map(p => outcome(batch, p)), done = os.filter(o => o.final || o.hit);
+      third = `<div class="stat"><div class="v num">${done.length ? `${done.filter(o => o.hit).length}/${done.length}` : "—"}</div><div class="k">targets met</div></div>`;
+    }
+    const first = (ctx.summary || "").split(/(?<=\.)\s/)[0];
+    $("hero").innerHTML = `
+      <div class="hero-top"><div><h1>${HNAME[batch.horizon || "monthly"]} picks · ${mktName(state.market)}</h1><div class="when">${esc(when)}</div></div>
+        ${mood ? `<span class="mood ${mood[0]}">${mood[1]}</span>` : ""}</div>
+      ${prog}
+      <div class="stats">
+        <div class="stat"><div class="v num">${list.length}</div><div class="k">pick${list.length === 1 ? "" : "s"}</div></div>
+        ${third}
+        <div class="stat"><div class="v num up">${pct(avgUp)}</div><div class="k">avg to target</div></div>
+      </div>
+      ${ctx.summary ? `<details class="backdrop"><summary><span><b>Market:</b> ${esc(first.replace(/^(risk-on|risk-off|neutral):\s*/i, ""))}</span>${CHEV}</summary>
+        <div class="body">${esc(ctx.summary)}<ul>${(batch.marketSources || []).map(([t, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ul></div></details>` : ""}`;
 
     if (!list.length) {
       $("listTitle").textContent = "No picks for this market";
-      $("picks").innerHTML = `<p class="empty">No ${mktName(state.market)} ${state.horizon} picks in this batch. The market backdrop above explains why (for example a holiday, no stock passing every check, or picks still to be added).</p>`;
+      $("listSub").textContent = "";
+      $("picks").innerHTML = `<p class="empty">No ${mktName(state.market)} ${state.horizon} picks in this list. The market backdrop above explains why (a holiday, no stock passing every check, or picks still to come).</p>`;
       return;
     }
-    $("priceHead").textContent = isLatest ? "Last close" : "Result";
-    $("listTitle").textContent = `${isLatest ? "Top" : "Past"} ${list.length} ${mktName(state.market)} · ${state.horizon} picks`;
-    $("picks").innerHTML = list.map((p, i) => pickRow(p, i, batch, isLatest)).join("");
-    $("toggleAll").textContent = "Expand all";
+    $("listTitle").textContent = `${list.length} ${list.length === 1 ? "pick" : "picks"}${live ? "" : " · results"}`;
+    $("listSub").textContent = live ? "Prices are official closes, not live" : "";
+    $("picks").innerHTML = list.map((p, i) => pickCard(p, i, batch, live)).join("");
   }
-  $("toggleAll").addEventListener("click", e => {
-    const items = [...document.querySelectorAll("#picks > details")];
-    const open = !items.every(d => d.open);
-    items.forEach(d => d.open = open);
-    e.currentTarget.textContent = open ? "Collapse all" : "Expand all";
-  });
 
-  // ---------- history view ----------
+  // ---------- Results ----------
   function meter(p, price) {
     const lo = p.stop, hi = p.target, v = Math.min(Math.max(price, lo), hi);
     const x = val => ((val - lo) / (hi - lo) * 100).toFixed(1) + "%";
     const a = Math.min(v, p.refPrice), b = Math.max(v, p.refPrice);
-    return `<div class="meter" role="img" aria-label="Closing price ${fmt(price, p.currency)} between stop ${short(p.stop, p.currency)} and target ${short(p.target, p.currency)}">
-      <div class="meter-fill ${price >= p.refPrice ? "pos" : "neg"}" style="left:${x(a)};width:calc(${x(b)} - ${x(a)})"></div>
-      <div class="meter-entry" style="left:${x(p.refPrice)}"></div><div class="meter-dot" style="left:${x(v)}"></div></div>
-      <div class="meter-cap"><span>stop</span><span>target</span></div>`;
+    return `<div class="meter" role="img" aria-label="Closed at ${fmt(price, p.currency)} between stop ${cmp(p.stop, p.currency)} and target ${cmp(p.target, p.currency)}">
+      <i style="left:${x(a)};width:calc(${x(b)} - ${x(a)});background:${price >= p.refPrice ? "var(--up)" : "var(--down)"}"></i>
+      <span class="e" style="left:${x(p.refPrice)}"></span><span class="d" style="left:${x(v)}"></span></div>
+      <div class="meter-cap"><span>stop ${cmp(p.stop, p.currency)}</span><span>target ${cmp(p.target, p.currency)}</span></div>`;
   }
-
   function resRow(b, p) {
-    const o = outcome(b, p), s = o.s, c = p.currency;
-    const buyZone = `${compact(p.buyLow, c)}–${compact(p.buyHigh, c).replace(/^[$₹]/, "")}`;
-    const closeSub = o.close == null ? (!o.started && o.running ? "after the first close" : o.running ? "window still open" : "no price data")
-      : `${o.final ? CLOSE_LABEL[b.horizon || "monthly"] : "latest close, so far"} · ${fdate(o.closeDate)}`;
-    const metSub = o.close == null ? "" : `closed ${pct(o.vsTarget)} vs target`;
+    const o = outcome(b, p), c = p.currency;
+    const closeSub = o.close == null ? (o.running ? "pending" : "no data") : `${o.final ? CLOSE_LABEL[b.horizon || "monthly"].replace(" close", "") : "so far"} ${fdate(o.closeDate)}`;
     return { ...o, html: `<details class="res">
       <summary>
-        <span class="rs"><b>${esc(p.symbol)}</b> <span class="muted" style="font-size:12.5px">${esc(p.name)}</span></span>
-        <span class="rn">
-          <span><span class="lbl">Suggested buy</span><span class="num">${buyZone}</span><span class="sub2 num">ref. ${fmt(p.refPrice, c)}</span></span>
-          <span><span class="lbl">Expected return</span><span class="num up" style="font-weight:600">${pct(o.expected)}</span><span class="sub2 num">target ${short(p.target, c)}</span></span>
-          <span><span class="lbl">Closed at</span><span class="num" style="font-weight:600">${o.close == null ? "—" : fmt(o.close, c)}</span><span class="sub2">${closeSub}</span></span>
-          <span><span class="lbl">Actual return</span><span class="num ${cls(o.closeRet)}" style="font-weight:600">${pct(o.closeRet)}</span><span class="sub2">vs entry</span></span>
-        </span>
-        <span class="rv"><span class="status ${o.met[1]}">${o.met[0]}</span><span class="sub2 num">${metSub}</span></span>
-        ${CHEV}
+        <div class="r-head"><span class="ico">${o.met[0]}</span>
+          <span class="nm"><b>${esc(p.symbol)}</b><small>${esc(o.met[1])}</small></span>
+          <span class="ret num ${cls(o.closeRet)}">${pct(o.closeRet)}<small>${o.close == null ? "" : `${pct(o.vsTarget)} vs target`}</small></span></div>
+        <div class="r-grid num">
+          <div>Suggested buy<b>${cmp(p.buyLow, c)}–${cmp(p.buyHigh, c).replace(/^[$₹]/, "")}</b></div>
+          <div>Expected<b class="up">${pct(o.expected)}</b></div>
+          <div>Closed at<b>${o.close == null ? "—" : fmt(o.close, c)}</b></div>
+          <div>${closeSub}<b>${o.close == null ? "—" : o.hit ? "Target ✓" : o.final || !o.running ? "Target ✗" : "—"}</b></div>
+        </div>
       </summary>
       <div class="body">
-        <div><b style="color:var(--text)">Why I expected it:</b> ${esc(p.thesis)}</div>
-        <div class="facts">
-          <span>Stop-loss <b class="num down">${fmt(p.stop, c)}</b> (${pct((p.stop / p.refPrice - 1) * 100)})</span>
-          <span>If you followed the plan: <b>${esc(planText(s, c))}</b></span>
-          ${s.maxHigh != null ? `<span>Range in window <b class="num">${fmt(s.minLow, c)} – ${fmt(s.maxHigh, c)}</b></span>` : ""}
-        </div>
-        ${o.close != null ? `<div style="margin-top:8px">${meter(p, o.close)}</div>` : ""}
-        <a href="#" class="goto" data-goto="${esc(b.id)}">See the full original pick (reasons, numbers, sources) →</a>
+        <p><b style="color:var(--text)">Why:</b> ${esc(p.thesis)}</p>
+        <p>Reference close ${fmt(p.refPrice, c)} · target ${fmt(p.target, c)} · stop ${fmt(p.stop, c)}</p>
+        <p>Following the plan: <b style="color:var(--text)">${esc(planText(o.s, c))}</b>${o.s.maxHigh != null ? ` · range in window ${fmt(o.s.minLow, c)} – ${fmt(o.s.maxHigh, c)}` : ""}</p>
+        ${o.close != null ? meter(p, o.close) : ""}
+        <p><a href="#" data-goto="${esc(b.id)}">See the full original pick →</a></p>
       </div></details>` };
   }
-
-  // Summary numbers for one batch + market: from real rows when the batch is
-  // loaded, or from the archive index when it isn't.
   function statsFromRows(rows) {
     const priced = rows.filter(r => r.closeRet != null), done = priced.filter(r => r.final || r.hit);
     return { n: rows.length, priced: priced.length, finished: done.length, hits: done.filter(r => r.hit).length,
              sumExpected: rows.reduce((t, r) => t + r.expected, 0), sumCloseRet: priced.reduce((t, r) => t + r.closeRet, 0) };
   }
-
-  function batchHead(meta, st, running) {
+  function batchHead(meta, st) {
     const avg = st.priced ? st.sumCloseRet / st.priced : null;
-    return `<summary>
-      <span class="t"><b>${meta.horizon === "daily" ? fdateY(meta.date) : "Picks of " + fdateY(meta.date)}</b> <span class="chip">${meta.superseded ? "Replaced" : running ? "Running" : meta.archived ? "Archived" : "Closed"}</span>
-        <div class="m">${meta.horizon === "daily" ? "Session" : `Window ${fdate(meta.date)} → ${fdate(meta.expires)}`} ·
-          Target met <b>${st.finished ? `${st.hits}/${st.finished}` : "—"}</b> ·
-          Avg actual <span class="num ${cls(avg)}">${pct(avg)}</span> vs expected <span class="num up">${pct(st.n ? st.sumExpected / st.n : null)}</span></div></span>
-      ${CHEV}
-    </summary>`;
+    return `<summary><span class="t"><b>${esc(windowLabel(meta))}</b>${meta.superseded ? '<span class="tag">Replaced</span>' : meta.archived ? '<span class="tag">Archived</span>' : ""}
+        <div class="m">Targets met <b>${st.finished ? `${st.hits}/${st.finished}` : "—"}</b> · expected ${pct(st.n ? st.sumExpected / st.n : null)}</div></span>
+      <span class="bavg num ${cls(avg)}">${pct(avg)}</span>${CHEV}</summary>`;
   }
-
   function batchBody(b) {
     const rows = b.picks.filter(p => p.market === state.market).map(p => resRow(b, p));
     const ctx = b.context[state.market] || {};
     const bt = trackOf(b.id)[ctx.benchmark];
-    return { rows, html: `
-      <div class="batch-links">${ctx.benchmarkName ? `${esc(ctx.benchmarkName)} over the same window: <span class="num ${cls(bt && bt.returnPct)}">${bt ? pct(bt.returnPct) : "—"}</span> · ` : ""}
-        <a href="#" data-goto="${esc(b.id)}">Open these picks in full →</a></div>
-      <div class="res-head" aria-hidden="true"><span>Stock</span><span>Suggested buy</span><span>Expected return</span><span>Closed at (${CLOSE_LABEL[b.horizon || "monthly"]})</span><span>Actual return</span><span>Target met?</span><span></span></div>
-      ${rows.map(r => r.html).join("")}` };
+    return { rows, bench: bt ? bt.returnPct : null, html: `<div class="blinks">${ctx.benchmarkName ? `${esc(ctx.benchmarkName)} over the same window: <b class="num ${cls(bt && bt.returnPct)}">${bt ? pct(bt.returnPct) : "—"}</b> · ` : ""}<a href="#" data-goto="${esc(b.id)}">Open this list →</a></div>${rows.map(r => r.html).join("")}` };
   }
 
   function renderHistory() {
-    // Past picks shows finished batches only. A batch joins once its window
-    // has ended, or once every pick in this market has its final close.
+    // Only finished lists: the window has ended, or every pick here has its final close.
     const all = metasFor(state.horizon).filter(m => hasMarket(m, state.market));
     const finished = m => {
       if (m.archived || new Date() > new Date(m.expires + "T23:59:59")) return true;
@@ -793,51 +694,44 @@
       return ps.length > 0 && ps.every(p => tr[p.yahoo] && tr[p.yahoo].periodFinal);
     };
     const done = all.filter(finished);
-
-    // Period filter: a session date (daily), a week by its start date
-    // (weekly) or a calendar month (monthly). Only periods with finished
-    // picks are offered.
+    const upcoming = all.find(m => !m.superseded && !finished(m));
     const keyOf = m => state.horizon === "monthly" ? m.date.slice(0, 7) : m.date;
-    const keyLabel = (k, m) => state.horizon === "monthly" ? fmonth(k)
-      : state.horizon === "weekly" ? `Week of ${fdate(m.date)} – ${fdateY(m.expires)}`
-      : new Date(k + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
+    const keyLabel = (k, m) => state.horizon === "monthly" ? fmonth(k).replace(/ \d{4}$/, " ’" + k.slice(2, 4))
+      : state.horizon === "weekly" ? `${fdate(m.date)} – ${fdate(m.expires)}` : fday(k);
     const keys = [];
     done.forEach(m => { const k = keyOf(m); if (!keys.some(x => x.k === k)) keys.push({ k, label: keyLabel(k, m) }); });
     if (state.hf && !keys.some(x => x.k === state.hf)) state.hf = "";
-    const unit = { daily: ["Date", "All dates"], weekly: ["Week", "All weeks"], monthly: ["Month", "All months"] }[state.horizon];
-    $("histFilter").hidden = !keys.length;
-    $("histSelLabel").textContent = unit[0];
-    $("histSel").innerHTML = `<option value="">${unit[1]} (${keys.length})</option>` +
-      keys.map(x => `<option value="${esc(x.k)}" ${x.k === state.hf ? "selected" : ""}>${esc(x.label)}</option>`).join("");
-    $("histAll").hidden = !state.hf;
+    const allLabel = { daily: "All dates", weekly: "All weeks", monthly: "All months" }[state.horizon];
+    $("histChips").hidden = !keys.length;
+    $("histChips").innerHTML = `<button data-hf="" aria-pressed="${!state.hf}">${allLabel}</button>` +
+      keys.map(x => `<button data-hf="${esc(x.k)}" aria-pressed="${x.k === state.hf}">${esc(x.label)}</button>`).join("");
     const metas = state.hf ? done.filter(m => keyOf(m) === state.hf) : done;
-    const upcoming = all.find(m => !m.superseded && !finished(m));
+
     const totals = { n: 0, priced: 0, finished: 0, hits: 0, sumExpected: 0, sumCloseRet: 0 };
     const add = st => Object.keys(totals).forEach(k => totals[k] += st[k] || 0);
+    const benches = [];
     let html = "", month = "";
-    metas.forEach((meta, idx) => {
+    metas.forEach(meta => {
       const m = meta.date.slice(0, 7);
-      if (m !== month) { month = m; html += `<h3 class="month-head">${esc(fmonth(m))}</h3>`; }
-      const running = new Date() <= new Date(meta.expires + "T23:59:59");
+      if (m !== month && !state.hf) { month = m; html += `<h3 class="month-head">${esc(fmonth(m))}</h3>`; }
       const open = meta.id === state.batch || (!state.batch && (state.hf ? !meta.superseded : meta === metas.find(x => !x.superseded)));
       if (meta.superseded) {
         const body = meta.batch ? batchBody(meta.batch) : { html: "" }, st = meta.batch ? statsFromRows(body.rows) : (meta.markets[state.market] || {});
-        html += `<details class="batch replaced" id="b-${esc(meta.id)}" ${meta.id === state.batch ? "open" : ""}>${batchHead(meta, st, false)}
-          <div class="batch-links">↺ ${esc(meta.superseded.reason || "Replaced by a revised list.")} Not counted in the totals above. <a href="#" data-goto="${esc(meta.superseded.by)}">Go to the replacement →</a></div>${body.html}</details>`;
+        html += `<details class="card batch replaced" id="b-${esc(meta.id)}" ${meta.id === state.batch ? "open" : ""}>${batchHead(meta, st)}
+          <div class="blinks">↺ ${esc(meta.superseded.reason || "Replaced by a revised list.")} Not counted in the totals.</div>${body.html}</details>`;
       } else if (meta.batch) {
         const body = batchBody(meta.batch), st = statsFromRows(body.rows);
-        add(st);
-        html += `<details class="batch" id="b-${esc(meta.id)}" ${open ? "open" : ""}>${batchHead(meta, st, running)}${body.html}</details>`;
+        add(st); if (body.bench != null) benches.push(body.bench);
+        html += `<details class="card batch" id="b-${esc(meta.id)}" ${open ? "open" : ""}>${batchHead(meta, st)}${body.html}</details>`;
       } else {
-        const st = meta.markets[state.market];
+        const st = meta.markets[state.market] || {};
         add(st);
-        html += `<details class="batch" id="b-${esc(meta.id)}" data-arch="${esc(meta.id)}" ${open ? "open" : ""}>${batchHead(meta, st, running)}
+        html += `<details class="card batch" id="b-${esc(meta.id)}" data-arch="${esc(meta.id)}" ${open ? "open" : ""}>${batchHead(meta, st)}
           <div class="arch-body"><p class="empty" style="padding:10px 16px">Loading from the ${esc(fmonth(meta.month))} archive…</p></div></details>`;
       }
     });
     $("batches").innerHTML = html;
 
-    // Archived batches load their month file the first time they're opened.
     const fill = el => {
       const meta = metas.find(m => m.id === el.dataset.arch);
       if (!meta || el.dataset.loaded) return;
@@ -851,42 +745,47 @@
     });
     if (state.batch) { const el = $("b-" + state.batch); if (el) setTimeout(() => el.scrollIntoView({ block: "start" }), 0); }
 
+    // Scoreboard
     const exp = totals.n ? totals.sumExpected / totals.n : null, act = totals.priced ? totals.sumCloseRet / totals.priced : null;
-    const tile = (k, v, c, s) => `<div class="tile"><div class="k">${k}</div><div class="v num ${c || ""}">${v}</div><div class="s">${s || ""}</div></div>`;
-    $("tiles").hidden = !metas.length;
-    $("tiles").innerHTML =
-      tile("Expected return (avg)", pct(exp), "up", `if every target were hit · ${totals.n} picks`) +
-      tile("Actual return (avg)", pct(act), cls(act), totals.priced ? `at the ${CLOSE_LABEL[state.horizon]} · ${totals.priced} picks` : "no price data yet") +
-      tile("Target met", totals.finished ? `${totals.hits} / ${totals.finished}` : "—", totals.hits ? "up" : "", totals.finished ? `${Math.round(totals.hits / totals.finished * 100)}% of finished picks` : "none finished yet") +
-      tile("Delivered vs expected", act == null ? "—" : Math.round(act / exp * 100) + "%", cls(act), "actual ÷ expected");
-    const nPicks = totals.n;
-    $("histScope").textContent = !metas.length ? ""
-      : state.hf ? `${nPicks} pick${nPicks === 1 ? "" : "s"} from ${keys.find(x => x.k === state.hf).label}. Totals below cover this ${unit[0].toLowerCase()} only.`
-      : `All ${metas.length} finished ${state.horizon} list${metas.length === 1 ? "" : "s"} since ${fdateY(metas[metas.length - 1].date)}, kept permanently. Pick a ${unit[0].toLowerCase()} above to see just that one.`;
+    const rate = totals.finished ? totals.hits / totals.finished : null;
+    const bench = benches.length ? benches.reduce((a, b) => a + b, 0) / benches.length : null;
+    const C = 2 * Math.PI * 38;
+    $("score").hidden = !metas.length;
+    $("score").innerHTML = `
+      <div class="ring"><svg viewBox="0 0 88 88"><circle cx="44" cy="44" r="38" fill="none" stroke="var(--surface-2)" stroke-width="9"/>
+        <circle cx="44" cy="44" r="38" fill="none" stroke="var(--up)" stroke-width="9" stroke-linecap="round" stroke-dasharray="${((rate || 0) * C).toFixed(1)} ${C.toFixed(1)}"/></svg>
+        <div class="lbl"><div><b class="num">${rate == null ? "—" : Math.round(rate * 100) + "%"}</b><small>${totals.finished ? `${totals.hits}/${totals.finished} targets` : "no results"}</small></div></div></div>
+      <div class="score-stats">
+        <div><div class="k">Actual avg</div><div class="v num ${cls(act)}">${pct(act)}</div></div>
+        <div><div class="k">Expected avg</div><div class="v num up">${pct(exp)}</div></div>
+        <div><div class="k">Index, same windows</div><div class="v num ${cls(bench)}">${pct(bench)}</div></div>
+        <div><div class="k">Picks scored</div><div class="v num">${totals.priced}</div></div>
+      </div>`;
+    $("histScope").textContent = !metas.length ? "" : state.hf
+      ? `${keys.find(x => x.k === state.hf).label}: ${totals.n} pick${totals.n === 1 ? "" : "s"}. Tap a stock for details.`
+      : `${metas.length} finished ${state.horizon} list${metas.length === 1 ? "" : "s"} since ${fdateY(metas[metas.length - 1].date)}, kept permanently.`;
 
     const note = $("histNote");
-    const posted = state.market === "IN" ? "the India close (posted around 4:30 PM IST)" : "the US close (posted around 3 AM IST)";
-    const when = m => m.horizon === "daily" ? `after ${posted} on ${fdateY(m.expires)}` : `when its window ends on ${fdateY(m.expires)}, after ${posted}`;
-    const curLine = upcoming ? `The current ${state.horizon} list (from ${fdateY(upcoming.date)}) is on the <a href="#" data-goto="" data-view="picks">Picks tab</a> and moves here with its result ${when(upcoming)}.` : "";
+    const posted = state.market === "IN" ? "the India close (about 4:30 PM IST)" : "the US close (about 3 AM IST)";
+    const when = m => m.horizon === "daily" ? `after ${posted} on ${fdate(m.expires)}` : `when its window ends on ${fdate(m.expires)}, after ${posted}`;
+    const curLine = upcoming ? `Today's ${state.horizon} list (from ${fdate(upcoming.date)}) is on the <a href="#" data-goto="">Today</a> tab and moves here with its result ${when(upcoming)}.` : "";
     note.hidden = !(curLine || !done.length) || !!state.hf;
     note.innerHTML = done.length ? curLine
-      : `<b>No finished ${state.horizon} picks yet.</b> ${curLine || "Nothing has been published for this market and holding period yet."} After that, every past list stays here permanently with its results.`;
+      : `<b>No finished ${state.horizon} picks yet.</b> ${curLine || "Nothing has been published for this market and holding period yet."} Every past list stays here permanently with its results.`;
   }
 
   // ---------- render ----------
   function render() {
-    document.querySelectorAll("nav.views button").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === state.view)));
+    document.querySelectorAll("[data-view]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === state.view)));
     ["picks", "history", "method"].forEach(v => $("view-" + v).hidden = v !== state.view);
-    $("controls").hidden = state.view === "method";
+    $("filters").hidden = state.view === "method";
     document.querySelectorAll("[data-market]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.market === state.market)));
     document.querySelectorAll("[data-horizon]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.horizon === state.horizon)));
     if (state.view === "picks") renderPicks();
     if (state.view === "history") renderHistory();
   }
   render();
-  $("updated").textContent = PRICES.updated
-    ? "Prices last refreshed " + new Date(PRICES.updated).toLocaleString() + "."
-    : "Showing research-date closes (automatic price updates not running yet).";
+  $("updated").textContent = PRICES.updated ? "Prices refreshed " + new Date(PRICES.updated).toLocaleString([], { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" }) : "";
 })();
 </script>
 </body>

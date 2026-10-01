@@ -70,7 +70,7 @@ def parse_amfi(text: str) -> dict[str, list[dict]]:
         if ";" not in line:
             m = re.search(r"\((.*?)\)\s*$", line)
             if line.lower().startswith(("open ended", "close ended", "interval")) and m:
-                cat = next((k for k, v in CATEGORIES.items() if m.group(1).strip().endswith(v)), None)
+                cat = next((k for k, v in CATEGORIES.items() if same_cat(m.group(1), v)), None)
             else:
                 amc = line
             continue
@@ -83,6 +83,12 @@ def parse_amfi(text: str) -> dict[str, list[dict]]:
     return out
 
 
+def same_cat(label: str, category: str) -> bool:
+    """Exact SEBI category match: 'Equity Scheme - Mid Cap Fund' is not 'Large & Mid Cap Fund'."""
+    norm = lambda t: re.sub(r"\s+", " ", str(t)).strip().lower()
+    return norm(label).split(" - ")[-1] == norm(category)
+
+
 def mfapi_candidates() -> dict[str, list[dict]]:
     """Fallback when AMFI is unreachable: filter mfapi's scheme list by name, confirm the category later."""
     allm = requests.get(MFAPI, headers=UA, timeout=60).json()
@@ -93,7 +99,7 @@ def mfapi_candidates() -> dict[str, list[dict]]:
         if "direct" not in low or "growth" not in low or EXCLUDE.search(name):
             continue
         for k, v in CATEGORIES.items():
-            if v.replace(" Fund", "").lower() in low.replace("-", " "):
+            if v.replace(" Fund", "").lower() in low.replace("-", " ") and not re.search(r"large\s*(&|and)\s*mid", low):
                 out[k].append({"code": str(s["schemeCode"]), "name": name, "amc": "", "isin": "", "confirm": v})
     return out
 
@@ -238,7 +244,7 @@ def main() -> int:
             if not series:
                 why["no history"] += 1
                 continue
-            if c.get("confirm") and not str(meta.get("scheme_category", "")).endswith(c["confirm"]):
+            if c.get("confirm") and not same_cat(meta.get("scheme_category", ""), c["confirm"]):
                 why["category mismatch"] += 1
                 continue
             if len(series) < 200 or series[0][0] > years_back(series[-1][0], MIN_YEARS):

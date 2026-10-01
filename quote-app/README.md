@@ -26,7 +26,9 @@ The app opens on a welcome screen. One of the five charm illustrations (picked a
 ## Result screen
 The result is titled "Your magical words for today". It shows the quote with one of five magic charm illustrations (crystal ball, spellbook, scroll, wand, pouch), chosen at random per quote and day. Under the quote, **Copy quote** copies it, and **Story behind it** opens a short background note from `stories.js`: who said it, where, and what was going on. Below the explanation, **A song for your mood** suggests one well-known English song from `songs.js` (35 songs, tagged like the quotes; mood counts most, then need, then life area), with its artist, year, a line on why it fits, and links that search for it on YouTube and Spotify. A note at the bottom says to come back tomorrow, with a countdown to midnight.
 
-The result is kept for the rest of the day: reopening the app shows the same words until local midnight, then the check-in starts again. To test a fresh check-in, open the page with `#fresh` at the end of the URL.
+At the very bottom, **I love it! Let's try again** clears today's result and goes back to the welcome screen for a completely fresh check-in.
+
+Otherwise the result is kept for the rest of the day: reopening the app shows the same words until local midnight, then the check-in starts again. To test a fresh check-in, open the page with `#fresh` at the end of the URL.
 
 ## Quotes
 67 quotes, each with its author and source, all from secular works: books, poems, letters, speeches, interviews and films. Nothing is taken from religious scriptures or devotional texts (for example the Bhagavad Gita, Tao Te Ching, Upanishads, Bible or Quran). Popular lines that are commonly misattributed (for example "Be the change you wish to see in the world" credited to Gandhi) are excluded. To add one, append an object to `quotes.js` with `m`, `a` and `n` tags, and add its background note to `stories.js` under the same id.

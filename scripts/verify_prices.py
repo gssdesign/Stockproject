@@ -24,7 +24,7 @@ import sys
 
 import yfinance as yf
 
-from marketlib import BENCHMARK, DATA, checks, market_of, metrics, read_assigned, tick_round, write_assigned
+from marketlib import BENCHMARK, DATA, checks, completed, market_of, metrics, read_assigned, tick_round, write_assigned
 
 PICKS_JS = DATA / "picks.js"
 CLOSE_UTC_HOUR = {"US": 20, "IN": 10}  # regular-session close, UTC (US uses EDT; +1h slack below)
@@ -32,8 +32,8 @@ CLOSE_UTC_HOUR = {"US": 20, "IN": 10}  # regular-session close, UTC (US uses EDT
 
 def bars_for(symbol: str, start: dt.date) -> list[dict]:
     df = yf.Ticker(symbol).history(start=start.isoformat(), auto_adjust=False)
-    return [{"date": i.date().isoformat(), "open": float(r["Open"]), "high": float(r["High"]), "low": float(r["Low"]),
-             "close": float(r["Close"]), "volume": float(r["Volume"] or 0)} for i, r in df.iterrows()]
+    return completed([{"date": i.date().isoformat(), "open": float(r["Open"]), "high": float(r["High"]), "low": float(r["Low"]),
+                       "close": float(r["Close"]), "volume": float(r["Volume"] or 0)} for i, r in df.iterrows()], symbol)
 
 
 def expected_ref(batch_date: dt.date) -> dt.date:

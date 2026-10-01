@@ -26,6 +26,9 @@ import sys
 
 import yfinance as yf
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from marketlib import completed  # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PICKS_JS = ROOT / "data" / "picks.js"
 PRICES_JS = ROOT / "data" / "prices.js"
@@ -41,7 +44,7 @@ def history(symbol: str, start: dt.date):
     df = yf.Ticker(symbol).history(start=start.isoformat(), auto_adjust=False)
     if df.empty:
         return []
-    return [
+    return completed([
         {
             "date": idx.date().isoformat(),
             "open": float(row["Open"]),
@@ -50,7 +53,7 @@ def history(symbol: str, start: dt.date):
             "close": float(row["Close"]),
         }
         for idx, row in df.iterrows()
-    ]
+    ], symbol)
 
 
 def in_window(day: str, batch: dict) -> bool:

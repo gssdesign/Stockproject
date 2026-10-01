@@ -23,7 +23,7 @@ import pandas as pd
 import requests
 import yfinance as yf
 
-from marketlib import BENCHMARK, DATA, HORIZONS, checks, levels, market_of, metrics, read_assigned, write_assigned
+from marketlib import BENCHMARK, DATA, HORIZONS, checks, completed, levels, market_of, metrics, read_assigned, write_assigned
 
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"}
 
@@ -88,7 +88,7 @@ def download(tickers: list[str]) -> dict[str, list[dict]]:
                          threads=True, progress=False)
         for t in chunk:
             try:
-                out[t] = bars_from(df[t] if len(chunk) > 1 else df)
+                out[t] = completed(bars_from(df[t] if len(chunk) > 1 else df), t)
             except Exception:
                 continue
     return out
@@ -121,7 +121,7 @@ def fill_stale(bars: dict[str, list[dict]]) -> dict[str, str]:
         print(f"{len(stale)} ticker(s) missing the latest session; re-fetching individually")
     for t in stale:
         try:
-            extra = bars_from(yf.Ticker(t).history(period="1mo", auto_adjust=False))
+            extra = completed(bars_from(yf.Ticker(t).history(period="1mo", auto_adjust=False)), t)
         except Exception as exc:
             print(f"warn: {t}: {exc}", file=sys.stderr)
             continue

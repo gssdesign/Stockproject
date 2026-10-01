@@ -7,9 +7,11 @@ numeric part of CRITERIA.md; keep the two in sync.
 """
 from __future__ import annotations
 
+import datetime as dt
 import json
 import math
 import pathlib
+from zoneinfo import ZoneInfo
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -31,10 +33,27 @@ LIQUIDITY = {  # 20-day average traded value, local currency
     "IN": {"min_value": 100e7, "min_price": 50.0, "label": "₹100 cr"},  # 100 crore = 1e9
 }
 BENCHMARK = {"US": "^GSPC", "IN": "^NSEI"}
+# When a session's daily bar is final: local close plus a buffer for Yahoo.
+SESSION_END = {"US": ("America/New_York", dt.time(16, 15)), "IN": ("Asia/Kolkata", dt.time(16, 0))}
 
 
 def market_of(symbol: str) -> str:
     return "IN" if symbol.endswith(".NS") or symbol == "^NSEI" else "US"
+
+
+def completed(bars: list[dict], symbol: str, now: dt.datetime | None = None) -> list[dict]:
+    """Drop today's bar while that market's session is still running.
+
+    During trading hours Yahoo returns a bar for the current session whose
+    "close" is just the latest trade. It must never be used as a close (for
+    reference prices, screens or scoring a holding period)."""
+    if not bars:
+        return bars
+    tz, end = SESSION_END[market_of(symbol)]
+    local = (now or dt.datetime.now(dt.timezone.utc)).astimezone(ZoneInfo(tz))
+    if bars[-1]["date"] == local.date().isoformat() and local.time() < end:
+        return bars[:-1]
+    return bars
 
 
 # ---------------------------------------------------------------------------

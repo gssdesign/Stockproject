@@ -24,6 +24,8 @@
   --mood-blue: #3f6fae;
   --mood-green: #3f8f5c;
   --star: #c89b2a;
+  --vinyl: #1c1e21;
+  --vinyl-groove: #33373c;
   --aura: var(--accent);
   --aura-2: var(--mood-yellow);
   --aura-strength: 22%;
@@ -130,6 +132,8 @@ body {
   .screen .actions .btn { padding: 11px 13px; font-size: 0.875rem; }
   .screen .qtext { font-size: 1.55rem; }
   .screen .today h1 { font-size: 1.45rem; gap: 8px; }
+  .screen .song { padding: 16px 14px; gap: 12px; }
+  .screen .vinyl { width: 50px; height: 50px; }
   .screen .today h1 .twinkle { width: 13px; height: 13px; }
   .frame-note { display: block; font-size: 0.8125rem; color: var(--muted); margin: 0; text-align: center; }
 }
@@ -238,6 +242,68 @@ h1 {
 }
 @keyframes bloom { from { opacity: 0; transform: scale(.9) translateY(12px); filter: blur(4px); } }
 .quote-card { margin-top: 46px; }
+
+/* welcome */
+.home { display: grid; justify-items: center; text-align: center; gap: 10px; padding-block: 0 8px; }
+.hero-charm { position: relative; width: 168px; height: 168px; display: grid; place-items: center; }
+.hero-charm .halo {
+  position: absolute; inset: 8%; border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--star) 50%, transparent), transparent 68%);
+  animation: breathe 3.6s ease-in-out infinite;
+}
+@keyframes breathe { 50% { transform: scale(1.15); opacity: .65; } }
+.hero-charm .spin {
+  position: absolute; inset: 0; border-radius: 50%; border: 1.5px dashed color-mix(in srgb, var(--star) 55%, transparent);
+  animation: turn 30s linear infinite;
+}
+@keyframes turn { to { transform: rotate(360deg); } }
+.hero-charm .lift { position: relative; width: 148px; height: 148px; animation: pop .9s cubic-bezier(.2, .9, .3, 1.4) .1s both; }
+.hero-charm img { width: 100%; height: 100%; object-fit: contain; display: block;
+  filter: drop-shadow(0 14px 18px rgb(20 10 40 / 0.3)); animation: float 4.5s ease-in-out infinite; }
+.home h1 { font-size: clamp(1.75rem, 5.4vw, 2.2rem); margin: 4px 0 0; }
+.home .lede { max-width: 30rem; }
+.home ol {
+  list-style: none; margin: 6px 0 4px; padding: 6px; width: 100%; display: grid; gap: 2px; text-align: left;
+  border: 1px solid var(--line); border-radius: 18px; background: color-mix(in srgb, var(--surface) 80%, transparent);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.home li { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 12px; padding: 6px 10px;
+  animation: rise .5s ease-out both; animation-delay: calc(var(--i) * 90ms + 300ms); }
+.home li .ico { width: 38px; height: 38px; border-radius: 12px; }
+.home li .ico svg { width: 21px; height: 21px; }
+.home li b { display: block; font-weight: 600; line-height: 1.3; }
+.home li small { color: var(--muted); font-size: 0.8125rem; }
+.btn.big { padding: 15px 30px; font-size: 1.0625rem; box-shadow: 0 12px 26px -14px var(--accent); }
+.home .hint { margin: 0; font-size: 0.8125rem; color: var(--muted); }
+
+/* song */
+.song {
+  display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start; padding: 18px;
+  border-radius: 20px; border: 1px solid color-mix(in srgb, var(--c) 35%, var(--line));
+  background: color-mix(in srgb, var(--c) 7%, var(--surface)); animation: rise .5s ease-out .55s both;
+}
+.vinyl {
+  width: 64px; height: 64px; border-radius: 50%; flex: none; position: relative;
+  background: repeating-radial-gradient(circle, var(--vinyl) 0 1.5px, var(--vinyl-groove) 1.5px 3px);
+  box-shadow: 0 0 0 1px var(--line), 0 6px 14px -8px rgb(0 0 0 / 0.6); animation: turn 6s linear infinite;
+}
+.vinyl::after {
+  content: ""; position: absolute; inset: 34%; border-radius: 50%; background: var(--c);
+  box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--c) 70%, var(--surface));
+}
+.song-body { display: grid; gap: 2px; min-width: 0; }
+.song-title { margin: 4px 0 0; font-family: var(--font-display); font-size: 1.3rem; line-height: 1.2; }
+.song-by { margin: 0; font-weight: 600; font-size: 0.875rem; }
+.song-why { margin: 6px 0 0; color: var(--muted); font-size: 0.9rem; }
+.song-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.song-links a {
+  display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--fg);
+  font: 600 0.8125rem/1 var(--font-ui); padding: 9px 13px; border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--c) 40%, var(--line)); background: var(--surface);
+}
+.song-links a:hover { border-color: var(--c); }
+.song-links a:focus-visible { outline: 3px solid var(--c); outline-offset: 2px; }
+.song-links svg { width: 15px; height: 15px; fill: currentColor; }
 .charm {
   position: absolute; top: -62px; right: -6px; width: 100px; height: 100px; pointer-events: none;
   animation: pop .8s cubic-bezier(.2, .9, .3, 1.4) .25s both;
@@ -323,6 +389,8 @@ footer p { margin: 0 0 6px; }
   .actions .btn { padding: 11px 13px; font-size: 0.875rem; }
   .charm { width: 88px; height: 88px; top: -54px; }
   .today h1 { font-size: 1.45rem; gap: 8px; }
+  .song { padding: 16px 14px; gap: 12px; }
+  .vinyl { width: 50px; height: 50px; }
   .quad .opt { min-height: 140px; padding: 12px; }
   .opt .d { font-size: 0.8125rem; }
 }
@@ -366,6 +434,7 @@ footer p { margin: 0 0 6px; }
 
 <script src="quotes.js"></script>
 <script src="stories.js"></script>
+<script src="songs.js"></script>
 <script>
 (() => {
   // Line icons, 24x24, stroked with the option's colour.
@@ -446,17 +515,30 @@ footer p { margin: 0 0 6px; }
   // Magic charms shown with the quote. The pick is random per quote and day,
   // so a reload on the same day shows the same charm.
   const CHARMS = [
-    { file: "icons/crystal-ball.webp", alt: "A glowing crystal ball" },
-    { file: "icons/spellbook.webp", alt: "A spellbook with a jewel on its cover" },
-    { file: "icons/scroll.webp", alt: "A rolled-up scroll" },
-    { file: "icons/wand.webp", alt: "A magic wand trailing sparkles" },
-    { file: "icons/pouch.webp", alt: "A drawstring pouch with a gem" }
+    { file: "icons/crystal-ball.webp", alt: "A glowing crystal ball", name: "the crystal ball" },
+    { file: "icons/spellbook.webp", alt: "A spellbook with a jewel on its cover", name: "the spellbook" },
+    { file: "icons/scroll.webp", alt: "A rolled-up scroll", name: "the magic scroll" },
+    { file: "icons/wand.webp", alt: "A magic wand trailing sparkles", name: "the magic wand" },
+    { file: "icons/pouch.webp", alt: "A drawstring pouch with a gem", name: "the wishing pouch" }
   ];
   function charmFor(id) {
     let h = 0;
     for (const ch of id + dayKey()) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
     return CHARMS[h % CHARMS.length];
   }
+
+  // Song for the mood: mood fits most, then the need, then the life area.
+  // Ties are broken by a hash of the day's quote so the song stays put on reload.
+  function songFor(id) {
+    const hash = str => { let h = 0; for (const ch of str) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return h; };
+    return (window.SONGS || []).map(x => ({
+      x,
+      s: (x.m.includes(answers.m) ? 3 : 0) + (x.n.includes(answers.n) ? 2 : 0) + (x.a.includes(answers.a) ? 1 : 0),
+      h: hash(id + dayKey() + x.t)
+    })).sort((p, q) => q.s - p.s || p.h - q.h)[0]?.x;
+  }
+  const ICON_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.7 2.7 0 0 0-1.9-1.9C18 4.8 12 4.8 12 4.8s-6 0-7.7.5a2.7 2.7 0 0 0-1.9 1.9C2 8.9 2 12 2 12s0 3.1.4 4.8a2.7 2.7 0 0 0 1.9 1.9c1.7.5 7.7.5 7.7.5s6 0 7.7-.5a2.7 2.7 0 0 0 1.9-1.9c.4-1.7.4-4.8.4-4.8s0-3.1-.4-4.8zM10 15.1V8.9l5.2 3.1z"/></svg>';
+  const ICON_WAVES = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.6.6 0 0 1-.9.2c-2.4-1.5-5.4-1.8-8.9-1a.6.6 0 1 1-.3-1.2c3.9-.9 7.2-.5 9.9 1.1.3.2.4.6.2.9zm1.2-2.7a.8.8 0 0 1-1.1.3c-2.7-1.7-6.9-2.2-10.1-1.2a.8.8 0 1 1-.5-1.5c3.7-1.1 8.3-.6 11.4 1.3.4.2.5.7.3 1.1zm.1-2.8C14.7 9 9.4 8.8 6.3 9.7a1 1 0 1 1-.6-1.8c3.5-1.1 9.4-.9 13.1 1.3a1 1 0 0 1-.9 1.7z"/></svg>';
 
   const root = document.documentElement;
   const app = document.getElementById("app");
@@ -578,7 +660,7 @@ footer p { margin: 0 0 6px; }
   function renderSteps() {
     const done = step >= QUESTIONS.length;
     stepsEl.innerHTML = QUESTIONS.map((_, i) => `<i class="${i < step || done ? "on" : ""}"></i>`).join("")
-      + `<span>${done ? "Your quote" : `${step + 1} / ${QUESTIONS.length}`}</span>`;
+      + `<span>${done ? "Your quote" : step < 0 ? "3 questions" : `${step + 1} / ${QUESTIONS.length}`}</span>`;
   }
 
   function swap(html, after) {
@@ -613,7 +695,7 @@ footer p { margin: 0 0 6px; }
     swap(`<section style="display:grid;gap:20px" aria-labelledby="qtitle">
       <div><p class="eyebrow">${q.eyebrow}</p><h1 id="qtitle">${q.title}</h1><p class="lede">${q.lede}</p></div>
       ${body}
-      <div class="nav">${step > 0 ? '<button type="button" class="btn link" id="back">&larr; Back</button>' : "<span></span>"}</div>
+      <div class="nav"><button type="button" class="btn link" id="back">&larr; Back</button></div>
     </section>`, () => {
       app.querySelectorAll(".opt").forEach(b => b.addEventListener("click", e => {
         const c = getComputedStyle(b).getPropertyValue("--c").trim() || cssVar("--accent");
@@ -628,7 +710,40 @@ footer p { margin: 0 0 6px; }
         setTimeout(() => step >= QUESTIONS.length ? renderReveal() : renderQuestion(), reduced ? 0 : 260);
       }));
       const back = document.getElementById("back");
-      if (back) back.addEventListener("click", () => { step--; renderQuestion(); renderSteps(); });
+      if (back) back.addEventListener("click", () => {
+        if (step === 0) return renderHome();
+        step--; renderQuestion(); renderSteps();
+      });
+    });
+    renderSteps();
+  }
+
+  function renderHome() {
+    step = -1;
+    about.hidden = false;
+    setAura(null);
+    const charm = CHARMS[Math.floor(Math.random() * CHARMS.length)];
+    const rows = QUESTIONS.map((q, i) => {
+      const o = q.options[i === 0 ? 1 : i === 1 ? 2 : 3];
+      const label = ["How you're feeling", "What's on your mind", "What would help most"][i];
+      const sub = ["Tense, fired up, low or at ease", "Work, people, yourself or a setback", "A push, calm, courage or reflection"][i];
+      return `<li style="--i:${i}"><span class="ico c-${o.c}">${svg(o.i)}</span><span><b>${label}</b><small>${sub}</small></span></li>`;
+    }).join("");
+    swap(`<section class="home" aria-labelledby="home-title">
+      <div class="hero-charm"><span class="halo"></span><span class="spin"></span>
+        <span class="lift"><img src="${charm.file}" alt="${charm.alt}" width="148" height="148"></span></div>
+      <p class="eyebrow">Your daily check-in</p>
+      <h1 id="home-title">Three questions. Wise words for you.</h1>
+      <p class="lede">Answer three quick questions about your day, and based on your answers ${charm.name} will spell out the wise words meant for you today.</p>
+      <ol>${rows}</ol>
+      <button type="button" class="btn primary big" id="begin">Begin the magic &#10022;</button>
+      <p class="hint">Takes about 20 seconds. One set of words a day.</p>
+    </section>`, () => {
+      document.getElementById("begin").addEventListener("click", e => {
+        const r = e.currentTarget.getBoundingClientRect();
+        sparkle(e.clientX || r.left + r.width / 2, e.clientY || r.top + r.height / 2, cssVar("--star"));
+        step = 0; renderQuestion();
+      });
     });
     renderSteps();
   }
@@ -677,6 +792,7 @@ footer p { margin: 0 0 6px; }
     const mood = answers.m;
     const story = (window.STORIES || {})[q.id];
     const charm = charmFor(q.id);
+    const song = songFor(q.id);
     about.hidden = true;
     const chips = ["m", "a", "n"].map(k => {
       const o = OPT[k + answers[k]];
@@ -708,6 +824,19 @@ footer p { margin: 0 0 6px; }
         <div class="chips">${chips}</div>
         <p>${WHY_MOOD[mood]} ${WHY_NEED[answers.n]}</p>
       </div>
+      ${song ? `<div class="song c-${MOOD_COLOR[mood]}">
+        <span class="vinyl" aria-hidden="true"></span>
+        <div class="song-body">
+          <p class="eyebrow">A song for your mood</p>
+          <p class="song-title">${esc(song.t)}</p>
+          <p class="song-by">${esc(song.by)} &middot; ${song.y}</p>
+          <p class="song-why">${esc(song.why)}</p>
+          <div class="song-links">
+            <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(song.t + " " + song.by)}" target="_blank" rel="noopener">${ICON_PLAY}YouTube</a>
+            <a href="https://open.spotify.com/search/${encodeURIComponent(song.t + " " + song.by)}" target="_blank" rel="noopener">${ICON_WAVES}Spotify</a>
+          </div>
+        </div>
+      </div>` : ""}
       ${care}
       <div class="tomorrow">
         <span class="ico">${svg("ease")}</span>
@@ -732,7 +861,7 @@ footer p { margin: 0 0 6px; }
           clearInterval(countdown);
           store.set("dc-today", null);
           for (const k in answers) delete answers[k];
-          step = 0; renderQuestion();
+          renderHome();
           return;
         }
         el.textContent = `New words in ${left.text}`;
@@ -767,7 +896,7 @@ footer p { margin: 0 0 6px; }
     setAura(answers.m);
     renderResult(savedQuote);
   } else {
-    renderQuestion();
+    renderHome();
   }
 })();
 </script>

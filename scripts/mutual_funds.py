@@ -32,7 +32,7 @@ import requests
 
 from marketlib import DATA, read_assigned, write_assigned
 
-AMFI_URL = "https://www.amfiindia.com/spages/NAVAll.txt"
+AMFI_URLS = ["https://portal.amfiindia.com/spages/NAVAll.txt", "https://www.amfiindia.com/spages/NAVAll.txt"]
 MFAPI = "https://api.mfapi.in/mf"
 CATEGORIES = {"large": "Large Cap Fund", "mid": "Mid Cap Fund", "small": "Small Cap Fund"}
 TITLES = {"large": "Large cap", "mid": "Mid cap", "small": "Small cap"}
@@ -46,8 +46,21 @@ EXCLUDE = re.compile(r"idcw|dividend|bonus|payout|reinvest|segregated|regular", 
 
 # ---------------------------------------------------------------- data
 def amfi_candidates() -> dict[str, list[dict]]:
-    """Direct-growth schemes per category from AMFI's NAV file."""
-    text = requests.get(AMFI_URL, headers=UA, timeout=60).text
+    """Direct-growth schemes per category from AMFI's NAV file (tries each known address)."""
+    for url in AMFI_URLS:
+        try:
+            text = requests.get(url, headers=UA, timeout=60).text
+        except Exception as exc:
+            print(f"AMFI {url}: {exc}", file=sys.stderr)
+            continue
+        out = parse_amfi(text)
+        print(f"AMFI {url}: {len(text)} bytes, candidates " + ", ".join(f"{k}={len(v)}" for k, v in out.items()))
+        if all(out.values()):
+            return out
+    raise RuntimeError("AMFI NAV file unavailable or unparseable")
+
+
+def parse_amfi(text: str) -> dict[str, list[dict]]:
     out = {k: [] for k in CATEGORIES}
     cat = amc = None
     for line in text.splitlines():
@@ -212,20 +225,27 @@ def main() -> int:
         cands = amfi_candidates()
         source = "AMFI NAV file + api.mfapi.in NAV history"
     except Exception as exc:
-        print(f"AMFI unreachable ({exc}); using mfapi scheme list", file=sys.stderr)
+        print(f"{exc}; using the api.mfapi.in scheme list instead", file=sys.stderr)
         cands, source = mfapi_candidates(), "api.mfapi.in (AMFI data)"
+        print("mfapi candidates " + ", ".join(f"{k}={len(v)}" for k, v in cands.items()))
     review = not prev.get("reviewed") or prev["reviewed"][:7] != today.isoformat()[:7]
     out_cats, changes, nav_dates = {}, list(prev.get("changes", [])), []
     for key, lst in cands.items():
-        loaded = []
+        loaded, why = [], {"no history": 0, "category mismatch": 0, "under 5 years": 0, "stale": 0}
         for c in lst:
             series, meta = history(c["code"])
             time.sleep(0.15)
+            if not series:
+                why["no history"] += 1
+                continue
             if c.get("confirm") and not str(meta.get("scheme_category", "")).endswith(c["confirm"]):
+                why["category mismatch"] += 1
                 continue
             if len(series) < 200 or series[0][0] > years_back(series[-1][0], MIN_YEARS):
+                why["under 5 years"] += 1
                 continue
             if (today - series[-1][0]).days > 10:  # stale / merged scheme
+                why["stale"] += 1
                 continue
             loaded.append((c, series, meta))
         funds = []
@@ -238,7 +258,7 @@ def main() -> int:
                               "navDate": series[-1][0].isoformat(), "inception": series[0][0].isoformat(),
                               "m": metrics(series, end, ends)})
         if len(funds) < 3:
-            print(f"{key}: only {len(funds)} eligible funds; keeping previous data", file=sys.stderr)
+            print(f"{key}: only {len(funds)} eligible of {len(lst)} candidates {why}; keeping previous data", file=sys.stderr)
             if prev.get("categories", {}).get(key):
                 out_cats[key] = prev["categories"][key]
             continue

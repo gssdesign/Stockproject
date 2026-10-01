@@ -1,0 +1,12 @@
+# Netlify: publish only the website (page + its data), not scripts or the
+# large market snapshot. Every push to the deployed branch redeploys, so the
+# Market data Action and the scheduled picks go live automatically.
+[build]
+  command = "rm -rf public && mkdir public && cp index.html public/ && cp -r data public/ && rm -f public/data/market.js"
+  publish = "public"
+
+# Data files change several times a day: always revalidate.
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

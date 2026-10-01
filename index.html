@@ -297,6 +297,11 @@
 
   <!-- HISTORY -->
   <section id="view-history" role="tabpanel" hidden>
+    <div class="batch-nav" id="histFilter" hidden>
+      <label for="histSel" id="histSelLabel">Date</label>
+      <select id="histSel"></select>
+      <button class="link-btn" id="histAll" hidden>Show all</button>
+    </div>
     <p class="scope muted" id="histScope"></p>
     <div class="tiles" id="tiles"></div>
     <div class="note" id="histNote" hidden></div>
@@ -377,7 +382,7 @@
   const PRICES = window.PRICES || {};
   PRICES.quotes = PRICES.quotes || {}; PRICES.tracking = PRICES.tracking || {};
   const AIDX = window.ARCHIVE_INDEX || { months: [] };
-  const state = { view: "picks", market: "US", horizon: "weekly", batch: "" };
+  const state = { view: "picks", market: "US", horizon: "weekly", batch: "", hf: "" };
   const CHEV = '<svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const CLOSE_LABEL = { daily: "session close", weekly: "week-end close", monthly: "month-end close" };
 
@@ -449,6 +454,7 @@
   // Hash: #view/market/horizon[/batchId], so any past batch has its own link.
   function setState(patch) {
     if (("market" in patch || "horizon" in patch) && !("batch" in patch)) patch.batch = "";
+    if ("market" in patch || "horizon" in patch) patch.hf = "";
     Object.assign(state, patch);
     try { history.replaceState(null, "", `#${state.view}/${state.market}/${state.horizon}${state.batch ? "/" + state.batch : ""}`); } catch (e) {}
     render();
@@ -465,6 +471,8 @@
   document.querySelectorAll("[data-horizon]").forEach(b => b.addEventListener("click", () => setState({ horizon: b.dataset.horizon })));
   $("batchSel").addEventListener("change", e => setState({ batch: e.target.value }));
   $("latestBtn").addEventListener("click", () => setState({ batch: "" }));
+  $("histSel").addEventListener("change", e => setState({ hf: e.target.value, batch: "" }));
+  $("histAll").addEventListener("click", () => setState({ hf: "", batch: "" }));
   // Links from results rows / archived banners jump to a batch's full picks.
   document.addEventListener("click", e => {
     const a = e.target.closest("[data-goto]");
@@ -784,7 +792,25 @@
       const tr = trackOf(m.id), ps = m.batch.picks.filter(p => p.market === state.market);
       return ps.length > 0 && ps.every(p => tr[p.yahoo] && tr[p.yahoo].periodFinal);
     };
-    const metas = all.filter(finished);
+    const done = all.filter(finished);
+
+    // Period filter: a session date (daily), a week by its start date
+    // (weekly) or a calendar month (monthly). Only periods with finished
+    // picks are offered.
+    const keyOf = m => state.horizon === "monthly" ? m.date.slice(0, 7) : m.date;
+    const keyLabel = (k, m) => state.horizon === "monthly" ? fmonth(k)
+      : state.horizon === "weekly" ? `Week of ${fdate(m.date)} – ${fdateY(m.expires)}`
+      : new Date(k + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
+    const keys = [];
+    done.forEach(m => { const k = keyOf(m); if (!keys.some(x => x.k === k)) keys.push({ k, label: keyLabel(k, m) }); });
+    if (state.hf && !keys.some(x => x.k === state.hf)) state.hf = "";
+    const unit = { daily: ["Date", "All dates"], weekly: ["Week", "All weeks"], monthly: ["Month", "All months"] }[state.horizon];
+    $("histFilter").hidden = !keys.length;
+    $("histSelLabel").textContent = unit[0];
+    $("histSel").innerHTML = `<option value="">${unit[1]} (${keys.length})</option>` +
+      keys.map(x => `<option value="${esc(x.k)}" ${x.k === state.hf ? "selected" : ""}>${esc(x.label)}</option>`).join("");
+    $("histAll").hidden = !state.hf;
+    const metas = state.hf ? done.filter(m => keyOf(m) === state.hf) : done;
     const upcoming = all.find(m => !m.superseded && !finished(m));
     const totals = { n: 0, priced: 0, finished: 0, hits: 0, sumExpected: 0, sumCloseRet: 0 };
     const add = st => Object.keys(totals).forEach(k => totals[k] += st[k] || 0);
@@ -793,7 +819,7 @@
       const m = meta.date.slice(0, 7);
       if (m !== month) { month = m; html += `<h3 class="month-head">${esc(fmonth(m))}</h3>`; }
       const running = new Date() <= new Date(meta.expires + "T23:59:59");
-      const open = meta.id === state.batch || (!state.batch && meta === metas.find(x => !x.superseded));
+      const open = meta.id === state.batch || (!state.batch && (state.hf ? !meta.superseded : meta === metas.find(x => !x.superseded)));
       if (meta.superseded) {
         const body = meta.batch ? batchBody(meta.batch) : { html: "" }, st = meta.batch ? statsFromRows(body.rows) : (meta.markets[state.market] || {});
         html += `<details class="batch replaced" id="b-${esc(meta.id)}" ${meta.id === state.batch ? "open" : ""}>${batchHead(meta, st, false)}
@@ -833,16 +859,17 @@
       tile("Actual return (avg)", pct(act), cls(act), totals.priced ? `at the ${CLOSE_LABEL[state.horizon]} · ${totals.priced} picks` : "no price data yet") +
       tile("Target met", totals.finished ? `${totals.hits} / ${totals.finished}` : "—", totals.hits ? "up" : "", totals.finished ? `${Math.round(totals.hits / totals.finished * 100)}% of finished picks` : "none finished yet") +
       tile("Delivered vs expected", act == null ? "—" : Math.round(act / exp * 100) + "%", cls(act), "actual ÷ expected");
-    $("histScope").textContent = metas.length
-      ? `All ${metas.length} ${state.horizon} batch${metas.length === 1 ? "" : "es"} since ${fdateY(metas[metas.length - 1].date)}, kept permanently. Older months load when you open them.`
-      : "";
+    const nPicks = totals.n;
+    $("histScope").textContent = !metas.length ? ""
+      : state.hf ? `${nPicks} pick${nPicks === 1 ? "" : "s"} from ${keys.find(x => x.k === state.hf).label}. Totals below cover this ${unit[0].toLowerCase()} only.`
+      : `All ${metas.length} finished ${state.horizon} list${metas.length === 1 ? "" : "s"} since ${fdateY(metas[metas.length - 1].date)}, kept permanently. Pick a ${unit[0].toLowerCase()} above to see just that one.`;
 
     const note = $("histNote");
     const posted = state.market === "IN" ? "the India close (posted around 4:30 PM IST)" : "the US close (posted around 3 AM IST)";
     const when = m => m.horizon === "daily" ? `after ${posted} on ${fdateY(m.expires)}` : `when its window ends on ${fdateY(m.expires)}, after ${posted}`;
     const curLine = upcoming ? `The current ${state.horizon} list (from ${fdateY(upcoming.date)}) is on the <a href="#" data-goto="" data-view="picks">Picks tab</a> and moves here with its result ${when(upcoming)}.` : "";
-    note.hidden = !(curLine || !metas.length);
-    note.innerHTML = metas.length ? curLine
+    note.hidden = !(curLine || !done.length) || !!state.hf;
+    note.innerHTML = done.length ? curLine
       : `<b>No finished ${state.horizon} picks yet.</b> ${curLine || "Nothing has been published for this market and holding period yet."} After that, every past list stays here permanently with its results.`;
   }
 

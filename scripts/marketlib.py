@@ -33,6 +33,31 @@ LIQUIDITY = {  # 20-day average traded value, local currency
     "IN": {"min_value": 100e7, "min_price": 50.0, "label": "₹100 cr"},  # 100 crore = 1e9
 }
 BENCHMARK = {"US": "^GSPC", "IN": "^NSEI"}
+
+# ---------------------------------------------------------------------------
+# Learned adjustments (scripts/learn.py writes data/tuning.js). Only these
+# keys can be tuned, each within hard bounds; everything else is fixed.
+# ---------------------------------------------------------------------------
+TUNABLE_DEFAULTS = {"max_ext": 3.0, "min_rs": 0.0}
+_TUNING: dict | None = None
+
+
+def tuning() -> dict:
+    global _TUNING
+    if _TUNING is None:
+        path = DATA / "tuning.js"
+        try:
+            _TUNING = read_assigned(path, "window.TUNING = ") if path.exists() else {}
+        except Exception:
+            _TUNING = {}
+    return _TUNING
+
+
+def params(horizon: str, market: str) -> dict:
+    """Rulebook numbers for a horizon and market, with learned overrides."""
+    p = {**HORIZONS[horizon], **TUNABLE_DEFAULTS}
+    p.update(((tuning().get("params") or {}).get(horizon) or {}).get(market) or {})
+    return p
 # When a session's daily bar is final: local close plus a buffer for Yahoo.
 SESSION_END = {"US": ("America/New_York", dt.time(16, 15)), "IN": ("Asia/Kolkata", dt.time(16, 0))}
 
@@ -141,7 +166,7 @@ def tick_round(value: float, market: str) -> float:
 
 def levels(m: dict, horizon: str, market: str) -> dict:
     """ATR-sized buy zone, stop and target from the last close."""
-    h = HORIZONS[horizon]
+    h = params(horizon, market)
     c, a = m["close"], m["atr"]
     buy_low, buy_high = c - h["zl"] * a, c + h["zh"] * a
     mid = (buy_low + buy_high) / 2
@@ -162,7 +187,7 @@ def levels(m: dict, horizon: str, market: str) -> dict:
 
 def checks(m: dict, horizon: str, market: str, pick: dict | None = None) -> list[dict]:
     """Hard filters from CRITERIA.md. Each item: name, pass, detail."""
-    h, liq = HORIZONS[horizon], LIQUIDITY[market]
+    h, liq = params(horizon, market), LIQUIDITY[market]
     cur = "₹" if market == "IN" else "$"
     out = []
 
@@ -182,12 +207,12 @@ def checks(m: dict, horizon: str, market: str, pick: dict | None = None) -> list
                          f"{cur}{m['sma50']}, 50-day avg {'rising' if m['sma50Rising'] else 'falling'}")
     rs_key = "rs1m" if horizon == "daily" else "rs3m"
     rs = m.get(rs_key)
-    add("Relative strength", rs is not None and rs > 0,
-        f"{'1-month' if horizon == 'daily' else '3-month'} return vs index {rs:+.1f} pts" if rs is not None else "no data")
+    add("Relative strength", rs is not None and rs > h["min_rs"],
+        f"{'1-month' if horizon == 'daily' else '3-month'} return vs index {rs:+.1f} pts (min {h['min_rs']:+.1f})" if rs is not None else "no data")
     add("Not a falling knife", m["fromLow52"] >= 10, f"{m['fromLow52']:+.1f}% above 52-week low")
     ext = m.get("extAtr")
-    add("Not overextended", ext is not None and ext <= 3.0,
-        f"{ext:+.1f} ATR from 20-day avg (max +3.0)" if ext is not None else "no data")
+    add("Not overextended", ext is not None and ext <= h["max_ext"],
+        f"{ext:+.1f} ATR from 20-day avg (max {h['max_ext']:+.1f})" if ext is not None else "no data")
     add("Volatility fits horizon", m["atrPct"] is not None and m["atrPct"] <= h["max_atr_pct"],
         f"ATR {m['atrPct']}% of price (max {h['max_atr_pct']}% for {horizon})")
     if pick:

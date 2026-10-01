@@ -236,6 +236,14 @@
   .prose h3:first-child { margin-top: 0; }
   .prose p, .prose li { font-size: 14.5px; }
   .prose .tbl { overflow-x: auto; }
+  .lrow { padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .lrow .lh { display: flex; justify-content: space-between; gap: 8px; font-size: 14.5px; }
+  .lrow .lh span { color: var(--muted); font-size: 13px; }
+  .lrow .ls { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .lrow .ls b { color: var(--text); }
+  .chg { font-size: 13.5px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .chg b { color: var(--text); }
+  .badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); vertical-align: 2px; }
   .prose table { border-collapse: collapse; font-size: 13.5px; margin: 6px 0; min-width: 520px; }
   .prose td, .prose th { border-bottom: 1px solid var(--line); padding: 7px 12px 7px 0; text-align: left; vertical-align: top; }
 
@@ -299,6 +307,7 @@
 
   <!-- METHOD -->
   <section id="view-method" role="tabpanel" hidden>
+    <div class="card prose" id="learning" style="margin-bottom:16px"></div>
     <div class="card prose">
       <h3>How picks are chosen</h3>
       <p>All three holding periods follow one rulebook (<span class="num">CRITERIA.md</span> in the repo). A stock is published only if it passes <b>every</b> check below and has a dated reason to move. If fewer than 5 qualify, fewer are published; the list is never padded.</p>
@@ -369,6 +378,7 @@
 <script src="data/picks.js"></script>
 <script src="data/prices.js"></script>
 <script src="data/archive/index.js"></script>
+<script src="data/tuning.js"></script>
 <script>
 (function () {
   const PICKS = window.PICKS || { batches: [] };
@@ -791,6 +801,29 @@
       : `<b>No finished ${state.horizon} picks yet.</b> ${curLine || "Nothing has been published for this market and holding period yet."} Every past list stays here permanently with its results.`;
   }
 
+  // ---------- learning (data/tuning.js from scripts/learn.py) ----------
+  const DEFAULTS = { daily: { target: 1.25, stop: 0.75 }, weekly: { target: 2.25, stop: 1.25 }, monthly: { target: 3.5, stop: 1.75 } };
+  function renderLearning() {
+    const T = window.TUNING || {}, rules = T.rules || { minSample: 20, window: 40, cooldownDays: 7 };
+    const P = T.params || {}, S = T.stats || {}, log = (T.log || []).slice().reverse();
+    const val = (h, mk, k, def) => { const v = ((P[h] || {})[mk] || {})[k]; return v == null ? def : v; };
+    const cell = (h, mk, k, def, fmtv) => { const v = val(h, mk, k, def); return v === def ? fmtv(v) : `<b>${fmtv(v)}</b> <span class="muted">(was ${fmtv(def)})</span>`; };
+    const rows = [];
+    ["daily", "weekly", "monthly"].forEach(h => ["US", "IN"].forEach(mk => {
+      const st = (S[h] || {})[mk] || { n: 0 };
+      rows.push(`<div class="lrow"><div class="lh"><b>${HNAME[h]} · ${mk === "US" ? "🇺🇸 US" : "🇮🇳 India"}</b>
+          <span class="num">${st.n}${st.n < rules.minSample ? `/${rules.minSample}` : ""} finished</span></div>
+        <div class="ls num">${st.n ? `Target met <b>${Math.round(st.hitRate * 100)}%</b> · stopped <b>${Math.round(st.stopRate * 100)}%</b> · avg <b class="${cls(st.avgRet)}">${pct(st.avgRet)}</b>` : "No finished picks yet"}</div>
+        <div class="ls num">Target ${cell(h, mk, "target", DEFAULTS[h].target, v => v.toFixed(2))} · stop ${cell(h, mk, "stop", DEFAULTS[h].stop, v => v.toFixed(2))} ATR · entry ≤ ${cell(h, mk, "max_ext", 3, v => "+" + v.toFixed(1))} ATR above 20-day avg · strength ≥ ${cell(h, mk, "min_rs", 0, v => (v >= 0 ? "+" : "") + v.toFixed(1))} pts</div></div>`);
+    }));
+    $("learning").innerHTML = `<h3>How the rules are learning <span class="badge">auto</span></h3>
+      <p>After every results update, the last ${rules.window} finished picks of each holding period and market are measured. When there's enough evidence (at least ${rules.minSample} finished picks), one rule is nudged a small step within safe limits, at most once every ${rules.cooldownDays} days, and logged below with its reason. New picks use the updated rules automatically. Small samples are mostly noise, so nothing changes before then.</p>
+      ${rows.join("")}
+      <h3 style="font-size:14.5px">Rule changes</h3>
+      ${log.length ? log.slice(0, 20).map(e => `<div class="chg">${fdateY(e.date)} · <b>${HNAME[e.horizon]} ${e.market === "US" ? "US" : "India"}</b>: ${esc(e.param)} ${e.from} → <b>${e.to}</b>. ${esc(e.reason)}.</div>`).join("")
+        : `<p class="muted">No changes yet. Learning starts once a list has ${rules.minSample} finished picks${T.updated ? ` (last check ${new Date(T.updated).toLocaleString([], { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" })})` : ""}.</p>`}`;
+  }
+
   // ---------- render ----------
   function render() {
     document.querySelectorAll("[data-view]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === state.view)));
@@ -800,6 +833,7 @@
     document.querySelectorAll("[data-horizon]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.horizon === state.horizon)));
     if (state.view === "picks") renderPicks();
     if (state.view === "history") renderHistory();
+    if (state.view === "method") renderLearning();
   }
   render();
 

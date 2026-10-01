@@ -6,6 +6,7 @@ name: Market data
 #   2. verify_prices.py   - check new picks against real closes, re-anchor if off
 #   3. update_prices.py   - latest quotes + score every open pick -> data/prices.js
 #   4. archive.py         - move batches finished 45+ days ago into data/archive/
+#   5. learn.py           - tune selection rules from finished picks -> data/tuning.js
 on:
   schedule:
     # 11:00 UTC = after NSE close (16:30 IST); 21:30 UTC = after NYSE close,
@@ -41,6 +42,7 @@ jobs:
       - run: python scripts/verify_prices.py
       - run: python scripts/update_prices.py
       - run: python scripts/archive.py
+      - run: python scripts/learn.py   # tune rules from finished picks (data/tuning.js)
       - name: Commit data
         run: |
           git config user.name "github-actions[bot]"
@@ -57,6 +59,6 @@ jobs:
             git fetch -q origin "$GITHUB_REF_NAME"
             git reset -q --hard "origin/$GITHUB_REF_NAME"
             cp "$RUNNER_TEMP/market.js" data/market.js
-            python scripts/verify_prices.py && python scripts/update_prices.py && python scripts/archive.py
+            python scripts/verify_prices.py && python scripts/update_prices.py && python scripts/archive.py && python scripts/learn.py
           done
           exit 1

@@ -2,7 +2,7 @@
 
 The single rulebook for **daily, weekly and monthly** picks. The research routines
 must follow it exactly, and the site's Method tab summarizes it. Numbers in §3–§4
-are implemented in `scripts/marketlib.py`; change both together.
+are implemented in `scripts/marketlib.py` (some are tuned automatically, §7); change both together.
 
 ## 0. Principles
 1. **Accuracy over quantity.** Publish fewer than 5 picks when fewer qualify. Never pad the list.
@@ -100,14 +100,24 @@ the **official close of the last completed session** before the picks take effec
 - Don't repeat a pick from the previous batch of the same horizon unless there's a new catalyst.
 - The same stock may appear in different horizons only if each has its own reason.
 
-## 7. Learning from results
-Before researching, look at the last 20 finished picks of the same horizon in
-`data/prices.js` (and the archive):
-- **Target met rate < 30%** → targets are too far for this market: tighten targets toward
-  the minimum reward:risk and prefer lower-volatility names. Say so in the context summary.
-- **Stop hit rate > 50%** → entries are poor: require a pullback toward the 20-day average
-  (≤ 1 ATR above it) before buying.
-- Note the rolling hit rate and average return vs the index in the context summary once 20 picks exist.
+## 7. Learning from results (automated)
+`scripts/learn.py` runs after every results update (Market data Action). For each holding
+period × market it measures the last 40 finished picks (target-met rate, stop rate, average
+return, typical best/worst move in ATRs, and how winners and losers differed in entry
+stretch and relative strength) and, **only with at least 20 finished picks**, nudges **one**
+rule a small step, at most once every 7 days, within hard bounds:
+
+| Rule | Tuned when | Step | Bounds |
+|---|---|---|---|
+| `target` (ATRs) | met < 30% and typical best move < 0.8× target → lower; met > 60%, stops < 25% and best move > 1.2× target → raise | 0.25 | ≥ min R:R × stop, 0.75×–1.5× default |
+| `max_ext` (ATRs above 20-day avg) | stops > 50%, or losers bought ≥ 0.75 ATR more stretched than winners → tighten; stops < 25% and met ≥ 40% → relax | 0.5 | 1.0–3.0 |
+| `min_rs` (pts vs index) | lower-strength half averaged ≥ 1 pt worse → raise toward the median | 1.0 | 0–10 |
+| `stop` (ATRs) | never loosened beyond the default | 0.25 | 0.6×–1× default |
+
+Learned values live in `data/tuning.js` and are applied automatically by `levels.py`, the
+screen and `check_batch.py`, so routines must not override them. Every change is logged with
+its reason on the site (How it works → How the rules are learning). Routines: read that line
+in `levels.py` output and mention any rule in force in the context summary.
 
 ## 8. Self-check before publishing (every item must be true)
 - [ ] Every pick shows **ELIGIBLE** in `levels.py` for this horizon, and its refPrice/refDate

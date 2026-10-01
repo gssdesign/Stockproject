@@ -19,6 +19,7 @@ import json
 import sys
 
 from marketlib import HORIZONS, checks, levels, load_market, market_of
+from marketlib import tuning as load_tuning
 
 
 LATEST: dict[str, str] = {}  # latest session per market in the snapshot
@@ -76,6 +77,10 @@ def main() -> int:
         print(f"snapshot generated {gen} ({age_h:.0f}h ago). Regime: US {b.get('US', {}).get('regime')} "
               f"(S&P close {b.get('US', {}).get('close')} on {b.get('US', {}).get('date')}), "
               f"IN {b.get('IN', {}).get('regime')} (Nifty close {b.get('IN', {}).get('close')} on {b.get('IN', {}).get('date')})")
+        tuned = (load_tuning().get("params") or {}).get(args.horizon) or {}
+        if tuned:
+            print("Learned rule adjustments in force for " + args.horizon + ": " +
+                  "; ".join(f"{mk}: " + ", ".join(f"{k}={v}" for k, v in d.items()) for mk, d in tuned.items()))
         if age_h > 36:
             print("WARNING: snapshot is more than 36h old; prices may be stale.")
 

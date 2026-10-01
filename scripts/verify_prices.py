@@ -109,7 +109,7 @@ def main() -> int:
                 if m:
                     p["checks"] = checks(m, batch.get("horizon", "monthly"), mk, p)
                     p["metricsAtPick"] = {k: m.get(k) for k in ("atrPct", "sma20", "sma50", "sma200", "rs1m", "rs3m",
-                                                                 "fromHigh52", "fromLow52", "avgValue20")}
+                                                                 "fromHigh52", "fromLow52", "avgValue20", "extAtr")}
                 changed += 1
                 print(f"{batch['id']:<22} {p['yahoo']:<16} corrected {prev['corrected']['from']} -> official close {close} ({ref['date']})")
                 continue
@@ -139,7 +139,7 @@ def main() -> int:
                 horizon = batch.get("horizon", "monthly")
                 p["checks"] = checks(m, horizon, mk, p)
                 p["metricsAtPick"] = {k: m.get(k) for k in ("atrPct", "sma20", "sma50", "sma200", "rs1m", "rs3m",
-                                                             "fromHigh52", "fromLow52", "avgValue20")}
+                                                             "fromHigh52", "fromLow52", "avgValue20", "extAtr")}
             ev = earnings_in_window(p["yahoo"], batch["date"], batch["expires"])
             if ev:
                 p["eventRisk"] = f"Earnings on {ev}, inside the holding window"

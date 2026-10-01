@@ -1096,10 +1096,12 @@
   }
 
   // ---------- suggestions: floating button -> Google Form (responses in the owner's Google Sheet) ----------
-  // Fill these from the form's pre-filled link; the button stays hidden until they're set.
-  const FEEDBACK = { action: "", nameField: "", textField: "" };
-  (function suggestions() {
-    if (!FEEDBACK.action || !FEEDBACK.nameField || !FEEDBACK.textField) return;
+  // Field IDs come from data/feedback.json (written at publish by scripts/form_config.py);
+  // the button stays hidden until they're available.
+  const FEEDBACK = {};
+  fetch("data/feedback.json?t=" + Date.now(), { cache: "no-store" }).then(r => r.ok ? r.json() : null).catch(() => null)
+    .then(cfg => { if (cfg && cfg.action && cfg.nameField && cfg.textField) { Object.assign(FEEDBACK, cfg); suggestions(); } });
+  function suggestions() {
     const fab = $("fab"), bg = $("sheetBg"), form = $("sheet");
     fab.hidden = false;
     const open = () => { bg.hidden = false; $("sheetForm").hidden = false; $("sheetDone").hidden = true;
@@ -1127,7 +1129,7 @@
         .catch(() => alert("Couldn't send right now. Please check your connection and try again."))
         .finally(() => { btn.disabled = false; btn.textContent = "Submit"; });
     });
-  })();
+  }
 
   // ---------- render ----------
   function render() {

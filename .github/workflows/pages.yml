@@ -13,6 +13,7 @@ on:
       - "data/**"
       - "scripts/widget_data.py"
       - "scripts/live_index.py"
+      - "scripts/form_config.py"
       - ".github/workflows/pages.yml"
   workflow_run:
     workflows: ["Market data", "Mutual funds"]
@@ -52,6 +53,7 @@ jobs:
           rm -f _site/data/market.js
           python3 scripts/widget_data.py _site   # data/widget.json for the Android widget
           python3 scripts/live_index.py _site || true   # data/live.json: latest Nifty 50
+          python3 scripts/form_config.py _site || true  # data/feedback.json: suggestion form fields
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

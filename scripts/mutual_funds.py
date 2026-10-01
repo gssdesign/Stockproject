@@ -93,13 +93,16 @@ def mfapi_candidates() -> dict[str, list[dict]]:
     """Fallback when AMFI is unreachable: filter mfapi's scheme list by name, confirm the category later."""
     allm = requests.get(MFAPI, headers=UA, timeout=60).json()
     out = {k: [] for k in CATEGORIES}
+    # Broad name hints only pick candidates ("Midcap", "Mid-Cap", "Bluechip", ...); the scheme's
+    # official SEBI category (from its NAV history) decides membership, so spelling can't drop a fund.
+    hints = {"large": r"large|blue\s*chip|top\s*100|frontline", "mid": r"mid|emerging", "small": r"small|micro"}
     for s in allm:
         name = s.get("schemeName", "")
         low = name.lower()
-        if "direct" not in low or "growth" not in low or EXCLUDE.search(name):
+        if "direct" not in low or "growth" not in low or EXCLUDE.search(name) or re.search(r"index|etf|fof|fund of fund|nifty|sensex", low):
             continue
         for k, v in CATEGORIES.items():
-            if v.replace(" Fund", "").lower() in low.replace("-", " ") and not re.search(r"large\s*(&|and)\s*mid", low):
+            if re.search(hints[k], low):
                 out[k].append({"code": str(s["schemeCode"]), "name": name, "amc": "", "isin": "", "confirm": v})
     return out
 

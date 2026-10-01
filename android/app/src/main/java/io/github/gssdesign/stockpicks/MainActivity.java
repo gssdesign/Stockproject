@@ -11,7 +11,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-/** Full-screen view of the Stock Picks Desk website. */
+/** Full-screen view of the Stock SI website. */
 public class MainActivity extends Activity {
     static final String SITE = "https://gssdesign.github.io/Stockproject/";
 
@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
             public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError err) {
                 if (req.isForMainFrame()) {
                     view.loadData("<html><body style='background:#0E1116;color:#E8EBF0;font-family:sans-serif;padding:32px'>"
-                            + "<h3>Can't reach Stock Picks</h3><p>Check your internet connection, then pull down or reopen the app.</p>"
+                            + "<h3>Can't reach Stock SI</h3><p>Check your internet connection, then pull down or reopen the app.</p>"
                             + "</body></html>", "text/html", "utf-8");
                 }
             }

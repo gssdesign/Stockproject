@@ -15,7 +15,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="📈 Stock Picks · Daily"
+            android:text="Stock SI · Daily picks"
             android:textColor="#7B9BFF"
             android:textSize="13sp"
             android:textStyle="bold" />

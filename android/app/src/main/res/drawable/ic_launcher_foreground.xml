@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Rising line chart, inside the 72dp adaptive-icon safe zone. -->
+<!-- Stock SI monogram: S + an "I" drawn as a rising arrow. 100-unit logo scaled into the 66dp safe zone. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp" android:height="108dp"
     android:viewportWidth="108" android:viewportHeight="108">
-    <path android:strokeColor="#FFFFFF" android:strokeWidth="6"
-        android:strokeLineCap="round" android:strokeLineJoin="round"
-        android:fillColor="#00000000"
-        android:pathData="M32,70 L48,54 L58,62 L76,40" />
-    <path android:fillColor="#FFFFFF" android:pathData="M66,38 L80,36 L78,50 Z" />
+    <group android:scaleX="0.62" android:scaleY="0.62" android:translateX="23" android:translateY="23">
+        <path android:strokeColor="#FFFFFF" android:strokeWidth="10.5" android:strokeLineCap="round"
+            android:strokeLineJoin="round" android:fillColor="#00000000"
+            android:pathData="M57,33.5c-4,-5.5 -25,-7 -25,4.5 0,12.5 26,9 26,22.5 0,12.5 -21,12 -27,4.5" />
+        <path android:strokeColor="#FFFFFF" android:strokeWidth="10.5" android:strokeLineCap="round"
+            android:fillColor="#00000000" android:pathData="M73,72V40" />
+        <path android:fillColor="#3DDC97" android:strokeColor="#3DDC97" android:strokeWidth="3"
+            android:strokeLineJoin="round" android:pathData="M62.5,41.5 L73,25 L83.5,41.5 Z" />
+    </group>
 </vector>

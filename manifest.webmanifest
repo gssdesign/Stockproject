@@ -1,6 +1,6 @@
 {
-  "name": "Stock Picks Desk",
-  "short_name": "Stock Picks",
+  "name": "Stock SI",
+  "short_name": "Stock SI",
   "description": "Daily, weekly and monthly stock ideas for the US and India, with results.",
   "start_url": "./#picks",
   "scope": "./",
@@ -8,8 +8,20 @@
   "background_color": "#0e1116",
   "theme_color": "#0e1116",
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "icons/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ]
 }

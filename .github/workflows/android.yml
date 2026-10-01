@@ -1,8 +1,8 @@
 name: Android app
 
-# Builds the Stock Picks Android app (android/) and publishes the signed APK
+# Builds the Stock SI Android app (android/) and publishes the signed APK
 # to the "android-latest" release, so the download link never changes:
-# https://github.com/gssdesign/Stockproject/releases/download/android-latest/StockPicks.apk
+# https://github.com/gssdesign/Stockproject/releases/download/android-latest/StockSI.apk
 on:
   push:
     paths:
@@ -32,17 +32,17 @@ jobs:
       - name: Build signed APK
         run: gradle -p android assembleRelease -PversionCode=${{ github.run_number }} --stacktrace
       - name: Rename
-        run: cp android/app/build/outputs/apk/release/app-release.apk StockPicks.apk
+        run: cp android/app/build/outputs/apk/release/app-release.apk StockSI.apk && cp StockSI.apk StockPicks.apk  # old link keeps working
       - uses: actions/upload-artifact@v4
         with:
-          name: StockPicks-apk
-          path: StockPicks.apk
+          name: StockSI-apk
+          path: StockSI.apk
       - name: Publish to the android-latest release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete android-latest --yes --cleanup-tag || true
-          gh release create android-latest StockPicks.apk \
-            --title "Stock Picks Android app (build ${{ github.run_number }})" \
-            --notes "Install: open this page on your Android phone, tap StockPicks.apk, then allow 'Install unknown apps' for your browser when asked. Updates install over the previous version. Not financial advice." \
+          gh release create android-latest StockSI.apk StockPicks.apk \
+            --title "Stock SI Android app (build ${{ github.run_number }})" \
+            --notes "Install: open this page on your Android phone, tap StockSI.apk, then allow 'Install unknown apps' for your browser when asked. Updates install over the previous version. Not financial advice." \
             --target "${{ github.sha }}"

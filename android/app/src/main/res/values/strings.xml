@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Stock Picks</string>
-    <string name="widget_name">Stock Picks · Daily</string>
+    <string name="app_name">Stock SI</string>
+    <string name="widget_name">Stock SI · Daily</string>
     <string name="widget_desc">Today\'s daily picks for the US and India with their last close and buy-zone status.</string>
 </resources>

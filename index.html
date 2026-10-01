@@ -277,13 +277,14 @@
   #intro .msg { position: relative; max-width: min(92vw, 680px); padding: 18px 20px; text-align: center; font: 700 clamp(20px, 5.4vw, 34px)/1.35 "DejaVu Sans Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     color: #b6ffcf; text-shadow: 0 0 8px #00ff66, 0 0 22px rgba(0, 255, 102, .55); background: radial-gradient(ellipse at center, rgba(0,0,0,.82) 0%, rgba(0,0,0,.55) 60%, transparent 100%); border-radius: 18px; }
   #intro .msg .sc { color: #00ff66; opacity: .85; }
-  #intro .timer { position: absolute; bottom: calc(54px + env(safe-area-inset-bottom)); left: 50%; width: 56px; height: 56px; transform: translateX(-50%); }
-  #intro .timer svg { width: 56px; height: 56px; transform: rotate(-90deg); }
+  #intro .center { position: relative; display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 0 16px; }
+  #intro .timer { position: relative; width: 84px; height: 84px; }
+  #intro .timer svg { width: 84px; height: 84px; transform: rotate(-90deg); }
   #intro .timer circle { fill: rgba(0, 0, 0, .7); stroke: rgba(0, 255, 102, .18); stroke-width: 3; }
-  #intro .timer .arc { fill: none; stroke: #00ff66; stroke-linecap: round; stroke-dasharray: 119.4; stroke-dashoffset: 0; filter: drop-shadow(0 0 4px #00ff66); animation: introRing 5s linear forwards; }
-  #intro .timer span { position: absolute; inset: 0; display: grid; place-items: center; color: #b6ffcf; font: 700 22px ui-monospace, monospace; text-shadow: 0 0 8px #00ff66; }
+  #intro .timer .arc { fill: none; stroke: #00ff66; stroke-linecap: round; stroke-dasharray: 119.4; stroke-dashoffset: 0; filter: drop-shadow(0 0 4px #00ff66); animation: introRing 8s linear forwards; }
+  #intro .timer span { position: absolute; inset: 0; display: grid; place-items: center; color: #b6ffcf; font: 700 34px ui-monospace, monospace; text-shadow: 0 0 10px #00ff66; }
   @keyframes introRing { to { stroke-dashoffset: 119.4; } }
-  #intro .skip { position: absolute; bottom: calc(22px + env(safe-area-inset-bottom)); left: 0; right: 0; text-align: center; color: rgba(0, 255, 102, .6); font: 12px ui-monospace, monospace; letter-spacing: .12em; }
+  #intro .skip { position: relative; text-align: center; background: rgba(0, 0, 0, .7); padding: 4px 10px; border-radius: 8px; color: rgba(0, 255, 102, .6); font: 12px ui-monospace, monospace; letter-spacing: .12em; }
   footer { color: var(--faint); font-size: 12px; padding: 8px 0 24px; text-align: center; }
 
   @media (max-width: 759px) {
@@ -297,9 +298,11 @@
 <body>
 <div id="intro" role="dialog" aria-label="Welcome" aria-live="polite">
   <canvas id="rain" aria-hidden="true"></canvas>
-  <div class="msg" id="introMsg"></div>
-  <div class="timer" aria-hidden="true"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="arc" cx="22" cy="22" r="19"/></svg><span id="introCount">5</span></div>
-  <div class="skip"><span id="introLabel">ENTERING IN 5s</span> · TAP TO SKIP</div>
+  <div class="center">
+    <div class="msg" id="introMsg"></div>
+    <div class="timer" aria-hidden="true"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="arc" cx="22" cy="22" r="19"/></svg><span id="introCount">8</span></div>
+    <div class="skip"><span id="introLabel">ENTERING IN 8s</span> · TAP TO SKIP</div>
+  </div>
 </div>
 <script>
 // Matrix-style welcome: code rain, then the message decodes letter by letter.
@@ -308,9 +311,9 @@
   const MSG = "Mr. Sandhu Welcomes you to Super Intelligence stock suggestion world.";
   const intro = document.getElementById("intro"), msgEl = document.getElementById("introMsg");
   const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const SHOW_MS = 5000, t0 = performance.now();  // splash stays 5 s, then fades
+  const SHOW_MS = 8000, t0 = performance.now();  // splash stays 8 s, then fades
   let done = false, raf = 0, timer = 0;
-  // Visible 5-second countdown (number + draining ring), in sync with the close.
+  // Visible 8-second countdown (number + draining ring), in sync with the close.
   const countEl = document.getElementById("introCount"), labelEl = document.getElementById("introLabel");
   const tick = () => {
     if (done) return;

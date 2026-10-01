@@ -284,7 +284,7 @@
   #intro .timer svg { width: 84px; height: 84px; transform: rotate(-90deg); }
   #intro .timer circle { fill: rgba(0, 0, 0, .7); stroke: rgba(0, 255, 102, .18); stroke-width: 3; }
   #intro .timer .arc { fill: none; stroke: #00ff66; stroke-linecap: round; stroke-dasharray: 119.4; stroke-dashoffset: 0; filter: drop-shadow(0 0 4px #00ff66); }
-  #intro .timer.on .arc { animation: introRing 3s linear forwards; }
+  #intro .timer.on .arc { animation: introRing 5s linear forwards; }
   #intro .timer span { position: absolute; inset: 0; display: grid; place-items: center; color: #b6ffcf; font: 700 34px ui-monospace, monospace; text-shadow: 0 0 10px #00ff66; }
   @keyframes introRing { to { stroke-dashoffset: 119.4; } }
   #intro .skip { position: relative; text-align: center; background: rgba(0, 0, 0, .7); padding: 4px 10px; border-radius: 8px; color: rgba(0, 255, 102, .6); font: 12px ui-monospace, monospace; letter-spacing: .12em; }
@@ -303,7 +303,7 @@
   <canvas id="rain" aria-hidden="true"></canvas>
   <div class="center">
     <div class="msg" id="introMsg"></div>
-    <div class="timer" aria-hidden="true"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="arc" cx="22" cy="22" r="19"/></svg><span id="introCount">3</span></div>
+    <div class="timer" aria-hidden="true"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="arc" cx="22" cy="22" r="19"/></svg><span id="introCount">5</span></div>
     <div class="skip"><span id="introLabel">LOADING…</span> · TAP TO SKIP</div>
   </div>
 </div>
@@ -314,9 +314,9 @@
   const MSG = "Mr. Sandhu Welcomes you to Super Intelligence stock suggestion world.";
   const intro = document.getElementById("intro"), msgEl = document.getElementById("introMsg");
   const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const COUNT_MS = 3000;  // countdown runs only after the text has fully loaded
+  const COUNT_MS = 5000;  // countdown runs only after the text has fully loaded
   let done = false, raf = 0, timer = 0;
-  // 3-second countdown (number + draining ring), started once the text is shown.
+  // 5-second countdown (number + draining ring), started once the text is shown.
   const countEl = document.getElementById("introCount"), labelEl = document.getElementById("introLabel");
   const timerEl = intro.querySelector(".timer");
   function startCountdown() {
@@ -388,7 +388,7 @@
     else { msgEl.textContent = MSG; startCountdown(); }
   }
   setTimeout(decode, startAt);
-  setTimeout(close, 9000);  // safety net
+  setTimeout(close, 11000);  // safety net
 })();
 </script>
 <header class="top">

@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 public/
 _site/
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties

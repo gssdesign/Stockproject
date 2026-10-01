@@ -9,6 +9,7 @@ on:
     paths:
       - "index.html"
       - "data/**"
+      - "scripts/widget_data.py"
       - ".github/workflows/pages.yml"
   workflow_run:
     workflows: ["Market data"]
@@ -40,6 +41,7 @@ jobs:
           cp index.html _site/
           cp -r data _site/
           rm -f _site/data/market.js
+          python3 scripts/widget_data.py _site   # data/widget.json for the iOS widget
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

@@ -10,14 +10,14 @@
 // Only quotes with a traceable source are included. Popular lines that are
 // misattributed (e.g. "Be the change you wish to see" to Gandhi, "It always
 // seems impossible until it's done" to Mandela) are deliberately left out.
+// No quotes from religious scriptures or devotional works (e.g. the
+// Bhagavad Gita, Tao Te Ching, Upanishads, Bible, Quran, sermon collections).
 // Translated texts name the work; wording follows common English editions.
 window.QUOTES = [
   // ---- push: a nudge to act --------------------------------------------
-  { id: "laozi-step", t: "A journey of a thousand miles begins with a single step.", by: "Laozi", src: "Tao Te Ching, ch. 64", m: ["y", "b", "g"], a: ["work", "self"], n: ["push"] },
   { id: "seneca-postpone", t: "While we are postponing, life speeds by.", by: "Seneca", src: "Letters to Lucilius, 1", m: ["y", "g", "b"], a: ["work", "self"], n: ["push"] },
   { id: "eroosevelt-cannot", t: "You must do the thing you think you cannot do.", by: "Eleanor Roosevelt", src: "You Learn by Living (1960)", m: ["r", "b", "y"], a: ["work", "self", "setback"], n: ["push", "courage"] },
   { id: "troosevelt-whatyouhave", t: "Do what you can, with what you have, where you are.", by: "Theodore Roosevelt, quoting Squire Bill Widener", src: "Theodore Roosevelt: An Autobiography (1913)", m: ["b", "r"], a: ["work", "setback", "self"], n: ["push"] },
-  { id: "vivekananda-arise", t: "Arise, awake, and stop not till the goal is reached.", by: "Swami Vivekananda", src: "after the Katha Upanishad 1.3.14", m: ["y", "b"], a: ["work", "self"], n: ["push"] },
   { id: "jobs-hungry", t: "Stay hungry. Stay foolish.", by: "Steve Jobs, quoting the Whole Earth Catalog", src: "Stanford commencement address (2005)", m: ["y", "g"], a: ["work", "self"], n: ["push"] },
   { id: "jobs-time", t: "Your time is limited, so don't waste it living someone else's life.", by: "Steve Jobs", src: "Stanford commencement address (2005)", m: ["y", "g", "r"], a: ["self", "work"], n: ["push", "wisdom"] },
   { id: "gretzky-shots", t: "You miss 100% of the shots you don't take.", by: "Wayne Gretzky", src: "Hockey News interview (1983)", m: ["y", "r"], a: ["work", "people"], n: ["push", "courage"] },
@@ -37,11 +37,9 @@ window.QUOTES = [
   { id: "tnh-clouds", t: "Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor.", by: "Thich Nhat Hanh", src: "Stepping into Freedom (1997)", m: ["r", "b"], a: ["self", "people", "setback"], n: ["calm"] },
   { id: "chodron-sky", t: "You are the sky. Everything else is just the weather.", by: "Pema Chödrön", src: "attributed; widely quoted from her teachings", m: ["r", "b"], a: ["self", "setback"], n: ["calm"] },
   { id: "tolstoy-patience", t: "The two most powerful warriors are patience and time.", by: "Leo Tolstoy", src: "War and Peace (1869)", m: ["r", "g", "b"], a: ["work", "setback"], n: ["calm", "wisdom"] },
-  { id: "rilke-final", t: "Let everything happen to you: beauty and terror. Just keep going. No feeling is final.", by: "Rainer Maria Rilke", src: "Book of Hours, I.59 (trans. Barrows & Macy)", m: ["b", "r"], a: ["setback", "self"], n: ["calm", "courage"] },
   { id: "dillard-days", t: "How we spend our days is, of course, how we spend our lives.", by: "Annie Dillard", src: "The Writing Life (1989)", m: ["g", "y"], a: ["self", "work"], n: ["calm", "wisdom"] },
   { id: "watts-dance", t: "The only way to make sense out of change is to plunge into it, move with it, and join the dance.", by: "Alan Watts", src: "The Wisdom of Insecurity (1951)", m: ["r", "g", "y"], a: ["setback", "self"], n: ["calm", "courage"] },
   { id: "lee-water", t: "Empty your mind, be formless, shapeless, like water. Be water, my friend.", by: "Bruce Lee", src: "Longstreet, \"The Way of the Intercepting Fist\" (1971)", m: ["r", "g"], a: ["setback", "work", "self"], n: ["calm"] },
-  { id: "gita-fruits", t: "You have a right to your actions, but never to the fruits of your actions.", by: "Bhagavad Gita", src: "2.47", m: ["r", "b"], a: ["work", "setback"], n: ["calm", "wisdom"] },
   { id: "saunders-plans", t: "Life is what happens to us while we are making other plans.", by: "Allen Saunders", src: "Reader's Digest (1957)", m: ["g", "r"], a: ["setback", "self"], n: ["calm", "wisdom"] },
   { id: "lorde-care", t: "Caring for myself is not self-indulgence, it is self-preservation, and that is an act of political warfare.", by: "Audre Lorde", src: "A Burst of Light (1988)", m: ["b", "r"], a: ["self", "work"], n: ["calm", "courage"] },
   { id: "rogers-like", t: "There's no person in the whole world like you, and I like you just the way you are.", by: "Fred Rogers", src: "Mister Rogers' Neighborhood", m: ["b", "g"], a: ["self", "people"], n: ["calm"] },
@@ -70,7 +68,6 @@ window.QUOTES = [
   { id: "frankl-change", t: "When we are no longer able to change a situation, we are challenged to change ourselves.", by: "Viktor Frankl", src: "Man's Search for Meaning (1946)", m: ["b", "r"], a: ["setback", "people"], n: ["wisdom"] },
   { id: "aurelius-obstacle", t: "The impediment to action advances action. What stands in the way becomes the way.", by: "Marcus Aurelius", src: "Meditations, 5.20", m: ["r", "b", "y"], a: ["setback", "work"], n: ["wisdom", "courage"] },
   { id: "socrates-examined", t: "The unexamined life is not worth living.", by: "Socrates", src: "Plato, Apology 38a", m: ["g"], a: ["self"], n: ["wisdom"] },
-  { id: "laozi-know", t: "Knowing others is intelligence; knowing yourself is true wisdom.", by: "Laozi", src: "Tao Te Ching, ch. 33", m: ["g", "r"], a: ["self", "people"], n: ["wisdom"] },
   { id: "rilke-questions", t: "Be patient toward all that is unsolved in your heart and try to love the questions themselves.", by: "Rainer Maria Rilke", src: "Letters to a Young Poet (1903)", m: ["g", "b"], a: ["self", "people"], n: ["wisdom", "calm"] },
   { id: "gibran-shell", t: "Your pain is the breaking of the shell that encloses your understanding.", by: "Kahlil Gibran", src: "The Prophet (1923)", m: ["b"], a: ["setback", "people"], n: ["wisdom"] },
   { id: "emerson-trust", t: "Trust thyself: every heart vibrates to that iron string.", by: "Ralph Waldo Emerson", src: "\"Self-Reliance\" (1841)", m: ["g", "y", "r"], a: ["self", "work"], n: ["wisdom", "courage"] },
@@ -81,11 +78,17 @@ window.QUOTES = [
   { id: "epictetus-master", t: "No man is free who is not master of himself.", by: "Epictetus", src: "Fragments", m: ["r", "g"], a: ["self"], n: ["wisdom"] },
 
   // ---- people: connection ----------------------------------------------
-  { id: "mlk-light", t: "Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.", by: "Martin Luther King Jr.", src: "Strength to Love (1963)", m: ["r"], a: ["people"], n: ["calm", "wisdom"] },
   { id: "keller-together", t: "Alone we can do so little; together we can do so much.", by: "Helen Keller", src: "quoted in Joseph Lash, Helen and Teacher (1980)", m: ["y", "g", "b"], a: ["people", "work"], n: ["push", "wisdom"] },
   { id: "brown-connection", t: "Connection is why we're here; it is what gives purpose and meaning to our lives.", by: "Brené Brown", src: "TED talk, \"The power of vulnerability\" (2010)", m: ["g", "b"], a: ["people"], n: ["wisdom", "calm"] },
   { id: "angelou-rainbow", t: "Try to be a rainbow in someone's cloud.", by: "Maya Angelou", src: "Letter to My Daughter (2008)", m: ["y", "g"], a: ["people"], n: ["push"] },
   { id: "aesop-kindness", t: "No act of kindness, no matter how small, is ever wasted.", by: "Aesop", src: "\"The Lion and the Mouse\"", m: ["y", "g", "b"], a: ["people"], n: ["push", "calm"] },
   { id: "dalai-compassion", t: "If you want others to be happy, practice compassion. If you want to be happy, practice compassion.", by: "The Dalai Lama", src: "The Art of Happiness (1998)", m: ["g", "r", "y"], a: ["people"], n: ["wisdom", "calm"] },
-  { id: "brown-vulnerability", t: "Vulnerability is the birthplace of innovation, creativity and change.", by: "Brené Brown", src: "TED talk, \"Listening to shame\" (2012)", m: ["r", "y", "g"], a: ["people", "work"], n: ["courage"] }
+  { id: "brown-vulnerability", t: "Vulnerability is the birthplace of innovation, creativity and change.", by: "Brené Brown", src: "TED talk, \"Listening to shame\" (2012)", m: ["r", "y", "g"], a: ["people", "work"], n: ["courage"] },
+  // ---- added replacements (secular sources) ----------------------------
+  { id: "mandela-courage", t: "I learned that courage was not the absence of fear, but the triumph over it.", by: "Nelson Mandela", src: "Long Walk to Freedom (1994)", m: ["r", "b"], a: ["setback", "work", "self"], n: ["courage"] },
+  { id: "leguin-journey", t: "It is good to have an end to journey toward; but it is the journey that matters, in the end.", by: "Ursula K. Le Guin", src: "The Left Hand of Darkness (1969)", m: ["g", "y", "b"], a: ["work", "self"], n: ["wisdom", "calm"] },
+  { id: "plath-iam", t: "I took a deep breath and listened to the old brag of my heart. I am, I am, I am.", by: "Sylvia Plath", src: "The Bell Jar (1963)", m: ["b", "r"], a: ["self", "setback"], n: ["courage"] },
+  { id: "morrison-write", t: "If there's a book that you want to read, but it hasn't been written yet, then you must write it.", by: "Toni Morrison", src: "speech to the Ohio Arts Council (1981)", m: ["y", "g"], a: ["work", "self"], n: ["push"] },
+  { id: "nemo-swim", t: "Just keep swimming.", by: "Dory", src: "Finding Nemo (Pixar, 2003)", m: ["b", "r", "y"], a: ["setback", "work"], n: ["push", "courage"] },
+  { id: "tolkien-door", t: "It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to.", by: "J.R.R. Tolkien", src: "The Fellowship of the Ring (1954)", m: ["y", "g"], a: ["self", "work"], n: ["push", "courage"] }
 ];

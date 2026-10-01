@@ -1,6 +1,6 @@
 # Daily Compass
 
-A small web app that asks three quick questions when it opens and then shows the quote that best fits the answers. Open `index.html` in a browser. There's no build step and no server, and it works offline apart from the web fonts.
+A small web app that asks three quick questions when it opens and then shows the quote that best fits the answers. Open `index.html` in a browser. On a phone it fills the screen; on a wider screen (a desktop or a preview panel) it is shown inside a 390 × 844 phone frame. There's no build step and no server, and it works offline apart from the web fonts.
 
 ## The three questions and why they were chosen
 
@@ -18,7 +18,7 @@ Every quote in `quotes.js` is tagged with the moods, life areas and needs it sui
 If someone reports feeling low and is dealing with a setback or asks for courage, the result also shows helpline numbers (Tele-MANAS 14416 in India, 988 in the US, findahelpline.com elsewhere).
 
 ## Quotes
-67 quotes, each with its author and source. Popular lines that are commonly misattributed (for example "Be the change you wish to see in the world" credited to Gandhi) are excluded. To add one, append an object to `quotes.js` with `m`, `a` and `n` tags.
+67 quotes, each with its author and source, all from secular works: books, poems, letters, speeches, interviews and films. Nothing is taken from religious scriptures or devotional texts (for example the Bhagavad Gita, Tao Te Ching, Upanishads, Bible or Quran). Popular lines that are commonly misattributed (for example "Be the change you wish to see in the world" credited to Gandhi) are excluded. To add one, append an object to `quotes.js` with `m`, `a` and `n` tags.
 
 ## Sources
 - Yale Center for Emotional Intelligence, RULER: [The Mood Meter](https://www.rulerapproach.org/wp-content/uploads/2020/07/MoodMeter_FC.pdf)

@@ -23,6 +23,9 @@
   --mood-blue: #3f6fae;
   --mood-green: #3f8f5c;
   --tint: 12%;
+  --desk: #e2e6e0;
+  --frame: #1b201e;
+  --frame-rim: #3b4340;
   --font-display: "Newsreader", Georgia, "Times New Roman", serif;
   --font-ui: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
@@ -31,14 +34,14 @@
     --bg: #121715; --surface: #18201d; --fg: #e7ece9; --muted: #9ba8a2; --line: #2b3531;
     --accent: #8cc3b0; --accent-ink: #0f1513;
     --mood-red: #e57069; --mood-yellow: #e9c04a; --mood-blue: #77a2dc; --mood-green: #6fbf8b;
-    --tint: 18%; color-scheme: dark;
+    --tint: 18%; --desk: #0a0d0c; --frame: #2a312e; --frame-rim: #4a5450; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #121715; --surface: #18201d; --fg: #e7ece9; --muted: #9ba8a2; --line: #2b3531;
   --accent: #8cc3b0; --accent-ink: #0f1513;
   --mood-red: #e57069; --mood-yellow: #e9c04a; --mood-blue: #77a2dc; --mood-green: #6fbf8b;
-  --tint: 18%; color-scheme: dark;
+  --tint: 18%; --desk: #0a0d0c; --frame: #2a312e; --frame-rim: #4a5450; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -52,6 +55,44 @@ body {
   padding-block: 0 48px;
 }
 .wrap { max-width: 40rem; margin: 0 auto; display: grid; gap: 28px; }
+
+/* On a phone the app fills the screen. On a wider screen (desktop, the
+   preview panel) it is shown inside a phone frame at 390 x 844. */
+.statusbar, .frame-note { display: none; }
+@media (min-width: 640px) and (min-height: 600px) {
+  body {
+    background: var(--desk); padding-block: 24px; display: grid; justify-items: center;
+    align-content: center; gap: 14px; min-height: 100vh;
+  }
+  .device {
+    position: relative; width: 390px; max-width: 100%; height: min(844px, calc(100vh - 80px));
+    padding: 11px; border-radius: 56px; background: var(--frame);
+    box-shadow: inset 0 0 0 2px var(--frame-rim), 0 30px 60px -24px rgb(0 0 0 / 0.45);
+  }
+  .device::before {
+    content: ""; position: absolute; top: 22px; left: 50%; transform: translateX(-50%);
+    width: 112px; height: 32px; border-radius: 18px; background: #000; z-index: 2;
+  }
+  .screen {
+    height: 100%; overflow-y: auto; border-radius: 45px; background: var(--bg);
+    padding-inline: 16px; padding-block: 0 28px; scrollbar-width: none;
+  }
+  .screen::-webkit-scrollbar { display: none; }
+  .statusbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 17px 14px 0 18px; height: 44px; font-size: 0.875rem; font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .statusbar svg { height: 12px; width: auto; fill: currentColor; }
+  .statusbar .icons { display: flex; gap: 6px; align-items: center; }
+  header.top { padding-top: 8px; }
+  /* size type and padding to the 390px screen, not the desktop window */
+  .screen h1 { font-size: 1.85rem; }
+  .screen .quote-card { padding: 24px; }
+  .screen .qtext { font-size: 1.55rem; }
+  .screen .actions .btn { padding: 11px 14px; font-size: 0.875rem; }
+  .frame-note { display: block; font-size: 0.8125rem; color: var(--muted); margin: 0; text-align: center; }
+}
 
 header.top {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
@@ -146,7 +187,8 @@ blockquote { margin: 0; }
   border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-size: 0.9rem; color: var(--muted);
 }
 .care strong { color: var(--fg); }
-.toast { font-size: 0.875rem; color: var(--accent); min-height: 1.2em; margin: 0; }
+.toast { font-size: 0.875rem; color: var(--accent); margin: 0; }
+.toast:empty { display: none; }
 
 footer { font-size: 0.8125rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
 footer p { margin: 0 0 6px; }
@@ -162,6 +204,11 @@ footer p { margin: 0 0 6px; }
 </style>
 </head>
 <body>
+<div class="device"><div class="screen">
+<div class="statusbar" aria-hidden="true"><span id="clock">9:41</span><span class="icons">
+  <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+  <svg viewBox="0 0 27 12"><rect x="0.5" y="0.5" width="22" height="11" rx="3" fill="none" stroke="currentColor" opacity="0.5"/><rect x="2" y="2" width="16" height="8" rx="1.5"/><rect x="24" y="4" width="2" height="4" rx="1" opacity="0.5"/></svg>
+</span></div>
 <div class="wrap">
   <header class="top">
     <div class="brand">
@@ -179,9 +226,11 @@ footer p { margin: 0 0 6px; }
 
   <footer>
     <p>The three questions come from emotion and motivation research: the Mood Meter (Yale Center for Emotional Intelligence), self-determination theory, and studies showing that a message lands better when it fits what the reader needs right now.</p>
-    <p>Every quote has a named source. Well-known misattributions are left out.</p>
+    <p>Every quote has a named source. Quotes from religious scriptures and well-known misattributions are left out.</p>
   </footer>
 </div>
+</div></div>
+<p class="frame-note">Phone preview, 390 &times; 844. On a phone the app fills the screen.</p>
 
 <script src="quotes.js"></script>
 <script>
@@ -364,6 +413,10 @@ footer p { margin: 0 0 6px; }
       try { navigator.clipboard.writeText(text).then(done, fallback); } catch { fallback(); }
     });
   }
+
+  const clock = document.getElementById("clock");
+  const tick = () => { const d = new Date(); clock.textContent = `${d.getHours() % 12 || 12}:${String(d.getMinutes()).padStart(2, "0")}`; };
+  tick(); setInterval(tick, 30000);
 
   renderQuestion();
 })();

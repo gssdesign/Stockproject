@@ -15,8 +15,8 @@ window.PICKS = {
         "US": {
           "benchmark": "^GSPC",
           "benchmarkName": "S&P 500",
-          "benchmarkRef": 7670.84,
-          "summary": "Coming before the US open: the 1 Oct US daily picks will be added by the morning routine, because they need the 30 Sep close and Micron's results (due after that close)."
+          "benchmarkRef": 7651.54,
+          "summary": "Risk-on: the S&P 500 closed at 7,651.54 on 2026-09-30, above its 50-day (7,648) and 200-day (7,217) averages, though it slipped 0.25% on the day and 0.5% for September as the 30-year Treasury yield hit its highest since 2002. Data caveat: the market snapshot's US stock closes are from 29 Sep (the 30 Sep session hadn't loaded yet), so the buy zones are anchored to 29 Sep; the Market data job re-anchors any pick whose real 30 Sep close differs by more than 0.3%. Only two names had a fresh, dated catalyst plus a clean chart, so the list is short: Nvidia (record $150B buyback, 28 Sep) and Arista (new Bernstein Outperform, 30 Sep). Micron's beat-and-raise after the 30 Sep close supports AI hardware broadly. Nike reports after today's close, so it was left out. There aren't yet 20 finished daily picks to measure hit rates against."
         },
         "IN": {
           "benchmark": "^NSEI",
@@ -26,6 +26,114 @@ window.PICKS = {
         }
       },
       "picks": [
+        {
+          "market": "US",
+          "symbol": "NVDA",
+          "yahoo": "NVDA",
+          "name": "Nvidia",
+          "sector": "Information Technology / Semiconductors",
+          "currency": "USD",
+          "refPrice": 227.21,
+          "refDate": "2026-09-29",
+          "buyLow": 224.8,
+          "buyHigh": 228.41,
+          "target": 234.13,
+          "stop": 222.1,
+          "risk": "Low–Medium",
+          "thesis": "A record $150 billion buyback (28 Sep) puts a large, steady buyer under a 3-month leader that is consolidating just above its 20-day average.",
+          "reasons": [
+            "On 28 Sep Nvidia's board added $150B to its repurchase authorization, the largest increase on record, leaving $235B to spend through fiscal 2028. It bought back $39B in the first half of fiscal 2027 alone.",
+            "It's beating the S&P 500 by 11.3 pts over 3 months and 4.9 pts over 1 month, and at $227.21 it sits only 0.8 ATR above its 20-day average ($222.64), so it isn't overextended.",
+            "Micron's results after the 30 Sep close ($54.2B revenue vs $51.1B expected, Q1 guide ~$61.5B) and its higher fiscal-2027 capex point to AI data-center demand holding up."
+          ],
+          "data": [
+            [
+              "Close (09/29)",
+              "$227.21"
+            ],
+            [
+              "3-month vs index",
+              "+11.3 pts"
+            ],
+            [
+              "Buyback added",
+              "$150B (total $235B)"
+            ],
+            [
+              "ATR",
+              "2.65% of price"
+            ]
+          ],
+          "watch": "Long-dated Treasury yields are near 24-year highs, and a further jump could hit high-valuation tech. Skip it if it opens outside $224.80–228.41. Don't chase a gap up.",
+          "sources": [
+            [
+              "CNBC – Nvidia share buyback plan gets $150 billion boost (Sep 28, 2026)",
+              "https://www.cnbc.com/2026/09/28/nvidia-share-buyback-plan-gets-150-billion-boost.html"
+            ],
+            [
+              "Reuters via Investing.com – Nvidia boosts share buyback by record $150 billion",
+              "https://www.investing.com/news/stock-market-news/nvidia-adds-150-billion-to-existing-share-repurchase-plan-4919956"
+            ],
+            [
+              "CNBC – Micron Q4 fiscal 2026 earnings report (Sep 30, 2026)",
+              "https://www.cnbc.com/2026/09/30/micron-mu-q4-earnings-report-2026.html"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "ANET",
+          "yahoo": "ANET",
+          "name": "Arista Networks",
+          "sector": "Information Technology / Networking",
+          "currency": "USD",
+          "refPrice": 202.86,
+          "refDate": "2026-09-29",
+          "buyLow": 199.91,
+          "buyHigh": 204.34,
+          "target": 211.35,
+          "stop": 196.58,
+          "risk": "Medium",
+          "thesis": "Bernstein started coverage at Outperform with a $250 target on 30 Sep, and the stock has pulled back about 6% from its high while staying above its 20-day average.",
+          "reasons": [
+            "On 30 Sep Bernstein initiated Arista at Outperform with a $250 target (about 23% above the $202.86 close), calling it a key beneficiary of growing AI cluster networks at customers such as Microsoft and Meta.",
+            "It's a 3-month leader (+17.2 pts vs the S&P 500) now 5.6% below its 52-week high of $214.89 and only 0.7 ATR above its 20-day average ($197.41): a pullback, not a spike.",
+            "Fundamentals back it up: Q2 revenue was $3.04B (+37.7% YoY, first $3B quarter) vs $2.83B expected, and the 2026 outlook was raised to about $12.6B, with at least $3.5B from AI fabrics."
+          ],
+          "data": [
+            [
+              "Close (09/29)",
+              "$202.86"
+            ],
+            [
+              "3-month vs index",
+              "+17.2 pts"
+            ],
+            [
+              "Bernstein target",
+              "$250 (Outperform, 09/30)"
+            ],
+            [
+              "ATR",
+              "3.64% of price"
+            ]
+          ],
+          "watch": "Insiders keep selling under 10b5-1 plans (the CEO's trusts sold $13.2M at about $211 on 25 Sep), which can cap rallies, and a rise in yields would hit richly valued AI names. Skip it if it opens outside $199.91–204.34.",
+          "sources": [
+            [
+              "The Globe and Mail – U.S. Analyst Updates: September 30th, 2026",
+              "https://www.theglobeandmail.com/investing/markets/stocks/NEE/pressreleases/4888455/us-analyst-updates-september-30th-2026/"
+            ],
+            [
+              "Yahoo Finance – Arista Networks (ANET) Draws Fresh AI Attention, Is The Stock Still Cheap?",
+              "https://finance.yahoo.com/markets/stocks/articles/arista-networks-anet-draws-fresh-141004505.html"
+            ],
+            [
+              "Investing.com – Arista Networks CEO Ullal sells $13.2m in shares from trusts",
+              "https://www.investing.com/news/insider-trading-news/arista-networks-ceo-ullal-sells-132m-in-shares-from-trusts-93CH-4923893"
+            ]
+          ]
+        },
         {
           "market": "IN",
           "symbol": "COALINDIA",

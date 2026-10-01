@@ -269,6 +269,9 @@
   .f-body ul { padding-left: 18px; margin: 8px 0; }
   .ru { font-size: 13px; color: var(--muted); padding: 6px 2px; display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px solid var(--line); }
   .ru b { color: var(--text); font-weight: 600; }
+  .fund.idx { border-color: color-mix(in srgb, var(--up) 45%, var(--line)); }
+  .fund.idx .medal { background: var(--up-soft); color: var(--up); }
+  .vlinks { font-size: 12.5px; color: var(--muted); margin-top: 10px; }
   .sebi { font-size: 12.5px; color: var(--muted); background: var(--surface-2); border-radius: 10px; padding: 10px 12px; margin-top: 18px; }
   /* ---------- intro (matrix rain + welcome) ---------- */
   #intro { position: fixed; inset: 0; z-index: 1000; background: #000; display: grid; place-items: center; cursor: pointer; transition: opacity .6s ease; }
@@ -991,53 +994,69 @@
   function renderFunds() {
     const F = window.FUNDS;
     if (!F || !F.categories) {
-      $("funds").innerHTML = `<div class="card hero"><h1>Top mutual funds · India</h1><p class="muted">The first fund rankings are being prepared from official AMFI data and will appear here shortly.</p></div>`;
+      $("funds").innerHTML = `<div class="card hero"><h1>Top mutual funds · India</h1><p class="muted">The fund rankings are being prepared from official AMFI data and will appear here shortly.</p></div>`;
       return;
     }
     const p2 = v => v == null ? "—" : (v > 0 ? "+" : "") + v.toFixed(1) + "%";
-    const card = (f, i) => `<details class="card fund"><summary>
-        <div class="f-head"><span class="medal">#${i + 1}</span><span class="nm"><b>${esc(f.name.replace(/\s*-\s*Direct Plan.*$/i, "").replace(/\s*Direct.*Growth.*$/i, ""))}</b><small>${esc(f.amc || "")} · Direct · Growth · ranked ${f.rank} by score ${f.score}</small></span></div>
-        <div class="f-stats num">
+    const short = n => String(n || "").replace(/\s*-\s*Direct Plan.*$/i, "").replace(/\s*-?\s*Direct.*Growth.*$/i, "").trim();
+    const verify = n => { const q = encodeURIComponent(short(n) + " direct growth"); return `<div class="vlinks">Verify independently:
+      <a href="https://www.google.com/search?q=site%3Avalueresearchonline.com+${q}" target="_blank" rel="noopener">Value Research</a> ·
+      <a href="https://www.google.com/search?q=site%3Amorningstar.in+${q}" target="_blank" rel="noopener">Morningstar</a> ·
+      <a href="https://www.google.com/search?q=${q}+factsheet+expense+ratio" target="_blank" rel="noopener">Factsheet &amp; expense ratio</a></div>`; };
+    const stats = f => `<div class="f-stats num">
           <div>1 year<b class="${cls(f.ret1y)}">${p2(f.ret1y)}</b></div>
           <div>3 yr CAGR<b class="${cls(f.cagr3y)}">${p2(f.cagr3y)}</b></div>
           <div>5 yr CAGR<b class="${cls(f.cagr5y)}">${p2(f.cagr5y)}</b></div>
-          <div>Worst fall<b class="down">${p2(f.maxDD3y)}</b></div>
-        </div>
-        ${f.beatPct != null ? `<div class="consist">Beat its category in <b style="color:var(--text)">${Math.round(f.beatPct)}%</b> of rolling 3-year periods<div class="bar"><i style="width:${Math.round(f.beatPct)}%"></i></div></div>` : ""}
+          <div>Worst fall<b class="down">${p2(f.maxDD3y)}</b></div></div>`;
+    const indexCard = (x, k) => `<details class="card fund idx"><summary>
+        <div class="f-head"><span class="medal">★</span><span class="nm"><b>${esc(short(x.name))}</b><small>Low-cost default · tracks the ${esc(x.indexName)} · Direct · Growth</small></span></div>
+        ${stats(x)}
+        <div class="p-foot"><span>NAV ₹${Number(x.nav).toLocaleString("en-IN", { maximumFractionDigits: 2 })} · ${fdate(x.navDate)}</span><span class="more"><span class="lbl-open">Why</span><span class="lbl-close">Less</span>${CHEV}</span></div></summary>
+      <div class="f-body"><ul>
+        <li>Most active Indian equity funds trail their index over 5–10 years (S&amp;P SPIVA India), and past winners rarely stay on top. An index fund gives you the market's return at the lowest cost, with no fund-manager risk.</li>
+        <li>Use it as the core holding for this category; add an active fund below only if one clears the bar.</li></ul>
+        ${verify(x.name)}</div></details>`;
+    const card = (f, i, idxName) => `<details class="card fund"><summary>
+        <div class="f-head"><span class="medal">#${i + 1}</span><span class="nm"><b>${esc(short(f.name))}</b><small>${esc(f.amc || "")} · active · Direct · Growth</small></span></div>
+        ${stats(f)}
+        ${f.beatIndexPct != null ? `<div class="consist">Beat the ${esc(idxName)} index fund in <b style="color:var(--text)">${Math.round(f.beatIndexPct)}%</b> of rolling 3-year periods, by ${p2(f.excessVsIndex).replace("%", " pts")}/yr (median)<div class="bar"><i style="width:${Math.round(f.beatIndexPct)}%"></i></div></div>` : ""}
         <div class="p-foot"><span>NAV ₹${Number(f.nav).toLocaleString("en-IN", { maximumFractionDigits: 2 })} · ${fdate(f.navDate)}</span><span class="more"><span class="lbl-open">Why</span><span class="lbl-close">Less</span>${CHEV}</span></div>
       </summary>
       <div class="f-body">
         <ul>${(f.why || []).map(w => `<li>${esc(w)}</li>`).join("")}</ul>
         <table class="kv num">
+          <tr><td>Fell in index down-months (capture)</td><td>${f.downCapture == null ? "—" : f.downCapture + "% of the index's fall"}</td></tr>
           <tr><td>Volatility (3 yr, annualised)</td><td>${f.vol3y == null ? "—" : f.vol3y.toFixed(1) + "%"}</td></tr>
           <tr><td>Sortino ratio (3 yr)</td><td>${f.sortino3y == null ? "—" : f.sortino3y.toFixed(2)}</td></tr>
-          <tr><td>Median rolling 3-yr return</td><td>${p2(f.roll3yMedian)}</td></tr>
           <tr><td>In this list since</td><td>${fdateY(f.since)}</td></tr>
           <tr><td>Track record from</td><td>${fdateY(f.inception)}</td></tr>
           <tr><td>Scheme code · ISIN</td><td>${esc(f.code)} · ${esc(f.isin || "—")}</td></tr>
         </table>
+        ${verify(f.name)}
       </div></details>`;
     const cats = ["large", "mid", "small"].filter(k => F.categories[k]);
     const changes = (F.changes || []).slice().reverse().slice(0, 8);
     $("funds").innerHTML = `
-      <div class="card hero"><div class="hero-top"><div><h1>Top mutual funds · India</h1>
-        <div class="when">Best 2 per category · Direct Plan, Growth option</div>
+      <div class="card hero"><div class="hero-top"><div><h1>Mutual funds · India</h1>
+        <div class="when">Large, mid &amp; small cap · Direct Plan, Growth option</div>
         <div class="when">🔄 Re-ranked monthly (next ${fday(F.nextReview)}) · data refreshed weekly · NAV as of ${fdate(F.navDate)}</div></div></div>
-        <details class="backdrop"><summary><span><b>How funds are picked:</b> consistency, long-term returns and downside protection, from official NAV data</span>${CHEV}</summary>
-          <div class="body">Every Direct-Growth fund in the SEBI category with at least ${F.minYears} years of history is scored against its peers:
-            median rolling 3-year return (25%), how often it beat the category over rolling 3-year periods (20%), 5-year CAGR (15%), 3-year CAGR (10%),
-            Sortino ratio, i.e. return per unit of downside risk (20%, risk-free ${F.riskFree}%), and the worst fall in 3 years (10%).
-            A current pick stays while it remains in the top ${F.keepRank}, so the list doesn't churn on small moves.
-            Not covered: expense ratio, fund size (AUM) and fund-manager changes. Check these on the AMC's factsheet before investing.
-            Source: ${esc(F.source || "AMFI")}.</div></details></div>
-      ${cats.map(k => { const c = F.categories[k]; return `
-        <div class="cat-head"><h2>${esc(c.title)}</h2><span>top 2 of ${c.eligible} funds</span></div>
-        <div class="funds">${c.picks.map(card).join("")}</div>
-        ${(c.runnersUp || []).length ? `<details class="sub"><summary><span>Next in line</span>${CHEV}</summary><div class="in">${c.runnersUp.map(f =>
-          `<div class="ru"><span><b>#${f.rank}</b> ${esc(f.name.replace(/\s*-\s*Direct Plan.*$/i, ""))}</span><span class="num">5y ${p2(f.cagr5y)}</span></div>`).join("")}</div></details>` : ""}`; }).join("")}
+        <details class="backdrop"><summary><span><b>How funds are chosen:</b> an index fund is the default; an active fund is shown only if it has beaten that index fund consistently</span>${CHEV}</summary>
+          <div class="body">
+            <p>Evidence first: S&amp;P's SPIVA India reports find that most active large-, mid- and small-cap funds trail their benchmark over 5–10 years, and studies of persistence find that past top performers rarely stay on top. So each category starts from a <b>low-cost index fund</b>.</p>
+            <p>An <b>active fund</b> is suggested only if, over the last two years of rolling 3-year periods, it beat that index fund in at least ${F.beatIndexMin || 60}% of periods by a median of at least ${F.excessMin || 1} percentage point a year, enough to cover its higher fees. Qualifying funds are then ranked on consistency, 3- and 5-year returns, the Sortino ratio (return per unit of downside risk, risk-free ${F.riskFree}%) and their worst fall. Funds need at least ${F.minYears} years of history. A current pick stays while it still qualifies and remains in the top ${F.keepRank}.</p>
+            <p>Not covered by the data: expense ratio, fund size, fund-manager changes and portfolio overlap. Check them with the verify links before investing. Source: ${esc(F.source || "AMFI")}. Research: <a href="https://www.spglobal.com/spdji/en/spiva/article/spiva-india" target="_blank" rel="noopener">SPIVA India</a>.</p>
+          </div></details></div>
+      <div class="sebi" style="margin-top:0;margin-bottom:6px"><b>Before you invest:</b> keep an emergency fund (6+ months of expenses) outside equity; invest in equity funds only money you won't need for 5+ years; prefer SIPs over lump sums; spread across categories; and for decisions your finances depend on, consult a <a href="https://www.sebi.gov.in/intermediaries.html" target="_blank" rel="noopener">SEBI-registered investment adviser</a>.</div>
+      ${cats.map(k => { const c = F.categories[k], x = c.index, idxName = x ? x.indexName : "index";
+        return `<div class="cat-head"><h2>${esc(c.title)}</h2><span>${c.eligible} active funds compared</span></div>
+        <div class="funds">${x ? indexCard(x, k) : ""}${c.picks.map((f, i) => card(f, i, idxName)).join("")}</div>
+        ${x && !c.picks.length ? `<p class="note" style="margin-top:10px">No active ${esc(c.title.toLowerCase())} fund has beaten the ${esc(x.indexName)} index fund consistently enough to justify its fees. <b>The index fund is the suggestion</b> for this category.</p>`
+          : x ? `<p class="scope" style="margin-top:8px">${c.beatIndexCount} of ${c.eligible} active funds beat the ${esc(x.indexName)} index fund consistently; the best ${c.picks.length === 1 ? "one is" : "two are"} shown.</p>` : `<p class="scope" style="margin-top:8px">Index benchmark unavailable this week: ranked against category peers only.</p>`}
+        ${(c.runnersUp || []).length ? `<details class="sub"><summary><span>Other funds ranked</span>${CHEV}</summary><div class="in">${c.runnersUp.map(f =>
+          `<div class="ru"><span><b>#${f.rank}</b> ${esc(short(f.name))}</span><span class="num">vs index ${f.beatIndexPct == null ? "—" : Math.round(f.beatIndexPct) + "%"} · 5y ${p2(f.cagr5y)}</span></div>`).join("")}</div></details>` : ""}`; }).join("")}
       ${changes.length ? `<div class="cat-head"><h2>Recent changes</h2><span></span></div><div class="card prose" style="padding:6px 16px">${changes.map(c =>
-        `<div class="chg">${fdateY(c.date)} · <b>${esc(F.categories[c.category] ? F.categories[c.category].title : c.category)}</b>: ${c.in ? `added ${esc(c.in.replace(/\s*-\s*Direct Plan.*$/i, ""))}` : `removed ${esc((c.out || "").replace(/\s*-\s*Direct Plan.*$/i, ""))}`} (${esc(c.reason)})</div>`).join("")}</div>` : ""}
-      <div class="sebi"><b>Mutual fund investments are subject to market risks; read all scheme-related documents carefully.</b> Past performance doesn't guarantee future returns. These are research rankings from public NAV data, not personal advice; consider your goals, risk appetite and horizon (equity funds: 5+ years).</div>`;
+        `<div class="chg">${fdateY(c.date)} · <b>${esc(F.categories[c.category] ? F.categories[c.category].title : c.category)}</b>: ${c.in ? `added ${esc(short(c.in))}` : `removed ${esc(short(c.out))}`} (${esc(c.reason)})</div>`).join("")}</div>` : ""}
+      <div class="sebi"><b>Mutual fund investments are subject to market risks; read all scheme-related documents carefully.</b> Past performance doesn't guarantee future returns. These rankings come from public NAV data and are research, not personal advice.</div>`;
   }
 
   // ---------- render ----------

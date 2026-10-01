@@ -6,10 +6,16 @@ categories, and the NAV history of each scheme from api.mfapi.in (which
 mirrors AMFI). Only Direct Plan - Growth options with at least MIN_YEARS of
 history are considered.
 
-Score (percentile ranks within the category, higher is better):
-  25%  median rolling 3-year CAGR (monthly windows over the last 5 years)
-  20%  consistency: share of those windows beating the category median
-  15%  5-year CAGR          10%  3-year CAGR
+Evidence first: most active Indian equity funds trail their index over 5-10
+years (S&P SPIVA India), so each category is anchored on a low-cost INDEX
+FUND (the default), and an active fund is suggested only if it beat that index
+fund in at least BEAT_INDEX_MIN % of rolling 3-year windows by a median of at
+least EXCESS_MIN %-points a year (enough to justify its higher cost).
+
+Score among active funds (percentile ranks within the category):
+  20%  share of rolling 3-yr windows beating the index fund
+  15%  median rolling 3-yr CAGR      15%  share of windows beating the category median
+  10%  5-year CAGR    10%  3-year CAGR
   20%  3-year Sortino ratio (risk-free RF)   10%  3-year maximum drawdown
 
 Cadence: NAV metrics refresh every run (weekly); the top-2 picks are
@@ -39,6 +45,15 @@ TITLES = {"large": "Large cap", "mid": "Mid cap", "small": "Small cap"}
 MIN_YEARS = 5
 RF = 6.0          # % a year, assumed risk-free rate for Sortino
 KEEP_RANK = 4
+BEAT_INDEX_MIN = 60   # % of rolling 3-yr windows an active pick must beat the index fund in
+EXCESS_MIN = 1.0      # median outperformance vs the index fund, %-points a year
+# Low-cost index funds used as each category's benchmark and default option (first match wins).
+INDEX_FUNDS = {
+    "large": [r"uti nifty 50 index fund", r"hdfc (index fund\W+)?nifty 50 (index|plan)", r"icici prudential nifty 50 index"],
+    "mid": [r"motilal oswal nifty midcap 150 index", r"nippon india nifty midcap 150 index", r"edelweiss nifty midcap150"],
+    "small": [r"motilal oswal nifty smallcap 250 index", r"nippon india nifty smallcap 250 index", r"edelweiss nifty smallcap"],
+}
+INDEX_NAMES = {"large": "Nifty 50", "mid": "Nifty Midcap 150", "small": "Nifty Smallcap 250"}
 OUT = DATA / "funds.js"
 UA = {"User-Agent": "Mozilla/5.0 (StockPicksDesk research; github.com/gssdesign/Stockproject)"}
 EXCLUDE = re.compile(r"idcw|dividend|bonus|payout|reinvest|segregated|regular", re.I)
@@ -104,6 +119,26 @@ def mfapi_candidates() -> dict[str, list[dict]]:
         for k, v in CATEGORIES.items():
             if re.search(hints[k], low):
                 out[k].append({"code": str(s["schemeCode"]), "name": name, "amc": "", "isin": "", "confirm": v})
+    return out
+
+
+def find_index_funds() -> dict[str, dict]:
+    """Locate each category's index fund (Direct, Growth) in mfapi's scheme list."""
+    try:
+        allm = requests.get(MFAPI, headers=UA, timeout=60).json()
+    except Exception as exc:
+        print(f"index-fund lookup failed: {exc}", file=sys.stderr)
+        return {}
+    out = {}
+    for key, pats in INDEX_FUNDS.items():
+        for pat in pats:
+            hit = next((x for x in allm if re.search(pat, x.get("schemeName", "").lower())
+                        and "direct" in x["schemeName"].lower() and "growth" in x["schemeName"].lower()
+                        and not EXCLUDE.search(x["schemeName"])), None)
+            if hit:
+                out[key] = {"code": str(hit["schemeCode"]), "name": hit["schemeName"]}
+                break
+        print(f"index fund for {key}: {out.get(key, {}).get('name', 'NOT FOUND')}")
     return out
 
 
@@ -190,16 +225,28 @@ def pct_rank(values: list[float | None], higher_better=True) -> list[float]:
 
 
 # ---------------------------------------------------------------- ranking
-def rank_category(funds: list[dict], ends: list[dt.date]) -> list[dict]:
+def rank_category(funds: list[dict], ends: list[dt.date], index: dict | None) -> list[dict]:
     keys = [e.isoformat() for e in ends]
     med = {k: st.median([f["m"]["rolling"][k] for f in funds if f["m"]["rolling"].get(k) is not None] or [0]) for k in keys}
+    idx_roll = (index or {}).get("m", {}).get("rolling", {})
+    idx_lvl = (index or {}).get("levels", {})
     for f in funds:
         roll = [f["m"]["rolling"].get(k) for k in keys]
         roll_ok = [r for r in roll if r is not None]
         f["m"]["roll3yMedian"] = _r(st.median(roll_ok)) if roll_ok else None
         f["m"]["beatPct"] = _r(100 * sum(1 for k, r in zip(keys, roll) if r is not None and r >= med[k]) / len(roll_ok), 0) if roll_ok else None
         f["m"]["windows"] = len(roll_ok)
-    parts = [("roll3yMedian", 0.25, True), ("beatPct", 0.20, True), ("cagr5y", 0.15, True),
+        pairs = [(r, idx_roll[k]) for k, r in zip(keys, roll) if r is not None and idx_roll.get(k) is not None]
+        if pairs:
+            f["m"]["beatIndexPct"] = _r(100 * sum(1 for a, b in pairs if a > b) / len(pairs), 0)
+            f["m"]["excessVsIndex"] = _r(st.median(a - b for a, b in pairs))
+        # Downside capture: average fund return in months the index fell, as % of the index's average fall.
+        lv = f.get("levels", {})
+        down = [((lv[b] / lv[a] - 1), (idx_lvl[b] / idx_lvl[a] - 1)) for a, b in zip(keys, keys[1:])
+                if lv.get(a) and lv.get(b) and idx_lvl.get(a) and idx_lvl.get(b) and idx_lvl[b] < idx_lvl[a]]
+        if len(down) >= 3:
+            f["m"]["downCapture"] = _r(100 * st.mean(d[0] for d in down) / st.mean(d[1] for d in down), 0)
+    parts = [("beatIndexPct", 0.20, True), ("roll3yMedian", 0.15, True), ("beatPct", 0.15, True), ("cagr5y", 0.10, True),
              ("cagr3y", 0.10, True), ("sortino3y", 0.20, True), ("maxDD3y", 0.10, True)]
     scores = [0.0] * len(funds)
     for key, w, hb in parts:
@@ -207,16 +254,21 @@ def rank_category(funds: list[dict], ends: list[dt.date]) -> list[dict]:
             scores[i] += w * p
     for f, s in zip(funds, scores):
         f["score"] = round(100 * s, 1)
+        m = f["m"]
+        f["qualified"] = bool(index) and (m.get("beatIndexPct") or 0) >= BEAT_INDEX_MIN and (m.get("excessVsIndex") or 0) >= EXCESS_MIN
     funds.sort(key=lambda f: f["score"], reverse=True)
     for i, f in enumerate(funds, 1):
         f["rank"] = i
     return funds
 
 
-def reasons(f: dict, cat_med: dict) -> list[str]:
+def reasons(f: dict, cat_med: dict, idx_name: str) -> list[str]:
     m, out = f["m"], []
-    if m.get("beatPct") is not None:
-        out.append(f"Beat the category's median 3-year return in {m['beatPct']:.0f}% of {m['windows']} monthly rolling windows")
+    if m.get("beatIndexPct") is not None:
+        out.append(f"Beat the {idx_name} index fund in {m['beatIndexPct']:.0f}% of {m['windows']} rolling 3-year periods, "
+                   f"by a median {m['excessVsIndex']:+.1f} %-points a year")
+    if m.get("downCapture") is not None:
+        out.append(f"In months the index fell, it fell {m['downCapture']:.0f}% as much (below 100% = better protection)")
     if m.get("cagr5y") is not None and cat_med.get("cagr5y") is not None:
         out.append(f"5-year CAGR {m['cagr5y']:.1f}% vs category median {cat_med['cagr5y']:.1f}%")
     if m.get("maxDD3y") is not None and cat_med.get("maxDD3y") is not None:
@@ -239,6 +291,7 @@ def main() -> int:
         print("mfapi candidates " + ", ".join(f"{k}={len(v)}" for k, v in cands.items()))
     review = not prev.get("reviewed") or prev["reviewed"][:7] != today.isoformat()[:7]
     out_cats, changes, nav_dates = {}, list(prev.get("changes", [])), []
+    index_funds = find_index_funds()
     for key, lst in cands.items():
         loaded, why = [], {"no history": 0, "category mismatch": 0, "under 5 years": 0, "stale": 0}
         for c in lst:
@@ -265,48 +318,68 @@ def main() -> int:
             for c, series, meta in loaded:
                 funds.append({**c, "amc": c["amc"] or meta.get("fund_house", ""), "nav": series[-1][1],
                               "navDate": series[-1][0].isoformat(), "inception": series[0][0].isoformat(),
-                              "m": metrics(series, end, ends)})
+                              "m": metrics(series, end, ends), "levels": {d.isoformat(): nav_on(series, d) for d in ends}})
+            # The category's index fund: benchmark for every comparison and the default suggestion.
+            index = None
+            if key in index_funds:
+                iseries, imeta = history(index_funds[key]["code"])
+                if iseries and (today - iseries[-1][0]).days <= 10:
+                    index = {**index_funds[key], "amc": imeta.get("fund_house", ""), "isin": "", "nav": iseries[-1][1],
+                             "navDate": iseries[-1][0].isoformat(), "inception": iseries[0][0].isoformat(),
+                             "m": metrics(iseries, end, ends), "levels": {d.isoformat(): nav_on(iseries, d) for d in ends}}
         if len(funds) < 3:
             print(f"{key}: only {len(funds)} eligible of {len(lst)} candidates {why}; keeping previous data", file=sys.stderr)
             if prev.get("categories", {}).get(key):
                 out_cats[key] = prev["categories"][key]
             continue
-        rank_category(funds, ends)
+        rank_category(funds, ends, index)
+        # Only funds that consistently beat the index fund can be suggested. Without an index
+        # benchmark (lookup failed) fall back to plain ranking, and say so on the page.
+        eligible = [f for f in funds if f["qualified"]] if index else funds
+        elig_codes = {f["code"] for f in eligible}
         cat_med = {k: _r(st.median([f["m"][k] for f in funds if f["m"].get(k) is not None])) for k in
                    ("ret1y", "cagr3y", "cagr5y", "vol3y", "maxDD3y", "sortino3y", "roll3yMedian")}
         by_code = {f["code"]: f for f in funds}
         old = prev.get("categories", {}).get(key, {})
         old_codes = [p["code"] for p in old.get("picks", [])]
         if not old_codes:  # first ranking for this category: nothing to compare against
-            picks = [f["code"] for f in funds[:2]]
+            picks = [f["code"] for f in eligible[:2]]
         elif review:
-            keep = [c for c in old_codes if c in by_code and by_code[c]["rank"] <= KEEP_RANK][:2]
-            picks = keep + [f["code"] for f in funds if f["code"] not in keep][: 2 - len(keep)]
+            keep = [c for c in old_codes if c in elig_codes and by_code[c]["rank"] <= KEEP_RANK][:2]
+            picks = keep + [f["code"] for f in eligible if f["code"] not in keep][: 2 - len(keep)]
             for c in old_codes:
                 if c not in picks:
                     gone = by_code.get(c)
+                    why_out = ("no longer beats the index fund consistently" if gone and not gone["qualified"]
+                               else f"fell to rank {gone['rank']} of {len(funds)}" if gone else "no longer eligible")
                     changes.append({"date": today.isoformat(), "category": key, "out": next((p["name"] for p in old["picks"] if p["code"] == c), c),
-                                    "in": None, "reason": f"fell to rank {gone['rank']} of {len(funds)}" if gone else "no longer eligible"})
+                                    "in": None, "reason": why_out})
             for c in picks:
                 if c not in old_codes:
                     changes.append({"date": today.isoformat(), "category": key, "in": by_code[c]["name"], "out": None,
                                     "reason": f"ranked {by_code[c]['rank']} of {len(funds)} (score {by_code[c]['score']})"})
         else:
-            picks = [c for c in old_codes if c in by_code] or [f["code"] for f in funds[:2]]
+            picks = [c for c in old_codes if c in by_code] or [f["code"] for f in eligible[:2]]
         since = {p["code"]: p.get("since") for p in old.get("picks", [])}
 
         def card(f, is_pick=True):
             m = {k: v for k, v in f["m"].items() if k != "rolling"}
             d = {"code": f["code"], "name": f["name"], "amc": f["amc"], "isin": f["isin"], "nav": f["nav"], "navDate": f["navDate"],
-                 "inception": f["inception"], "rank": f["rank"], "score": f["score"], **m}
+                 "inception": f["inception"], "rank": f.get("rank"), "score": f.get("score"), **m}
             if is_pick:
                 d["since"] = since.get(f["code"]) or today.isoformat()
-                d["why"] = reasons(f, cat_med)
+                d["why"] = reasons(f, cat_med, INDEX_NAMES[key])
+                d["qualified"] = f.get("qualified", False)
             return d
         out_cats[key] = {"title": TITLES[key], "sebiCategory": CATEGORIES[key], "eligible": len(funds), "median": cat_med,
+                         "index": ({**{k: v for k, v in index["m"].items() if k != "rolling"}, "code": index["code"], "name": index["name"],
+                                    "amc": index["amc"], "nav": index["nav"], "navDate": index["navDate"], "inception": index["inception"],
+                                    "indexName": INDEX_NAMES[key]} if index else None),
+                         "beatIndexCount": sum(1 for f in funds if f["qualified"]),
                          "picks": [card(by_code[c]) for c in picks],
                          "runnersUp": [card(f, False) for f in funds if f["code"] not in picks][:3]}
-        print(f"{key}: {len(funds)} eligible; picks {[by_code[c]['name'] for c in picks]}")
+        print(f"{key}: {len(funds)} eligible, {out_cats[key]['beatIndexCount']} beat the index fund; "
+              f"index {index['name'] if index else 'MISSING'}; picks {[by_code[c]['name'] for c in picks]}")
     if not out_cats:
         print("no fund data; nothing written", file=sys.stderr)
         return 0
@@ -315,6 +388,7 @@ def main() -> int:
             "navDate": max(nav_dates).isoformat() if nav_dates else prev.get("navDate"),
             "reviewed": today.isoformat() if review else prev.get("reviewed"), "nextReview": nxt.isoformat(),
             "source": source, "riskFree": RF, "minYears": MIN_YEARS, "keepRank": KEEP_RANK,
+            "beatIndexMin": BEAT_INDEX_MIN, "excessMin": EXCESS_MIN,
             "categories": out_cats, "changes": changes[-60:]}
     write_assigned(OUT, "// Generated by scripts/mutual_funds.py - do not edit by hand.\n", "window.FUNDS = ", data)
     return 0

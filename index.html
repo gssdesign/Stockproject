@@ -776,7 +776,16 @@
   }
 
   function renderHistory() {
-    const metas = metasFor(state.horizon).filter(m => hasMarket(m, state.market));
+    // Past picks shows finished batches only. A batch joins once its window
+    // has ended, or once every pick in this market has its final close.
+    const all = metasFor(state.horizon).filter(m => hasMarket(m, state.market));
+    const finished = m => {
+      if (m.archived || new Date() > new Date(m.expires + "T23:59:59")) return true;
+      const tr = trackOf(m.id), ps = m.batch.picks.filter(p => p.market === state.market);
+      return ps.length > 0 && ps.every(p => tr[p.yahoo] && tr[p.yahoo].periodFinal);
+    };
+    const metas = all.filter(finished);
+    const upcoming = all.find(m => !m.superseded && !finished(m));
     const totals = { n: 0, priced: 0, finished: 0, hits: 0, sumExpected: 0, sumCloseRet: 0 };
     const add = st => Object.keys(totals).forEach(k => totals[k] += st[k] || 0);
     let html = "", month = "";
@@ -788,7 +797,7 @@
       if (meta.superseded) {
         const body = meta.batch ? batchBody(meta.batch) : { html: "" }, st = meta.batch ? statsFromRows(body.rows) : (meta.markets[state.market] || {});
         html += `<details class="batch replaced" id="b-${esc(meta.id)}" ${meta.id === state.batch ? "open" : ""}>${batchHead(meta, st, false)}
-          <div class="batch-links">↺ ${esc(meta.superseded.reason || "Replaced by a revised list.")} Not counted in the totals above. <a href="#" data-goto="${esc(meta.superseded.by)}" data-view="history">Go to the replacement →</a></div>${body.html}</details>`;
+          <div class="batch-links">↺ ${esc(meta.superseded.reason || "Replaced by a revised list.")} Not counted in the totals above. <a href="#" data-goto="${esc(meta.superseded.by)}">Go to the replacement →</a></div>${body.html}</details>`;
       } else if (meta.batch) {
         const body = batchBody(meta.batch), st = statsFromRows(body.rows);
         add(st);
@@ -800,7 +809,7 @@
           <div class="arch-body"><p class="empty" style="padding:10px 16px">Loading from the ${esc(fmonth(meta.month))} archive…</p></div></details>`;
       }
     });
-    $("batches").innerHTML = html || '<p class="empty">No past picks for this market and holding period yet.</p>';
+    $("batches").innerHTML = html;
 
     // Archived batches load their month file the first time they're opened.
     const fill = el => {
@@ -818,6 +827,7 @@
 
     const exp = totals.n ? totals.sumExpected / totals.n : null, act = totals.priced ? totals.sumCloseRet / totals.priced : null;
     const tile = (k, v, c, s) => `<div class="tile"><div class="k">${k}</div><div class="v num ${c || ""}">${v}</div><div class="s">${s || ""}</div></div>`;
+    $("tiles").hidden = !metas.length;
     $("tiles").innerHTML =
       tile("Expected return (avg)", pct(exp), "up", `if every target were hit · ${totals.n} picks`) +
       tile("Actual return (avg)", pct(act), cls(act), totals.priced ? `at the ${CLOSE_LABEL[state.horizon]} · ${totals.priced} picks` : "no price data yet") +
@@ -828,13 +838,12 @@
       : "";
 
     const note = $("histNote");
-    note.hidden = totals.priced > 0 || !metas.length;
-    const first = metas.find(m => !m.superseded) || metas[0];
-    const posted = state.market === "IN" ? "the India close (results post around 4:30 PM IST)" : "the US close (results post around 3 AM IST)";
-    const earliest = metas[metas.length - 1].date;
-    if (metas.length) note.innerHTML = state.horizon === "daily"
-      ? `<b>No finished daily picks yet.</b> Daily picks started on ${fdateY(earliest)}, so there is no earlier day to score. The ${fdateY(first.date)} session gets its result after ${posted}, and from then on every day is kept here with its outcome.`
-      : `<b>Nothing has finished yet.</b> The current ${state.horizon} picks started ${fdateY(first.date)}. Each row already shows what I expected. Actual results fill in after ${posted}, and the final scorecard comes on <b>${fdateY(first.expires)}</b>. Tap a row to see why I picked it.`;
+    const posted = state.market === "IN" ? "the India close (posted around 4:30 PM IST)" : "the US close (posted around 3 AM IST)";
+    const when = m => m.horizon === "daily" ? `after ${posted} on ${fdateY(m.expires)}` : `when its window ends on ${fdateY(m.expires)}, after ${posted}`;
+    const curLine = upcoming ? `The current ${state.horizon} list (from ${fdateY(upcoming.date)}) is on the <a href="#" data-goto="" data-view="picks">Picks tab</a> and moves here with its result ${when(upcoming)}.` : "";
+    note.hidden = !(curLine || !metas.length);
+    note.innerHTML = metas.length ? curLine
+      : `<b>No finished ${state.horizon} picks yet.</b> ${curLine || "Nothing has been published for this market and holding period yet."} After that, every past list stays here permanently with its results.`;
   }
 
   // ---------- render ----------

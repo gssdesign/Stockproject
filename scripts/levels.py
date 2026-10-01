@@ -21,12 +21,16 @@ import sys
 from marketlib import HORIZONS, checks, levels, load_market, market_of
 
 
+LATEST: dict[str, str] = {}  # latest session per market in the snapshot
+
+
 def describe(t: str, m: dict, horizon: str) -> dict:
     mk = market_of(t)
     lv = levels(m, horizon, mk)
     ch = checks(m, horizon, mk, lv)
     return {"ticker": t, "market": mk, "name": m.get("name"), "sector": m.get("sector"),
-            "levels": lv, "checks": ch, "allPass": all(c["pass"] for c in ch), "metrics": m}
+            "levels": lv, "checks": ch, "allPass": all(c["pass"] for c in ch), "metrics": m,
+            "stale": LATEST.get(mk) if m.get("date", "") < LATEST.get(mk, "") else None}
 
 
 def show(d: dict) -> None:
@@ -40,6 +44,9 @@ def show(d: dict) -> None:
     for c in d["checks"]:
         print(f"  {'PASS' if c['pass'] else 'FAIL'}  {c['name']}: {c['detail']}")
     print(f"  => {'ELIGIBLE' if d['allPass'] else 'NOT ELIGIBLE (fails a hard check)'}")
+    if d.get("stale"):
+        print(f"  WARNING: STALE PRICE. This close is from {m['date']} but the market's latest session is {d['stale']}. "
+              "Don't publish it; wait for the next Market data run or use another stock.")
 
 
 def main() -> int:
@@ -52,6 +59,12 @@ def main() -> int:
     args = ap.parse_args()
 
     market = load_market()
+    LATEST.update(market.get("latestSession") or {})
+    for mk, bm in market.get("benchmarks", {}).items():
+        LATEST[mk] = max(LATEST.get(mk, ""), (bm or {}).get("date") or "")
+    for t, m in market.get("stocks", {}).items():  # older snapshots lack latestSession
+        mk = market_of(t)
+        LATEST[mk] = max(LATEST.get(mk, ""), m.get("date", ""))
     stocks = market.get("stocks", {})
     if not stocks:
         print("data/market.js is missing or empty: the Market data GitHub Action hasn't run yet.", file=sys.stderr)

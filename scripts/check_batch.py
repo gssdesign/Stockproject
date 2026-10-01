@@ -30,7 +30,13 @@ def main() -> int:
         return 1
     horizon = batch.get("horizon", "monthly")
     rules = HORIZONS[horizon]
-    stocks = load_market().get("stocks", {})
+    market = load_market()
+    stocks = market.get("stocks", {})
+    latest = dict(market.get("latestSession") or {})
+    for mk, bm in market.get("benchmarks", {}).items():
+        latest[mk] = max(latest.get(mk, ""), (bm or {}).get("date") or "")
+    for t, m in stocks.items():
+        latest[market_of(t)] = max(latest.get(market_of(t), ""), m.get("date", ""))
     problems: list[str] = []
 
     for p in batch["picks"]:
@@ -40,6 +46,9 @@ def main() -> int:
         if not m:
             problems.append(f"{tag}: not in data/market.js (unknown or illiquid symbol)")
             continue
+        if not p.get("verified") and m["date"] < latest.get(mk, ""):
+            problems.append(f"{tag}: stale price: snapshot close is from {m['date']} but {mk}'s latest session is "
+                            f"{latest[mk]}; wait for the next Market data run or choose another stock")
         if abs(p["refPrice"] - m["close"]) > 0.011 or p.get("refDate") != m["date"]:
             problems.append(f"{tag}: refPrice/refDate {p['refPrice']} {p.get('refDate')} must equal snapshot close "
                             f"{m['close']} {m['date']}")

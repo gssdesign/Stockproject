@@ -88,14 +88,49 @@ def download(tickers: list[str]) -> dict[str, list[dict]]:
                          threads=True, progress=False)
         for t in chunk:
             try:
-                sub = df[t] if len(chunk) > 1 else df
-                sub = sub.dropna(subset=["Close"])
-                out[t] = [{"date": idx.date().isoformat(), "open": float(r["Open"]), "high": float(r["High"]),
-                           "low": float(r["Low"]), "close": float(r["Close"]), "volume": float(r["Volume"] or 0)}
-                          for idx, r in sub.iterrows()]
+                out[t] = bars_from(df[t] if len(chunk) > 1 else df)
             except Exception:
                 continue
     return out
+
+
+def bars_from(df) -> list[dict]:
+    df = df.dropna(subset=["Close"])
+    return [{"date": idx.date().isoformat(), "open": float(r["Open"]), "high": float(r["High"]),
+             "low": float(r["Low"]), "close": float(r["Close"]), "volume": float(r["Volume"] or 0)}
+            for idx, r in df.iterrows()]
+
+
+def latest_by_market(bars: dict[str, list[dict]]) -> dict[str, str]:
+    out: dict[str, str] = {}
+    for t, b in bars.items():
+        if b:
+            mk = market_of(t)
+            out[mk] = max(out.get(mk, ""), b[-1]["date"])
+    return out
+
+
+def fill_stale(bars: dict[str, list[dict]]) -> dict[str, str]:
+    """Yahoo's bulk download sometimes omits the newest session for many
+    tickers for a few hours after the close (even when the index has it).
+    Re-fetch those tickers one by one and append the missing sessions, so
+    every price in the snapshot is from the market's latest session."""
+    latest = latest_by_market(bars)
+    stale = [t for t, b in bars.items() if b and b[-1]["date"] < latest[market_of(t)]]
+    if stale:
+        print(f"{len(stale)} ticker(s) missing the latest session; re-fetching individually")
+    for t in stale:
+        try:
+            extra = bars_from(yf.Ticker(t).history(period="1mo", auto_adjust=False))
+        except Exception as exc:
+            print(f"warn: {t}: {exc}", file=sys.stderr)
+            continue
+        last = bars[t][-1]["date"]
+        bars[t].extend(b for b in extra if b["date"] > last)
+    still = [t for t, b in bars.items() if b and b[-1]["date"] < latest[market_of(t)]]
+    if still:
+        print(f"warning: {len(still)} ticker(s) still lack the latest session: {', '.join(still[:20])}")
+    return latest
 
 
 def regime(m: dict | None) -> str:
@@ -115,6 +150,7 @@ def main() -> int:
     tickers = sorted(universe)
     print(f"universe: {len(tickers)} tickers")
     bars = download(tickers + list(BENCHMARK.values()))
+    latest = fill_stale(bars)
 
     bench = {mk: metrics(bars.get(sym, [])) for mk, sym in BENCHMARK.items()}
     stocks, screen = {}, {"US": {}, "IN": {}}
@@ -137,6 +173,7 @@ def main() -> int:
     payload = {
         "generated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
         "source": "Yahoo Finance daily bars (unadjusted closes) via yfinance",
+        "latestSession": latest,
         "benchmarks": {mk: {**(m or {}), "symbol": BENCHMARK[mk], "regime": regime(m)} for mk, m in bench.items()},
         "screen": screen,
         "stocks": stocks,

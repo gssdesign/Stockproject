@@ -407,6 +407,23 @@
   const mktName = m => m === "US" ? "US" : "India";
   const riskKey = r => String(r || "").split("–")[0];
 
+  // ---------- cadence (all times IST) ----------
+  const istNow = () => { const n = new Date(); return new Date(n.getTime() + (330 + n.getTimezoneOffset()) * 60e3); };
+  const isoD = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const addDays = (iso, n) => { const d = d0(iso); d.setDate(d.getDate() + n); return isoD(d); };
+  // Next date a new list is published (~7 AM IST): weekdays / Mondays / the 1st.
+  function nextList(h) {
+    const n = istNow(), past7 = n.getHours() >= 7;
+    let d = new Date(n.getFullYear(), n.getMonth(), n.getDate());
+    const ok = x => h === "daily" ? x.getDay() >= 1 && x.getDay() <= 5 : h === "weekly" ? x.getDay() === 1 : x.getDate() === 1;
+    if (past7 || !ok(d)) { do { d.setDate(d.getDate() + 1); } while (!ok(d)); }
+    return isoD(d);
+  }
+  const CADENCE = { daily: "New daily picks every trading day", weekly: "New weekly list every Monday", monthly: "New monthly list on the 1st of each month" };
+  // When a list's result is posted: after its last session closes (US results land the next morning IST).
+  const resultAt = (m, mk) => [0, 6].includes(d0(m.expires).getDay()) ? `about 7 AM IST on ${fday(addDays(m.expires, 1))}`
+    : mk === "IN" ? `about 4:35 PM IST on ${fday(m.expires)}` : `about 3 AM IST on ${fday(addDays(m.expires, 1))}`;
+
   function livePrice(p) {
     const q = PRICES.quotes[p.yahoo];
     return q ? { price: q.price, asOf: q.asOf } : { price: p.refPrice, asOf: p.refDate };
@@ -639,7 +656,8 @@
     }
     const first = (ctx.summary || "").split(/(?<=\.)\s/)[0];
     $("hero").innerHTML = `
-      <div class="hero-top"><div><h1>${HNAME[batch.horizon || "monthly"]} picks · ${mktName(state.market)}</h1><div class="when">${esc(when)}</div></div>
+      <div class="hero-top"><div><h1>${HNAME[batch.horizon || "monthly"]} picks · ${mktName(state.market)}</h1><div class="when">${esc(when)}</div>
+        ${isCurrent ? `<div class="when">🔄 ${CADENCE[batch.horizon || "monthly"]} (~7 AM IST) · next ${batch.horizon === "daily" ? "trading day" : fday(nextList(batch.horizon))}</div>` : ""}</div>
         ${mood ? `<span class="mood ${mood[0]}">${mood[1]}</span>` : ""}</div>
       ${prog}
       <div class="stats">
@@ -714,7 +732,8 @@
 
   function renderHistory() {
     // Only finished lists: the window has ended, or every pick here has its final close.
-    const all = metasFor(state.horizon).filter(m => hasMarket(m, state.market));
+    // Replaced lists (earlier drafts of a day's/week's picks) aren't results: leave them out.
+    const all = metasFor(state.horizon).filter(m => hasMarket(m, state.market) && !m.superseded);
     const finished = m => {
       if (m.archived || new Date() > new Date(m.expires + "T23:59:59")) return true;
       const tr = trackOf(m.id), ps = m.batch.picks.filter(p => p.market === state.market);
@@ -790,15 +809,14 @@
       </div>`;
     $("histScope").textContent = !metas.length ? "" : state.hf
       ? `${keys.find(x => x.k === state.hf).label}: ${totals.n} pick${totals.n === 1 ? "" : "s"}. Tap a stock for details.`
-      : `${metas.length} finished ${state.horizon} list${metas.length === 1 ? "" : "s"} since ${fdateY(metas[metas.length - 1].date)}, kept permanently.`;
+      : `${metas.length} finished ${state.horizon} list${metas.length === 1 ? "" : "s"} since ${fdateY(metas[metas.length - 1].date)} · ${CADENCE[state.horizon].replace("New ", "new ")}, kept here permanently.`;
 
     const note = $("histNote");
-    const posted = state.market === "IN" ? "the India close (about 4:30 PM IST)" : "the US close (about 3 AM IST)";
-    const when = m => m.horizon === "daily" ? `after ${posted} on ${fdate(m.expires)}` : `when its window ends on ${fdate(m.expires)}, after ${posted}`;
-    const curLine = upcoming ? `Today's ${state.horizon} list (from ${fdate(upcoming.date)}) is on the <a href="#" data-goto="">Today</a> tab and moves here with its result ${when(upcoming)}.` : "";
+    const label = { daily: `The ${upcoming ? fday(upcoming.date) : ""} daily list`, weekly: `This week's list${upcoming ? ` (${fdate(upcoming.date)} – ${fdate(upcoming.expires)})` : ""}`, monthly: `This month's list${upcoming ? ` (${fdate(upcoming.date)} – ${fdate(upcoming.expires)})` : ""}` }[state.horizon];
+    const curLine = upcoming ? `${label} is still running on the <a href="#" data-goto="">Today</a> tab. Its result appears here at ${resultAt(upcoming, state.market)}.` : "";
     note.hidden = !(curLine || !done.length) || !!state.hf;
     note.innerHTML = done.length ? curLine
-      : `<b>No finished ${state.horizon} picks yet.</b> ${curLine || "Nothing has been published for this market and holding period yet."} Every past list stays here permanently with its results.`;
+      : `<b>No ${state.horizon} results yet.</b> ${curLine || "Nothing has been published for this market and holding period yet."}`;
   }
 
   // ---------- learning (data/tuning.js from scripts/learn.py) ----------

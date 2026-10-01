@@ -21,7 +21,7 @@ Each option has its own line illustration and colour. The background is a slowly
 If someone reports feeling low and is dealing with a setback or asks for courage, the result also shows helpline numbers (Tele-MANAS 14416 in India, 988 in the US, findahelpline.com elsewhere).
 
 ## Welcome screen
-The app opens on a welcome screen. One of the five charm illustrations (picked at random each launch) floats in a glowing ring, and the copy explains the deal: answer three quick questions and, based on your answers, the charm will spell out the wise words meant for you today. It previews the three questions and starts with **Begin the magic**. Back on question 1 returns here.
+The app opens on a welcome screen. One of the five charm illustrations (picked at random each launch) floats in a glowing ring, and the copy explains the deal: answer three quick questions and, based on your answers, the charm will spell out the wise words meant for you today. It starts with **Begin the magic**. Back on question 1 returns here.
 
 ## Result screen
 The result is titled "Your magical words for today". It shows the quote with one of five magic charm illustrations (crystal ball, spellbook, scroll, wand, pouch), chosen at random per quote and day. Under the quote, **Copy quote** copies it, and **Story behind it** opens a short background note from `stories.js`: who said it, where, and what was going on. Below the explanation, **A song for your mood** suggests one well-known English song from `songs.js` (35 songs, tagged like the quotes; mood counts most, then need, then life area), with its artist, year, a line on why it fits, and links that search for it on YouTube and Spotify. A note at the bottom says to come back tomorrow, with a countdown to midnight.

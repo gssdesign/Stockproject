@@ -133,6 +133,7 @@ body {
   .screen .qtext { font-size: 1.55rem; }
   .screen .today h1 { font-size: 1.45rem; gap: 8px; }
   .screen .song { padding: 16px 14px; gap: 12px; }
+  .screen .home { min-height: 640px; }
   .screen .vinyl { width: 50px; height: 50px; }
   .screen .today h1 .twinkle { width: 13px; height: 13px; }
   .frame-note { display: block; font-size: 0.8125rem; color: var(--muted); margin: 0; text-align: center; }
@@ -244,8 +245,8 @@ h1 {
 .quote-card { margin-top: 46px; }
 
 /* welcome */
-.home { display: grid; justify-items: center; text-align: center; gap: 10px; padding-block: 0 8px; }
-.hero-charm { position: relative; width: 168px; height: 168px; display: grid; place-items: center; }
+.home { display: grid; justify-items: center; align-content: center; text-align: center; gap: 10px; padding-block: 0 24px; min-height: 68vh; }
+.hero-charm { position: relative; width: 210px; height: 210px; display: grid; place-items: center; }
 .hero-charm .halo {
   position: absolute; inset: 8%; border-radius: 50%;
   background: radial-gradient(circle, color-mix(in srgb, var(--star) 50%, transparent), transparent 68%);
@@ -257,22 +258,11 @@ h1 {
   animation: turn 30s linear infinite;
 }
 @keyframes turn { to { transform: rotate(360deg); } }
-.hero-charm .lift { position: relative; width: 148px; height: 148px; animation: pop .9s cubic-bezier(.2, .9, .3, 1.4) .1s both; }
+.hero-charm .lift { position: relative; width: 186px; height: 186px; animation: pop .9s cubic-bezier(.2, .9, .3, 1.4) .1s both; }
 .hero-charm img { width: 100%; height: 100%; object-fit: contain; display: block;
   filter: drop-shadow(0 14px 18px rgb(20 10 40 / 0.3)); animation: float 4.5s ease-in-out infinite; }
 .home h1 { font-size: clamp(1.75rem, 5.4vw, 2.2rem); margin: 4px 0 0; }
-.home .lede { max-width: 30rem; }
-.home ol {
-  list-style: none; margin: 6px 0 4px; padding: 6px; width: 100%; display: grid; gap: 2px; text-align: left;
-  border: 1px solid var(--line); border-radius: 18px; background: color-mix(in srgb, var(--surface) 80%, transparent);
-  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-}
-.home li { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 12px; padding: 6px 10px;
-  animation: rise .5s ease-out both; animation-delay: calc(var(--i) * 90ms + 300ms); }
-.home li .ico { width: 38px; height: 38px; border-radius: 12px; }
-.home li .ico svg { width: 21px; height: 21px; }
-.home li b { display: block; font-weight: 600; line-height: 1.3; }
-.home li small { color: var(--muted); font-size: 0.8125rem; }
+.home .lede { max-width: 30rem; margin-bottom: 10px; }
 .again { display: grid; justify-items: center; gap: 8px; padding-top: 4px; animation: rise .5s ease-out .85s both; }
 .again p { margin: 0; font-size: 0.8125rem; color: var(--muted); text-align: center; }
 .btn.big { padding: 15px 30px; font-size: 1.0625rem; box-shadow: 0 12px 26px -14px var(--accent); }
@@ -722,24 +712,17 @@ footer p { margin: 0 0 6px; }
 
   function renderHome() {
     step = -1;
-    about.hidden = false;
+    about.hidden = true;
     setAura(null);
     const charm = CHARMS[Math.floor(Math.random() * CHARMS.length)];
-    const rows = QUESTIONS.map((q, i) => {
-      const o = q.options[i === 0 ? 1 : i === 1 ? 2 : 3];
-      const label = ["How you're feeling", "What's on your mind", "What would help most"][i];
-      const sub = ["Tense, fired up, low or at ease", "Work, people, yourself or a setback", "A push, calm, courage or reflection"][i];
-      return `<li style="--i:${i}"><span class="ico c-${o.c}">${svg(o.i)}</span><span><b>${label}</b><small>${sub}</small></span></li>`;
-    }).join("");
     swap(`<section class="home" aria-labelledby="home-title">
       <div class="hero-charm"><span class="halo"></span><span class="spin"></span>
-        <span class="lift"><img src="${charm.file}" alt="${charm.alt}" width="148" height="148"></span></div>
+        <span class="lift"><img src="${charm.file}" alt="${charm.alt}" width="186" height="186"></span></div>
       <p class="eyebrow">Your daily check-in</p>
       <h1 id="home-title">Three questions. Wise words for you.</h1>
       <p class="lede">Answer three quick questions about your day, and based on your answers ${charm.name} will spell out the wise words meant for you today.</p>
-      <ol>${rows}</ol>
       <button type="button" class="btn primary big" id="begin">Begin the magic &#10022;</button>
-      <p class="hint">Takes about 20 seconds. One set of words a day.</p>
+      <p class="hint">Takes about 20 seconds.</p>
     </section>`, () => {
       document.getElementById("begin").addEventListener("click", e => {
         const r = e.currentTarget.getBoundingClientRect();

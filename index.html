@@ -89,7 +89,7 @@
   .tabbar button svg { width: 24px; height: 24px; }
   .tabbar button[aria-selected="true"] { color: var(--accent); }
 
-  main.wrap { padding-top: 16px; padding-bottom: 32px; }
+  main.wrap { padding-top: 16px; padding-bottom: 88px; }  /* room for the suggestion button */
   .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); }
 
   /* ---------- notice ---------- */
@@ -291,6 +291,25 @@
   #intro .timer span { position: absolute; inset: 0; display: grid; place-items: center; color: #b6ffcf; font: 700 34px ui-monospace, monospace; text-shadow: 0 0 10px #00ff66; }
   @keyframes introRing { to { stroke-dashoffset: 119.4; } }
   #intro .skip { position: relative; text-align: center; background: rgba(0, 0, 0, .7); padding: 4px 10px; border-radius: 8px; color: rgba(0, 255, 102, .6); font: 12px ui-monospace, monospace; letter-spacing: .12em; }
+  /* ---------- suggestion button + sheet ---------- */
+  .fab { position: fixed; right: 16px; bottom: 24px; z-index: 40; display: flex; align-items: center; gap: 8px; border: 0; cursor: pointer;
+    background: var(--accent); color: #fff; font: 600 14px Inter, system-ui, sans-serif; padding: 0 16px 0 14px; height: 48px; border-radius: 24px;
+    box-shadow: 0 6px 20px rgba(16, 24, 40, .25); }
+  .fab svg { width: 20px; height: 20px; }
+  @media (max-width: 759px) { .fab { bottom: calc(76px + env(safe-area-inset-bottom)); right: 14px; } }
+  .sheet-bg { position: fixed; inset: 0; z-index: 60; background: rgba(0, 0, 0, .5); display: grid; place-items: end center; }
+  @media (min-width: 760px) { .sheet-bg { place-items: center; } }
+  .sheet { width: min(100%, 520px); background: var(--surface); border-radius: 20px 20px 0 0; padding: 18px 16px calc(18px + env(safe-area-inset-bottom)); box-shadow: 0 -8px 30px rgba(0,0,0,.3); }
+  @media (min-width: 760px) { .sheet { border-radius: 20px; } }
+  .sheet h3 { margin: 0 0 4px; font-size: 18px; }
+  .sheet p { margin: 0 0 12px; color: var(--muted); font-size: 13.5px; }
+  .sheet label { display: block; font-size: 12.5px; font-weight: 600; color: var(--muted); margin: 10px 0 4px; }
+  .sheet input, .sheet textarea { width: 100%; font: 15px/1.4 Inter, system-ui, sans-serif; color: var(--text); background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+  .sheet textarea { min-height: 120px; resize: vertical; }
+  .sheet .row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; }
+  .sheet .count { font-size: 11.5px; color: var(--faint); text-align: right; margin-top: 4px; }
+  .sheet .msg-ok { text-align: center; padding: 16px 4px; }
+  .sheet .msg-ok b { display: block; font-size: 17px; margin: 6px 0; }
   footer { color: var(--faint); font-size: 12px; padding: 8px 0 24px; text-align: center; }
 
   @media (max-width: 759px) {
@@ -514,6 +533,23 @@
 
   <footer>Not financial advice · For education and research only · <span id="updated"></span></footer>
 </main>
+
+<button class="fab" id="fab" type="button" aria-haspopup="dialog" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>Have a suggestion?</button>
+<div class="sheet-bg" id="sheetBg" hidden>
+  <form class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div id="sheetForm">
+      <h3 id="sheetTitle">Have a suggestion?</h3>
+      <p>Ideas, bugs or stocks you'd like covered: it goes straight to Mr. Sandhu.</p>
+      <label for="sgName">Your name</label>
+      <input id="sgName" name="name" maxlength="80" autocomplete="name" placeholder="e.g. Priya" required>
+      <label for="sgText">Suggestion</label>
+      <textarea id="sgText" name="text" maxlength="1000" placeholder="Type your suggestion…" required></textarea>
+      <div class="count"><span id="sgCount">0</span>/1000</div>
+      <div class="row"><button type="button" class="btn ghost" id="sgCancel">Cancel</button><button type="submit" class="btn" id="sgSend">Submit</button></div>
+    </div>
+    <div class="msg-ok" id="sheetDone" hidden>✅<b>Thank you!</b><span class="muted">Your suggestion has been sent.</span><div class="row" style="justify-content:center"><button type="button" class="btn" id="sgClose">Close</button></div></div>
+  </form>
+</div>
 
 <nav class="tabbar" role="tablist" aria-label="Sections">
   <button role="tab" data-view="picks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Today</button>
@@ -1058,6 +1094,40 @@
         `<div class="chg">${fdateY(c.date)} · <b>${esc(F.categories[c.category] ? F.categories[c.category].title : c.category)}</b>: ${c.in ? `added ${esc(short(c.in))}` : `removed ${esc(short(c.out))}`} (${esc(c.reason)})</div>`).join("")}</div>` : ""}
       <div class="sebi"><b>Mutual fund investments are subject to market risks; read all scheme-related documents carefully.</b> Past performance doesn't guarantee future returns. These rankings come from public NAV data and are research, not personal advice.</div>`;
   }
+
+  // ---------- suggestions: floating button -> Google Form (responses in the owner's Google Sheet) ----------
+  // Fill these from the form's pre-filled link; the button stays hidden until they're set.
+  const FEEDBACK = { action: "", nameField: "", textField: "" };
+  (function suggestions() {
+    if (!FEEDBACK.action || !FEEDBACK.nameField || !FEEDBACK.textField) return;
+    const fab = $("fab"), bg = $("sheetBg"), form = $("sheet");
+    fab.hidden = false;
+    const open = () => { bg.hidden = false; $("sheetForm").hidden = false; $("sheetDone").hidden = true;
+      try { $("sgName").value = localStorage.getItem("spd-name") || ""; } catch (e) {}
+      setTimeout(() => ($("sgName").value ? $("sgText") : $("sgName")).focus(), 50); };
+    const close = () => { bg.hidden = true; };
+    fab.addEventListener("click", open);
+    $("sgCancel").addEventListener("click", close);
+    $("sgClose").addEventListener("click", close);
+    bg.addEventListener("click", e => { if (e.target === bg) close(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !bg.hidden) close(); });
+    $("sgText").addEventListener("input", () => { $("sgCount").textContent = $("sgText").value.length; });
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const name = $("sgName").value.trim(), text = $("sgText").value.trim();
+      if (!name || !text) return;
+      const btn = $("sgSend"); btn.disabled = true; btn.textContent = "Sending…";
+      const body = new URLSearchParams();
+      body.append(FEEDBACK.nameField, name);
+      body.append(FEEDBACK.textField, text + `\n\n[${state.view} · ${state.market} · ${state.horizon} · ${navigator.userAgent.includes("wv") ? "Android app" : "web"}]`);
+      // Google Forms doesn't allow reading the response cross-origin, so success = request sent.
+      fetch(FEEDBACK.action, { method: "POST", mode: "no-cors", body })
+        .then(() => { try { localStorage.setItem("spd-name", name); } catch (e) {}
+          $("sgText").value = ""; $("sgCount").textContent = "0"; $("sheetForm").hidden = true; $("sheetDone").hidden = false; })
+        .catch(() => alert("Couldn't send right now. Please check your connection and try again."))
+        .finally(() => { btn.disabled = false; btn.textContent = "Submit"; });
+    });
+  })();
 
   // ---------- render ----------
   function render() {

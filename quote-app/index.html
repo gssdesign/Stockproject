@@ -8,20 +8,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
 <style>
-/* Layout: one narrow column, a three-step check-in; question 1 is drawn as the
-   Mood Meter grid itself (energy up, pleasantness right), then the quote. */
+/* Layout: one narrow column over a twinkling sky; three illustrated questions
+   (Q1 drawn as the Mood Meter grid: energy up, pleasantness right), a short
+   compass-reading reveal, then the quote with confetti in the mood's colours. */
 :root {
-  --bg: #f3f4f0;
-  --surface: #fbfbf9;
+  --bg: #f1f4ef;
+  --surface: #fbfcfa;
   --fg: #1c2421;
   --muted: #5a6762;
   --line: #d6dbd5;
   --accent: #2c5a4d;
   --accent-ink: #f6f8f6;
   --mood-red: #c8463f;
-  --mood-yellow: #d9a514;
+  --mood-yellow: #d39f0c;
   --mood-blue: #3f6fae;
   --mood-green: #3f8f5c;
+  --star: #c89b2a;
+  --aura: var(--accent);
+  --aura-2: var(--mood-yellow);
+  --aura-strength: 22%;
   --tint: 12%;
   --desk: #e2e6e0;
   --frame: #1b201e;
@@ -31,17 +36,19 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121715; --surface: #18201d; --fg: #e7ece9; --muted: #9ba8a2; --line: #2b3531;
+    --bg: #0f1614; --surface: #17201d; --fg: #e9eeeb; --muted: #9ba8a2; --line: #2b3531;
     --accent: #8cc3b0; --accent-ink: #0f1513;
-    --mood-red: #e57069; --mood-yellow: #e9c04a; --mood-blue: #77a2dc; --mood-green: #6fbf8b;
-    --tint: 18%; --desk: #0a0d0c; --frame: #2a312e; --frame-rim: #4a5450; color-scheme: dark;
+    --mood-red: #e57069; --mood-yellow: #ecc350; --mood-blue: #7ea7df; --mood-green: #72c38f;
+    --star: #f3e3a8; --aura-strength: 30%;
+    --tint: 18%; --desk: #080b0a; --frame: #2a312e; --frame-rim: #4a5450; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #121715; --surface: #18201d; --fg: #e7ece9; --muted: #9ba8a2; --line: #2b3531;
+  --bg: #0f1614; --surface: #17201d; --fg: #e9eeeb; --muted: #9ba8a2; --line: #2b3531;
   --accent: #8cc3b0; --accent-ink: #0f1513;
-  --mood-red: #e57069; --mood-yellow: #e9c04a; --mood-blue: #77a2dc; --mood-green: #6fbf8b;
-  --tint: 18%; --desk: #0a0d0c; --frame: #2a312e; --frame-rim: #4a5450; color-scheme: dark;
+  --mood-red: #e57069; --mood-yellow: #ecc350; --mood-blue: #7ea7df; --mood-green: #72c38f;
+  --star: #f3e3a8; --aura-strength: 30%;
+  --tint: 18%; --desk: #080b0a; --frame: #2a312e; --frame-rim: #4a5450; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -56,8 +63,35 @@ body {
 }
 .wrap { max-width: 40rem; margin: 0 auto; display: grid; gap: 28px; }
 
-/* On a phone the app fills the screen. On a wider screen (desktop, the
-   preview panel) it is shown inside a phone frame at 390 x 844. */
+/* ---------- sky: aurora + twinkling stars behind everything ---------- */
+.screen { position: relative; z-index: 1; }
+.sky { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.sky::before, .sky::after {
+  content: ""; position: absolute; border-radius: 50%; filter: blur(48px);
+  transition: background-color 1.2s ease;
+}
+.sky::before {
+  width: 70vmax; height: 70vmax; left: -25vmax; top: -30vmax;
+  background: color-mix(in srgb, var(--aura) var(--aura-strength), transparent);
+  animation: drift 19s ease-in-out infinite alternate;
+}
+.sky::after {
+  width: 60vmax; height: 60vmax; right: -28vmax; bottom: -26vmax;
+  background: color-mix(in srgb, var(--aura-2) var(--aura-strength), transparent);
+  animation: drift 23s ease-in-out infinite alternate-reverse;
+}
+@keyframes drift { to { transform: translate(8%, 10%) scale(1.12); } }
+.star {
+  position: absolute; width: var(--s); height: var(--s); background: var(--star);
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+  opacity: 0.15; animation: twinkle var(--d) ease-in-out var(--delay) infinite;
+}
+@keyframes twinkle { 50% { opacity: 0.85; transform: scale(1.25) rotate(20deg); } }
+
+/* fx canvas for sparkles and confetti */
+.fx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 5; pointer-events: none; }
+
+/* ---------- phone frame on wide screens ---------- */
 .statusbar, .frame-note { display: none; }
 @media (min-width: 640px) and (min-height: 600px) {
   body {
@@ -71,13 +105,18 @@ body {
   }
   .device::before {
     content: ""; position: absolute; top: 22px; left: 50%; transform: translateX(-50%);
-    width: 112px; height: 32px; border-radius: 18px; background: #000; z-index: 2;
+    width: 112px; height: 32px; border-radius: 18px; background: #000; z-index: 6;
   }
+  .sky, .fx { position: absolute; inset: 11px; width: auto; height: auto; border-radius: 45px; }
+  .sky { background: var(--bg); }
+  .fx { width: calc(100% - 22px); height: calc(100% - 22px); }
   .screen {
-    height: 100%; overflow-y: auto; border-radius: 45px; background: var(--bg);
+    height: 100%; overflow-y: auto; border-radius: 45px;
     padding-inline: 16px; padding-block: 0 28px; scrollbar-width: none;
   }
   .screen::-webkit-scrollbar { display: none; }
+  .sky::before { width: 420px; height: 420px; left: -160px; top: -170px; }
+  .sky::after { width: 380px; height: 380px; right: -170px; bottom: -150px; }
   .statusbar {
     display: flex; justify-content: space-between; align-items: center;
     padding: 17px 14px 0 18px; height: 44px; font-size: 0.875rem; font-weight: 600;
@@ -86,23 +125,28 @@ body {
   .statusbar svg { height: 12px; width: auto; fill: currentColor; }
   .statusbar .icons { display: flex; gap: 6px; align-items: center; }
   header.top { padding-top: 8px; }
-  /* size type and padding to the 390px screen, not the desktop window */
   .screen h1 { font-size: 1.85rem; }
-  .screen .quote-card { padding: 24px; }
+  .screen .quote-card { padding: 34px 24px 26px; }
   .screen .qtext { font-size: 1.55rem; }
-  .screen .actions .btn { padding: 11px 14px; font-size: 0.875rem; }
   .frame-note { display: block; font-size: 0.8125rem; color: var(--muted); margin: 0; text-align: center; }
 }
 
+/* ---------- header ---------- */
 header.top {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding-block: 20px 4px;
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.01em; }
 .brand svg { width: 26px; height: 26px; flex: none; }
+.brand .needle { transform-origin: 16px 16px; animation: sway 6s ease-in-out infinite; }
+@keyframes sway { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(14deg); } }
 .steps { display: flex; gap: 6px; align-items: center; font-size: 0.8125rem; color: var(--muted); }
-.steps i { width: 22px; height: 4px; border-radius: 2px; background: var(--line); display: block; }
-.steps i.on { background: var(--accent); }
+.steps i {
+  width: 12px; height: 12px; display: block; background: var(--line);
+  clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  transition: background-color .3s, transform .3s;
+}
+.steps i.on { background: var(--star); transform: scale(1.15); }
 
 .eyebrow {
   font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
@@ -114,35 +158,52 @@ h1 {
 }
 .lede { margin: 0; color: var(--muted); max-width: 34rem; }
 
-/* Question 1: the Mood Meter grid */
+/* ---------- options ---------- */
 .meter { display: grid; grid-template-columns: auto 1fr; grid-template-rows: 1fr auto; gap: 8px; }
 .axis-y {
   writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.75rem; color: var(--muted);
   letter-spacing: 0.06em; text-transform: uppercase; text-align: center;
 }
 .axis-x { grid-column: 2; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; text-align: center; }
-.quad { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.quad { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.list { display: grid; gap: 10px; }
 
 .opt {
   --c: var(--accent);
-  appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--fg);
-  font: inherit; text-align: left; cursor: pointer; border-radius: 12px;
-  padding: 16px; display: grid; gap: 4px; min-width: 0;
-  transition: border-color .15s, background-color .15s, transform .15s;
+  appearance: none; border: 1px solid color-mix(in srgb, var(--c) 22%, var(--line));
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  color: var(--fg); font: inherit; text-align: left; cursor: pointer; border-radius: 18px;
+  padding: 14px; display: grid; gap: 4px 14px; min-width: 0;
+  transition: border-color .2s, background-color .2s, transform .2s, box-shadow .2s;
+  animation: rise .5s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--i) * 70ms + 80ms);
 }
-.opt:hover { border-color: var(--c); background: color-mix(in srgb, var(--c) var(--tint), var(--surface)); }
-.opt:active { transform: scale(0.985); }
+.opt:hover {
+  border-color: var(--c); transform: translateY(-2px);
+  background: color-mix(in srgb, var(--c) var(--tint), var(--surface));
+  box-shadow: 0 10px 24px -14px var(--c);
+}
+.opt:active { transform: scale(0.97); }
 .opt:focus-visible { outline: 3px solid var(--c); outline-offset: 2px; }
-.opt.picked { border-color: var(--c); background: color-mix(in srgb, var(--c) var(--tint), var(--surface)); }
-.opt .t { font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.opt.picked { border-color: var(--c); background: color-mix(in srgb, var(--c) 22%, var(--surface)); }
+.opt .t { font-weight: 600; }
 .opt .d { font-size: 0.875rem; color: var(--muted); }
-.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); flex: none; }
-.quad .opt { min-height: 118px; align-content: start; }
-.mood-r { --c: var(--mood-red); } .mood-y { --c: var(--mood-yellow); }
-.mood-b { --c: var(--mood-blue); } .mood-g { --c: var(--mood-green); }
+.ico {
+  width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; flex: none;
+  color: var(--c); background: color-mix(in srgb, var(--c) 16%, transparent);
+}
+.ico svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.opt:hover .ico svg { animation: wiggle .6s ease-in-out; }
+@keyframes wiggle { 30% { transform: rotate(-10deg) scale(1.1); } 60% { transform: rotate(8deg) scale(1.1); } }
+.quad .opt { align-content: start; min-height: 150px; }
+.quad .ico { margin-bottom: 6px; }
+.list .opt { grid-template-columns: auto 1fr; align-items: center; }
+.list .opt .ico { grid-row: span 2; }
 
-.list { display: grid; gap: 8px; }
-.list .opt { grid-template-columns: 1fr; }
+.c-red { --c: var(--mood-red); } .c-yellow { --c: var(--mood-yellow); }
+.c-blue { --c: var(--mood-blue); } .c-green { --c: var(--mood-green); }
+
+@keyframes rise { from { opacity: 0; transform: translateY(14px) scale(.98); } }
 
 .nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 .btn {
@@ -155,56 +216,77 @@ h1 {
 .btn.link { border: 0; padding-inline: 0; color: var(--muted); font-weight: 500; }
 .btn.link:hover { color: var(--fg); }
 
-/* Result */
+/* ---------- reveal ---------- */
+.reveal { display: grid; justify-items: center; gap: 18px; padding-block: 90px 40px; text-align: center; }
+.reveal svg { width: 112px; height: 112px; }
+.reveal .needle { transform-origin: 50px 50px; animation: seek 1.3s cubic-bezier(.3, .1, .2, 1) both; }
+@keyframes seek { 0% { transform: rotate(0); } 55% { transform: rotate(560deg); } 75% { transform: rotate(500deg); } 100% { transform: rotate(520deg); } }
+.reveal .ring { animation: pulse 1.3s ease-out both; transform-origin: 50px 50px; }
+@keyframes pulse { 0% { transform: scale(.8); opacity: .2; } 100% { transform: scale(1); opacity: 1; } }
+.reveal p { margin: 0; font-family: var(--font-display); font-size: 1.35rem; font-style: italic; color: var(--muted); }
+
+/* ---------- result ---------- */
 .quote-card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
-  padding: clamp(22px, 5vw, 40px); display: grid; gap: 20px; position: relative; overflow: hidden;
+  background: var(--surface); border-radius: 20px; padding: clamp(22px, 5vw, 40px);
+  display: grid; gap: 20px; position: relative; padding-top: max(34px, clamp(22px, 5vw, 40px));
+  border: 1.5px solid color-mix(in srgb, var(--c) 45%, var(--line));
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--c) 10%, transparent), 0 24px 48px -28px var(--c);
+  animation: bloom .8s cubic-bezier(.2, .9, .25, 1.2) both;
 }
-.quote-card::before {
-  content: ""; position: absolute; inset: 0 auto 0 0; width: 6px; background: var(--c, var(--accent));
+@keyframes bloom { from { opacity: 0; transform: scale(.9) translateY(12px); filter: blur(4px); } }
+.quote-card .mark {
+  position: absolute; top: -18px; left: 22px; width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--c); color: var(--surface);
+  font: 500 2rem/1 var(--font-display);
 }
 blockquote { margin: 0; }
 .qtext {
   font-family: var(--font-display); font-size: clamp(1.4rem, 4.4vw, 1.95rem); line-height: 1.3;
   font-weight: 400; margin: 0; text-wrap: pretty;
 }
-.qtext::before { content: "\201C"; } .qtext::after { content: "\201D"; }
 .qby { margin: 0; font-weight: 600; }
 .qsrc { margin: 2px 0 0; font-size: 0.875rem; color: var(--muted); font-style: italic; }
-.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.toast { font-size: 0.875rem; color: var(--accent); margin: 0; }
+.toast:empty { display: none; }
 
-.why { display: grid; gap: 10px; }
+.why { display: grid; gap: 10px; animation: rise .5s ease-out .45s both; }
 .why p { margin: 0; color: var(--muted); max-width: 36rem; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
-  --c: var(--accent);
-  font-size: 0.8125rem; font-weight: 600; padding: 5px 10px; border-radius: 999px;
+  font-size: 0.8125rem; font-weight: 600; padding: 5px 10px 5px 6px; border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--c) 45%, var(--line));
   background: color-mix(in srgb, var(--c) var(--tint), var(--surface));
   display: inline-flex; align-items: center; gap: 6px;
 }
+.chip svg { width: 16px; height: 16px; fill: none; stroke: var(--c); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .care {
-  border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-size: 0.9rem; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; font-size: 0.9rem; color: var(--muted);
+  background: color-mix(in srgb, var(--surface) 85%, transparent); animation: rise .5s ease-out .6s both;
 }
 .care strong { color: var(--fg); }
-.toast { font-size: 0.875rem; color: var(--accent); margin: 0; }
-.toast:empty { display: none; }
 
 footer { font-size: 0.8125rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
 footer p { margin: 0 0 6px; }
 
-.fade { animation: in .32s ease-out both; }
-@keyframes in { from { opacity: .35; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .fade { animation: none; } .opt { transition: none; } }
+.enter { animation: enter .45s ease-out both; }
+@keyframes enter { from { opacity: 0; transform: translateY(8px); filter: blur(3px); } }
+.leave { animation: leave .22s ease-in both; }
+@keyframes leave { to { opacity: 0; transform: translateY(-8px) scale(.99); filter: blur(3px); } }
 
 @media (max-width: 420px) {
-  .quad .opt { min-height: 104px; padding: 12px; }
+  .quad .opt { min-height: 140px; padding: 12px; }
   .opt .d { font-size: 0.8125rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 </style>
 </head>
 <body>
-<div class="device"><div class="screen">
+<div class="device">
+<div class="sky" id="sky" aria-hidden="true"></div>
+<div class="screen">
 <div class="statusbar" aria-hidden="true"><span id="clock">9:41</span><span class="icons">
   <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
   <svg viewBox="0 0 27 12"><rect x="0.5" y="0.5" width="22" height="11" rx="3" fill="none" stroke="currentColor" opacity="0.5"/><rect x="2" y="2" width="16" height="8" rx="1.5"/><rect x="24" y="4" width="2" height="4" rx="1" opacity="0.5"/></svg>
@@ -214,7 +296,7 @@ footer p { margin: 0 0 6px; }
     <div class="brand">
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <circle cx="16" cy="16" r="14" fill="none" stroke="var(--accent)" stroke-width="2"/>
-        <path d="M16 5 L19.5 16 L16 27 L12.5 16 Z" fill="var(--accent)"/>
+        <path class="needle" d="M16 5 L19.5 16 L16 27 L12.5 16 Z" fill="var(--accent)"/>
         <circle cx="16" cy="16" r="2" fill="var(--surface)"/>
       </svg>
       <span>Daily Compass</span>
@@ -224,63 +306,78 @@ footer p { margin: 0 0 6px; }
 
   <main id="app"></main>
 
-  <footer>
+  <footer id="about">
     <p>The three questions come from emotion and motivation research: the Mood Meter (Yale Center for Emotional Intelligence), self-determination theory, and studies showing that a message lands better when it fits what the reader needs right now.</p>
     <p>Every quote has a named source. Quotes from religious scriptures and well-known misattributions are left out.</p>
   </footer>
 </div>
-</div></div>
+</div>
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+</div>
 <p class="frame-note">Phone preview, 390 &times; 844. On a phone the app fills the screen.</p>
 
 <script src="quotes.js"></script>
 <script>
 (() => {
+  // Line icons, 24x24, stroked with the option's colour.
+  const ICON = {
+    tense: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+    fired: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+    low: '<path d="M7 15a4 4 0 1 1 .9-7.9A5 5 0 0 1 17.5 9 3.5 3.5 0 0 1 17 16H7z"/><path d="M8 19v2M12 19v2M16 19v2"/>',
+    ease: '<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/><path d="M17 3v3M15.5 4.5h3"/>',
+    work: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+    people: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2a5 5 0 0 1 5.5 4.8"/>',
+    self: '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+    setback: '<path d="M12 21v-9"/><path d="M12 12C12 8 9 5 4 5c0 4 3 7 8 7z"/><path d="M12 14c0-3 2.5-5.5 7-5.5 0 3.5-2.5 5.5-7 5.5z"/>',
+    push: '<path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2"/><path d="M9 15 6 12c1-4 5-9 13-9 0 8-5 12-9 13z"/><circle cx="14.5" cy="9.5" r="1.5"/>',
+    calm: '<path d="M2 7c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0"/><path d="M2 12c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0"/><path d="M2 17c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0"/>',
+    courage: '<path d="M12 22c4 0 7-2.7 7-6.5 0-4-3-6-4-9.5-1 2-2 3-3.5 3.5C11 7 11 4.5 12 2 7 4.5 5 9.5 5 15.5 5 19.3 8 22 12 22z"/>',
+    wisdom: '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'
+  };
+  const svg = name => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICON[name]}</svg>`;
+
   const QUESTIONS = [
     {
-      key: "m",
-      eyebrow: "Question 1 of 3",
-      title: "How are you feeling right now?",
+      key: "m", eyebrow: "Question 1 of 3", title: "How are you feeling right now?",
       lede: "Pick the corner closest to your mood. Up means more energy, right means more pleasant.",
       layout: "meter",
       options: [
-        { v: "r", t: "Tense", d: "Stressed, anxious, frustrated, on edge", cls: "mood-r" },
-        { v: "y", t: "Fired up", d: "Excited, hopeful, eager, energized", cls: "mood-y" },
-        { v: "b", t: "Low", d: "Tired, sad, stuck, discouraged", cls: "mood-b" },
-        { v: "g", t: "At ease", d: "Calm, content, thoughtful, relaxed", cls: "mood-g" }
+        { v: "r", t: "Tense", d: "Stressed, anxious, frustrated, on edge", c: "red", i: "tense" },
+        { v: "y", t: "Fired up", d: "Excited, hopeful, eager, energized", c: "yellow", i: "fired" },
+        { v: "b", t: "Low", d: "Tired, sad, stuck, discouraged", c: "blue", i: "low" },
+        { v: "g", t: "At ease", d: "Calm, content, thoughtful, relaxed", c: "green", i: "ease" }
       ]
     },
     {
-      key: "a",
-      eyebrow: "Question 2 of 3",
-      title: "What's on your mind most today?",
+      key: "a", eyebrow: "Question 2 of 3", title: "What's on your mind most today?",
       lede: "The area of life taking up the most of your attention.",
       options: [
-        { v: "work", t: "Work, studies or a goal", d: "A project, an exam, a target, my career" },
-        { v: "people", t: "The people in my life", d: "Family, friends, a partner, colleagues" },
-        { v: "self", t: "Myself and my direction", d: "Who I am, habits, where I'm heading" },
-        { v: "setback", t: "A setback or a big change", d: "A loss, a failure, a rejection, something new" }
+        { v: "work", t: "Work, studies or a goal", d: "A project, an exam, a target, my career", c: "blue", i: "work" },
+        { v: "people", t: "The people in my life", d: "Family, friends, a partner, colleagues", c: "red", i: "people" },
+        { v: "self", t: "Myself and my direction", d: "Who I am, habits, where I'm heading", c: "green", i: "self" },
+        { v: "setback", t: "A setback or a big change", d: "A loss, a failure, a rejection, something new", c: "yellow", i: "setback" }
       ]
     },
     {
-      key: "n",
-      eyebrow: "Question 3 of 3",
-      title: "What would help you most right now?",
+      key: "n", eyebrow: "Question 3 of 3", title: "What would help you most right now?",
       lede: "Choose the kind of words you'd like to hear.",
       options: [
-        { v: "push", t: "A push to get going", d: "Something that makes me want to act" },
-        { v: "calm", t: "Calm and perspective", d: "Something that slows things down" },
-        { v: "courage", t: "Courage to keep going", d: "Something that reminds me I can handle this" },
-        { v: "wisdom", t: "Something to think about", d: "A line I can reflect on today" }
+        { v: "push", t: "A push to get going", d: "Something that makes me want to act", c: "yellow", i: "push" },
+        { v: "calm", t: "Calm and perspective", d: "Something that slows things down", c: "blue", i: "calm" },
+        { v: "courage", t: "Courage to keep going", d: "Something that reminds me I can handle this", c: "red", i: "courage" },
+        { v: "wisdom", t: "Something to think about", d: "A line I can reflect on today", c: "green", i: "wisdom" }
       ]
     }
   ];
+  const OPT = {};
+  for (const q of QUESTIONS) for (const o of q.options) OPT[q.key + o.v] = o;
 
   const LABEL = {
     m: { r: "Tense", y: "Fired up", b: "Low", g: "At ease" },
     a: { work: "Work or a goal", people: "People", self: "Myself", setback: "A setback" },
     n: { push: "A push", calm: "Calm", courage: "Courage", wisdom: "Reflection" }
   };
-  const MOOD_CLASS = { r: "mood-r", y: "mood-y", b: "mood-b", g: "mood-g" };
+  const MOOD_COLOR = { r: "red", y: "yellow", b: "blue", g: "green" };
   const WHY_MOOD = {
     r: "You're running hot, so this one turns the volume down on the noise in your head.",
     y: "You've got energy to spend, so this one points it somewhere worth going.",
@@ -295,95 +392,229 @@ footer p { margin: 0 0 6px; }
   };
   const W = { n: 3, m: 2, a: 2 };
 
+  const root = document.documentElement;
   const app = document.getElementById("app");
   const stepsEl = document.getElementById("steps");
+  const about = document.getElementById("about");
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const answers = {};
   let step = 0;
-  let ranked = [];
-  let cursor = 0;
 
   const store = {
     get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
   };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const cssVar = name => getComputedStyle(root).getPropertyValue(name).trim();
 
+  // ---------- sky ----------
+  const sky = document.getElementById("sky");
+  for (let i = 0; i < 26; i++) {
+    const s = document.createElement("span");
+    s.className = "star";
+    s.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;--s:${6 + Math.random() * 9}px;--d:${3 + Math.random() * 4}s;--delay:${-Math.random() * 6}s`;
+    sky.appendChild(s);
+  }
+  function setAura(mood) {
+    const main = mood ? `var(--mood-${MOOD_COLOR[mood]})` : "var(--accent)";
+    root.style.setProperty("--aura", main);
+    root.style.setProperty("--aura-2", mood === "y" ? "var(--mood-red)" : "var(--mood-yellow)");
+  }
+
+  // ---------- particles: tap sparkles + confetti ----------
+  const fx = document.getElementById("fx");
+  const ctx = fx.getContext("2d");
+  let parts = [];
+  let raf = 0;
+  function fitCanvas() {
+    const r = fx.getBoundingClientRect(), dpr = devicePixelRatio || 1;
+    fx.width = Math.round(r.width * dpr); fx.height = Math.round(r.height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return r;
+  }
+  function loop() {
+    const r = fx.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    parts = parts.filter(p => p.life > 0);
+    for (const p of parts) {
+      p.life -= p.decay;
+      p.vx *= p.drag; p.vy = p.vy * p.drag + p.g;
+      p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.tilt += 0.12;
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, Math.min(1, p.life * 1.6));
+      ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      if (p.kind === "star") {
+        const k = p.size;
+        ctx.beginPath();
+        for (let i = 0; i < 8; i++) {
+          const a = i * Math.PI / 4, rr = i % 2 ? k * 0.3 : k;
+          ctx.lineTo(Math.cos(a) * rr, Math.sin(a) * rr);
+        }
+        ctx.fill();
+      } else if (p.kind === "dot") {
+        ctx.beginPath(); ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2); ctx.fill();
+      } else {
+        ctx.scale(1, Math.cos(p.tilt));
+        ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+      }
+      ctx.restore();
+    }
+    raf = parts.length ? requestAnimationFrame(loop) : 0;
+  }
+  function start() { if (!raf) raf = requestAnimationFrame(loop); }
+
+  function sparkle(clientX, clientY, color) {
+    if (reduced) return;
+    const r = fitCanvas();
+    const x = clientX - r.left, y = clientY - r.top;
+    const colors = [color, cssVar("--star")];
+    for (let i = 0; i < 16; i++) {
+      const a = Math.random() * Math.PI * 2, sp = 1.5 + Math.random() * 3.5;
+      parts.push({ kind: i % 3 ? "star" : "dot", x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+        g: 0.04, drag: 0.92, size: 3 + Math.random() * 5, rot: Math.random() * 6, vr: 0.1,
+        tilt: 0, life: 1, decay: 0.03 + Math.random() * 0.02, color: colors[i % 2] });
+    }
+    start();
+  }
+
+  function confetti(mood) {
+    if (reduced) return;
+    const r = fitCanvas();
+    const colors = [cssVar(`--mood-${MOOD_COLOR[mood]}`), cssVar("--mood-red"), cssVar("--mood-yellow"),
+      cssVar("--mood-blue"), cssVar("--mood-green"), cssVar("--star")];
+    const burst = (x, angle, n) => {
+      for (let i = 0; i < n; i++) {
+        const a = angle + (Math.random() - 0.5) * 0.9, sp = 9 + Math.random() * 9;
+        parts.push({ kind: i % 7 === 0 ? "star" : i % 4 === 0 ? "dot" : "rect",
+          x, y: r.height + 10, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+          g: 0.28, drag: 0.975, size: 6 + Math.random() * 7, rot: Math.random() * 6,
+          vr: (Math.random() - 0.5) * 0.3, tilt: Math.random() * 6, life: 1,
+          decay: 0.006 + Math.random() * 0.004, color: colors[i % colors.length] });
+      }
+    };
+    burst(0, -Math.PI / 3, 70);
+    burst(r.width, -2 * Math.PI / 3, 70);
+    setTimeout(() => {
+      for (let i = 0; i < 50; i++) {
+        parts.push({ kind: i % 5 ? "rect" : "star", x: Math.random() * r.width, y: -10,
+          vx: (Math.random() - 0.5) * 2, vy: 1 + Math.random() * 2, g: 0.06, drag: 0.99,
+          size: 6 + Math.random() * 6, rot: Math.random() * 6, vr: (Math.random() - 0.5) * 0.2,
+          tilt: Math.random() * 6, life: 1, decay: 0.005, color: colors[i % colors.length] });
+      }
+      start();
+    }, 450);
+    start();
+  }
+  addEventListener("resize", () => { if (parts.length) fitCanvas(); });
+
+  // ---------- screens ----------
   function renderSteps() {
     const done = step >= QUESTIONS.length;
-    stepsEl.innerHTML = QUESTIONS.map((_, i) => `<i class="${i <= step || done ? "on" : ""}"></i>`).join("")
+    stepsEl.innerHTML = QUESTIONS.map((_, i) => `<i class="${i < step || done ? "on" : ""}"></i>`).join("")
       + `<span>${done ? "Your quote" : `${step + 1} / ${QUESTIONS.length}`}</span>`;
   }
 
-  function optionHTML(o, key) {
+  function swap(html, after) {
+    const go = () => {
+      app.innerHTML = html;
+      app.firstElementChild.classList.add("enter");
+      after && after();
+      const scroller = document.querySelector(".screen");
+      if (scroller.scrollTop) scroller.scrollTop = 0;
+    };
+    if (reduced || !app.firstElementChild) return go();
+    app.firstElementChild.classList.add("leave");
+    setTimeout(go, 200);
+  }
+
+  function optionHTML(o, key, i) {
     const picked = answers[key] === o.v ? " picked" : "";
-    return `<button type="button" id="opt-${key}-${o.v}" class="opt ${o.cls || ""}${picked}" data-v="${o.v}">
-      <span class="t">${o.cls ? '<span class="dot"></span>' : ""}${esc(o.t)}</span>
+    return `<button type="button" id="opt-${key}-${o.v}" class="opt c-${o.c}${picked}" data-v="${o.v}" style="--i:${i}">
+      <span class="ico">${svg(o.i)}</span>
+      <span class="t">${esc(o.t)}</span>
       <span class="d">${esc(o.d)}</span></button>`;
   }
 
   function renderQuestion() {
     const q = QUESTIONS[step];
-    const opts = q.options.map(o => optionHTML(o, q.key)).join("");
+    about.hidden = false;
+    setAura(step > 0 ? answers.m : null);
+    const opts = q.options.map((o, i) => optionHTML(o, q.key, i)).join("");
     const body = q.layout === "meter"
       ? `<div class="meter"><div class="axis-y">Energy &rarr;</div><div class="quad">${opts}</div><div class="axis-x">Pleasantness &rarr;</div></div>`
       : `<div class="list">${opts}</div>`;
-    app.innerHTML = `<section class="fade" style="display:grid;gap:20px" aria-labelledby="qtitle">
+    swap(`<section style="display:grid;gap:20px" aria-labelledby="qtitle">
       <div><p class="eyebrow">${q.eyebrow}</p><h1 id="qtitle">${q.title}</h1><p class="lede">${q.lede}</p></div>
       ${body}
       <div class="nav">${step > 0 ? '<button type="button" class="btn link" id="back">&larr; Back</button>' : "<span></span>"}</div>
-    </section>`;
-    app.querySelectorAll(".opt").forEach(b => b.addEventListener("click", () => {
-      answers[q.key] = b.dataset.v;
-      step++;
-      if (step >= QUESTIONS.length) { rank(); cursor = 0; renderResult(); } else renderQuestion();
-      renderSteps();
-    }));
-    const back = document.getElementById("back");
-    if (back) back.addEventListener("click", () => { step--; renderQuestion(); renderSteps(); });
+    </section>`, () => {
+      app.querySelectorAll(".opt").forEach(b => b.addEventListener("click", e => {
+        const c = getComputedStyle(b).getPropertyValue("--c").trim() || cssVar("--accent");
+        const rect = b.getBoundingClientRect();
+        sparkle(e.clientX || rect.left + rect.width / 2, e.clientY || rect.top + rect.height / 2, c);
+        b.closest("section").style.pointerEvents = "none";
+        b.classList.add("picked");
+        answers[q.key] = b.dataset.v;
+        if (q.key === "m") setAura(answers.m);
+        step++;
+        renderSteps();
+        setTimeout(() => step >= QUESTIONS.length ? renderReveal() : renderQuestion(), reduced ? 0 : 260);
+      }));
+      const back = document.getElementById("back");
+      if (back) back.addEventListener("click", () => { step--; renderQuestion(); renderSteps(); });
+    });
     renderSteps();
   }
 
-  // Score every quote against the answers; what the reader asked for (need)
-  // weighs most, then mood and life area. Within a score tier, recently shown
-  // quotes go last and the rest are shuffled so repeat check-ins vary.
-  function rank() {
+  function renderReveal() {
+    about.hidden = true;
+    if (reduced) return renderResult();
+    swap(`<section class="reveal" aria-live="polite">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle class="ring" cx="50" cy="50" r="44" fill="none" stroke="var(--star)" stroke-width="2" stroke-dasharray="3 6"/>
+        <circle cx="50" cy="50" r="34" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+        <path class="needle" d="M50 20 L57 50 L50 80 L43 50 Z" fill="var(--accent)"/>
+        <circle cx="50" cy="50" r="4" fill="var(--surface)"/>
+      </svg>
+      <p>Reading your compass&hellip;</p>
+    </section>`);
+    setTimeout(renderResult, 1450);
+  }
+
+  // Score every quote; the need weighs most, then mood and life area. Recently
+  // shown quotes drop behind unseen ones of the same score; ties are shuffled.
+  function pick() {
     const recent = store.get("dc-recent", []);
-    ranked = window.QUOTES.map(q => {
+    const best = window.QUOTES.map(q => {
       let s = 0;
       for (const k of ["n", "m", "a"]) if (q[k].includes(answers[k])) s += W[k];
       return { q, s, seen: recent.includes(q.id) ? 1 : 0, r: Math.random() };
-    }).sort((x, y) => y.s - x.s || x.seen - y.seen || x.r - y.r);
-  }
-
-  function remember(id) {
-    const recent = store.get("dc-recent", []).filter(x => x !== id);
-    recent.unshift(id);
-    store.set("dc-recent", recent.slice(0, 25));
+    }).sort((x, y) => y.s - x.s || x.seen - y.seen || x.r - y.r)[0].q;
+    store.set("dc-recent", [best.id, ...recent.filter(x => x !== best.id)].slice(0, 25));
+    return best;
   }
 
   function renderResult() {
-    const { q } = ranked[cursor % ranked.length];
-    remember(q.id);
+    const q = pick();
     const mood = answers.m;
-    const matched = ["m", "a", "n"].filter(k => q[k].includes(answers[k]));
     const chips = ["m", "a", "n"].map(k => {
-      const c = k === "m" ? ` style="--c: var(--mood-${{ r: "red", y: "yellow", b: "blue", g: "green" }[mood]})"` : "";
-      return `<span class="chip"${c}>${esc(LABEL[k][answers[k]])}${matched.includes(k) ? "" : " · near match"}</span>`;
+      const o = OPT[k + answers[k]];
+      return `<span class="chip c-${o.c}">${svg(o.i)}${esc(LABEL[k][answers[k]])}</span>`;
     }).join("");
     const care = (mood === "b" && (answers.a === "setback" || answers.n === "courage"))
       ? `<div class="care"><strong>If today feels heavier than a quote can carry,</strong> talk to someone you trust. In India, Tele-MANAS is free and open 24/7 at <strong>14416</strong>. In the US, call or text <strong>988</strong>. Elsewhere, findahelpline.com lists local services.</div>`
       : "";
 
-    app.innerHTML = `<section class="fade" style="display:grid;gap:22px" aria-live="polite">
-      <div><p class="eyebrow">For right now</p></div>
-      <article class="quote-card ${MOOD_CLASS[mood]}">
+    swap(`<section style="display:grid;gap:26px;padding-top:14px" aria-live="polite">
+      <article class="quote-card c-${MOOD_COLOR[mood]}">
+        <span class="mark" aria-hidden="true">&ldquo;</span>
         <blockquote><p class="qtext">${esc(q.t)}</p></blockquote>
         <div><p class="qby">${esc(q.by)}</p><p class="qsrc">${esc(q.src)}</p></div>
         <div class="actions">
-          <button type="button" class="btn primary" id="another">Show another</button>
-          <button type="button" class="btn" id="copy">Copy quote</button>
+          <button type="button" class="btn primary" id="copy">Copy quote</button>
+          <p class="toast" id="toast"></p>
         </div>
-        <p class="toast" id="toast"></p>
       </article>
       <div class="why">
         <p class="eyebrow">Why this one</p>
@@ -391,27 +622,27 @@ footer p { margin: 0 0 6px; }
         <p>${WHY_MOOD[mood]} ${WHY_NEED[answers.n]}</p>
       </div>
       ${care}
-      <div class="nav"><button type="button" class="btn link" id="restart">&larr; Check in again</button>
-        <span style="font-size:.8125rem;color:var(--muted)">${(cursor % ranked.length) + 1} of ${ranked.length} ranked for you</span></div>
-    </section>`;
-
-    document.getElementById("another").addEventListener("click", () => { cursor++; renderResult(); });
-    document.getElementById("restart").addEventListener("click", () => {
-      for (const k in answers) delete answers[k];
-      step = 0; renderQuestion();
+      <div class="nav"><button type="button" class="btn link" id="restart">&larr; Check in again</button></div>
+    </section>`, () => {
+      confetti(mood);
+      document.getElementById("restart").addEventListener("click", () => {
+        for (const k in answers) delete answers[k];
+        step = 0; renderQuestion();
+      });
+      document.getElementById("copy").addEventListener("click", () => {
+        const text = `"${q.t}" — ${q.by}, ${q.src}`;
+        const toast = document.getElementById("toast");
+        const done = () => { toast.textContent = "Copied."; };
+        const fallback = () => {
+          const range = document.createRange();
+          range.selectNodeContents(app.querySelector(".qtext"));
+          const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+          toast.textContent = "Selected. Press Ctrl+C or Cmd+C to copy.";
+        };
+        try { navigator.clipboard.writeText(text).then(done, fallback); } catch { fallback(); }
+      });
     });
-    document.getElementById("copy").addEventListener("click", () => {
-      const text = `"${q.t}" — ${q.by}, ${q.src}`;
-      const toast = document.getElementById("toast");
-      const done = () => { toast.textContent = "Copied to clipboard."; };
-      const fallback = () => {
-        const range = document.createRange();
-        range.selectNodeContents(app.querySelector(".qtext"));
-        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
-        toast.textContent = "Quote selected. Press Ctrl+C or Cmd+C to copy.";
-      };
-      try { navigator.clipboard.writeText(text).then(done, fallback); } catch { fallback(); }
-    });
+    renderSteps();
   }
 
   const clock = document.getElementById("clock");

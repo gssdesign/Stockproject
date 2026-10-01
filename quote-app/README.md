@@ -13,7 +13,10 @@ A small web app that asks three quick questions when it opens and then shows the
 Self-affirmation research (Cohen & Sherman, 2014) is the reason the "Myself" option and the reflective quotes exist: brief reflection on one's own values reliably buffers stress.
 
 ## How a quote is picked
-Every quote in `quotes.js` is tagged with the moods, life areas and needs it suits. Each quote gets a score: **3** if it fits the need (Q3, because the person asked for it), **2** if it fits the mood, **2** if it fits the life area. The highest-scoring quotes come first. Ties are shuffled, and the last 25 quotes shown (stored in the browser) go to the back so repeat check-ins vary. "Show another" walks down the ranked list.
+Every quote in `quotes.js` is tagged with the moods, life areas and needs it suits. Each quote gets a score: **3** if it fits the need (Q3, because the person asked for it), **2** if it fits the mood, **2** if it fits the life area. The highest-scoring quotes come first. Ties are shuffled, and the last 25 quotes shown (stored in the browser) go to the back so repeat check-ins vary.
+
+## Look and feel
+Each option has its own line illustration and colour. The background is a slowly drifting aurora with twinkling stars, and it takes on the colour of the mood you pick. Tapping an option throws a small burst of sparkles. After the third answer a compass needle spins while the app "reads your compass", then the quote appears with a confetti burst in the mood's colours. Everything animated is switched off when the device asks for reduced motion.
 
 If someone reports feeling low and is dealing with a setback or asks for courage, the result also shows helpline numbers (Tele-MANAS 14416 in India, 988 in the US, findahelpline.com elsewhere).
 

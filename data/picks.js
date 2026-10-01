@@ -33,12 +33,12 @@ window.PICKS = {
           "name": "Nvidia",
           "sector": "Information Technology / Semiconductors",
           "currency": "USD",
-          "refPrice": 227.21,
-          "refDate": "2026-09-29",
-          "buyLow": 224.8,
-          "buyHigh": 228.41,
-          "target": 234.13,
-          "stop": 222.1,
+          "refPrice": 228.38,
+          "refDate": "2026-09-30",
+          "buyLow": 225.96,
+          "buyHigh": 229.59,
+          "target": 235.34,
+          "stop": 223.24,
           "risk": "Low–Medium",
           "thesis": "A record $150 billion buyback (28 Sep) puts a large, steady buyer under a 3-month leader that is consolidating just above its 20-day average.",
           "reasons": [
@@ -78,7 +78,72 @@ window.PICKS = {
               "CNBC – Micron Q4 fiscal 2026 earnings report (Sep 30, 2026)",
               "https://www.cnbc.com/2026/09/30/micron-mu-q4-earnings-report-2026.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 228.38,
+            "date": "2026-09-30",
+            "researchPrice": 227.21,
+            "researchDate": "2026-09-29",
+            "diffPct": -0.51,
+            "original": {
+              "refPrice": 227.21,
+              "refDate": "2026-09-29",
+              "buyLow": 224.8,
+              "buyHigh": 228.41,
+              "target": 234.13,
+              "stop": 222.1
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $25,215M (min $50M), price $228.38"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $223.19"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +3.9 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+39.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.61% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.61,
+            "sma20": 223.19,
+            "sma50": 217.4,
+            "sma200": 200.15,
+            "rs1m": 3.89,
+            "rs3m": 13.34,
+            "fromHigh52": -3.45,
+            "fromLow52": 39.03,
+            "avgValue20": 25214969116
+          }
         },
         {
           "market": "US",
@@ -87,12 +152,12 @@ window.PICKS = {
           "name": "Arista Networks",
           "sector": "Information Technology / Networking",
           "currency": "USD",
-          "refPrice": 202.86,
-          "refDate": "2026-09-29",
-          "buyLow": 199.91,
-          "buyHigh": 204.34,
-          "target": 211.35,
-          "stop": 196.58,
+          "refPrice": 203.59,
+          "refDate": "2026-09-30",
+          "buyLow": 200.63,
+          "buyHigh": 205.08,
+          "target": 212.11,
+          "stop": 197.29,
           "risk": "Medium",
           "thesis": "Bernstein started coverage at Outperform with a $250 target on 30 Sep, and the stock has pulled back about 6% from its high while staying above its 20-day average.",
           "reasons": [
@@ -132,7 +197,72 @@ window.PICKS = {
               "Investing.com – Arista Networks CEO Ullal sells $13.2m in shares from trusts",
               "https://www.investing.com/news/insider-trading-news/arista-networks-ceo-ullal-sells-132m-in-shares-from-trusts-93CH-4923893"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 203.59,
+            "date": "2026-09-30",
+            "researchPrice": 202.86,
+            "researchDate": "2026-09-29",
+            "diffPct": -0.36,
+            "original": {
+              "refPrice": 202.86,
+              "refDate": "2026-09-29",
+              "buyLow": 199.91,
+              "buyHigh": 204.34,
+              "target": 211.35,
+              "stop": 196.58
+            },
+            "status": "adjusted"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $950M (min $50M), price $203.59"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $198.13"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +4.5 pts"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+77.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.53% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.53,
+            "sma20": 198.13,
+            "sma50": 192.21,
+            "sma200": 158.11,
+            "rs1m": 4.49,
+            "rs3m": 19.94,
+            "fromHigh52": -5.26,
+            "fromLow52": 77.78,
+            "avgValue20": 950146774
+          }
         },
         {
           "market": "IN",

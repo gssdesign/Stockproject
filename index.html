@@ -283,14 +283,14 @@
       <span class="muted" id="batchCount"></span>
     </div>
     <div class="strip" id="strip"></div>
-    <p class="disclaimer"><b>Not financial advice.</b> These are research ideas from public news and price data. Check live prices with your broker, and size each trade so hitting the stop-loss doesn't hurt much.</p>
+    <p class="disclaimer"><b>Not financial advice.</b> These are research ideas from public news and price data. Prices shown are official closes, not live quotes: check the live price with your broker before buying, and size each trade so hitting the stop-loss doesn't hurt much.</p>
     <details class="backdrop" id="backdrop"></details>
     <div class="list-tools">
       <h2 id="listTitle">Top 5</h2>
       <button class="link-btn" id="toggleAll">Expand all</button>
     </div>
     <div class="list-head" aria-hidden="true">
-      <span>#</span><span>Stock · why</span><span id="priceHead">Today's price</span><span>Buy zone</span><span>Sell target</span><span>Stop-loss</span><span>Risk</span><span></span>
+      <span>#</span><span>Stock · why</span><span id="priceHead">Last close</span><span>Buy zone</span><span>Sell target</span><span>Stop-loss</span><span>Risk</span><span></span>
     </div>
     <div class="picks" id="picks"></div>
   </section>
@@ -343,7 +343,7 @@
       </ul>
       <h3>Reading a pick</h3>
       <ul>
-        <li><b>Today's price</b>: the latest official close. The label under it says whether it's in the buy zone, above it (wait, don't chase) or below it (check why).</li>
+        <li><b>Last close</b>: the official closing price of the most recent completed session (date shown), updated after each market close. It is not a live price: during market hours your broker (Kite, etc.) shows the live price, which will differ. The label under it says whether that close was in the buy zone, above it (wait, don't chase) or below it (check why). Always compare the live price with the buy zone before buying.</li>
         <li><b>Buy zone</b>: enter only inside it. <b>Sell target</b>: take profit. <b>Stop-loss</b>: exit if wrong. <b>R:R</b> = reward ÷ risk from the middle of the zone.</li>
       </ul>
       <h3>How past picks are judged</h3>
@@ -583,7 +583,7 @@
     let priceCell;
     if (isLatest) {
       const [zk, zt] = zoneOf(p, lp.price);
-      priceCell = `<span class="lbl">Today's price</span><span class="v num">${fmt(lp.price, c)}</span><span class="s zone ${zk}">${zt}</span>`;
+      priceCell = `<span class="lbl">Last close · ${fdate(lp.asOf)}</span><span class="v num" title="Official close on ${fdateY(lp.asOf)}. Not a live price: check your broker during market hours.">${fmt(lp.price, c)}</span><span class="s zone ${zk}">${zt}</span>`;
     } else {
       priceCell = `<span class="lbl">Result</span><span class="v"><span class="status ${o.met[1]}">${o.met[0]}</span></span>
         <span class="s">${o.close == null ? "no price data" : `${fmt(o.close, c)} · <span class="${cls(o.closeRet)}">${pct(o.closeRet)}</span>`}</span>`;
@@ -618,7 +618,7 @@
         ${checksBlock(p)}
         <p class="sector">${esc(p.sector)} · ${p.market === "US" ? "NYSE/Nasdaq" : "NSE"}</p>
         ${ladder(p, dotPrice)}
-        <div class="muted" style="font-size:12px">● = ${isLatest ? "today's price" : "closing price at the end of the window"} · shaded band = buy zone</div>
+        <div class="muted" style="font-size:12px">● = ${isLatest ? "last official close" : "closing price at the end of the window"} · shaded band = buy zone</div>
         <div class="cols">
           <div><h4>Why buy</h4><ul>${p.reasons.map(r => `<li>${esc(r)}</li>`).join("")}</ul></div>
           <div><h4>Key numbers</h4><table class="kv">${p.data.map(([k, v]) => `<tr><td>${esc(k)}</td><td class="num">${esc(v)}</td></tr>`).join("")}</table></div>
@@ -700,7 +700,7 @@
       $("picks").innerHTML = `<p class="empty">No ${mktName(state.market)} ${state.horizon} picks in this batch. The market backdrop above explains why (for example a holiday, no stock passing every check, or picks still to be added).</p>`;
       return;
     }
-    $("priceHead").textContent = isLatest ? "Today's price" : "Result";
+    $("priceHead").textContent = isLatest ? "Last close" : "Result";
     $("listTitle").textContent = `${isLatest ? "Top" : "Past"} ${list.length} ${mktName(state.market)} · ${state.horizon} picks`;
     $("picks").innerHTML = list.map((p, i) => pickRow(p, i, batch, isLatest)).join("");
     $("toggleAll").textContent = "Expand all";

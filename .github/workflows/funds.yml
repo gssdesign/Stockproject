@@ -1,0 +1,48 @@
+name: Mutual funds
+
+# Weekly refresh of the mutual-fund rankings (scripts/mutual_funds.py ->
+# data/funds.js). Picks are re-ranked once a month; metrics refresh weekly.
+on:
+  schedule:
+    - cron: "30 1 * * 6"   # Saturday 07:00 IST (GitHub may run it late; fine for a weekly job)
+  push:
+    paths:
+      - "scripts/mutual_funds.py"
+      - ".github/workflows/funds.yml"
+      - ".github/kick/funds"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: funds
+  cancel-in-progress: false
+
+jobs:
+  rank:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests
+      - run: cd scripts && python3 mutual_funds.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          cp data/funds.js "$RUNNER_TEMP/funds.js" 2>/dev/null || exit 0
+          for i in 1 2 3 4; do
+            git add data/funds.js
+            git diff --cached --quiet && exit 0
+            git commit -q -m "Mutual funds $(date -u +%Y-%m-%d)"
+            git push && exit 0
+            sleep $((i * 5))
+            git fetch -q origin "$GITHUB_REF_NAME"
+            git reset -q --hard "origin/$GITHUB_REF_NAME"
+            cp "$RUNNER_TEMP/funds.js" data/funds.js
+          done
+          exit 1

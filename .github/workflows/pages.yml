@@ -15,7 +15,7 @@ on:
       - "scripts/live_index.py"
       - ".github/workflows/pages.yml"
   workflow_run:
-    workflows: ["Market data"]
+    workflows: ["Market data", "Mutual funds"]
     types: [completed]
   workflow_dispatch:
 

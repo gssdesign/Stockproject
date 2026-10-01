@@ -532,12 +532,12 @@ window.PICKS = {
           "name": "Meta Platforms",
           "sector": "Communication Services",
           "currency": "USD",
-          "refPrice": 736.54,
+          "refPrice": 725.18,
           "refDate": "2026-09-30",
-          "buyLow": 722.67,
-          "buyHigh": 743.47,
-          "target": 795.46,
-          "stop": 698.42,
+          "buyLow": 711.52,
+          "buyHigh": 732.0,
+          "target": 783.19,
+          "stop": 687.65,
           "risk": "Medium",
           "thesis": "A 3-month leader that bounced right back from a pullback, with a fresh target raise.",
           "reasons": [
@@ -580,11 +580,11 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 736.54,
+            "close": 725.18,
             "date": "2026-09-30",
             "researchPrice": 738.79,
             "researchDate": "2026-09-29",
-            "diffPct": 0.31,
+            "diffPct": 1.88,
             "original": {
               "refPrice": 738.79,
               "refDate": "2026-09-29",
@@ -593,38 +593,42 @@ window.PICKS = {
               "target": 797.89,
               "stop": 700.55
             },
-            "status": "adjusted"
+            "status": "adjusted",
+            "corrected": {
+              "from": 736.54,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $16,434M (min $50M), price $736.54"
+              "detail": "20-day avg traded value $16,801M (min $50M), price $725.18"
             },
             {
               "name": "Trend",
               "pass": true,
-              "detail": "close above 50-day avg $620.85, 50-day avg rising"
+              "detail": "close above 50-day avg $620.62, 50-day avg rising"
             },
             {
               "name": "Relative strength",
               "pass": true,
-              "detail": "3-month return vs index +17.1 pts"
+              "detail": "3-month return vs index +16.1 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+41.6% above 52-week low"
+              "detail": "+39.4% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "+1.9 ATR from 20-day avg (max +3.0)"
+              "detail": "+1.5 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": true,
-              "detail": "ATR 3.68% of price (max 5.0% for weekly)"
+              "detail": "ATR 3.73% of price (max 5.0% for weekly)"
             },
             {
               "name": "Reward vs risk",
@@ -633,15 +637,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 3.68,
-            "sma20": 683.96,
-            "sma50": 620.85,
-            "sma200": 627.63,
-            "rs1m": 28.33,
-            "rs3m": 17.09,
-            "fromHigh52": -5.55,
-            "fromLow52": 41.57,
-            "avgValue20": 16434283406
+            "atrPct": 3.73,
+            "sma20": 683.39,
+            "sma50": 620.62,
+            "sma200": 627.57,
+            "rs1m": 27.15,
+            "rs3m": 16.07,
+            "fromHigh52": -7.01,
+            "fromLow52": 39.39,
+            "avgValue20": 16801213729
           }
         },
         {
@@ -651,12 +655,12 @@ window.PICKS = {
           "name": "Palantir Technologies",
           "sector": "Information Technology",
           "currency": "USD",
-          "refPrice": 189.68,
+          "refPrice": 187.05,
           "refDate": "2026-09-30",
-          "buyLow": 186.37,
-          "buyHigh": 191.33,
-          "target": 203.72,
-          "stop": 180.59,
+          "buyLow": 183.79,
+          "buyHigh": 188.68,
+          "target": 200.9,
+          "stop": 178.09,
           "risk": "High",
           "thesis": "The strongest large cap in the US screen, with its third target raise of the year from UBS.",
           "reasons": [
@@ -699,11 +703,11 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 189.68,
+            "close": 187.05,
             "date": "2026-09-30",
             "researchPrice": 186.97,
             "researchDate": "2026-09-29",
-            "diffPct": -1.43,
+            "diffPct": -0.04,
             "original": {
               "refPrice": 186.97,
               "refDate": "2026-09-29",
@@ -712,38 +716,42 @@ window.PICKS = {
               "target": 200.81,
               "stop": 178.01
             },
-            "status": "adjusted"
+            "status": "ok",
+            "corrected": {
+              "from": 189.68,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $4,389M (min $50M), price $189.68"
+              "detail": "20-day avg traded value $4,478M (min $50M), price $187.05"
             },
             {
               "name": "Trend",
               "pass": true,
-              "detail": "close above 50-day avg $167.21, 50-day avg rising"
+              "detail": "close above 50-day avg $167.16, 50-day avg rising"
             },
             {
               "name": "Relative strength",
               "pass": true,
-              "detail": "3-month return vs index +47.8 pts"
+              "detail": "3-month return vs index +46.5 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+78.3% above 52-week low"
+              "detail": "+75.8% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "+1.7 ATR from 20-day avg (max +3.0)"
+              "detail": "+1.3 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": true,
-              "detail": "ATR 3.34% of price (max 5.0% for weekly)"
+              "detail": "ATR 3.39% of price (max 5.0% for weekly)"
             },
             {
               "name": "Reward vs risk",
@@ -752,15 +760,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 3.34,
-            "sma20": 178.98,
-            "sma50": 167.21,
-            "sma200": 152.06,
-            "rs1m": 1.41,
-            "rs3m": 47.78,
-            "fromHigh52": -8.6,
-            "fromLow52": 78.32,
-            "avgValue20": 4389076641
+            "atrPct": 3.39,
+            "sma20": 178.85,
+            "sma50": 167.16,
+            "sma200": 152.04,
+            "rs1m": 0.81,
+            "rs3m": 46.52,
+            "fromHigh52": -9.86,
+            "fromLow52": 75.85,
+            "avgValue20": 4477976528
           }
         },
         {
@@ -770,12 +778,12 @@ window.PICKS = {
           "name": "Phillips 66",
           "sector": "Energy / Refining",
           "currency": "USD",
-          "refPrice": 258.16,
+          "refPrice": 255.31,
           "refDate": "2026-09-30",
-          "buyLow": 253.91,
-          "buyHigh": 260.28,
-          "target": 276.19,
-          "stop": 246.49,
+          "buyLow": 251.11,
+          "buyHigh": 257.41,
+          "target": 273.14,
+          "stop": 243.77,
           "risk": "Medium",
           "thesis": "The refining boom has one more beneficiary, with two target raises in September.",
           "reasons": [
@@ -818,11 +826,11 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 258.16,
+            "close": 255.31,
             "date": "2026-09-30",
             "researchPrice": 252.25,
             "researchDate": "2026-09-29",
-            "diffPct": -2.29,
+            "diffPct": -1.2,
             "original": {
               "refPrice": 252.25,
               "refDate": "2026-09-29",
@@ -831,38 +839,42 @@ window.PICKS = {
               "target": 269.87,
               "stop": 240.85
             },
-            "status": "adjusted"
+            "status": "adjusted",
+            "corrected": {
+              "from": 258.16,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $855M (min $50M), price $258.16"
+              "detail": "20-day avg traded value $877M (min $50M), price $255.31"
             },
             {
               "name": "Trend",
               "pass": true,
-              "detail": "close above 50-day avg $238.49, 50-day avg rising"
+              "detail": "close above 50-day avg $238.44, 50-day avg rising"
             },
             {
               "name": "Relative strength",
               "pass": true,
-              "detail": "3-month return vs index +44.9 pts"
+              "detail": "3-month return vs index +44.1 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+103.7% above 52-week low"
+              "detail": "+101.4% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "-0.1 ATR from 20-day avg (max +3.0)"
+              "detail": "-0.5 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": true,
-              "detail": "ATR 3.18% of price (max 5.0% for weekly)"
+              "detail": "ATR 3.24% of price (max 5.0% for weekly)"
             },
             {
               "name": "Reward vs risk",
@@ -871,15 +883,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 3.18,
-            "sma20": 259.41,
-            "sma50": 238.49,
-            "sma200": 182.8,
-            "rs1m": 4.34,
-            "rs3m": 44.86,
-            "fromHigh52": -6.84,
-            "fromLow52": 103.69,
-            "avgValue20": 854735968
+            "atrPct": 3.24,
+            "sma20": 259.27,
+            "sma50": 238.44,
+            "sma200": 182.79,
+            "rs1m": 3.99,
+            "rs3m": 44.06,
+            "fromHigh52": -7.87,
+            "fromLow52": 101.44,
+            "avgValue20": 876725782
           }
         },
         {
@@ -889,12 +901,12 @@ window.PICKS = {
           "name": "Veeva Systems",
           "sector": "Health Care / Software",
           "currency": "USD",
-          "refPrice": 286.13,
+          "refPrice": 285.45,
           "refDate": "2026-09-30",
-          "buyLow": 281.68,
-          "buyHigh": 288.35,
-          "target": 305.02,
-          "stop": 273.91,
+          "buyLow": 281.01,
+          "buyHigh": 287.66,
+          "target": 304.3,
+          "stop": 273.26,
           "risk": "Medium",
           "thesis": "Fresh upgrades plus a new top-20 pharma customer.",
           "reasons": [
@@ -937,11 +949,11 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 286.13,
+            "close": 285.45,
             "date": "2026-09-30",
             "researchPrice": 278.57,
             "researchDate": "2026-09-29",
-            "diffPct": -2.64,
+            "diffPct": -2.41,
             "original": {
               "refPrice": 278.57,
               "refDate": "2026-09-29",
@@ -950,38 +962,42 @@ window.PICKS = {
               "target": 296.96,
               "stop": 266.67
             },
-            "status": "adjusted"
+            "status": "adjusted",
+            "corrected": {
+              "from": 286.13,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $403M (min $50M), price $286.13"
+              "detail": "20-day avg traded value $419M (min $50M), price $285.45"
             },
             {
               "name": "Trend",
               "pass": true,
-              "detail": "close above 50-day avg $246.93, 50-day avg rising"
+              "detail": "close above 50-day avg $246.91, 50-day avg rising"
             },
             {
               "name": "Relative strength",
               "pass": true,
-              "detail": "3-month return vs index +52.2 pts"
+              "detail": "3-month return vs index +52.7 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+93.3% above 52-week low"
+              "detail": "+92.8% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "+1.8 ATR from 20-day avg (max +3.0)"
+              "detail": "+1.7 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": true,
-              "detail": "ATR 3.1% of price (max 5.0% for weekly)"
+              "detail": "ATR 3.13% of price (max 5.0% for weekly)"
             },
             {
               "name": "Reward vs risk",
@@ -990,15 +1006,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 3.1,
-            "sma20": 270.18,
-            "sma50": 246.93,
+            "atrPct": 3.13,
+            "sma20": 270.14,
+            "sma50": 246.91,
             "sma200": 200.67,
-            "rs1m": -0.21,
-            "rs3m": 52.24,
-            "fromHigh52": -7.85,
-            "fromLow52": 93.27,
-            "avgValue20": 402914857
+            "rs1m": 0.37,
+            "rs3m": 52.7,
+            "fromHigh52": -8.07,
+            "fromLow52": 92.81,
+            "avgValue20": 419395081
           }
         },
         {
@@ -1269,12 +1285,12 @@ window.PICKS = {
           "name": "Microsoft",
           "sector": "Information Technology",
           "currency": "USD",
-          "refPrice": 518.19,
+          "refPrice": 512.9,
           "refDate": "2026-09-30",
-          "buyLow": 509.12,
-          "buyHigh": 521.21,
-          "target": 557.51,
-          "stop": 493.99,
+          "buyLow": 503.92,
+          "buyHigh": 515.89,
+          "target": 551.82,
+          "stop": 488.95,
           "risk": "Low",
           "thesis": "One of the last holdout analysts turned bullish, and targets are rising, with steady, low-volatility gains.",
           "reasons": [
@@ -1317,11 +1333,11 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 518.19,
+            "close": 512.9,
             "date": "2026-09-30",
             "researchPrice": 508.96,
             "researchDate": "2026-09-29",
-            "diffPct": -1.78,
+            "diffPct": -0.77,
             "original": {
               "refPrice": 508.96,
               "refDate": "2026-09-29",
@@ -1330,38 +1346,42 @@ window.PICKS = {
               "target": 547.58,
               "stop": 485.19
             },
-            "status": "adjusted"
+            "status": "adjusted",
+            "corrected": {
+              "from": 518.19,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $10,246M (min $50M), price $518.19"
+              "detail": "20-day avg traded value $10,711M (min $50M), price $512.9"
             },
             {
               "name": "Trend",
               "pass": true,
-              "detail": "close above 50-day avg $482.66, 50-day avg rising"
+              "detail": "close above 50-day avg $482.56, 50-day avg rising"
             },
             {
               "name": "Relative strength",
               "pass": true,
-              "detail": "3-month return vs index +31.8 pts"
+              "detail": "3-month return vs index +31.2 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+48.4% above 52-week low"
+              "detail": "+46.9% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "+1.5 ATR from 20-day avg (max +3.0)"
+              "detail": "+1.1 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": true,
-              "detail": "ATR 2.28% of price (max 4.5% for monthly)"
+              "detail": "ATR 2.3% of price (max 4.5% for monthly)"
             },
             {
               "name": "Reward vs risk",
@@ -1370,15 +1390,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 2.28,
-            "sma20": 500.77,
-            "sma50": 482.66,
-            "sma200": 432.47,
-            "rs1m": 1.79,
-            "rs3m": 31.77,
-            "fromHigh52": -6.42,
-            "fromLow52": 48.39,
-            "avgValue20": 10246428644
+            "atrPct": 2.3,
+            "sma20": 500.5,
+            "sma50": 482.56,
+            "sma200": 432.45,
+            "rs1m": 1.56,
+            "rs3m": 31.22,
+            "fromHigh52": -7.37,
+            "fromLow52": 46.88,
+            "avgValue20": 10710936229
           },
           "eventRisk": "Earnings on 2026-10-28, inside the holding window"
         },
@@ -1389,12 +1409,12 @@ window.PICKS = {
           "name": "Thermo Fisher Scientific",
           "sector": "Health Care",
           "currency": "USD",
-          "refPrice": 681.37,
+          "refPrice": 675.05,
           "refDate": "2026-09-30",
-          "buyLow": 667.92,
-          "buyHigh": 683.51,
-          "target": 730.27,
-          "stop": 648.44,
+          "buyLow": 661.72,
+          "buyHigh": 677.17,
+          "target": 723.5,
+          "stop": 642.43,
           "risk": "Low–Medium",
           "thesis": "A low-volatility healthcare leader with an upgrade and target raises this month.",
           "reasons": [
@@ -1437,43 +1457,55 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 681.37,
+            "close": 675.05,
             "date": "2026-09-30",
             "researchPrice": 679.61,
             "researchDate": "2026-09-29",
-            "diffPct": -0.26,
-            "status": "ok"
+            "diffPct": 0.68,
+            "status": "adjusted",
+            "original": {
+              "refPrice": 681.37,
+              "refDate": "2026-09-30",
+              "buyLow": 667.92,
+              "buyHigh": 683.51,
+              "target": 730.27,
+              "stop": 648.44
+            },
+            "corrected": {
+              "from": 681.37,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $1,420M (min $50M), price $681.37"
+              "detail": "20-day avg traded value $1,472M (min $50M), price $675.05"
             },
             {
               "name": "Trend",
               "pass": true,
-              "detail": "close above 50-day avg $613.4, 50-day avg rising"
+              "detail": "close above 50-day avg $613.28, 50-day avg rising"
             },
             {
               "name": "Relative strength",
               "pass": true,
-              "detail": "3-month return vs index +29.7 pts"
+              "detail": "3-month return vs index +29.2 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+56.5% above 52-week low"
+              "detail": "+55.1% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "+2.5 ATR from 20-day avg (max +3.0)"
+              "detail": "+2.1 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": true,
-              "detail": "ATR 2.25% of price (max 4.5% for monthly)"
+              "detail": "ATR 2.27% of price (max 4.5% for monthly)"
             },
             {
               "name": "Reward vs risk",
@@ -1482,15 +1514,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 2.25,
-            "sma20": 642.56,
-            "sma50": 613.4,
-            "sma200": 541.84,
-            "rs1m": 10.05,
-            "rs3m": 29.66,
-            "fromHigh52": -0.29,
-            "fromLow52": 56.54,
-            "avgValue20": 1420429018
+            "atrPct": 2.27,
+            "sma20": 642.25,
+            "sma50": 613.28,
+            "sma200": 541.81,
+            "rs1m": 9.84,
+            "rs3m": 29.25,
+            "fromHigh52": -1.26,
+            "fromLow52": 55.09,
+            "avgValue20": 1472330249
           },
           "eventRisk": "Earnings on 2026-10-21, inside the holding window"
         },
@@ -1501,12 +1533,12 @@ window.PICKS = {
           "name": "Marathon Petroleum",
           "sector": "Energy / Refining",
           "currency": "USD",
-          "refPrice": 398.83,
+          "refPrice": 395.42,
           "refDate": "2026-09-30",
-          "buyLow": 387.8,
-          "buyHigh": 402.5,
-          "target": 446.61,
-          "stop": 369.43,
+          "buyLow": 384.48,
+          "buyHigh": 399.06,
+          "target": 442.79,
+          "stop": 366.27,
           "risk": "Medium",
           "thesis": "The leader in the market's strongest sector, while refining margins sit near records.",
           "reasons": [
@@ -1549,11 +1581,11 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 398.83,
+            "close": 395.42,
             "date": "2026-09-30",
             "researchPrice": 392.03,
             "researchDate": "2026-09-29",
-            "diffPct": -1.7,
+            "diffPct": -0.86,
             "original": {
               "refPrice": 392.03,
               "refDate": "2026-09-29",
@@ -1562,38 +1594,42 @@ window.PICKS = {
               "target": 439.0,
               "stop": 363.13
             },
-            "status": "adjusted"
+            "status": "adjusted",
+            "corrected": {
+              "from": 398.83,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $1,194M (min $50M), price $398.83"
+              "detail": "20-day avg traded value $1,216M (min $50M), price $395.42"
             },
             {
               "name": "Trend",
               "pass": true,
-              "detail": "close above 50-day avg $361.23, 50-day avg rising"
+              "detail": "close above 50-day avg $361.16, 50-day avg rising"
             },
             {
               "name": "Relative strength",
               "pass": true,
-              "detail": "3-month return vs index +47.5 pts"
+              "detail": "3-month return vs index +47.0 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+146.3% above 52-week low"
+              "detail": "+144.2% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+              "detail": "-0.2 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": true,
-              "detail": "ATR 3.54% of price (max 4.5% for monthly)"
+              "detail": "ATR 3.61% of price (max 4.5% for monthly)"
             },
             {
               "name": "Reward vs risk",
@@ -1602,15 +1638,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 3.54,
-            "sma20": 398.12,
-            "sma50": 361.23,
-            "sma200": 259.38,
-            "rs1m": 6.47,
-            "rs3m": 47.5,
-            "fromHigh52": -7.48,
-            "fromLow52": 146.3,
-            "avgValue20": 1194092484
+            "atrPct": 3.61,
+            "sma20": 397.95,
+            "sma50": 361.16,
+            "sma200": 259.36,
+            "rs1m": 6.37,
+            "rs3m": 47.04,
+            "fromHigh52": -8.27,
+            "fromLow52": 144.19,
+            "avgValue20": 1215955455
           }
         },
         {
@@ -1620,12 +1656,12 @@ window.PICKS = {
           "name": "Gilead Sciences",
           "sector": "Health Care / Biotech",
           "currency": "USD",
-          "refPrice": 150.27,
+          "refPrice": 149.05,
           "refDate": "2026-09-30",
-          "buyLow": 147.6,
-          "buyHigh": 151.16,
-          "target": 161.85,
-          "stop": 143.14,
+          "buyLow": 146.4,
+          "buyHigh": 149.93,
+          "target": 160.54,
+          "stop": 141.98,
           "risk": "Low–Medium",
           "thesis": "A steady large-cap biotech with its HIV-prevention franchise widening and a raised target.",
           "reasons": [
@@ -1668,11 +1704,11 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 150.27,
+            "close": 149.05,
             "date": "2026-09-30",
             "researchPrice": 151.28,
             "researchDate": "2026-09-29",
-            "diffPct": 0.67,
+            "diffPct": 1.5,
             "original": {
               "refPrice": 151.28,
               "refDate": "2026-09-29",
@@ -1681,38 +1717,42 @@ window.PICKS = {
               "target": 162.94,
               "stop": 144.1
             },
-            "status": "adjusted"
+            "status": "adjusted",
+            "corrected": {
+              "from": 150.27,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $852M (min $50M), price $150.27"
+              "detail": "20-day avg traded value $883M (min $50M), price $149.05"
             },
             {
               "name": "Trend",
               "pass": true,
-              "detail": "close above 50-day avg $142.6, 50-day avg rising"
+              "detail": "close above 50-day avg $142.57, 50-day avg rising"
             },
             {
               "name": "Relative strength",
               "pass": true,
-              "detail": "3-month return vs index +16.2 pts"
+              "detail": "3-month return vs index +16.1 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+38.5% above 52-week low"
+              "detail": "+37.4% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "+0.3 ATR from 20-day avg (max +3.0)"
+              "detail": "-0.0 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": true,
-              "detail": "ATR 2.32% of price (max 4.5% for monthly)"
+              "detail": "ATR 2.35% of price (max 4.5% for monthly)"
             },
             {
               "name": "Reward vs risk",
@@ -1721,15 +1761,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 2.32,
-            "sma20": 149.15,
-            "sma50": 142.6,
+            "atrPct": 2.35,
+            "sma20": 149.09,
+            "sma50": 142.57,
             "sma200": 136.44,
-            "rs1m": 2.33,
-            "rs3m": 16.21,
-            "fromHigh52": -4.46,
-            "fromLow52": 38.55,
-            "avgValue20": 852261018
+            "rs1m": 2.3,
+            "rs3m": 16.07,
+            "fromHigh52": -5.24,
+            "fromLow52": 37.42,
+            "avgValue20": 883304932
           },
           "eventRisk": "Earnings on 2026-10-29, inside the holding window"
         },
@@ -2000,12 +2040,12 @@ window.PICKS = {
           "name": "Delta Air Lines",
           "sector": "Airlines",
           "currency": "USD",
-          "refPrice": 83.23,
+          "refPrice": 83.46,
           "refDate": "2026-09-30",
-          "buyLow": 82.31,
-          "buyHigh": 83.78,
-          "target": 85.74,
-          "stop": 81.33,
+          "buyLow": 82.54,
+          "buyHigh": 84.01,
+          "target": 85.98,
+          "stop": 81.55,
           "risk": "Medium",
           "thesis": "Oil is finally falling, and airlines are the fastest way the market plays that.",
           "reasons": [
@@ -2048,11 +2088,11 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 83.23,
+            "close": 83.46,
             "date": "2026-09-30",
             "researchPrice": 84.94,
             "researchDate": "2026-09-29",
-            "diffPct": 2.05,
+            "diffPct": 1.77,
             "original": {
               "refPrice": 84.94,
               "refDate": "2026-09-29",
@@ -2061,38 +2101,42 @@ window.PICKS = {
               "target": 87.5,
               "stop": 83.0
             },
-            "status": "adjusted"
+            "status": "adjusted",
+            "corrected": {
+              "from": 83.23,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $555M (min $50M), price $83.23"
+              "detail": "20-day avg traded value $575M (min $50M), price $83.46"
             },
             {
               "name": "Trend",
               "pass": true,
-              "detail": "close above 20-day avg $80.83"
+              "detail": "close above 20-day avg $80.84"
             },
             {
               "name": "Relative strength",
               "pass": true,
-              "detail": "1-month return vs index +6.3 pts"
+              "detail": "1-month return vs index +7.5 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+51.2% above 52-week low"
+              "detail": "+51.7% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "+1.0 ATR from 20-day avg (max +3.0)"
+              "detail": "+1.1 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": true,
-              "detail": "ATR 2.85% of price (max 4.0% for daily)"
+              "detail": "ATR 2.84% of price (max 4.0% for daily)"
             },
             {
               "name": "Reward vs risk",
@@ -2101,15 +2145,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 2.85,
-            "sma20": 80.83,
+            "atrPct": 2.84,
+            "sma20": 80.84,
             "sma50": 84.03,
             "sma200": 75.66,
-            "rs1m": 6.35,
-            "rs3m": -13.64,
-            "fromHigh52": -13.01,
-            "fromLow52": 51.24,
-            "avgValue20": 555379142
+            "rs1m": 7.45,
+            "rs3m": -12.57,
+            "fromHigh52": -12.77,
+            "fromLow52": 51.66,
+            "avgValue20": 574960960
           }
         },
         {
@@ -2119,12 +2163,12 @@ window.PICKS = {
           "name": "Oracle",
           "sector": "Software / AI cloud",
           "currency": "USD",
-          "refPrice": 137.94,
+          "refPrice": 137.3,
           "refDate": "2026-09-30",
-          "buyLow": 136.0,
-          "buyHigh": 139.0,
-          "target": 142.5,
-          "stop": 134.0,
+          "buyLow": 135.37,
+          "buyHigh": 138.36,
+          "target": 141.84,
+          "stop": 133.38,
           "risk": "Medium",
           "thesis": "A rebound with two fresh positive headlines behind it.",
           "reasons": [
@@ -2167,43 +2211,55 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 137.94,
+            "close": 137.3,
             "date": "2026-09-30",
             "researchPrice": 137.79,
             "researchDate": "2026-09-29",
-            "diffPct": -0.11,
-            "status": "ok"
+            "diffPct": 0.36,
+            "status": "adjusted",
+            "original": {
+              "refPrice": 137.94,
+              "refDate": "2026-09-30",
+              "buyLow": 136.0,
+              "buyHigh": 139.0,
+              "target": 142.5,
+              "stop": 134.0
+            },
+            "corrected": {
+              "from": 137.94,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $5,158M (min $50M), price $137.94"
+              "detail": "20-day avg traded value $5,230M (min $50M), price $137.3"
             },
             {
               "name": "Trend",
               "pass": false,
-              "detail": "close below 20-day avg $146.99"
+              "detail": "close below 20-day avg $146.95"
             },
             {
               "name": "Relative strength",
               "pass": false,
-              "detail": "1-month return vs index -7.9 pts"
+              "detail": "1-month return vs index -7.5 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+20.5% above 52-week low"
+              "detail": "+19.9% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "-1.3 ATR from 20-day avg (max +3.0)"
+              "detail": "-1.4 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": false,
-              "detail": "ATR 5.08% of price (max 4.0% for daily)"
+              "detail": "ATR 5.12% of price (max 4.0% for daily)"
             },
             {
               "name": "Reward vs risk",
@@ -2212,15 +2268,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 5.08,
-            "sma20": 146.99,
-            "sma50": 142.91,
+            "atrPct": 5.12,
+            "sma20": 146.95,
+            "sma50": 142.9,
             "sma200": 163.36,
-            "rs1m": -7.86,
-            "rs3m": -6.28,
-            "fromHigh52": -57.23,
-            "fromLow52": 20.47,
-            "avgValue20": 5157941262
+            "rs1m": -7.48,
+            "rs3m": -5.9,
+            "fromHigh52": -57.43,
+            "fromLow52": 19.91,
+            "avgValue20": 5230032860
           }
         },
         {
@@ -2230,12 +2286,12 @@ window.PICKS = {
           "name": "Accenture",
           "sector": "IT services",
           "currency": "USD",
-          "refPrice": 182.68,
+          "refPrice": 183.37,
           "refDate": "2026-09-30",
-          "buyLow": 180.09,
-          "buyHigh": 185.33,
-          "target": 190.56,
-          "stop": 176.95,
+          "buyLow": 180.77,
+          "buyHigh": 186.03,
+          "target": 191.28,
+          "stop": 177.62,
           "risk": "High",
           "thesis": "Reports before the open. It has beaten estimates four quarters running and has bounced 26% in 30 days.",
           "reasons": [
@@ -2278,11 +2334,11 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 182.68,
+            "close": 183.37,
             "date": "2026-09-30",
             "researchPrice": 174.47,
             "researchDate": "2026-09-29",
-            "diffPct": -4.49,
+            "diffPct": -4.85,
             "original": {
               "refPrice": 174.47,
               "refDate": "2026-09-29",
@@ -2291,38 +2347,42 @@ window.PICKS = {
               "target": 182.0,
               "stop": 169.0
             },
-            "status": "mismatch"
+            "status": "mismatch",
+            "corrected": {
+              "from": 182.68,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $906M (min $50M), price $182.68"
+              "detail": "20-day avg traded value $978M (min $50M), price $183.37"
             },
             {
               "name": "Trend",
               "pass": false,
-              "detail": "close below 20-day avg $183.75"
+              "detail": "close below 20-day avg $183.78"
             },
             {
               "name": "Relative strength",
               "pass": false,
-              "detail": "1-month return vs index -4.1 pts"
+              "detail": "1-month return vs index -2.9 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+54.6% above 52-week low"
+              "detail": "+55.2% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "-0.2 ATR from 20-day avg (max +3.0)"
+              "detail": "-0.1 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": true,
-              "detail": "ATR 3.76% of price (max 4.0% for daily)"
+              "detail": "ATR 3.77% of price (max 4.0% for daily)"
             },
             {
               "name": "Reward vs risk",
@@ -2331,15 +2391,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 3.76,
-            "sma20": 183.75,
-            "sma50": 177.43,
+            "atrPct": 3.77,
+            "sma20": 183.78,
+            "sma50": 177.45,
             "sma200": 196.59,
-            "rs1m": -4.09,
-            "rs3m": 36.23,
-            "fromHigh52": -37.24,
-            "fromLow52": 54.61,
-            "avgValue20": 906002313
+            "rs1m": -2.92,
+            "rs3m": 37.59,
+            "fromHigh52": -37.01,
+            "fromLow52": 55.2,
+            "avgValue20": 978138512
           },
           "eventRisk": "Earnings on 2026-10-01, inside the holding window"
         },
@@ -2350,12 +2410,12 @@ window.PICKS = {
           "name": "SanDisk",
           "sector": "Semiconductors / AI storage",
           "currency": "USD",
-          "refPrice": 1736.85,
+          "refPrice": 1739.89,
           "refDate": "2026-09-30",
-          "buyLow": 1713.64,
-          "buyHigh": 1754.2,
-          "target": 1815.04,
-          "stop": 1673.08,
+          "buyLow": 1716.64,
+          "buyHigh": 1757.27,
+          "target": 1818.22,
+          "stop": 1676.01,
           "risk": "High",
           "thesis": "A dip-buy in an AI memory leader the morning after Micron's results.",
           "reasons": [
@@ -2398,11 +2458,11 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 1736.85,
+            "close": 1739.89,
             "date": "2026-09-30",
             "researchPrice": 1712.89,
             "researchDate": "2026-09-29",
-            "diffPct": -1.38,
+            "diffPct": -1.55,
             "original": {
               "refPrice": 1712.89,
               "refDate": "2026-09-29",
@@ -2411,38 +2471,42 @@ window.PICKS = {
               "target": 1790,
               "stop": 1650
             },
-            "status": "adjusted"
+            "status": "adjusted",
+            "corrected": {
+              "from": 1736.85,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $15,832M (min $50M), price $1,736.85"
+              "detail": "20-day avg traded value $16,072M (min $50M), price $1,739.89"
             },
             {
               "name": "Trend",
               "pass": true,
-              "detail": "close above 20-day avg $1693.34"
+              "detail": "close above 20-day avg $1693.49"
             },
             {
               "name": "Relative strength",
               "pass": true,
-              "detail": "1-month return vs index +10.5 pts"
+              "detail": "1-month return vs index +11.5 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+1450.8% above 52-week low"
+              "detail": "+1453.5% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": true,
-              "detail": "+0.4 ATR from 20-day avg (max +3.0)"
+              "detail": "+0.5 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": false,
-              "detail": "ATR 5.93% of price (max 4.0% for daily)"
+              "detail": "ATR 5.92% of price (max 4.0% for daily)"
             },
             {
               "name": "Reward vs risk",
@@ -2451,15 +2515,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 5.93,
-            "sma20": 1693.34,
-            "sma50": 1533.65,
-            "sma200": 1130.34,
-            "rs1m": 10.5,
-            "rs3m": -17.61,
-            "fromHigh52": -26.23,
-            "fromLow52": 1450.76,
-            "avgValue20": 15832289932
+            "atrPct": 5.92,
+            "sma20": 1693.49,
+            "sma50": 1533.71,
+            "sma200": 1130.35,
+            "rs1m": 11.5,
+            "rs3m": -16.63,
+            "fromHigh52": -26.1,
+            "fromLow52": 1453.47,
+            "avgValue20": 16072465658
           }
         },
         {
@@ -2469,12 +2533,12 @@ window.PICKS = {
           "name": "Vicor",
           "sector": "Power electronics / AI",
           "currency": "USD",
-          "refPrice": 283.88,
+          "refPrice": 288.94,
           "refDate": "2026-09-30",
-          "buyLow": 277.88,
-          "buyHigh": 286.94,
-          "target": 298.02,
-          "stop": 271.84,
+          "buyLow": 282.83,
+          "buyHigh": 292.05,
+          "target": 303.33,
+          "stop": 276.69,
           "risk": "High",
           "thesis": "The month's top industrial gainer: up 45% in September after raising guidance.",
           "reasons": [
@@ -2517,11 +2581,11 @@ window.PICKS = {
           ],
           "verified": {
             "source": "Yahoo Finance daily close",
-            "close": 283.88,
+            "close": 288.94,
             "date": "2026-09-30",
             "researchPrice": 281.96,
             "researchDate": "2026-09-28",
-            "diffPct": -0.68,
+            "diffPct": -2.42,
             "original": {
               "refPrice": 281.96,
               "refDate": "2026-09-28",
@@ -2530,38 +2594,42 @@ window.PICKS = {
               "target": 296,
               "stop": 270
             },
-            "status": "adjusted"
+            "status": "adjusted",
+            "corrected": {
+              "from": 283.88,
+              "note": "reference had been taken while the session was still trading; corrected to the official close"
+            }
           },
           "checks": [
             {
               "name": "Liquidity",
               "pass": true,
-              "detail": "20-day avg traded value $201M (min $50M), price $283.88"
+              "detail": "20-day avg traded value $206M (min $50M), price $288.94"
             },
             {
               "name": "Trend",
               "pass": true,
-              "detail": "close above 20-day avg $224.34"
+              "detail": "close above 20-day avg $224.6"
             },
             {
               "name": "Relative strength",
               "pass": true,
-              "detail": "1-month return vs index +50.9 pts"
+              "detail": "1-month return vs index +54.4 pts"
             },
             {
               "name": "Not a falling knife",
               "pass": true,
-              "detail": "+487.6% above 52-week low"
+              "detail": "+498.1% above 52-week low"
             },
             {
               "name": "Not overextended",
               "pass": false,
-              "detail": "+3.5 ATR from 20-day avg (max +3.0)"
+              "detail": "+3.8 ATR from 20-day avg (max +3.0)"
             },
             {
               "name": "Volatility fits horizon",
               "pass": false,
-              "detail": "ATR 5.98% of price (max 4.0% for daily)"
+              "detail": "ATR 5.88% of price (max 4.0% for daily)"
             },
             {
               "name": "Reward vs risk",
@@ -2570,15 +2638,15 @@ window.PICKS = {
             }
           ],
           "metricsAtPick": {
-            "atrPct": 5.98,
-            "sma20": 224.34,
-            "sma50": 216.13,
-            "sma200": 214.29,
-            "rs1m": 50.9,
-            "rs3m": -22.02,
-            "fromHigh52": -25.81,
-            "fromLow52": 487.62,
-            "avgValue20": 200972803
+            "atrPct": 5.88,
+            "sma20": 224.6,
+            "sma50": 216.23,
+            "sma200": 214.31,
+            "rs1m": 54.4,
+            "rs3m": -19.75,
+            "fromHigh52": -24.49,
+            "fromLow52": 498.1,
+            "avgValue20": 206398070
           }
         },
         {

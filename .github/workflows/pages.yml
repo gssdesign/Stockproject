@@ -15,10 +15,6 @@ on:
   workflow_run:
     workflows: ["Market data"]
     types: [completed]
-  schedule:
-    # Every 10 min during NSE hours (03:45-10:00 UTC = 9:15 AM-3:30 PM IST)
-    # to refresh the live Nifty 50 strip (data/live.json).
-    - cron: "*/10 3-10 * * 1-5"
   workflow_dispatch:
 
 permissions:

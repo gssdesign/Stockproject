@@ -319,7 +319,7 @@
       <ul>
         <li><b>Status pill</b>: <b>✓ Buy zone</b> means the last close sits inside the buy zone; <b>Wait</b> means it's above (don't chase); <b>Below zone</b> or <b>Below stop</b> means check why or skip.</li>
         <li><b>The bar</b>: red dot = stop-loss, shaded band = buy zone, green dot = target, white dot = last close.</li>
-        <li><b>Nifty 50 strip</b> at the top: refreshed about every 10 minutes during NSE hours (9:15 AM–3:30 PM IST) from Yahoo Finance, so it can lag the exchange by up to ~15 minutes. Outside market hours it shows the last close.</li>
+        <li><b>Nifty 50 strip</b> at the top: refreshed every few minutes during NSE hours (9:15 AM–3:30 PM IST) from Yahoo Finance, so it can lag the exchange by up to ~15 minutes. Outside market hours it shows the last close.</li>
         <li><b>Prices are official closes</b> of the last completed session, updated after each market close (about 4:30 PM IST for India, 3 AM IST for the US). They are not live: your broker shows the live price, so compare it with the buy zone before buying.</li>
       </ul>
       <h3>How prices are kept accurate</h3>
@@ -810,17 +810,23 @@
       <span class="px">${Number(d.price).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
       <span class="${cls(ch)}">${ch == null ? "" : (ch >= 0 ? "▲ " : "▼ ") + Math.abs(ch).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${cp == null ? "—" : Math.abs(cp).toFixed(2) + "%"})</span>
       <span class="st">${open ? '<span class="dotlive" aria-hidden="true"></span><span class="sr">Live</span>' : ""}${esc(when)}</span>`;
-    el.title = open ? "Nifty 50 from Yahoo Finance, refreshed about every 10 minutes during market hours; may lag the exchange by up to 15 minutes." : "Nifty 50 last close.";
+    el.title = open ? "Nifty 50 from Yahoo Finance, refreshed every few minutes during market hours; may lag the exchange by up to 15 minutes." : "Nifty 50 last close.";
     el.hidden = false;
   }
   const fallbackNifty = () => {
     const q = PRICES.quotes["^NSEI"];
     return q ? { price: q.price, prevClose: q.prevClose, changePct: q.changePct, state: "closed", time: q.asOf ? q.asOf + "T15:30:00+05:30" : null } : null;
   };
+  // Newest of: the live-data branch (updated every ~2 min in NSE hours by the
+  // Live Nifty workflow) and the copy published with the site.
+  const LIVE_SOURCES = ["https://raw.githubusercontent.com/gssdesign/Stockproject/live-data/live.json", "data/live.json"];
   function loadNifty() {
-    fetch("data/live.json?t=" + Date.now(), { cache: "no-store" })
-      .then(r => r.ok ? r.json() : null).catch(() => null)
-      .then(d => drawNifty(d && d.price != null ? d : fallbackNifty()));
+    Promise.all(LIVE_SOURCES.map(u => fetch(u + "?t=" + Date.now(), { cache: "no-store" })
+      .then(r => r.ok ? r.json() : null).catch(() => null)))
+      .then(list => {
+        const ok = list.filter(d => d && d.price != null).sort((a, b) => String(b.fetched || "").localeCompare(String(a.fetched || "")));
+        drawNifty(ok[0] || fallbackNifty());
+      });
   }
   drawNifty(fallbackNifty());
   loadNifty();

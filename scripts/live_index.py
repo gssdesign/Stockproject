@@ -21,34 +21,39 @@ IST = ZoneInfo("Asia/Kolkata")
 OPEN, CLOSE = dt.time(9, 15), dt.time(15, 30)
 
 
+def fetch() -> dict:
+    """Latest Nifty 50 level and its change vs the previous session's close."""
+    import yfinance as yf
+    t = yf.Ticker("^NSEI")
+    daily = t.history(period="10d", interval="1d", auto_adjust=False).dropna(subset=["Close"])
+    intra = t.history(period="1d", interval="1m", auto_adjust=False).dropna(subset=["Close"])
+    now = dt.datetime.now(IST)
+    if not intra.empty and intra.index[-1].astimezone(IST).date() == now.date():
+        last_ts = intra.index[-1].astimezone(IST)
+        price = float(intra["Close"].iloc[-1])
+        prev = [float(c) for i, c in daily["Close"].items() if i.astimezone(IST).date() < now.date()]
+    else:  # market hasn't traded today: show the last completed session
+        last_ts = daily.index[-1].astimezone(IST).replace(hour=15, minute=30)
+        price = float(daily["Close"].iloc[-1])
+        prev = [float(c) for c in daily["Close"].iloc[:-1]]
+    if not prev:
+        raise ValueError("no previous close")
+    prev_close = prev[-1]
+    is_open = (now.weekday() < 5 and OPEN <= now.time() <= CLOSE and last_ts.date() == now.date()
+               and (now - last_ts) < dt.timedelta(minutes=30))
+    return {
+        "symbol": "^NSEI", "name": "NIFTY 50",
+        "price": round(price, 2), "prevClose": round(prev_close, 2),
+        "change": round(price - prev_close, 2), "changePct": round((price / prev_close - 1) * 100, 2),
+        "time": last_ts.isoformat(timespec="minutes"), "state": "open" if is_open else "closed",
+        "fetched": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
+    }
+
+
 def main() -> int:
     out = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else ".") / "data" / "live.json"
     try:
-        import yfinance as yf
-        t = yf.Ticker("^NSEI")
-        daily = t.history(period="10d", interval="1d", auto_adjust=False).dropna(subset=["Close"])
-        intra = t.history(period="1d", interval="1m", auto_adjust=False).dropna(subset=["Close"])
-        now = dt.datetime.now(IST)
-        if not intra.empty and intra.index[-1].astimezone(IST).date() == now.date():
-            last_ts = intra.index[-1].astimezone(IST)
-            price = float(intra["Close"].iloc[-1])
-            prev = [float(c) for i, c in daily["Close"].items() if i.astimezone(IST).date() < now.date()]
-        else:  # market hasn't traded today: show the last completed session
-            last_ts = daily.index[-1].astimezone(IST).replace(hour=15, minute=30)
-            price = float(daily["Close"].iloc[-1])
-            prev = [float(c) for c in daily["Close"].iloc[:-1]]
-        if not prev:
-            raise ValueError("no previous close")
-        prev_close = prev[-1]
-        is_open = (now.weekday() < 5 and OPEN <= now.time() <= CLOSE and last_ts.date() == now.date()
-                   and (now - last_ts) < dt.timedelta(minutes=30))
-        data = {
-            "symbol": "^NSEI", "name": "NIFTY 50",
-            "price": round(price, 2), "prevClose": round(prev_close, 2),
-            "change": round(price - prev_close, 2), "changePct": round((price / prev_close - 1) * 100, 2),
-            "time": last_ts.isoformat(timespec="minutes"), "state": "open" if is_open else "closed",
-            "fetched": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
-        }
+        data = fetch()
     except Exception as exc:  # never break the publish
         print(f"live_index: skipped ({exc})", file=sys.stderr)
         return 0

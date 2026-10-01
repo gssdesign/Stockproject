@@ -1,0 +1,40 @@
+name: Live Nifty
+
+# Streams the Nifty 50 level to the `live-data` branch every 2 minutes during
+# NSE hours (scripts/live_loop.py); the site reads it from
+# raw.githubusercontent.com. One long-running job per day instead of a
+# frequent schedule, because GitHub often delays or skips frequent cron runs.
+# Later starts are backups: if a run is already streaming they queue, then
+# exit immediately after the close.
+on:
+  schedule:
+    - cron: "35 3 * * 1-5"   # 09:05 IST
+    - cron: "10 5 * * 1-5"   # 10:40 IST (backup)
+    - cron: "40 6 * * 1-5"   # 12:10 IST (backup)
+    - cron: "10 8 * * 1-5"   # 13:40 IST (backup)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: live-nifty
+  cancel-in-progress: false
+
+jobs:
+  stream:
+    runs-on: ubuntu-latest
+    timeout-minutes: 400
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet "yfinance>=0.2.54"
+      - name: Prepare live-data worktree
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git worktree add --orphan -b live-data-local "$RUNNER_TEMP/live"
+      - name: Stream Nifty 50 until the close
+        run: cd scripts && python3 live_loop.py "$RUNNER_TEMP/live"

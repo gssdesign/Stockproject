@@ -273,15 +273,18 @@
   /* ---------- intro (matrix rain + welcome) ---------- */
   #intro { position: fixed; inset: 0; z-index: 1000; background: #000; display: grid; place-items: center; cursor: pointer; transition: opacity .6s ease; }
   #intro.out { opacity: 0; pointer-events: none; }
-  #intro canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  #intro canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .38; filter: blur(1.4px); }
   #intro .msg { position: relative; max-width: min(92vw, 680px); padding: 18px 20px; text-align: center; font: 700 clamp(20px, 5.4vw, 34px)/1.35 "DejaVu Sans Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    color: #b6ffcf; text-shadow: 0 0 8px #00ff66, 0 0 22px rgba(0, 255, 102, .55); background: radial-gradient(ellipse at center, rgba(0,0,0,.82) 0%, rgba(0,0,0,.55) 60%, transparent 100%); border-radius: 18px; }
+    color: #d9ffe6; text-shadow: 0 0 6px rgba(0, 255, 102, .9), 0 0 18px rgba(0, 255, 102, .35); background: rgba(0, 8, 3, .72); border: 1px solid rgba(0, 255, 102, .25);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-radius: 18px; box-shadow: 0 0 40px rgba(0, 0, 0, .8); }
   #intro .msg .sc { color: #00ff66; opacity: .85; }
   #intro .center { position: relative; display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 0 16px; }
-  #intro .timer { position: relative; width: 84px; height: 84px; }
+  #intro .timer { position: relative; width: 84px; height: 84px; opacity: 0; transform: scale(.85); transition: opacity .3s, transform .3s; }
+  #intro .timer.on { opacity: 1; transform: none; }
   #intro .timer svg { width: 84px; height: 84px; transform: rotate(-90deg); }
   #intro .timer circle { fill: rgba(0, 0, 0, .7); stroke: rgba(0, 255, 102, .18); stroke-width: 3; }
-  #intro .timer .arc { fill: none; stroke: #00ff66; stroke-linecap: round; stroke-dasharray: 119.4; stroke-dashoffset: 0; filter: drop-shadow(0 0 4px #00ff66); animation: introRing 8s linear forwards; }
+  #intro .timer .arc { fill: none; stroke: #00ff66; stroke-linecap: round; stroke-dasharray: 119.4; stroke-dashoffset: 0; filter: drop-shadow(0 0 4px #00ff66); }
+  #intro .timer.on .arc { animation: introRing 3s linear forwards; }
   #intro .timer span { position: absolute; inset: 0; display: grid; place-items: center; color: #b6ffcf; font: 700 34px ui-monospace, monospace; text-shadow: 0 0 10px #00ff66; }
   @keyframes introRing { to { stroke-dashoffset: 119.4; } }
   #intro .skip { position: relative; text-align: center; background: rgba(0, 0, 0, .7); padding: 4px 10px; border-radius: 8px; color: rgba(0, 255, 102, .6); font: 12px ui-monospace, monospace; letter-spacing: .12em; }
@@ -300,8 +303,8 @@
   <canvas id="rain" aria-hidden="true"></canvas>
   <div class="center">
     <div class="msg" id="introMsg"></div>
-    <div class="timer" aria-hidden="true"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="arc" cx="22" cy="22" r="19"/></svg><span id="introCount">8</span></div>
-    <div class="skip"><span id="introLabel">ENTERING IN 8s</span> · TAP TO SKIP</div>
+    <div class="timer" aria-hidden="true"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="arc" cx="22" cy="22" r="19"/></svg><span id="introCount">3</span></div>
+    <div class="skip"><span id="introLabel">LOADING…</span> · TAP TO SKIP</div>
   </div>
 </div>
 <script>
@@ -311,17 +314,24 @@
   const MSG = "Mr. Sandhu Welcomes you to Super Intelligence stock suggestion world.";
   const intro = document.getElementById("intro"), msgEl = document.getElementById("introMsg");
   const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const SHOW_MS = 8000, t0 = performance.now();  // splash stays 8 s, then fades
+  const COUNT_MS = 3000;  // countdown runs only after the text has fully loaded
   let done = false, raf = 0, timer = 0;
-  // Visible 8-second countdown (number + draining ring), in sync with the close.
+  // 3-second countdown (number + draining ring), started once the text is shown.
   const countEl = document.getElementById("introCount"), labelEl = document.getElementById("introLabel");
-  const tick = () => {
+  const timerEl = intro.querySelector(".timer");
+  function startCountdown() {
     if (done) return;
-    const left = Math.max(1, Math.ceil((SHOW_MS - (performance.now() - t0)) / 1000));
-    countEl.textContent = left; labelEl.textContent = "ENTERING IN " + left + "s";
-    setTimeout(tick, 200);
-  };
-  tick();
+    const t1 = performance.now();
+    timerEl.classList.add("on");
+    const tick = () => {
+      if (done) return;
+      const left = Math.max(1, Math.ceil((COUNT_MS - (performance.now() - t1)) / 1000));
+      countEl.textContent = left; labelEl.textContent = "ENTERING IN " + left + "s";
+      setTimeout(tick, 150);
+    };
+    tick();
+    timer = setTimeout(close, COUNT_MS);
+  }
   function close() {
     if (done) return; done = true;
     intro.classList.add("out");
@@ -329,7 +339,7 @@
   }
   intro.addEventListener("click", close);
   document.addEventListener("keydown", e => { if (e.key === "Escape" || e.key === "Enter") close(); }, { once: true });
-  if (reduce) { msgEl.textContent = MSG; timer = setTimeout(close, SHOW_MS); return; }
+  if (reduce) { msgEl.textContent = MSG; startCountdown(); return; }
 
   // Code rain
   const cv = document.getElementById("rain"), ctx = cv.getContext("2d");
@@ -361,7 +371,7 @@
   // Decode the message: each letter scrambles, then locks in, left to right.
   const scr = "アカサタナ01#$%&*+=<>?";
   let k = 0;
-  const startAt = 450, perChar = 26, settle = 9;
+  const startAt = 300, perChar = 16, settle = 8;  // text fully decoded in ~2 s
   function decode() {
     if (done) return;
     k++;
@@ -375,10 +385,10 @@
     }
     msgEl.innerHTML = html;
     if (fixed < MSG.length) setTimeout(decode, perChar);
-    else { msgEl.textContent = MSG; timer = setTimeout(close, Math.max(0, SHOW_MS - (performance.now() - t0))); }
+    else { msgEl.textContent = MSG; startCountdown(); }
   }
   setTimeout(decode, startAt);
-  setTimeout(close, SHOW_MS + 4000);  // safety net
+  setTimeout(close, 9000);  // safety net
 })();
 </script>
 <header class="top">

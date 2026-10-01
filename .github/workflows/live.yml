@@ -12,6 +12,9 @@ on:
     - cron: "10 5 * * 1-5"   # 10:40 IST (backup)
     - cron: "40 6 * * 1-5"   # 12:10 IST (backup)
     - cron: "10 8 * * 1-5"   # 13:40 IST (backup)
+  push:
+    paths:
+      - ".github/kick/live"   # pushed each trading morning by a scheduled Claude job (GitHub cron can be hours late)
   workflow_dispatch:
 
 permissions:

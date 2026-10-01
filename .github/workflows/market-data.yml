@@ -18,6 +18,7 @@ on:
       - "scripts/**"
       - ".github/workflows/market-data.yml"
       - "requirements.txt"
+      - ".github/kick/market-data"   # pushed by the scheduled Claude jobs: GitHub's own cron runs hours late
   workflow_dispatch:
 
 permissions:

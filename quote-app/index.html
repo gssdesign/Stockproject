@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daily Compass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>
+/* Layout: one narrow column, a three-step check-in; question 1 is drawn as the
+   Mood Meter grid itself (energy up, pleasantness right), then the quote. */
+:root {
+  --bg: #f3f4f0;
+  --surface: #fbfbf9;
+  --fg: #1c2421;
+  --muted: #5a6762;
+  --line: #d6dbd5;
+  --accent: #2c5a4d;
+  --accent-ink: #f6f8f6;
+  --mood-red: #c8463f;
+  --mood-yellow: #d9a514;
+  --mood-blue: #3f6fae;
+  --mood-green: #3f8f5c;
+  --tint: 12%;
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-ui: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121715; --surface: #18201d; --fg: #e7ece9; --muted: #9ba8a2; --line: #2b3531;
+    --accent: #8cc3b0; --accent-ink: #0f1513;
+    --mood-red: #e57069; --mood-yellow: #e9c04a; --mood-blue: #77a2dc; --mood-green: #6fbf8b;
+    --tint: 18%; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121715; --surface: #18201d; --fg: #e7ece9; --muted: #9ba8a2; --line: #2b3531;
+  --accent: #8cc3b0; --accent-ink: #0f1513;
+  --mood-red: #e57069; --mood-yellow: #e9c04a; --mood-blue: #77a2dc; --mood-green: #6fbf8b;
+  --tint: 18%; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 1rem/1.55 var(--font-ui);
+  padding-inline: 16px;
+  padding-block: 0 48px;
+}
+.wrap { max-width: 40rem; margin: 0 auto; display: grid; gap: 28px; }
+
+header.top {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding-block: 20px 4px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.01em; }
+.brand svg { width: 26px; height: 26px; flex: none; }
+.steps { display: flex; gap: 6px; align-items: center; font-size: 0.8125rem; color: var(--muted); }
+.steps i { width: 22px; height: 4px; border-radius: 2px; background: var(--line); display: block; }
+.steps i.on { background: var(--accent); }
+
+.eyebrow {
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  margin: 0;
+}
+h1 {
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(1.75rem, 5vw, 2.25rem);
+  line-height: 1.15; margin: 6px 0 8px; text-wrap: balance;
+}
+.lede { margin: 0; color: var(--muted); max-width: 34rem; }
+
+/* Question 1: the Mood Meter grid */
+.meter { display: grid; grid-template-columns: auto 1fr; grid-template-rows: 1fr auto; gap: 8px; }
+.axis-y {
+  writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.75rem; color: var(--muted);
+  letter-spacing: 0.06em; text-transform: uppercase; text-align: center;
+}
+.axis-x { grid-column: 2; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; text-align: center; }
+.quad { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+.opt {
+  --c: var(--accent);
+  appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--fg);
+  font: inherit; text-align: left; cursor: pointer; border-radius: 12px;
+  padding: 16px; display: grid; gap: 4px; min-width: 0;
+  transition: border-color .15s, background-color .15s, transform .15s;
+}
+.opt:hover { border-color: var(--c); background: color-mix(in srgb, var(--c) var(--tint), var(--surface)); }
+.opt:active { transform: scale(0.985); }
+.opt:focus-visible { outline: 3px solid var(--c); outline-offset: 2px; }
+.opt.picked { border-color: var(--c); background: color-mix(in srgb, var(--c) var(--tint), var(--surface)); }
+.opt .t { font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.opt .d { font-size: 0.875rem; color: var(--muted); }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); flex: none; }
+.quad .opt { min-height: 118px; align-content: start; }
+.mood-r { --c: var(--mood-red); } .mood-y { --c: var(--mood-yellow); }
+.mood-b { --c: var(--mood-blue); } .mood-g { --c: var(--mood-green); }
+
+.list { display: grid; gap: 8px; }
+.list .opt { grid-template-columns: 1fr; }
+
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.btn {
+  appearance: none; font: 600 0.9375rem/1 var(--font-ui); border-radius: 999px; cursor: pointer;
+  padding: 12px 18px; border: 1px solid var(--line); background: transparent; color: var(--fg);
+}
+.btn:hover { border-color: var(--accent); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.link { border: 0; padding-inline: 0; color: var(--muted); font-weight: 500; }
+.btn.link:hover { color: var(--fg); }
+
+/* Result */
+.quote-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+  padding: clamp(22px, 5vw, 40px); display: grid; gap: 20px; position: relative; overflow: hidden;
+}
+.quote-card::before {
+  content: ""; position: absolute; inset: 0 auto 0 0; width: 6px; background: var(--c, var(--accent));
+}
+blockquote { margin: 0; }
+.qtext {
+  font-family: var(--font-display); font-size: clamp(1.4rem, 4.4vw, 1.95rem); line-height: 1.3;
+  font-weight: 400; margin: 0; text-wrap: pretty;
+}
+.qtext::before { content: "\201C"; } .qtext::after { content: "\201D"; }
+.qby { margin: 0; font-weight: 600; }
+.qsrc { margin: 2px 0 0; font-size: 0.875rem; color: var(--muted); font-style: italic; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.why { display: grid; gap: 10px; }
+.why p { margin: 0; color: var(--muted); max-width: 36rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  --c: var(--accent);
+  font-size: 0.8125rem; font-weight: 600; padding: 5px 10px; border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--c) 45%, var(--line));
+  background: color-mix(in srgb, var(--c) var(--tint), var(--surface));
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.care {
+  border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-size: 0.9rem; color: var(--muted);
+}
+.care strong { color: var(--fg); }
+.toast { font-size: 0.875rem; color: var(--accent); min-height: 1.2em; margin: 0; }
+
+footer { font-size: 0.8125rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+footer p { margin: 0 0 6px; }
+
+.fade { animation: in .32s ease-out both; }
+@keyframes in { from { opacity: .35; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .fade { animation: none; } .opt { transition: none; } }
+
+@media (max-width: 420px) {
+  .quad .opt { min-height: 104px; padding: 12px; }
+  .opt .d { font-size: 0.8125rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M16 5 L19.5 16 L16 27 L12.5 16 Z" fill="var(--accent)"/>
+        <circle cx="16" cy="16" r="2" fill="var(--surface)"/>
+      </svg>
+      <span>Daily Compass</span>
+    </div>
+    <div class="steps" id="steps" aria-live="polite"></div>
+  </header>
+
+  <main id="app"></main>
+
+  <footer>
+    <p>The three questions come from emotion and motivation research: the Mood Meter (Yale Center for Emotional Intelligence), self-determination theory, and studies showing that a message lands better when it fits what the reader needs right now.</p>
+    <p>Every quote has a named source. Well-known misattributions are left out.</p>
+  </footer>
+</div>
+
+<script src="quotes.js"></script>
+<script>
+(() => {
+  const QUESTIONS = [
+    {
+      key: "m",
+      eyebrow: "Question 1 of 3",
+      title: "How are you feeling right now?",
+      lede: "Pick the corner closest to your mood. Up means more energy, right means more pleasant.",
+      layout: "meter",
+      options: [
+        { v: "r", t: "Tense", d: "Stressed, anxious, frustrated, on edge", cls: "mood-r" },
+        { v: "y", t: "Fired up", d: "Excited, hopeful, eager, energized", cls: "mood-y" },
+        { v: "b", t: "Low", d: "Tired, sad, stuck, discouraged", cls: "mood-b" },
+        { v: "g", t: "At ease", d: "Calm, content, thoughtful, relaxed", cls: "mood-g" }
+      ]
+    },
+    {
+      key: "a",
+      eyebrow: "Question 2 of 3",
+      title: "What's on your mind most today?",
+      lede: "The area of life taking up the most of your attention.",
+      options: [
+        { v: "work", t: "Work, studies or a goal", d: "A project, an exam, a target, my career" },
+        { v: "people", t: "The people in my life", d: "Family, friends, a partner, colleagues" },
+        { v: "self", t: "Myself and my direction", d: "Who I am, habits, where I'm heading" },
+        { v: "setback", t: "A setback or a big change", d: "A loss, a failure, a rejection, something new" }
+      ]
+    },
+    {
+      key: "n",
+      eyebrow: "Question 3 of 3",
+      title: "What would help you most right now?",
+      lede: "Choose the kind of words you'd like to hear.",
+      options: [
+        { v: "push", t: "A push to get going", d: "Something that makes me want to act" },
+        { v: "calm", t: "Calm and perspective", d: "Something that slows things down" },
+        { v: "courage", t: "Courage to keep going", d: "Something that reminds me I can handle this" },
+        { v: "wisdom", t: "Something to think about", d: "A line I can reflect on today" }
+      ]
+    }
+  ];
+
+  const LABEL = {
+    m: { r: "Tense", y: "Fired up", b: "Low", g: "At ease" },
+    a: { work: "Work or a goal", people: "People", self: "Myself", setback: "A setback" },
+    n: { push: "A push", calm: "Calm", courage: "Courage", wisdom: "Reflection" }
+  };
+  const MOOD_CLASS = { r: "mood-r", y: "mood-y", b: "mood-b", g: "mood-g" };
+  const WHY_MOOD = {
+    r: "You're running hot, so this one turns the volume down on the noise in your head.",
+    y: "You've got energy to spend, so this one points it somewhere worth going.",
+    b: "Your battery is low, so this one is gentle and asks for only the next small step.",
+    g: "You're settled, which is a good state for a line that's worth sitting with."
+  };
+  const WHY_NEED = {
+    push: "You asked for momentum.",
+    calm: "You asked for steadiness.",
+    courage: "You asked for strength to keep going.",
+    wisdom: "You asked for something to reflect on."
+  };
+  const W = { n: 3, m: 2, a: 2 };
+
+  const app = document.getElementById("app");
+  const stepsEl = document.getElementById("steps");
+  const answers = {};
+  let step = 0;
+  let ranked = [];
+  let cursor = 0;
+
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
+  };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  function renderSteps() {
+    const done = step >= QUESTIONS.length;
+    stepsEl.innerHTML = QUESTIONS.map((_, i) => `<i class="${i <= step || done ? "on" : ""}"></i>`).join("")
+      + `<span>${done ? "Your quote" : `${step + 1} / ${QUESTIONS.length}`}</span>`;
+  }
+
+  function optionHTML(o, key) {
+    const picked = answers[key] === o.v ? " picked" : "";
+    return `<button type="button" id="opt-${key}-${o.v}" class="opt ${o.cls || ""}${picked}" data-v="${o.v}">
+      <span class="t">${o.cls ? '<span class="dot"></span>' : ""}${esc(o.t)}</span>
+      <span class="d">${esc(o.d)}</span></button>`;
+  }
+
+  function renderQuestion() {
+    const q = QUESTIONS[step];
+    const opts = q.options.map(o => optionHTML(o, q.key)).join("");
+    const body = q.layout === "meter"
+      ? `<div class="meter"><div class="axis-y">Energy &rarr;</div><div class="quad">${opts}</div><div class="axis-x">Pleasantness &rarr;</div></div>`
+      : `<div class="list">${opts}</div>`;
+    app.innerHTML = `<section class="fade" style="display:grid;gap:20px" aria-labelledby="qtitle">
+      <div><p class="eyebrow">${q.eyebrow}</p><h1 id="qtitle">${q.title}</h1><p class="lede">${q.lede}</p></div>
+      ${body}
+      <div class="nav">${step > 0 ? '<button type="button" class="btn link" id="back">&larr; Back</button>' : "<span></span>"}</div>
+    </section>`;
+    app.querySelectorAll(".opt").forEach(b => b.addEventListener("click", () => {
+      answers[q.key] = b.dataset.v;
+      step++;
+      if (step >= QUESTIONS.length) { rank(); cursor = 0; renderResult(); } else renderQuestion();
+      renderSteps();
+    }));
+    const back = document.getElementById("back");
+    if (back) back.addEventListener("click", () => { step--; renderQuestion(); renderSteps(); });
+    renderSteps();
+  }
+
+  // Score every quote against the answers; what the reader asked for (need)
+  // weighs most, then mood and life area. Within a score tier, recently shown
+  // quotes go last and the rest are shuffled so repeat check-ins vary.
+  function rank() {
+    const recent = store.get("dc-recent", []);
+    ranked = window.QUOTES.map(q => {
+      let s = 0;
+      for (const k of ["n", "m", "a"]) if (q[k].includes(answers[k])) s += W[k];
+      return { q, s, seen: recent.includes(q.id) ? 1 : 0, r: Math.random() };
+    }).sort((x, y) => y.s - x.s || x.seen - y.seen || x.r - y.r);
+  }
+
+  function remember(id) {
+    const recent = store.get("dc-recent", []).filter(x => x !== id);
+    recent.unshift(id);
+    store.set("dc-recent", recent.slice(0, 25));
+  }
+
+  function renderResult() {
+    const { q } = ranked[cursor % ranked.length];
+    remember(q.id);
+    const mood = answers.m;
+    const matched = ["m", "a", "n"].filter(k => q[k].includes(answers[k]));
+    const chips = ["m", "a", "n"].map(k => {
+      const c = k === "m" ? ` style="--c: var(--mood-${{ r: "red", y: "yellow", b: "blue", g: "green" }[mood]})"` : "";
+      return `<span class="chip"${c}>${esc(LABEL[k][answers[k]])}${matched.includes(k) ? "" : " · near match"}</span>`;
+    }).join("");
+    const care = (mood === "b" && (answers.a === "setback" || answers.n === "courage"))
+      ? `<div class="care"><strong>If today feels heavier than a quote can carry,</strong> talk to someone you trust. In India, Tele-MANAS is free and open 24/7 at <strong>14416</strong>. In the US, call or text <strong>988</strong>. Elsewhere, findahelpline.com lists local services.</div>`
+      : "";
+
+    app.innerHTML = `<section class="fade" style="display:grid;gap:22px" aria-live="polite">
+      <div><p class="eyebrow">For right now</p></div>
+      <article class="quote-card ${MOOD_CLASS[mood]}">
+        <blockquote><p class="qtext">${esc(q.t)}</p></blockquote>
+        <div><p class="qby">${esc(q.by)}</p><p class="qsrc">${esc(q.src)}</p></div>
+        <div class="actions">
+          <button type="button" class="btn primary" id="another">Show another</button>
+          <button type="button" class="btn" id="copy">Copy quote</button>
+        </div>
+        <p class="toast" id="toast"></p>
+      </article>
+      <div class="why">
+        <p class="eyebrow">Why this one</p>
+        <div class="chips">${chips}</div>
+        <p>${WHY_MOOD[mood]} ${WHY_NEED[answers.n]}</p>
+      </div>
+      ${care}
+      <div class="nav"><button type="button" class="btn link" id="restart">&larr; Check in again</button>
+        <span style="font-size:.8125rem;color:var(--muted)">${(cursor % ranked.length) + 1} of ${ranked.length} ranked for you</span></div>
+    </section>`;
+
+    document.getElementById("another").addEventListener("click", () => { cursor++; renderResult(); });
+    document.getElementById("restart").addEventListener("click", () => {
+      for (const k in answers) delete answers[k];
+      step = 0; renderQuestion();
+    });
+    document.getElementById("copy").addEventListener("click", () => {
+      const text = `"${q.t}" — ${q.by}, ${q.src}`;
+      const toast = document.getElementById("toast");
+      const done = () => { toast.textContent = "Copied to clipboard."; };
+      const fallback = () => {
+        const range = document.createRange();
+        range.selectNodeContents(app.querySelector(".qtext"));
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        toast.textContent = "Quote selected. Press Ctrl+C or Cmd+C to copy.";
+      };
+      try { navigator.clipboard.writeText(text).then(done, fallback); } catch { fallback(); }
+    });
+  }
+
+  renderQuestion();
+})();
+</script>
+</body>
+</html>

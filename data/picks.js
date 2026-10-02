@@ -77,7 +77,65 @@ window.PICKS = {
               "SEC EDGAR – HPE Form 8-K, Networking Investor Day",
               "https://www.sec.gov/Archives/edgar/data/0001645590/000164559026000084/hpenetworkinginvestorday20.htm"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 615.73,
+            "date": "2026-10-01",
+            "researchPrice": 615.73,
+            "researchDate": "2026-10-01",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $12,595M (min $50M), price $615.73"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $557.6"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +33.5 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+283.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.86% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.86,
+            "sma20": 557.6,
+            "sma50": 511.65,
+            "sma200": 372.59,
+            "rs1m": 33.51,
+            "rs3m": 16.46,
+            "fromHigh52": -3.64,
+            "fromLow52": 283.66,
+            "avgValue20": 12594651687,
+            "extAtr": 2.44
+          }
         },
         {
           "market": "US",
@@ -131,7 +189,65 @@ window.PICKS = {
               "Yahoo Finance – Meta launches enterprise AI platform",
               "https://finance.yahoo.com/technology/ai/articles/meta-launches-enterprise-ai-platform-224822918.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 725.93,
+            "date": "2026-10-01",
+            "researchPrice": 725.93,
+            "researchDate": "2026-10-01",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $16,762M (min $50M), price $725.93"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $690.05"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +25.0 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+39.5% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.6% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.6,
+            "sma20": 690.05,
+            "sma50": 622.6,
+            "sma200": 627.98,
+            "rs1m": 25.02,
+            "rs3m": 22.09,
+            "fromHigh52": -6.91,
+            "fromLow52": 39.53,
+            "avgValue20": 16761964318,
+            "extAtr": 1.37
+          }
         }
       ],
       "marketSources": [

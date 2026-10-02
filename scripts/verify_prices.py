@@ -31,7 +31,8 @@ CLOSE_UTC_HOUR = {"US": 20, "IN": 10}  # regular-session close, UTC (US uses EDT
 
 
 def bars_for(symbol: str, start: dt.date) -> list[dict]:
-    df = yf.Ticker(symbol).history(start=start.isoformat(), auto_adjust=False)
+    # Yahoo sometimes returns a row with no prices for the latest session; skip it.
+    df = yf.Ticker(symbol).history(start=start.isoformat(), auto_adjust=False).dropna(subset=["Close"])
     return completed([{"date": i.date().isoformat(), "open": float(r["Open"]), "high": float(r["High"]), "low": float(r["Low"]),
                        "close": float(r["Close"]), "volume": float(r["Volume"] or 0)} for i, r in df.iterrows()], symbol)
 

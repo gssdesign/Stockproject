@@ -41,7 +41,8 @@ def load_picks() -> dict:
 
 
 def history(symbol: str, start: dt.date):
-    df = yf.Ticker(symbol).history(start=start.isoformat(), auto_adjust=False)
+    # Yahoo sometimes returns a row with no prices for the latest session; skip it.
+    df = yf.Ticker(symbol).history(start=start.isoformat(), auto_adjust=False).dropna(subset=["Close"])
     if df.empty:
         return []
     return completed([

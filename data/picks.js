@@ -4,6 +4,152 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-02-daily",
+      "horizon": "daily",
+      "date": "2026-10-02",
+      "horizonDays": 1,
+      "expires": "2026-10-02",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7666.45,
+          "summary": "Risk-on: the S&P 500 closed at 7,666.45 on 2026-10-01 (+0.19%), above its 50-day (7,651) and 200-day (7,221) averages, as Treasury yields eased back from their highest levels in more than 20 years. The big event today is the September jobs report at 8:30 AM ET, before the open: consensus is about 90,000 jobs with unemployment at 4.1%, and a surprise either way could move yields and the open sharply. That's why the list is short and each pick has a firm skip-outside-the-zone rule. Only two names had a fresh, dated catalyst on a clean chart: AMD (HPE's first $1.2B Helios rack order, announced 30 Sep–1 Oct) and Meta (named a Deutsche Bank top AI pick on 1 Oct). Refiners MPC and VLO pass the screen but jumped 5–6% on 1 Oct with no company news, so they were left out. Yesterday's NVDA and ANET weren't repeated, since neither has a new catalyst. No learned rule changes are in force yet: fewer than 20 daily picks have finished."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22620.45,
+          "summary": "Risk-off, and no India picks today: NSE and BSE are closed on Fri 2 Oct 2026 for Gandhi Jayanti. The Nifty 50 last closed at 22,620.45 on 2026-09-30, below its 50-day (23,902) and 200-day (24,373) averages. India daily picks resume next trading day, Mon 5 Oct."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "AMD",
+          "yahoo": "AMD",
+          "name": "Advanced Micro Devices",
+          "sector": "Information Technology / Semiconductors",
+          "currency": "USD",
+          "refPrice": 615.73,
+          "refDate": "2026-10-01",
+          "buyLow": 606.22,
+          "buyHigh": 620.49,
+          "target": 643.08,
+          "stop": 595.52,
+          "risk": "Medium",
+          "thesis": "HPE's first order for AMD's Helios AI rack, $1.2 billion from Vultr announced 30 Sep–1 Oct, is real-world proof of AMD's full-rack GPU push, and the stock is just 3.6% below its high.",
+          "reasons": [
+            "HPE announced a $1.2B order from Vultr for AMD Helios racks (72 Instinct MI455X GPUs plus EPYC 'Venice' CPUs per rack) at its 30 Sep–1 Oct Networking Investor Day. It's the first Helios order disclosed and raised HPE's fiscal-2027 networking growth outlook to high-teens to low-20s %.",
+            "AMD closed at $615.73 on 1 Oct (+0.65%), up 34% in a month and beating the S&P 500 by 33.5 pts over 1 month and 16.5 pts over 3 months, 3.6% below its 52-week high of $639.",
+            "AI hardware demand is still strong: Micron's 30 Sep results ($54.2B revenue vs $51.1B expected, Q1 guide ~$61.5B) and its higher capex point to sustained AI data-center spending."
+          ],
+          "data": [
+            [
+              "Close (10/01)",
+              "$615.73"
+            ],
+            [
+              "1-month vs index",
+              "+33.5 pts"
+            ],
+            [
+              "Helios order (HPE/Vultr)",
+              "$1.2B, first disclosed"
+            ],
+            [
+              "ATR",
+              "3.86% of price"
+            ]
+          ],
+          "watch": "It's stretched (2.4 ATR above its 20-day average after a 34% month), and the 8:30 AM ET jobs report could jolt yields and chip stocks at the open. Skip it if it opens outside $606.22–620.49.",
+          "sources": [
+            [
+              "Yahoo Finance – HPE raises networking outlook, lands $1.2 billion Vultr AI order",
+              "https://finance.yahoo.com/technology/ai/articles/hpe-raises-networking-outlook-lands-123217459.html"
+            ],
+            [
+              "Fortune – HPE's $1.2 billion order from Vultr puts its AI networking strategy to the test (Oct 1, 2026)",
+              "https://fortune.com/2026/10/01/hpe-1-2-billion-vultr-order-puts-ai-networking-strategy-test-cfo/"
+            ],
+            [
+              "SEC EDGAR – HPE Form 8-K, Networking Investor Day",
+              "https://www.sec.gov/Archives/edgar/data/0001645590/000164559026000084/hpenetworkinginvestorday20.htm"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "META",
+          "yahoo": "META",
+          "name": "Meta Platforms",
+          "sector": "Communication Services / Interactive Media",
+          "currency": "USD",
+          "refPrice": 725.93,
+          "refDate": "2026-10-01",
+          "buyLow": 715.46,
+          "buyHigh": 731.16,
+          "target": 756.02,
+          "stop": 703.69,
+          "risk": "Medium",
+          "thesis": "Deutsche Bank named Meta one of its top picks for the next leg of the AI trade on 1 Oct, and the stock is consolidating 7% below its high after a 25% month.",
+          "reasons": [
+            "On 1 Oct Deutsche Bank named Meta among nine tech stocks it expects to lead the next phase of the AI trade, favouring companies already turning AI agents into revenue.",
+            "Meta's AI push is gaining traction: the Muse agent launched on 8 Sep and topped the iOS App Store, and Meta has since launched an enterprise AI platform. It's beating the S&P 500 by 25.0 pts over 1 month and 22.1 pts over 3 months.",
+            "The setup is a pause, not a spike: at $725.93 (1 Oct) it's 6.9% below its $779.82 high and 1.4 ATR above its 20-day average ($690.05), with ATR 3.6%."
+          ],
+          "data": [
+            [
+              "Close (10/01)",
+              "$725.93"
+            ],
+            [
+              "3-month vs index",
+              "+22.1 pts"
+            ],
+            [
+              "Deutsche Bank",
+              "Top AI pick (10/01)"
+            ],
+            [
+              "ATR",
+              "3.6% of price"
+            ]
+          ],
+          "watch": "Capex worries (2026 capex floor raised to $130B) and a jobs-report jump in yields could hit megacap tech. It's also in this week's weekly list, so don't double up on size. Skip it if it opens outside $715.46–731.16.",
+          "sources": [
+            [
+              "Yahoo Finance – Deutsche Bank picks Meta, ServiceNow for next AI trade leg",
+              "https://finance.yahoo.com/technology/ai/articles/deutsche-bank-picks-meta-servicenow-125916376.html"
+            ],
+            [
+              "Quartz – Deutsche Bank names Meta, ServiceNow, and 7 other tech stocks to lead next AI trade leg",
+              "https://qz.com/deutsche-bank-meta-servicenow-tech-stocks-ai-trade-100126"
+            ],
+            [
+              "Yahoo Finance – Meta launches enterprise AI platform",
+              "https://finance.yahoo.com/technology/ai/articles/meta-launches-enterprise-ai-platform-224822918.html"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – The September jobs report will be released Friday. Here's what to expect (Oct 1, 2026)",
+          "https://www.cnbc.com/2026/10/01/the-september-jobs-report-will-be-released-friday-heres-what-to-expect.html"
+        ],
+        [
+          "Yahoo Finance – Stock market today, Oct 1: Dow, S&P 500, Nasdaq stage comeback as Treasury yields fall",
+          "https://finance.yahoo.com/markets/live/stock-market-today-thursday-oct-1-dow-sp-500-nasdaq-080602402.html"
+        ],
+        [
+          "ZeeBiz – NSE/BSE holidays October 2026",
+          "https://www.zeebiz.com/market-news/news-stock-market-holiday-october-2026-nse-bse-to-remain-closed-for-11-days-check-full-list-402881"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-01-daily-v2",
       "horizon": "daily",
       "date": "2026-10-01",

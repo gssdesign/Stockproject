@@ -73,6 +73,14 @@
   @media (prefers-reduced-motion: reduce) { .ticker .dotlive { animation: none; } }
   .bar { display: flex; align-items: center; gap: 12px; height: 52px; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; letter-spacing: -.01em; margin-right: auto; }
+  .style-sel { appearance: none; -webkit-appearance: none; border: 1px solid var(--line); background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 20 20'%3E%3Cpath d='M5 8l5 5 5-5' fill='none' stroke='%238b94a2' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 9px center; color: var(--text); font: inherit; font-size: 13px; font-weight: 600; padding: 0 28px 0 10px; min-height: 36px; border-radius: 10px; cursor: pointer; max-width: 210px; text-overflow: ellipsis; }
+  .style-sel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .style-note { background: var(--accent-soft); border-radius: 12px; padding: 10px 12px; font-size: 13px; margin-bottom: 12px; }
+  .metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 12px; }
+  .metrics div { background: var(--surface-2); border-radius: 10px; padding: 7px 8px; font-size: 11px; color: var(--muted); min-width: 0; }
+  .metrics b { display: block; font-size: 14px; color: var(--text); white-space: nowrap; }
+  .principles { margin: 6px 0 0; padding-left: 18px; font-size: 13.5px; }
+  .principles li { margin-bottom: 6px; }
   .tabs-top { display: flex; gap: 4px; }
   .tabs-top button { border: 0; background: none; color: var(--muted); font-weight: 600; padding: 8px 14px; border-radius: 10px; cursor: pointer; min-height: 40px; }
   .tabs-top button[aria-selected="true"] { background: var(--accent-soft); color: var(--accent); }
@@ -426,7 +434,11 @@
   <path d="M57 33.5c-4-5.5-25-7-25 4.5 0 12.5 26 9 26 22.5 0 12.5-21 12-27 4.5" fill="none" stroke="#fff" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M73 72V40" fill="none" stroke="#fff" stroke-width="10.5" stroke-linecap="round"/>
   <path d="M62.5 41.5 73 25l10.5 16.5z" fill="#3ddc97" stroke="#3ddc97" stroke-width="3" stroke-linejoin="round"/>
-</svg>Stock SI</div>
+</svg>Stock SI<select id="styleSel" class="style-sel" aria-label="Whose recommendations">
+        <option value="claude">Claude recommendations</option>
+        <option value="buffett">Warren Buffett style</option>
+        <option value="munger">Charlie Munger style</option>
+      </select></div>
       <nav class="tabs-top" role="tablist" aria-label="Sections">
         <button role="tab" data-view="picks">Today</button>
         <button role="tab" data-view="history">Results</button>
@@ -471,6 +483,9 @@
   </section>
 
   <!-- MUTUAL FUNDS -->
+  <!-- INVESTOR STYLES (STYLES.md) -->
+  <section id="view-style" hidden><div id="styleView"></div></section>
+
   <section id="view-funds" role="tabpanel" hidden><div id="funds"></div></section>
 
   <!-- METHOD -->
@@ -567,13 +582,14 @@
 <script src="data/archive/index.js"></script>
 <script src="data/tuning.js"></script>
 <script src="data/funds.js"></script>
+<script src="data/styles.js"></script>
 <script>
 (function () {
   const PICKS = window.PICKS || { batches: [] };
   const PRICES = window.PRICES || {};
   PRICES.quotes = PRICES.quotes || {}; PRICES.tracking = PRICES.tracking || {};
   const AIDX = window.ARCHIVE_INDEX || { months: [] };
-  const state = { view: "picks", market: "IN", horizon: "daily", batch: "", hf: "" };
+  const state = { view: "picks", market: "IN", horizon: "daily", batch: "", hf: "", style: "claude" };
   const CHEV = '<svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const CLOSE_LABEL = { daily: "session close", weekly: "week-end close", monthly: "month-end close" };
   const HNAME = { daily: "Daily", weekly: "Weekly", monthly: "Monthly" };
@@ -660,11 +676,11 @@
     if ("market" in patch || "horizon" in patch) patch.hf = "";
     Object.assign(state, patch);
     try { history.replaceState(null, "", `#${state.view}/${state.market}/${state.horizon}${state.batch ? "/" + state.batch : ""}`); } catch (e) {}
-    try { localStorage.setItem("spd-prefs", JSON.stringify({ market: state.market, horizon: state.horizon })); } catch (e) {}
+    try { localStorage.setItem("spd-prefs", JSON.stringify({ market: state.market, horizon: state.horizon, style: state.style })); } catch (e) {}
     render();
   }
   (function init() {
-    try { const p = JSON.parse(localStorage.getItem("spd-prefs") || "{}"); if (p.market) state.market = p.market; if (p.horizon) state.horizon = p.horizon; } catch (e) {}
+    try { const p = JSON.parse(localStorage.getItem("spd-prefs") || "{}"); if (p.market) state.market = p.market; if (p.horizon) state.horizon = p.horizon; if (["claude", "buffett", "munger"].includes(p.style)) state.style = p.style; } catch (e) {}
     const [v, m, h, b] = (location.hash || "").slice(1).split("/");
     if (["picks", "history", "funds", "method"].includes(v)) state.view = v;
     if (["US", "IN"].includes(m)) state.market = m;
@@ -673,6 +689,7 @@
   })();
   document.querySelectorAll("[data-view]").forEach(b => b.addEventListener("click", () => { setState({ view: b.dataset.view }); window.scrollTo(0, 0); }));
   document.querySelectorAll("[data-market]").forEach(b => b.addEventListener("click", () => setState({ market: b.dataset.market })));
+  $("styleSel").addEventListener("change", e => { setState({ style: e.target.value, view: "picks" }); window.scrollTo(0, 0); });
   document.querySelectorAll("[data-horizon]").forEach(b => b.addEventListener("click", () => setState({ horizon: b.dataset.horizon })));
   document.addEventListener("click", e => {
     const a = e.target.closest("[data-goto]");
@@ -1138,8 +1155,87 @@
     });
   }
 
+  // ---------- investor-style lists (data/styles.js, STYLES.md) ----------
+  const SNAME = { buffett: "Warren Buffett style", munger: "Charlie Munger style" };
+  const pctf = v => v == null ? "—" : (v * 100).toFixed(1) + "%";
+  function styleCard(p, i) {
+    const c = p.currency, q = PRICES.quotes[p.yahoo];
+    const price = q && q.price != null && !isNaN(q.price) ? q.price : p.price, asOf = q && q.price != null && !isNaN(q.price) ? q.asOf : p.priceDate;
+    const below = p.buyBelow != null && price <= p.buyBelow;
+    const [pk, pt] = p.buyBelow == null ? ["neutral", "No buy price"] : below ? ["good", "✓ Below buy price"] : ["wait", "Wait · above buy price"];
+    const since = p.price ? (price / p.price - 1) * 100 : null;
+    const m = p.metrics || {};
+    const lo = Math.min(p.buyBelow || price, price) * 0.97, hi = Math.max(p.fairValue || price, price) * 1.03;
+    const x = v => ((v - lo) / (hi - lo) * 100).toFixed(2) + "%";
+    return `<details class="card pick">
+      <summary>
+        <div class="p-head"><span class="rank">${i + 1}</span>
+          <span class="p-name"><b>${esc(p.name)}</b><small>${esc(p.symbol)} · ${esc(p.sector)}</small></span>
+          <span class="pill ${pk}">${esc(pt)}</span></div>
+        <div class="ladder" role="img" aria-label="Price ${fmt(price, c)}, buy below ${cmp(p.buyBelow, c)}, fair value ${cmp(p.fairValue, c)}">
+          <div class="track"><span class="zone" style="left:0;width:${p.buyBelow ? x(p.buyBelow) : "0%"}"></span>
+            ${p.fairValue ? `<span class="end t" style="left:${x(p.fairValue)}"></span>` : ""}
+            <span class="dot" style="left:${x(price)}"></span></div></div>
+        <div class="levels num">
+          <div class="t">Buy below<b>${cmp(p.buyBelow, c)}</b>${p.marginOfSafety != null ? Math.round(p.marginOfSafety * 100) + "% under fair" : ""}</div>
+          <div>Price<b>${cmp(price, c)}</b>${fdate(asOf)}</div>
+          <div>Fair value<b>${cmp(p.fairValue, c)}</b>estimate</div>
+        </div>
+        <div class="metrics num">
+          <div>ROE (4-yr avg)<b>${pctf(m.avgRoe)}</b></div>
+          <div>Net margin<b>${pctf(m.netMargin)}</b></div>
+          <div>Debt / equity<b>${m.debtEquity == null ? "—" : m.debtEquity.toFixed(2)}</b></div>
+          <div>P/E<b>${m.pe == null ? "—" : m.pe.toFixed(1)}</b></div>
+          <div>FCF yield<b>${pctf(m.fcfYield)}</b></div>
+          <div>Revenue growth/yr<b>${pctf(m.revCagr)}</b></div>
+        </div>
+        <p class="thesis">${esc(p.thesis)}</p>
+        <div class="p-foot"><span class="num">Added ${fdate(p.addedOn)} at ${fmt(p.price, c)}${since == null ? "" : ` · <span class="${cls(since)}">${pct(since)}</span> since`}</span>
+          <span class="more"><span class="lbl-open">Details</span><span class="lbl-close">Less</span>${CHEV}</span></div>
+      </summary>
+      <div class="p-body">
+        <h4>The moat</h4><p style="margin:0;font-size:14px">${esc(p.moat)}</p>
+        <h4>Why it fits the style</h4><ul>${(p.reasons || []).map(r => `<li>${esc(r)}</li>`).join("")}</ul>
+        <h4>What could go wrong</h4><div class="watch">${esc(p.watch)}</div>
+        <h4>Plan</h4><div class="plan num">
+          <div>Buy below<b>${fmt(p.buyBelow, c)}</b></div>
+          <div>Fair value (estimate)<b>${fmt(p.fairValue, c)}</b></div>
+          <div>Holding period<b>Years, while the moat holds</b></div>
+          <div>Review<b>Monthly</b></div>
+        </div>
+        <h4>Sources</h4><ol class="sources">${(p.sources || []).map(([t, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ol>
+      </div>
+    </details>`;
+  }
+  function renderStyle() {
+    const S = window.STYLES || {}, info = (S.styles || {})[state.style] || {};
+    const list = ((S.lists || {})[state.style] || {})[state.market] || [];
+    $("styleView").innerHTML = `
+      <div class="card hero"><div class="hero-top"><div><h1>${esc(SNAME[state.style])} · ${mktName(state.market)}</h1>
+        <div class="when">Long-term ideas · reviewed monthly${S.reviewed ? ` · last review ${fdateY(S.reviewed)}` : ""}${S.nextReview ? ` · next ${fdateY(S.nextReview)}` : ""}</div></div></div>
+        <details class="backdrop"><summary><span><b>The style:</b> ${esc(info.tagline || "")}</span>${CHEV}</summary>
+          <div class="body"><ul class="principles">${(info.principles || []).map(([t, src, u]) => `<li>${esc(t)}${src ? ` <span class="muted">(<a href="${esc(u)}" target="_blank" rel="noopener">${esc(src)}</a>)</span>` : ""}</li>`).join("")}</ul>
+          <p style="margin:8px 0 0">Screen: ${esc(info.screen || "")}</p></div></details></div>
+      <div class="style-note">ℹ️ <b>In the style of ${esc(info.person || "")}, not their picks.</b> This list applies their published investing principles to today's data. It isn't ${esc(info.person || "their")}'s portfolio or a Berkshire Hathaway holding, and isn't endorsed by or affiliated with them or Berkshire. Long-term ideas: no stop-loss or short-term target.</div>
+      <div class="list-title"><h2>${list.length ? `${list.length} ${list.length === 1 ? "idea" : "ideas"}` : "No ideas yet"}</h2><span>${list.length ? "Fair value is an estimate, not a promise" : ""}</span></div>
+      <div class="picks">${list.length ? list.map(styleCard).join("") : `<p class="empty">No ${mktName(state.market)} stock meets every ${esc(SNAME[state.style])} rule right now. ${esc(((S.notes || {})[state.style] || {})[state.market] || "")}</p>`}</div>`;
+  }
+
   // ---------- render ----------
   function render() {
+    // Investor-style lists replace the tabs with one long-term list per market.
+    const styleMode = state.style !== "claude";
+    $("styleSel").value = state.style;
+    document.querySelectorAll(".tabs-top, .tabbar").forEach(el => el.hidden = styleMode);
+    document.querySelector(".seg.h").hidden = styleMode;
+    $("view-style").hidden = !styleMode;
+    document.querySelectorAll("[data-market]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.market === state.market)));
+    if (styleMode) {
+      ["picks", "history", "funds", "method"].forEach(v => $("view-" + v).hidden = true);
+      $("filters").hidden = false;
+      renderStyle();
+      return;
+    }
     document.querySelectorAll("[data-view]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === state.view)));
     ["picks", "history", "funds", "method"].forEach(v => $("view-" + v).hidden = v !== state.view);
     $("filters").hidden = state.view === "method" || state.view === "funds";

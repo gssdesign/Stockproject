@@ -16,6 +16,7 @@ on:
   push:
     paths:
       - "data/picks.js"
+      - "data/styles.js"
       - "scripts/**"
       - ".github/workflows/market-data.yml"
       - "requirements.txt"

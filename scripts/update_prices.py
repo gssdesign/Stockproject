@@ -109,6 +109,12 @@ def main() -> int:
 
     symbols = {p["yahoo"] for b in picks["batches"] for p in b["picks"]}
     symbols |= {c["benchmark"] for b in picks["batches"] for c in b["context"].values()}
+    # Investor-style lists (data/styles.js, STYLES.md): quotes only, no scoring.
+    styles_js = ROOT / "data" / "styles.js"
+    if styles_js.exists():
+        st = styles_js.read_text(encoding="utf-8")
+        st = json.loads(st[st.index("{", st.index("window.STYLES = ")): st.rindex("}") + 1])
+        symbols |= {p["yahoo"] for lists in st.get("lists", {}).values() for lst in lists.values() for p in lst}
 
     bars: dict[str, list[dict]] = {}
     quotes: dict[str, dict] = {}

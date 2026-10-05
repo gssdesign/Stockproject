@@ -2,7 +2,8 @@
 """Verify every new pick's reference price against the real exchange close.
 
 Runs in GitHub Actions whenever data/picks.js changes (and on the regular
-schedule). For each pick in an active batch that hasn't been verified yet:
+schedule). For each pick in an active batch that hasn't been verified yet (a verified
+pick is frozen and never touched again):
 
   * Find the official close of the last session that completed before the
     batch's own start date (Yahoo Finance daily bars, unadjusted).
@@ -74,10 +75,12 @@ def main() -> int:
             prev = p.get("verified") or {}
             if prev.get("status") == "unverifiable":
                 continue
-            # Already-verified picks are re-checked: a reference taken from a
-            # session that was still trading (before marketlib.completed
-            # existed) is corrected to the official close.
-            recheck = prev.get("status") in ("ok", "adjusted", "mismatch")
+            # A pick is verified once and then frozen: its levels never move again,
+            # so weekly and monthly lists stay exactly as published for their whole
+            # window. (Sessions still trading are never used as closes: see
+            # marketlib.completed.)
+            if prev.get("status") in ("ok", "adjusted", "mismatch"):
+                continue
             mk = market_of(p["yahoo"])
             for sym in (p["yahoo"], BENCHMARK[mk]):
                 if sym not in cache:
@@ -92,28 +95,6 @@ def main() -> int:
                 changed += 1
                 continue
             ref = before[-1]
-            if recheck:
-                close = round(ref["close"], 2)
-                if ref["date"] != prev.get("date") or abs(close - prev.get("close", close)) <= 0.011:
-                    continue
-                f = close / p["refPrice"]
-                prev.setdefault("original", {k: p[k] for k in ("refPrice", "refDate", "buyLow", "buyHigh", "target", "stop")})
-                for k in ("buyLow", "buyHigh", "target", "stop"):
-                    p[k] = tick_round(p[k] * f, mk)
-                diff = (prev["researchPrice"] / close - 1) * 100
-                prev["corrected"] = {"from": prev["close"], "note": "reference had been taken while the session was still trading; corrected to the official close"}
-                prev.update({"close": close, "diffPct": round(diff, 2),
-                             "status": "ok" if abs(diff) <= 0.3 else "mismatch" if abs(diff) > 3 else "adjusted"})
-                p["refPrice"] = close
-                bench = [b for b in cache[BENCHMARK[mk]] if b["date"] <= ref["date"]]
-                m = metrics(before, bench)
-                if m:
-                    p["checks"] = checks(m, batch.get("horizon", "monthly"), mk, p)
-                    p["metricsAtPick"] = {k: m.get(k) for k in ("atrPct", "sma20", "sma50", "sma200", "rs1m", "rs3m",
-                                                                 "fromHigh52", "fromLow52", "avgValue20", "extAtr")}
-                changed += 1
-                print(f"{batch['id']:<22} {p['yahoo']:<16} corrected {prev['corrected']['from']} -> official close {close} ({ref['date']})")
-                continue
             deadline = dt.datetime.combine(exp, dt.time(CLOSE_UTC_HOUR[mk] + 1), dt.timezone.utc) + dt.timedelta(hours=6)
             if ref["date"] < exp.isoformat() and now < deadline:
                 print(f"pending: {batch['id']} {p['yahoo']}: {exp} close not available yet")

@@ -985,7 +985,11 @@ window.PICKS = {
           "Outlook Money – Stock market outlook next week: RBI MPC decision, Q2 earnings, FII outflows",
           "https://www.outlookmoney.com/invest/key-factors-set-to-affect-stock-market-next-week-rbi-policy-q2-earnings-and-fii-outflows-in-focus"
         ]
-      ]
+      ],
+      "superseded": {
+        "by": "2026-10-01-weekly",
+        "reason": "Withdrawn on 5 Oct 2026: it was published while the 1 Oct weekly list was still running (until 8 Oct). Weekly and monthly lists now stay fixed for their whole window, so the 1 Oct list remains the current weekly list."
+      }
     },
     {
       "id": "2026-10-02-daily",

@@ -99,6 +99,10 @@ the **official close of the last completed session** before the picks take effec
 - At most **2 `High`-risk picks**; at most **1 binary event** (weekly/monthly only).
 - Don't repeat a pick from the previous batch of the same horizon unless there's a new catalyst.
 - The same stock may appear in different horizons only if each has its own reason.
+- **Weekly and monthly lists are fixed for their whole window.** No new list of the same horizon
+  is published until the current one has run its course (its `expires` date is today or earlier), and a published pick's
+  levels never change: the Market data job verifies each pick once, then freezes it. Only the
+  daily list changes every day.
 
 ## 7. Learning from results (automated)
 `scripts/learn.py` runs after every results update (Market data Action). For each holding

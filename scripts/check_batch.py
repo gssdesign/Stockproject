@@ -40,6 +40,15 @@ def main() -> int:
         latest[market_of(t)] = max(latest.get(market_of(t), ""), m.get("date", ""))
     problems: list[str] = []
 
+    # Weekly/monthly lists are fixed for their whole window (CRITERIA.md section 6):
+    # no new list while an earlier one of the same horizon is still running.
+    if horizon in ("weekly", "monthly"):
+        for b in picks["batches"]:
+            if (b is not batch and (b.get("horizon") or "monthly") == horizon and not b.get("superseded")
+                    and b["date"] < batch["date"] < b["expires"]):
+                problems.append(f"{batch_id}: the {horizon} list {b['id']} is still running until {b['expires']}; "
+                                f"publish the next {horizon} list after it expires")
+
     for p in batch["picks"]:
         t, mk = p["yahoo"], market_of(p["yahoo"])
         tag = f"{mk} {p['symbol']}"

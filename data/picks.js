@@ -79,7 +79,65 @@ window.PICKS = {
               "WTOP/AP – Wall Street week ahead: Fed minutes, unemployment data, consumer sentiment",
               "https://wtop.com/national/2026/10/wall-street-week-ahead-fed-minutes-unemployment-data-consumer-sentiment-update"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 654.8,
+            "date": "2026-10-02",
+            "researchPrice": 654.8,
+            "researchDate": "2026-10-02",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,499M (min $50M), price $654.8"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $646.26"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +6.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+50.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.38% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.38,
+            "sma20": 646.26,
+            "sma50": 617.45,
+            "sma200": 542.61,
+            "rs1m": 6.87,
+            "rs3m": 24.05,
+            "fromHigh52": -4.22,
+            "fromLow52": 50.44,
+            "avgValue20": 1499415425,
+            "extAtr": 0.55
+          }
         },
         {
           "market": "IN",
@@ -135,7 +193,65 @@ window.PICKS = {
               "IANS – Market outlook: RBI policy stance, Q2 earnings key triggers next week (Oct 4, 2026)",
               "https://ianslive.in/market-outlook-rbi-policy-stance-q2-earnings-key-triggers-next-week--20261004110048"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1984.0,
+            "date": "2026-10-01",
+            "researchPrice": 1984.0,
+            "researchDate": "2026-10-01",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹317 cr (min ₹100 cr), price ₹1,984.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1963.15"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +13.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+135.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.36% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.36,
+            "sma20": 1963.15,
+            "sma50": 1881.41,
+            "sma200": 1363.19,
+            "rs1m": 13.23,
+            "rs3m": 37.36,
+            "fromHigh52": -3.47,
+            "fromLow52": 135.35,
+            "avgValue20": 3170239118,
+            "extAtr": 0.44
+          }
         }
       ],
       "marketSources": [

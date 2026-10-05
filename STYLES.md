@@ -74,6 +74,10 @@ At most 2 per sector per list. A stock may appear in both style lists only if it
 ## 5. Cadence and sources
 - Lists are reviewed **once a month** (with the monthly routine) and stay **fixed** between
   reviews, like the weekly and monthly lists. Fundamentals refresh weekly in the background.
+- At a review, a stock stays only if it still passes the hard filters and the judgment rules.
+  A kept idea keeps its `addedOn` and `addedPrice`; its `price`, `priceDate`, `fairValue`,
+  `buyBelow` and `metrics` are refreshed from the latest data. A stock that no longer passes is
+  dropped and listed in `notes` with the reason. `scripts/check_styles.py` must print PASS.
 - Prices shown are official closes from `data/market.js` with their date.
 - Sources per pick: 3, reputable (company filings or investor relations, Reuters, Bloomberg,
   CNBC, WSJ, FT, Business Standard, Economic Times, Mint, Moneycontrol, Morningstar, Yahoo

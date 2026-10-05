@@ -1163,7 +1163,7 @@
     const price = q && q.price != null && !isNaN(q.price) ? q.price : p.price, asOf = q && q.price != null && !isNaN(q.price) ? q.asOf : p.priceDate;
     const below = p.buyBelow != null && price <= p.buyBelow;
     const [pk, pt] = p.buyBelow == null ? ["neutral", "No buy price"] : below ? ["good", "✓ Below buy price"] : ["wait", "Wait · above buy price"];
-    const since = p.price ? (price / p.price - 1) * 100 : null;
+    const added = p.addedPrice || p.price, since = added ? (price / added - 1) * 100 : null;
     const m = p.metrics || {};
     const lo = Math.min(p.buyBelow || price, price) * 0.97, hi = Math.max(p.fairValue || price, price) * 1.03;
     const x = v => ((v - lo) / (hi - lo) * 100).toFixed(2) + "%";
@@ -1190,7 +1190,7 @@
           <div>Revenue growth/yr<b>${pctf(m.revCagr)}</b></div>
         </div>
         <p class="thesis">${esc(p.thesis)}</p>
-        <div class="p-foot"><span class="num">Added ${fdate(p.addedOn)} at ${fmt(p.price, c)}${since == null ? "" : ` · <span class="${cls(since)}">${pct(since)}</span> since`}</span>
+        <div class="p-foot"><span class="num">Added ${fdate(p.addedOn)} at ${fmt(added, c)}${since == null ? "" : ` · <span class="${cls(since)}">${pct(since)}</span> since`}</span>
           <span class="more"><span class="lbl-open">Details</span><span class="lbl-close">Less</span>${CHEV}</span></div>
       </summary>
       <div class="p-body">

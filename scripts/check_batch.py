@@ -7,7 +7,8 @@ Checks, per pick: symbol is in the market snapshot; refPrice/refDate equal the
 snapshot's last close; every hard check passes; levels are no wider than the
 rule-based ones and reward:risk meets the minimum; buy zone brackets the close;
 3 reasons, 4 data rows, 3 sources, a watch note. Per market: at most 5 picks,
-at most 2 per sector, at most 2 High risk. Exits non-zero if anything fails,
+at most 2 per sector, at most 2 High risk; Plan B limits (CRITERIA.md section 9).
+Exits non-zero if anything fails,
 so a routine can't publish a batch that breaks the rules.
 """
 from __future__ import annotations
@@ -83,6 +84,29 @@ def main() -> int:
                 problems.append(f"{mk}: {n} picks in sector '{sector}' (max 2)")
         if sum(p.get("risk") == "High" for p in lst) > 2:
             problems.append(f"{mk}: more than 2 High-risk picks")
+        # Plan B (CRITERIA.md section 9): daily only, never mixed with standard picks.
+        plan_b = [p for p in lst if p.get("planB")]
+        if plan_b:
+            regime = (market.get("benchmarks", {}).get(mk) or {}).get("regime")
+            cap = 1 if regime == "risk-off" else 2
+            if horizon != "daily":
+                problems.append(f"{mk}: Plan B picks are allowed only in daily lists")
+            if len(plan_b) != len(lst):
+                problems.append(f"{mk}: Plan B picks can't be mixed with standard picks for the same market")
+            if len(plan_b) > cap:
+                problems.append(f"{mk}: {len(plan_b)} Plan B picks (max {cap} in {regime or 'this'} regime)")
+            for p in plan_b:
+                tag, m = f"{mk} {p['symbol']} (Plan B)", stocks.get(p["yahoo"]) or {}
+                if p.get("planBBasis") not in ("sector", "setup", "older-catalyst"):
+                    problems.append(f"{tag}: planBBasis must be sector, setup or older-catalyst")
+                if p.get("risk") not in ("Medium", "High"):
+                    problems.append(f"{tag}: risk must be at least Medium")
+                if m.get("extAtr") is None or m["extAtr"] > 1.0:
+                    problems.append(f"{tag}: entry must be within 1 ATR above the 20-day avg (is {m.get('extAtr')})")
+                if m.get("rs3m") is None or m["rs3m"] <= 0:
+                    problems.append(f"{tag}: 3-month relative strength must be > 0 (is {m.get('rs3m')})")
+                if p.get("planBBasis") == "setup" and ((m.get("rs3m") or 0) < 10 or not m.get("sma50Rising")):
+                    problems.append(f"{tag}: 'setup' basis needs 3-month RS >= +10 and a rising 50-day avg")
 
     if problems:
         print(f"FAIL: {batch_id} breaks CRITERIA.md:")

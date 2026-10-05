@@ -132,6 +132,33 @@ After you push, the *Market data* Action re-checks every new pick against the re
 (`verified` field) and records its checks. Anything more than 0.3% off is re-anchored
 automatically and shown on the site.
 
+## 9. Plan B picks (daily only, when the standard rules give nothing)
+If, after §1–§8, a market's **daily** list would be **empty**, the routine may publish Plan B
+picks for that market so the day isn't blank. They are clearly labelled "Plan B" on the site
+and are lower-conviction ideas, not standard recommendations.
+
+What is relaxed: **only the catalyst requirement (§2).** A Plan B pick may rest on one of:
+- `sector`: its sector or industry is leading (peers or the sector index up on fresh news within
+  3 days) and the stock is among the leaders;
+- `setup`: a strong leader (3-month RS ≥ +10 pts, 50-day average rising) pulling back to within
+  1 ATR of its 20-day average, i.e. buying a leader on a dip;
+- `older-catalyst`: a dated catalyst from 4–7 days ago that the price hasn't fully reflected.
+
+What is **not** relaxed: every hard check (§3), levels (§4), sources (§5, still 3 reputable and
+fresh, for the basis and the market backdrop), portfolio rules (§6), and the earnings rule: never
+a stock that reports during or just before the session.
+
+Extra limits that make up for the weaker catalyst:
+- At most **2** Plan B picks per market (**1** in `risk-off`), and never mixed with standard picks
+  for the same market on the same day.
+- Entry no more than **1 ATR** above the 20-day average, and 3-month relative strength > 0.
+- `risk` is at least `"Medium"`.
+- Fields: `"planB": true` and `"planBBasis"`: `"sector"`, `"setup"` or `"older-catalyst"`. The thesis
+  says plainly why it's Plan B, and the market's context summary says the list is Plan B.
+
+`check_batch.py` enforces these limits. Plan B results are shown with their label in Results
+and are left out of the automatic rule tuning (§7), so they never loosen the standard rules.
+
 ## References
 - Bernard, V. & Thomas, J. (1989). Post-earnings-announcement drift. *Journal of Accounting Research*, 27.
 - Jegadeesh, N. (1990). Evidence of predictable behavior of security returns. *Journal of Finance*, 45(3).

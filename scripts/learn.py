@@ -73,8 +73,8 @@ def finished(batches: list[dict], tracking: dict, h: str, mk: str) -> list[dict]
         tr = tracking.get(b["id"], {})
         for p in b["picks"]:
             t = tr.get(p["yahoo"]) or {}
-            if p["market"] != mk or not t.get("periodFinal"):
-                continue
+            if p["market"] != mk or not t.get("periodFinal") or p.get("planB"):
+                continue  # Plan B picks (CRITERIA.md section 9) never tune the standard rules
             m = p.get("metricsAtPick") or {}
             ref, atr_pct = p["refPrice"], m.get("atrPct")
             row = {"date": b["date"], "hit": bool(t.get("targetHit")), "stop": bool(t.get("stopHit")),

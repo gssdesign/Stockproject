@@ -15,16 +15,129 @@ window.PICKS = {
           "benchmark": "^GSPC",
           "benchmarkName": "S&P 500",
           "benchmarkRef": 7722.72,
-          "summary": "Risk-on: the S&P 500 closed at 7,722.72 on 2026-10-02 (+0.73%) after a weak September jobs report (29,000 jobs) pulled Treasury yields lower, but there are no daily picks today. None of the stocks passing the daily screen has a fresh, dated catalyst for the 5 Oct session: AMD and Meta were Friday's daily picks with no new news since, Target is this week's weekly pick, and the remaining names (e.g. F5, Revvity, Agilent, Eaton) have nothing new to trade on. ISM services data at 10 AM ET is the main event today. CRITERIA requires a dated catalyst, so the list is left empty rather than padded."
+          "summary": "Risk-on: the S&P 500 closed at 7,722.72 on 2026-10-02 (+0.73%) after a weak September jobs report (29,000 jobs) pulled Treasury yields lower. Plan B list: none of the stocks passing the daily screen had a fresh, dated catalyst for today (AMD and Meta were Friday's picks with no new news, and Target is this week's weekly pick), so today's single US idea comes from the looser Plan B rule (CRITERIA.md section 9): a strong 3-month leader pulling back to its 20-day average. All price and risk checks still apply; treat it as lower-conviction. ISM services data at 10 AM ET is the main event today."
         },
         "IN": {
           "benchmark": "^NSEI",
           "benchmarkName": "Nifty 50",
           "benchmarkRef": 22421.95,
-          "summary": "Risk-off: the Nifty 50 closed at 22,421.95 on 2026-10-01 after eight straight weekly falls, below its 50-day (23,870) and 200-day (24,356) averages, and there are no daily picks today. Only 8 stocks pass the daily screen and none has a fresh, verifiable catalyst for today's session, with the RBI policy decision due Wed 7 Oct (a 25 bp hike is widely expected). See this week's weekly list for APL Apollo Tubes."
+          "summary": "Risk-off: the Nifty 50 closed at 22,421.95 on 2026-10-01 after eight straight weekly falls, below its 50-day (23,870) and 200-day (24,356) averages. Plan B list: no stock on the daily screen had a fresh, verifiable catalyst, so one Plan B idea (the maximum in a risk-off market) was added at about 12:30 PM IST, mid-session: a pharma leader, a defensive sector that has outperformed this year, pulling back to its 20-day average. Because it was published mid-session, only buy if the live price is inside the buy zone. The RBI policy decision is due Wed 7 Oct (a 25 bp hike is widely expected). This week's weekly list has APL Apollo Tubes."
         }
       },
-      "picks": [],
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "TMO",
+          "yahoo": "TMO",
+          "name": "Thermo Fisher Scientific",
+          "sector": "Health Care / Life Science Tools",
+          "currency": "USD",
+          "refPrice": 654.8,
+          "refDate": "2026-10-02",
+          "buyLow": 648.58,
+          "buyHigh": 657.91,
+          "target": 672.7,
+          "stop": 641.57,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): a strong 3-month leader that has pulled back to just above its 20-day average after a 3.3% drop on 1 Oct, with no earnings until 21 Oct.",
+          "reasons": [
+            "It's a leader: up 26.5% in 3 months, beating the S&P 500 by 24.1 pts, with the 50-day average ($617) rising and the stock 4.2% below its 52-week high ($683.63).",
+            "The pullback is orderly: after falling 3.3% on 1 Oct as yields rose, it closed at $654.80 on 2 Oct (+0.35%), only 0.55 ATR above its 20-day average ($646.26), where leaders often find support.",
+            "Fundamentals back it up: Q2 2026 organic growth returned to 5% (the best since 2021), adjusted EPS rose 13% and the 2026 outlook was raised. Q3 results come on 21 Oct, outside today's window."
+          ],
+          "data": [
+            [
+              "Close (10/02)",
+              "$654.80"
+            ],
+            [
+              "3-month vs index",
+              "+24.1 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.55 ATR"
+            ],
+            [
+              "ATR",
+              "2.38% of price"
+            ]
+          ],
+          "watch": "There's no fresh news behind this pick, so it relies on the uptrend holding. A rise in Treasury yields (e.g. after a hot ISM services print) hit it on 1 Oct and could again. Skip it if it opens outside $648.58–657.91, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Yahoo Finance – Thermo Fisher Scientific to hold earnings conference call on Wednesday, October 21, 2026",
+              "https://finance.yahoo.com/markets/stocks/articles/thermo-fisher-scientific-hold-earnings-120000258.html"
+            ],
+            [
+              "Yahoo Finance – Stock market today, Oct 2: stocks rally as Fed rate-hike expectations fade",
+              "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-2-dow-sp-500-nasdaq-september-jobs-report-080623878.html"
+            ],
+            [
+              "WTOP/AP – Wall Street week ahead: Fed minutes, unemployment data, consumer sentiment",
+              "https://wtop.com/national/2026/10/wall-street-week-ahead-fed-minutes-unemployment-data-consumer-sentiment-update"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "LAURUSLABS",
+          "yahoo": "LAURUSLABS.NS",
+          "name": "Laurus Labs",
+          "sector": "Healthcare / Pharmaceuticals",
+          "currency": "INR",
+          "refPrice": 1984.0,
+          "refDate": "2026-10-01",
+          "buyLow": 1965.25,
+          "buyHigh": 1993.4,
+          "target": 2037.95,
+          "stop": 1944.1,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): one of the strongest Nifty-200 leaders, in pharma, a defensive sector, sitting just above its 20-day average while the broad market falls.",
+          "reasons": [
+            "It's a strong leader in a falling market: up 29.7% in 3 months, beating the Nifty by 37.4 pts over 3 months and 13.2 pts over 1 month, 3.5% below its 52-week high (₹2,055.30).",
+            "Entry is close to support: ₹1,984.00 (1 Oct close) is only 0.44 ATR above the 20-day average (₹1,963.15), and the 50-day average (₹1,881) is rising.",
+            "Pharma is the market's defensive refuge this year (export earnings gain from a weak rupee), and Laurus' Q1 FY27 net profit more than doubled (+125% YoY to ₹367.6 cr). Q2 results are due later in October, outside today's window."
+          ],
+          "data": [
+            [
+              "Close (10/01)",
+              "₹1,984.0"
+            ],
+            [
+              "3-month vs index",
+              "+37.4 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.44 ATR"
+            ],
+            [
+              "ATR",
+              "2.36% of price"
+            ]
+          ],
+          "watch": "There's no fresh news behind this pick, and the market is risk-off (8 straight weekly falls, RBI decision on 7 Oct). It was published mid-session (~12:30 PM IST), so check the live price first. Skip it if it's outside ₹1,965.25–1,993.40, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "BusinessToday – Laurus Labs Ltd share price and news (Oct 2026)",
+              "https://www.businesstoday.in/stocks/laurus-labs-ltd-lauruslabs-share-price-364161"
+            ],
+            [
+              "Business Standard – Patent wins vs tariff risks: analysts pick top pharma stocks",
+              "https://www.business-standard.com/markets/news/india-pharma-stocks-outlook-2026-domestic-focus-us-trump-tariffs-iran-war-stocks-dr-reddy-sun-pharma-torrent-pharma-divis-labs-cipla-126040300420_1.html"
+            ],
+            [
+              "IANS – Market outlook: RBI policy stance, Q2 earnings key triggers next week (Oct 4, 2026)",
+              "https://ianslive.in/market-outlook-rbi-policy-stance-q2-earnings-key-triggers-next-week--20261004110048"
+            ]
+          ]
+        }
+      ],
       "marketSources": [
         [
           "Yahoo Finance – Stock market today, Oct 2: stocks rally as Fed rate-hike expectations fade",

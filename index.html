@@ -207,6 +207,9 @@
   .batch > summary .t .m { font-size: 12.5px; color: var(--muted); }
   .batch .bavg { font-weight: 700; font-size: 15px; }
   .batch.replaced { opacity: .7; border-style: dashed; }
+  .planb { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--warn-soft); color: var(--warn); letter-spacing: .02em; vertical-align: 1px; }
+  .planb-note { background: var(--warn-soft); border-radius: 12px; padding: 10px 12px; font-size: 13.5px; margin-bottom: 12px; }
+  .planb-note b { color: var(--warn); }
   .tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); margin-left: 6px; vertical-align: 2px; }
   .blinks { padding: 0 16px 10px; font-size: 12.5px; color: var(--muted); }
   .res { border-top: 1px solid var(--line); }
@@ -496,6 +499,7 @@
         <tr><td>New picks</td><td>trading days, ~7 AM IST</td><td>Mondays, ~7 AM IST</td><td>1st of the month, ~7 AM IST</td></tr>
       </table></div>
       <p>Also: at most 2 picks per sector, at most 2 high-risk picks, and no Indian stocks under NSE surveillance (ASM/GSM) or, for daily picks, in the F&amp;O ban list.</p>
+      <p><b>Plan B days.</b> If the standard rules leave a market's daily list empty, up to 2 <span class="planb">PLAN B</span> picks may be published (1 in a risk-off market). Only the catalyst rule is loosened: sector leadership, a strong leader pulling back to its 20-day average, or news from 4–7 days ago can count. All price and risk checks still apply, entries must be within 1 ATR of the 20-day average, risk is at least Medium, and Plan B results never feed the automatic rule tuning.</p>
       <h3>Reading a pick</h3>
       <ul>
         <li><b>Status pill</b>: <b>✓ Buy zone</b> means the last close sits inside the buy zone; <b>Wait</b> means it's above (don't chase); <b>Below zone</b> or <b>Below stop</b> means check why or skip.</li>
@@ -573,6 +577,7 @@
   const CHEV = '<svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const CLOSE_LABEL = { daily: "session close", weekly: "week-end close", monthly: "month-end close" };
   const HNAME = { daily: "Daily", weekly: "Weekly", monthly: "Monthly" };
+  const PLANB_BASIS = { sector: "sector leadership", setup: "leader pulling back to its 20-day average", "older-catalyst": "catalyst from 4–7 days ago" };
 
   // ---------- helpers ----------
   const $ = id => document.getElementById(id);
@@ -760,7 +765,7 @@
     return `<details class="card pick">
       <summary>
         <div class="p-head"><span class="rank">${i + 1}</span>
-          <span class="p-name"><b>${esc(p.name)}</b><small>${esc(p.symbol)} · ${esc(p.sector)}</small></span>
+          <span class="p-name"><b>${esc(p.name)}</b><small>${p.planB ? '<span class="planb">PLAN B</span> ' : ""}${esc(p.symbol)} · ${esc(p.sector)}</small></span>
           <span class="pill ${pk}">${esc(pt)}</span></div>
         ${ladder(p, lp.price)}
         <div class="levels num">
@@ -775,6 +780,7 @@
       </summary>
       <div class="p-body">
         ${result}
+        ${p.planB ? `<div class="planb-note" style="margin-top:14px"><b>Plan B pick.</b> The standard rules found no stock with a fresh, dated catalyst for this market today, so this comes from the looser fallback rule (basis: ${esc(PLANB_BASIS[p.planBBasis] || p.planBBasis || "—")}). Every price and risk check still applies, but conviction is lower: consider a smaller position.</div>` : ""}
         <h4>Why buy</h4><ul>${p.reasons.map(r => `<li>${esc(r)}</li>`).join("")}</ul>
         <h4>Trade plan</h4>
         <div class="plan num">
@@ -817,6 +823,7 @@
     $("pickBanner").innerHTML = isCurrent ? "" : `<div class="banner"><span>${batch.superseded
       ? `↺ <b>Replaced list</b> · ${esc(windowLabel(meta))}. ${esc(batch.superseded.reason || "")}`
       : `📁 <b>Past list</b> · ${esc(windowLabel(meta))}`}</span><button class="btn" data-goto="">Back to today</button></div>`;
+    if (list.some(p => p.planB)) $("pickBanner").innerHTML += `<div class="planb-note">⚠️ <b>Plan B list.</b> The standard rules found no ${mktName(state.market)} stock with a fresh, dated reason to move today, so these picks come from a looser fallback rule: same price and risk checks, but the catalyst can be sector leadership, a leader pulling back, or news from up to a week ago. Treat them as lower-conviction ideas and size them smaller.</div>`;
 
     const now = new Date(), start = d0(batch.date), end = new Date(batch.expires + "T23:59:59");
     let when, prog = "";
@@ -879,7 +886,7 @@
     return { ...o, html: `<details class="res">
       <summary>
         <div class="r-head"><span class="ico">${o.met[0]}</span>
-          <span class="nm"><b>${esc(p.symbol)}</b><small>${esc(o.met[1])}</small></span>
+          <span class="nm"><b>${esc(p.symbol)}</b>${p.planB ? ' <span class="planb">PLAN B</span>' : ""}<small>${esc(o.met[1])}</small></span>
           <span class="ret num ${cls(o.closeRet)}">${pct(o.closeRet)}<small>${o.close == null ? "" : `${pct(o.vsTarget)} vs target`}</small></span></div>
         <div class="r-grid num">
           <div>Suggested buy<b>${cmp(p.buyLow, c)}–${cmp(p.buyHigh, c).replace(/^[$₹]/, "")}</b></div>

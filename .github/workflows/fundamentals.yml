@@ -1,0 +1,49 @@
+name: Fundamentals
+
+# Weekly refresh of company fundamentals for the investor-style lists
+# (scripts/fundamentals.py -> data/fundamentals.js). The lists themselves are
+# reviewed once a month by the research routine (STYLES.md).
+on:
+  schedule:
+    - cron: "0 23 * * 6"   # Sunday 04:30 IST
+  push:
+    paths:
+      - "scripts/fundamentals.py"
+      - ".github/workflows/fundamentals.yml"
+      - ".github/kick/fundamentals"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fundamentals
+  cancel-in-progress: false
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: cd scripts && python fundamentals.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          cp data/fundamentals.js "$RUNNER_TEMP/fundamentals.js"
+          for i in 1 2 3 4; do
+            git add data/fundamentals.js
+            git diff --cached --quiet && exit 0
+            git commit -q -m "Fundamentals $(date -u +%Y-%m-%d)"
+            git push && exit 0
+            sleep $((i * 5))
+            git fetch -q origin "$GITHUB_REF_NAME"
+            git reset -q --hard "origin/$GITHUB_REF_NAME"
+            cp "$RUNNER_TEMP/fundamentals.js" data/fundamentals.js
+          done
+          exit 1

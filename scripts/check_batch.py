@@ -88,7 +88,15 @@ def main() -> int:
         plan_b = [p for p in lst if p.get("planB")]
         if plan_b:
             regime = (market.get("benchmarks", {}).get(mk) or {}).get("regime")
-            cap = 1 if regime == "risk-off" else 2
+            cap = 3 if regime == "risk-off" else 5
+            # At least 3 Plan B picks, unless the daily screen has fewer stocks meeting the Plan B limits.
+            pool = [t for t in market.get("screen", {}).get(mk, {}).get("daily", [])
+                    if (stocks.get(t) or {}).get("extAtr") is not None and stocks[t]["extAtr"] <= 1.0
+                    and (stocks[t].get("rs3m") or 0) > 0]
+            need = min(3, len(pool))
+            if len(plan_b) < need:
+                problems.append(f"{mk}: {len(plan_b)} Plan B picks; at least {need} required "
+                                f"({len(pool)} screen stocks meet the Plan B limits: {', '.join(pool[:8])})")
             if horizon != "daily":
                 problems.append(f"{mk}: Plan B picks are allowed only in daily lists")
             if len(plan_b) != len(lst):

@@ -149,8 +149,9 @@ fresh, for the basis and the market backdrop), portfolio rules (§6), and the ea
 a stock that reports during or just before the session.
 
 Extra limits that make up for the weaker catalyst:
-- At most **2** Plan B picks per market (**1** in `risk-off`), and never mixed with standard picks
-  for the same market on the same day.
+- **At least 3** Plan B picks per market (at most 5; at most 3 in `risk-off`), and never mixed with
+  standard picks for the same market on the same day. Fewer than 3 is allowed only when fewer than
+  3 stocks in the daily screen meet the Plan B limits below; the context summary must then say so.
 - Entry no more than **1 ATR** above the 20-day average, and 3-month relative strength > 0.
 - `risk` is at least `"Medium"`.
 - Fields: `"planB": true` and `"planBBasis"`: `"sector"`, `"setup"` or `"older-catalyst"`. The thesis

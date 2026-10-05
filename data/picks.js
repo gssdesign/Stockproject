@@ -193,7 +193,65 @@ window.PICKS = {
               "Yahoo Finance – Stock market today, Oct 2: stocks rally as Fed rate-hike expectations fade",
               "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-2-dow-sp-500-nasdaq-september-jobs-report-080623878.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 192.47,
+            "date": "2026-10-02",
+            "researchPrice": 192.47,
+            "researchDate": "2026-10-02",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $203M (min $50M), price $192.47"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $189.1"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +2.7 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+70.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.07% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.07,
+            "sma20": 189.1,
+            "sma50": 184.88,
+            "sma200": 162.72,
+            "rs1m": 2.66,
+            "rs3m": 13.7,
+            "fromHigh52": -1.09,
+            "fromLow52": 70.4,
+            "avgValue20": 203316898,
+            "extAtr": 0.84
+          }
         },
         {
           "market": "US",
@@ -249,7 +307,65 @@ window.PICKS = {
               "Phillips 66 – Second-quarter 2026 results news release",
               "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2026/Phillips-66-Delivers-Strong-Second-Quarter-Results-and-Operating-Performance/default.aspx"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 264.58,
+            "date": "2026-10-02",
+            "researchPrice": 264.58,
+            "researchDate": "2026-10-02",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $866M (min $50M), price $264.58"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $260.18"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +2.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+108.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.31% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.31,
+            "sma20": 260.18,
+            "sma50": 240.64,
+            "sma200": 184.02,
+            "rs1m": 2.59,
+            "rs3m": 46.74,
+            "fromHigh52": -4.53,
+            "fromLow52": 108.76,
+            "avgValue20": 865774845,
+            "extAtr": 0.5
+          }
         },
         {
           "market": "IN",
@@ -419,7 +535,65 @@ window.PICKS = {
               "IANS – Market outlook: RBI policy stance, Q2 earnings key triggers next week (Oct 4, 2026)",
               "https://ianslive.in/market-outlook-rbi-policy-stance-q2-earnings-key-triggers-next-week--20261004110048"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 418.35,
+            "date": "2026-10-01",
+            "researchPrice": 418.35,
+            "researchDate": "2026-10-01",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹670 cr (min ₹100 cr), price ₹418.35"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹414.04"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +5.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+21.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.1% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.1,
+            "sma20": 414.04,
+            "sma50": 405.47,
+            "sma200": 399.3,
+            "rs1m": 5.57,
+            "rs3m": 17.34,
+            "fromHigh52": -7.69,
+            "fromLow52": 21.09,
+            "avgValue20": 6698835035,
+            "extAtr": 0.49
+          }
         },
         {
           "market": "IN",
@@ -475,7 +649,65 @@ window.PICKS = {
               "IANS – Market outlook: RBI policy stance, Q2 earnings key triggers next week (Oct 4, 2026)",
               "https://ianslive.in/market-outlook-rbi-policy-stance-q2-earnings-key-triggers-next-week--20261004110048"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 691.15,
+            "date": "2026-10-01",
+            "researchPrice": 691.15,
+            "researchDate": "2026-10-01",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹562 cr (min ₹100 cr), price ₹691.15"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹684.6"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +10.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+94.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.17% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.17,
+            "sma20": 684.6,
+            "sma50": 639.43,
+            "sma200": 532.32,
+            "rs1m": 10.12,
+            "rs3m": 36.53,
+            "fromHigh52": -4.67,
+            "fromLow52": 94.09,
+            "avgValue20": 5620701922,
+            "extAtr": 0.3
+          }
         }
       ],
       "marketSources": [

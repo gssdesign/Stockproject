@@ -4,6 +4,152 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-05-weekly",
+      "horizon": "weekly",
+      "date": "2026-10-05",
+      "horizonDays": 7,
+      "expires": "2026-10-12",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7722.72,
+          "summary": "Risk-on: the S&P 500 closed at 7,722.72 on 2026-10-02 (+0.73%), above its 50-day (7,658) and 200-day (7,226) averages, after September payrolls came in at just 29,000 jobs (unemployment 4.2%), pulling the 10-year yield to about 5.18% and cutting the odds of an October Fed hike to roughly 20%. This week brings the September FOMC minutes (Wed 7 Oct), ISM services and the first big earnings (PepsiCo 8 Oct, Delta 9 Oct). Only one stock combined a fresh, dated catalyst with a clean chart: Target (HSBC upgrade to Buy, 30 Sep). Accenture fell 6.3% on 2 Oct after its record post-earnings jump and now fails the volatility check; NetApp and AMD are too stretched after big runs; the refiners spiked with no company news. Data note: the US 2 Oct closes only reached the snapshot this morning (05 Oct 00:43 UTC); all levels use them. No learned rule changes are in force yet (fewer than 20 finished weekly picks)."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22421.95,
+          "summary": "Risk-off: the Nifty 50 closed at 22,421.95 on 2026-10-01, well below its 50-day (23,870) and 200-day (24,356) averages after an eighth straight weekly fall, its longest losing run in about 25 years (3-month −7.6%). Key events this week: the RBI policy decision on Wed 7 Oct (most economists in a Reuters poll expect a 25 bp repo hike to 5.50%) and TCS's Q2 results on 8 Oct, which open the earnings season. In a market this weak only a stock with hard, fresh numbers qualifies, so there is one pick: APL Apollo Tubes on its record Q2 volumes. The snapshot is current for India (NSE was closed 2 Oct). No learned rule changes are in force yet."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "TGT",
+          "yahoo": "TGT",
+          "name": "Target Corporation",
+          "sector": "Consumer Staples / Retail",
+          "currency": "USD",
+          "refPrice": 156.0,
+          "refDate": "2026-10-02",
+          "buyLow": 154.12,
+          "buyHigh": 156.94,
+          "target": 163.98,
+          "stop": 150.84,
+          "risk": "Low–Medium",
+          "thesis": "HSBC's 30 Sep double-notch call (Hold to Buy, target $125 to $190) on a traffic-led recovery lands on a 3-month leader that has pulled back to its 20-day average.",
+          "reasons": [
+            "On 30 Sep HSBC upgraded Target to Buy from Hold and lifted its target to $190 from $125, citing comparable sales up 3.8% driven by more store visits, not higher prices, and EPS about 5% above expectations excluding a $994M tariff refund.",
+            "It's beating the S&P 500 by 21.3 pts over 3 months, and after a 4.5% dip over the past month it sits at $156.00 (2 Oct), just 0.4 ATR below its 20-day average ($157.64) and above a rising 50-day ($155.68).",
+            "Low volatility for a weekly hold (ATR 2.4%), and no earnings until mid-November, so there's no binary event in the window. Softer rate-hike odds after the weak jobs report also help consumer names."
+          ],
+          "data": [
+            [
+              "Close (10/02)",
+              "$156.00"
+            ],
+            [
+              "3-month vs index",
+              "+21.3 pts"
+            ],
+            [
+              "HSBC target",
+              "$190 (Buy, 09/30)"
+            ],
+            [
+              "ATR",
+              "2.41% of price"
+            ]
+          ],
+          "watch": "A hot ISM services print or hawkish Fed minutes (7 Oct) could revive rate-hike fears and hit consumer stocks. The past month's relative strength is negative, so if it closes below the 50-day average (~$155.7) the setup is weakening. Skip it if it opens outside $154.12–156.94.",
+          "sources": [
+            [
+              "CNBC – Target has been on fire this year. HSBC sees more upside ahead (Sep 30, 2026)",
+              "https://www.cnbc.com/2026/09/30/target-has-been-on-fire-this-year-hsbc-sees-more-upside-ahead.html"
+            ],
+            [
+              "Yahoo Finance – Target upgraded at HSBC as \"traffic-driven recovery is underway\"",
+              "https://finance.yahoo.com/markets/stocks/articles/target-upgraded-hsbc-footfall-points-122607131.html"
+            ],
+            [
+              "Investing.com – HSBC upgrades Target stock rating on earnings recovery potential",
+              "https://www.investing.com/news/analyst-ratings/hsbc-upgrades-target-stock-rating-on-earnings-recovery-potential-93CH-4925668"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "APLAPOLLO",
+          "yahoo": "APLAPOLLO.NS",
+          "name": "APL Apollo Tubes",
+          "sector": "Capital Goods / Steel Tubes",
+          "currency": "INR",
+          "refPrice": 2115.7,
+          "refDate": "2026-10-01",
+          "buyLow": 2085.75,
+          "buyHigh": 2130.65,
+          "target": 2242.9,
+          "stop": 2033.4,
+          "risk": "Medium",
+          "thesis": "Record Q2 FY27 sales volume (9.63 lakh tonnes, +13% YoY, 1 Oct) on a 3-month leader that has pulled back below its 20-day average with the market.",
+          "reasons": [
+            "On 1 Oct APL Apollo reported its highest-ever quarterly sales volume, 963,143 tonnes in Q2 FY27, up 13% YoY and 29% QoQ, beating the previous record of 924,881 tonnes (Q4 FY26). The APL Apollo brand alone grew to 774,751 tonnes from 653,680.",
+            "It's beating the Nifty by 24.9 pts over 3 months and is still above a rising 50-day average (₹2,099), although it fell 3.4% to ₹2,115.70 on 1 Oct with the broad sell-off.",
+            "Volume growth feeds directly into Q2 results (due later in October), and the shares are 8% below their 52-week high of ₹2,301, so there's room to recover if the market steadies."
+          ],
+          "data": [
+            [
+              "Close (10/01)",
+              "₹2,115.7"
+            ],
+            [
+              "3-month vs index",
+              "+24.9 pts"
+            ],
+            [
+              "Q2 FY27 volume",
+              "9.63 lakh t (+13% YoY, record)"
+            ],
+            [
+              "ATR",
+              "2.83% of price"
+            ]
+          ],
+          "watch": "Risk-off market: Nifty is down 8 weeks in a row, FIIs are selling, and an RBI rate hike on 7 Oct could hit rate-sensitive construction demand. Exit on the stop (₹2,033.40), which sits just below the 50-day average. Skip it if it opens outside ₹2,085.75–2,130.65.",
+          "sources": [
+            [
+              "CNBC-TV18 via TradingView – APL Apollo Tubes Q2 sales volume (Oct 1, 2026)",
+              "https://www.tradingview.com/news/cnbctv:57efc2cb1094b:0/"
+            ],
+            [
+              "Free Press Journal – APL Apollo Tubes reports 13% YoY growth in Q2FY27 sales volume to 9.63 lakh tonnes",
+              "https://www.freepressjournal.in/business/apl-apollo-tubes-reports-13-yoy-growth-in-q2fy27-sales-volume-to-963-lakh-tonnes"
+            ],
+            [
+              "IANS – Market outlook: RBI policy stance, Q2 earnings key triggers next week (Oct 4, 2026)",
+              "https://ianslive.in/market-outlook-rbi-policy-stance-q2-earnings-key-triggers-next-week--20261004110048"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Stock market today, Oct 2: stocks rally as Fed rate-hike expectations fade",
+          "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-2-dow-sp-500-nasdaq-september-jobs-report-080623878.html"
+        ],
+        [
+          "WTOP/AP – Wall Street week ahead: Fed minutes, unemployment data, consumer sentiment",
+          "https://wtop.com/national/2026/10/wall-street-week-ahead-fed-minutes-unemployment-data-consumer-sentiment-update"
+        ],
+        [
+          "Outlook Money – Stock market outlook next week: RBI MPC decision, Q2 earnings, FII outflows",
+          "https://www.outlookmoney.com/invest/key-factors-set-to-affect-stock-market-next-week-rbi-policy-q2-earnings-and-fii-outflows-in-focus"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-02-daily",
       "horizon": "daily",
       "date": "2026-10-02",

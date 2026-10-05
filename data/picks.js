@@ -4,6 +4,43 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-05-daily",
+      "horizon": "daily",
+      "date": "2026-10-05",
+      "horizonDays": 1,
+      "expires": "2026-10-05",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7722.72,
+          "summary": "Risk-on: the S&P 500 closed at 7,722.72 on 2026-10-02 (+0.73%) after a weak September jobs report (29,000 jobs) pulled Treasury yields lower, but there are no daily picks today. None of the stocks passing the daily screen has a fresh, dated catalyst for the 5 Oct session: AMD and Meta were Friday's daily picks with no new news since, Target is this week's weekly pick, and the remaining names (e.g. F5, Revvity, Agilent, Eaton) have nothing new to trade on. ISM services data at 10 AM ET is the main event today. CRITERIA requires a dated catalyst, so the list is left empty rather than padded."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22421.95,
+          "summary": "Risk-off: the Nifty 50 closed at 22,421.95 on 2026-10-01 after eight straight weekly falls, below its 50-day (23,870) and 200-day (24,356) averages, and there are no daily picks today. Only 8 stocks pass the daily screen and none has a fresh, verifiable catalyst for today's session, with the RBI policy decision due Wed 7 Oct (a 25 bp hike is widely expected). See this week's weekly list for APL Apollo Tubes."
+        }
+      },
+      "picks": [],
+      "marketSources": [
+        [
+          "Yahoo Finance – Stock market today, Oct 2: stocks rally as Fed rate-hike expectations fade",
+          "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-2-dow-sp-500-nasdaq-september-jobs-report-080623878.html"
+        ],
+        [
+          "IANS – Market outlook: RBI policy stance, Q2 earnings key triggers next week (Oct 4, 2026)",
+          "https://ianslive.in/market-outlook-rbi-policy-stance-q2-earnings-key-triggers-next-week--20261004110048"
+        ],
+        [
+          "WTOP/AP – Wall Street week ahead: Fed minutes, unemployment data, consumer sentiment",
+          "https://wtop.com/national/2026/10/wall-street-week-ahead-fed-minutes-unemployment-data-consumer-sentiment-update"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-05-weekly",
       "horizon": "weekly",
       "date": "2026-10-05",

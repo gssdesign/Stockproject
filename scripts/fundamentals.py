@@ -84,6 +84,22 @@ def fair_value(fcf_ps: float | None, growth: float | None, mk: str) -> float | N
     return pv + terminal / (1 + r) ** 10
 
 
+_FX: dict[tuple[str, str], float | None] = {}
+
+
+def fx(src: str | None, dst: str | None) -> float | None:
+    """Rate to convert statement currency into the trading currency (1.0 if the same)."""
+    if not src or not dst or src == dst:
+        return 1.0
+    if (src, dst) not in _FX:
+        try:
+            h = yf.Ticker(f"{src}{dst}=X").history(period="10d")["Close"].dropna()
+            _FX[(src, dst)] = float(h.iloc[-1]) if len(h) else None
+        except Exception:
+            _FX[(src, dst)] = None
+    return _FX[(src, dst)]
+
+
 def fetch(t: str) -> dict | None:
     for attempt in range(3):
         try:
@@ -112,8 +128,15 @@ def fetch(t: str) -> dict | None:
     price = num(info.get("currentPrice")) or num(info.get("regularMarketPrice"))
     shares = num(info.get("sharesOutstanding"))
     cap = num(info.get("marketCap"))
-    fcf_ttm = num(info.get("freeCashflow")) or (fcf[0] if fcf else None)
-    fcf_ps = fcf_ttm / shares if fcf_ttm and shares else None
+    # Statements can be in another currency than the shares (e.g. Infosys reports in USD).
+    rate = fx(info.get("financialCurrency"), info.get("currency"))
+    financial = (info.get("sector") or "") == "Financial Services"
+    # Owner earnings: last reported annual free cash flow; for banks, insurers and asset
+    # managers free cash flow isn't meaningful, so net income is used instead (STYLES.md).
+    owner = (ni[0] if ni else None) if financial else (fcf[0] if fcf else None)
+    owner = owner * rate if owner is not None and rate else None
+    fcf_ttm = owner
+    fcf_ps = owner / shares if owner and shares else None
     fv = fair_value(fcf_ps, rev_cagr, mk)
     d0, e0 = (debt[0] if debt else None), (eq[0] if eq else None)
     return {
@@ -135,6 +158,8 @@ def fetch(t: str) -> dict | None:
         "revCagr": rev_cagr, "revGrowth": num(info.get("revenueGrowth")),
         "dividendYield": num(info.get("dividendYield")),
         "fairValue": round(fv, 2) if fv else None,
+        "ownerEarnings": "net income" if financial else "free cash flow",
+        "fxRate": rate,
         "fiscalYearEnd": (inc.columns[0].date().isoformat() if inc is not None and not inc.empty else None),
     }
 
@@ -180,10 +205,11 @@ def main() -> int:
     for style, s in STYLES.items():
         screens[style] = {}
         for mk in ("US", "IN"):
-            ok = []
-            for t, f in out.items():
-                if market_of(t) != mk or passes(f, style, mk):
+            ok, names = [], set()
+            for t, f in sorted(out.items()):
+                if market_of(t) != mk or passes(f, style, mk) or (f.get("name") in names):
                     continue
+                names.add(f.get("name"))
                 price = stocks[t]["close"]  # exact close from the market snapshot
                 buy_below = round(f["fairValue"] * (1 - s["mos"]), 2) if f.get("fairValue") else None
                 ok.append({"ticker": t, "price": price, "date": stocks[t]["date"], "fairValue": f.get("fairValue"),

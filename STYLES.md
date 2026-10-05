@@ -51,7 +51,9 @@ Both styles: large, established companies (Buffett ≥ $10B / ₹20,000 cr marke
 $20B / ₹40,000 cr), profitable in every reported year (up to 4 fiscal years), positive free cash
 flow every year, and the debt, return, margin and price limits in §2.
 
-**Fair value** (shown on every pick): a 10-year two-stage discounted cash flow on free cash flow
+**Fair value** (shown on every pick): a 10-year two-stage discounted cash flow on owner earnings (last
+reported annual free cash flow; net income for banks, insurers and asset managers, converted to the
+trading currency)
 per share. Growth = the company's revenue growth over the reported years, capped at 10% (US) /
 12% (India); then 3% (US) / 5% (India) forever; discounted at 10% (US) / 12% (India). It is an
 estimate, deliberately conservative, and the margin of safety exists because it can be wrong.

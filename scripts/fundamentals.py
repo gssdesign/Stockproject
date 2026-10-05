@@ -130,6 +130,12 @@ def fetch(t: str) -> dict | None:
     cap = num(info.get("marketCap"))
     # Statements can be in another currency than the shares (e.g. Infosys reports in USD).
     rate = fx(info.get("financialCurrency"), info.get("currency"))
+    # Yahoo's financialCurrency label is sometimes wrong (statements actually in the trading
+    # currency). Keep whichever factor makes reported net income agree with marketCap / P/E.
+    pe_now = num(info.get("trailingPE"))
+    if rate and rate != 1.0 and ni and ni[0] and ni[0] > 0 and cap and pe_now and pe_now > 0:
+        implied = cap / pe_now
+        rate = min((1.0, rate), key=lambda r: abs(math.log(ni[0] * r / implied)))
     financial = (info.get("sector") or "") == "Financial Services"
     # Owner earnings: last reported annual free cash flow; for banks, insurers and asset
     # managers free cash flow isn't meaningful, so net income is used instead (STYLES.md).

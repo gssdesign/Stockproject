@@ -185,7 +185,65 @@ window.PICKS = {
               "Entrackr – Nykaa expects around 30% GMV growth in Q2 FY27",
               "https://entrackr.com/news/nykaa-expects-around-30-gmv-growth-in-q2-fy27-12623169"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 339.55,
+            "date": "2026-10-05",
+            "researchPrice": 339.55,
+            "researchDate": "2026-10-05",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹148 cr (min ₹100 cr), price ₹339.55"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹333.72"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +8.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+46.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.7 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.6% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.6,
+            "sma20": 333.72,
+            "sma50": 333.33,
+            "sma200": 285.9,
+            "rs1m": 8.91,
+            "rs3m": 14.41,
+            "fromHigh52": -2.86,
+            "fromLow52": 46.36,
+            "avgValue20": 1476913051,
+            "extAtr": 0.66
+          }
         }
       ],
       "marketSources": [

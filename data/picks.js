@@ -77,7 +77,65 @@ window.PICKS = {
               "CNBC – Here are Monday's biggest analyst calls: Nvidia, SpaceX, Tesla, Apple, Microsoft, Wells Fargo, Samsara & more (Oct 5, 2026)",
               "https://www.cnbc.com/2026/10/05/monday-biggest-analyst-calls-on-wall-street.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 525.18,
+            "date": "2026-10-05",
+            "researchPrice": 525.18,
+            "researchDate": "2026-10-05",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $10,928M (min $50M), price $525.18"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $502.95"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +2.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+50.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.25% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.25,
+            "sma20": 502.95,
+            "sma50": 490.59,
+            "sma200": 433.07,
+            "rs1m": 2.61,
+            "rs3m": 31.46,
+            "fromHigh52": -5.15,
+            "fromLow52": 50.4,
+            "avgValue20": 10927956025,
+            "extAtr": 1.88
+          }
         },
         {
           "market": "US",
@@ -131,7 +189,65 @@ window.PICKS = {
               "CNBC – Here are Monday's biggest analyst calls: Nvidia, SpaceX, Tesla, Apple, Microsoft, Wells Fargo, Samsara & more (Oct 5, 2026)",
               "https://www.cnbc.com/2026/10/05/monday-biggest-analyst-calls-on-wall-street.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 238.9,
+            "date": "2026-10-05",
+            "researchPrice": 238.9,
+            "researchDate": "2026-10-05",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $24,592M (min $50M), price $238.9"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $224.21"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +4.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+45.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.48% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.48,
+            "sma20": 224.21,
+            "sma50": 218.92,
+            "sma200": 201.02,
+            "rs1m": 4.23,
+            "rs3m": 17.71,
+            "fromHigh52": -0.5,
+            "fromLow52": 45.43,
+            "avgValue20": 24591951574,
+            "extAtr": 2.48
+          }
         },
         {
           "market": "IN",

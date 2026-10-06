@@ -4,6 +4,206 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-06-daily",
+      "horizon": "daily",
+      "date": "2026-10-06",
+      "horizonDays": 1,
+      "expires": "2026-10-06",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7773.95,
+          "summary": "Risk-on: the S&P 500 closed at 7,773.95 on 2026-10-05 (+0.66%) and the Nasdaq Composite at a record 27,477 (+1.05%), led by tech and AI names as Fed rate-hike bets eased. Two standard picks with fresh catalysts: Microsoft (Melius upgrade to Buy on 5 Oct) and Nvidia (record close, Bernstein Outperform reiterated on 5 Oct); no other screen stock had a fresh, dated catalyst, so the list isn't padded. Data caveat: Yahoo Finance's overnight data briefly dropped the 5 Oct bars for US stocks, so both closes come from the Market data run of 21:22 UTC on 5 Oct (exact Yahoo closes), matched by news reports; the Market data job re-checks them automatically."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22421.95,
+          "summary": "Risk-off: the Nifty 50 closed at 22,555.75 on 2026-10-05 (+0.6%, snapping a four-day losing run, per Business Standard), still well below its 50-day (23,870) and 200-day (24,356) averages; the data feed's index bar still shows 1 Oct (22,421.95), so relative-strength figures are measured against that close. One standard pick: Nykaa, after its Q2 business update on 5 Oct. The RBI policy decision is due Wed 7 Oct. This week's weekly list has APL Apollo Tubes."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "MSFT",
+          "yahoo": "MSFT",
+          "name": "Microsoft",
+          "sector": "Information Technology / Software",
+          "currency": "USD",
+          "refPrice": 525.18,
+          "refDate": "2026-10-05",
+          "buyLow": 520.45,
+          "buyHigh": 527.54,
+          "target": 538.77,
+          "stop": 515.14,
+          "risk": "Low–Medium",
+          "thesis": "A fresh broker upgrade on 5 Oct (Melius Research, Hold to Buy, $665 target) on a 3-month leader that is still 5% below its 52-week high.",
+          "reasons": [
+            "Melius Research upgraded Microsoft to Buy from Hold on 5 Oct 2026 with a $665 target (about 27% above Monday's close), arguing enterprises will favour Microsoft's software and security stack for lower-risk AI deployment; the stock rose 1.48% to $525.18.",
+            "Analyst upgrades tend to keep working for days to weeks (Womack, 1996), and this one lands on a leader: up 35.1% in 3 months, 31.5 pts ahead of the S&P 500, with the 50-day average ($490.59) rising.",
+            "There is room to the prior high: Monday's close is 5.2% below the 52-week high of $553.72 and only 1.9 ATR above the 20-day average ($502.95), so it is not overextended."
+          ],
+          "data": [
+            [
+              "Close (10/05)",
+              "$525.18"
+            ],
+            [
+              "3-month vs index",
+              "+31.5 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.9 ATR"
+            ],
+            [
+              "ATR",
+              "2.25% of price"
+            ]
+          ],
+          "watch": "A one-day pop on an upgrade can fade if the Nasdaq pulls back from Monday's record; higher Treasury yields are the main macro risk this week. Skip it if it opens outside $520.45–527.54. Next earnings are due late October, outside today's window.",
+          "sources": [
+            [
+              "Yahoo Finance – Melius Research upgrades Microsoft stock to Buy, $665 target (Oct 5, 2026)",
+              "https://finance.yahoo.com/markets/stocks/articles/melius-research-upgrades-microsoft-stock-173111124.html"
+            ],
+            [
+              "Investing.com – Melius upgrades Microsoft stock rating on AI security demand",
+              "https://www.investing.com/news/analyst-ratings/melius-upgrades-microsoft-stock-rating-on-ai-security-demand-93CH-4931593"
+            ],
+            [
+              "CNBC – Here are Monday's biggest analyst calls: Nvidia, SpaceX, Tesla, Apple, Microsoft, Wells Fargo, Samsara & more (Oct 5, 2026)",
+              "https://www.cnbc.com/2026/10/05/monday-biggest-analyst-calls-on-wall-street.html"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "NVDA",
+          "yahoo": "NVDA",
+          "name": "Nvidia",
+          "sector": "Information Technology / Semiconductors",
+          "currency": "USD",
+          "refPrice": 238.9,
+          "refDate": "2026-10-05",
+          "buyLow": 236.53,
+          "buyHigh": 240.09,
+          "target": 245.72,
+          "stop": 233.86,
+          "risk": "Medium",
+          "thesis": "A breakout to a record close on 5 Oct, with Bernstein reiterating Outperform the same day, led a Nasdaq that also closed at a record.",
+          "reasons": [
+            "Nvidia closed at a record $238.90 on 5 Oct 2026 (+2.12%), its highest close ever, with its market value near $5.7 trillion; the Nasdaq Composite also closed at a record (27,477, +1.05%).",
+            "Bernstein reiterated Outperform on 5 Oct, citing the size of the datacenter opportunity, so the breakout came with fresh analyst support rather than on no news.",
+            "Trend and strength line up: up 21.3% in 3 months (17.7 pts ahead of the S&P 500), above its 20-, 50- and 200-day averages, and 1-month relative strength is +4.2 pts."
+          ],
+          "data": [
+            [
+              "Close (10/05)",
+              "$238.90"
+            ],
+            [
+              "3-month vs index",
+              "+17.7 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.5 ATR"
+            ],
+            [
+              "ATR",
+              "2.48% of price"
+            ]
+          ],
+          "watch": "It is 2.5 ATR above its 20-day average after a record close, so a quick pullback is possible if tech cools; a failed breakout back below $236 would weaken the case. Skip it if it opens outside $236.53–240.09. No earnings until November.",
+          "sources": [
+            [
+              "Yahoo Finance – Stock market today: Nasdaq, Nvidia post record highs as tech strength outshines bond weakness (Oct 5, 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-monday-october-5-dow-sp-500-nasdaq-081220790.html"
+            ],
+            [
+              "Yahoo Finance – Nvidia stock hits all-time high, as market cap closes in on $6 trillion",
+              "https://finance.yahoo.com/technology/article/nvidia-stock-hits-all-time-high-as-market-cap-closes-in-on-6-trillion-141332917.html"
+            ],
+            [
+              "CNBC – Here are Monday's biggest analyst calls: Nvidia, SpaceX, Tesla, Apple, Microsoft, Wells Fargo, Samsara & more (Oct 5, 2026)",
+              "https://www.cnbc.com/2026/10/05/monday-biggest-analyst-calls-on-wall-street.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "NYKAA",
+          "yahoo": "NYKAA.NS",
+          "name": "FSN E-Commerce Ventures (Nykaa)",
+          "sector": "Consumer Services / E-commerce",
+          "currency": "INR",
+          "refPrice": 339.55,
+          "refDate": "2026-10-05",
+          "buyLow": 336.0,
+          "buyHigh": 341.3,
+          "target": 349.7,
+          "stop": 332.05,
+          "risk": "Medium",
+          "thesis": "A strong Q2 FY27 business update on 5 Oct (GMV growth close to 30%, fashion accelerating) that Morgan Stanley said ran ahead of its estimates.",
+          "reasons": [
+            "Nykaa's provisional Q2 FY27 update (5 Oct 2026) guided consolidated GMV growth close to 30%, NSV growth in the early thirties and net revenue growth in the late twenties; the stock closed up 4.5% at ₹339.55.",
+            "Morgan Stanley kept Overweight with a ₹356 target, saying revenue growth is tracking in the high twenties against its 26% estimate and fashion revenue growth in the low 50s against its 35% estimate; JM Financial also flagged 'excellent trends'.",
+            "The chart supports it: the close is 2.9% below the 52-week high (₹349.55), above its 20-, 50- and 200-day averages, and 3-month relative strength vs the Nifty is +14.4 pts."
+          ],
+          "data": [
+            [
+              "Close (10/05)",
+              "₹339.55"
+            ],
+            [
+              "3-month vs index",
+              "+14.4 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.7 ATR"
+            ],
+            [
+              "ATR",
+              "2.6% of price"
+            ]
+          ],
+          "watch": "The broader market is in a downtrend (risk-off) and the RBI policy decision on Wed 7 Oct could swing sentiment. The 52-week high near ₹349.55 may act as resistance, which is why the target stops at ₹349.70. Skip it if it opens outside ₹336.00–341.30. Full Q2 results come later in the quarter, outside today's window.",
+          "sources": [
+            [
+              "BusinessToday – Nykaa stock gains 6% post Q2 update, Morgan Stanley shares target price (Oct 5, 2026)",
+              "https://www.businesstoday.in/amp/markets/trending-stocks/story/nykaa-stock-gains-6-post-q2-update-morgan-stanley-shares-target-price-559456-2026-10-05"
+            ],
+            [
+              "Business Standard – Nykaa Q2 update: JM sees 'excellent trends' in BPC & Fashion; stock up 5% (Oct 5, 2026)",
+              "https://www.business-standard.com/markets/news/nykaa-q2-update-jm-sees-excellent-trends-in-bpc-fashion-stock-up-5-126100500310_1.html"
+            ],
+            [
+              "Entrackr – Nykaa expects around 30% GMV growth in Q2 FY27",
+              "https://entrackr.com/news/nykaa-expects-around-30-gmv-growth-in-q2-fy27-12623169"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Stock market today: Nasdaq, Nvidia post record highs as tech strength outshines bond weakness (Oct 5, 2026)",
+          "https://finance.yahoo.com/markets/live/stock-market-today-monday-october-5-dow-sp-500-nasdaq-081220790.html"
+        ],
+        [
+          "Business Standard – Stock Market Close: Sensex snaps 4-day losing run, gains 473 pts; Nifty ends at 22,556; ITC up 5% (Oct 5, 2026)",
+          "https://www.business-standard.com/markets/news/stock-market-live-october-5-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-snapdeal-listing-today-rvnl-share-price-today-ipo-today-126100500057_1.html"
+        ],
+        [
+          "CNBC – Stock market next week: Outlook for Oct. 5-9, 2026",
+          "https://cnbc.com/2026/10/02/stock-market-next-week-outlook-for-oct-5-9-2026-.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-05-daily",
       "horizon": "daily",
       "date": "2026-10-05",

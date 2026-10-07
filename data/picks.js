@@ -4,6 +4,206 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-07-daily",
+      "horizon": "daily",
+      "date": "2026-10-07",
+      "horizonDays": 1,
+      "expires": "2026-10-07",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7818.93,
+          "summary": "Risk-on: the S&P 500 closed at a record 7,818.93 on 2026-10-06 (+0.58%) as Treasury yields and oil eased and chip stocks led. One standard pick, AMD, after Citi and Mizuho raised their targets on 6 Oct; yesterday's picks (Microsoft, Nvidia) had no new catalyst and other screen stocks either lacked a fresh dated catalyst or had just spiked, so the list isn't padded."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22776.1,
+          "summary": "Risk-off: the Nifty 50 closed at 22,776.10 on 2026-10-06 (+0.98%), its second straight gain but still below its 50-day (about 23,800) and 200-day (about 24,350) averages. Two standard picks with fresh Q2 business updates (Trent, Kotak Mahindra Bank). The RBI policy decision is due this morning (a 25 bp hike to 5.50% is widely expected) and TCS reports on 8 Oct; this week's weekly list has APL Apollo Tubes."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "AMD",
+          "yahoo": "AMD",
+          "name": "Advanced Micro Devices",
+          "sector": "Information Technology / Semiconductors",
+          "currency": "USD",
+          "refPrice": 649.42,
+          "refDate": "2026-10-06",
+          "buyLow": 639.83,
+          "buyHigh": 654.22,
+          "target": 676.99,
+          "stop": 629.04,
+          "risk": "Medium",
+          "thesis": "Two big broker target raises on 6 Oct (Citi to $800 from $575, Mizuho to $705 from $580) pushed AMD to a record close while chip stocks led the S&P 500 to a new high.",
+          "reasons": [
+            "Citi reiterated Buy on 6 Oct 2026 and raised its target to $800 from $575, arguing AI agents will drive a server-CPU market of about $300B by 2030; Mizuho raised its target to $705 from $580 the same day.",
+            "The stock rose 2.80% to a record close of $649.42 on 6 Oct as the S&P 500 (7,818.93) and Nasdaq both closed at records and chip stocks led.",
+            "It is a strong leader: up 36.0% in 1 month and 25.5% in 3 months (21.0 pts ahead of the S&P 500), above its 20-, 50- and 200-day averages; it hit its target as a daily pick on 2 Oct."
+          ],
+          "data": [
+            [
+              "Close (10/06)",
+              "$649.42"
+            ],
+            [
+              "3-month vs index",
+              "+21.0 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.8 ATR"
+            ],
+            [
+              "ATR",
+              "3.69% of price"
+            ]
+          ],
+          "watch": "It is 2.8 ATR above its 20-day average after a 36% one-month run, close to the 3-ATR limit, so a pullback can come quickly if chip stocks cool. Skip it if it opens outside $639.83–654.22. No earnings until November.",
+          "sources": [
+            [
+              "CNBC – Here are Tuesday's biggest analyst calls of the day: Nvidia, AMD, Procter & Gamble, Meta & more (Oct 6, 2026)",
+              "https://www.cnbc.com/2026/10/06/tuesday-biggest-analyst-calls-like-nvidia.html"
+            ],
+            [
+              "Seeking Alpha – AMD rises as Citi ups price target as firm sees CPU market hitting $300B by 2030",
+              "https://seekingalpha.com/news/4650495-amd-rises-as-citi-ups-price-target-as-firm-sees-cpu-market-hitting-300b-by-2030"
+            ],
+            [
+              "Yahoo Finance – Stock market today: S&P 500, Nasdaq hit record highs as Nvidia, AMD lead tech higher (Oct 6, 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-october-6-dow-sp-500-nasdaq-080526166.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "TRENT",
+          "yahoo": "TRENT.NS",
+          "name": "Trent",
+          "sector": "Consumer Services / Retail",
+          "currency": "INR",
+          "refPrice": 2906.0,
+          "refDate": "2026-10-06",
+          "buyLow": 2876.55,
+          "buyHigh": 2920.7,
+          "target": 2990.6,
+          "stop": 2843.45,
+          "risk": "Medium",
+          "thesis": "A Q2 FY27 business update on 6 Oct showing 23% revenue growth, the fastest in five quarters and ahead of estimates, sent the stock up 12.6%.",
+          "reasons": [
+            "Trent's standalone revenue rose 23% year on year to ₹5,788 crore in Q2 FY27 (update on 6 Oct 2026), versus 16–20% growth in the previous four quarters and ahead of Citi's 18% estimate; Zudio crossed 1,000 stores.",
+            "The stock closed 12.64% higher at ₹2,906 on 6 Oct, the top Nifty 50 gainer, and Morgan Stanley rates it Overweight with a ₹3,406 target.",
+            "A fresh, dated beat after a long slump: the stock is 40% below its 52-week high, so the update can draw buyers for several sessions (post-announcement drift); it is now above its 20-, 50- and 200-day averages."
+          ],
+          "data": [
+            [
+              "Close (10/06)",
+              "₹2,906.00"
+            ],
+            [
+              "1-month vs index",
+              "+7.8 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.4 ATR"
+            ],
+            [
+              "ATR",
+              "2.53% of price"
+            ]
+          ],
+          "watch": "After a 12.6% one-day jump some profit-taking is likely, and at least one brokerage kept a Sell call. The RBI policy decision this morning (a 25 bp hike is widely expected) can move the whole market. Skip it if it opens outside ₹2,876.55–2,920.70.",
+          "sources": [
+            [
+              "Business Standard – Trent rallies 10% after Q2 business update, m-cap tops ₹1.5 trillion (Oct 6, 2026)",
+              "https://www.business-standard.com/markets/news/trent-share-price-rallies-10-after-q2-business-update-m-cap-tops-1-5-trillion-126100600160_1.html"
+            ],
+            [
+              "Upstox News – Trent shares jump 13% after Q2 revenue beats estimates despite festive shift; analysts weigh in",
+              "https://upstox.com/news/market-news/stocks/trent-shares-in-focus-after-q2-revenue-jumps-23-yo-y-zudio-crosses-1-000-store-milestone/article-201309/"
+            ],
+            [
+              "Retail Insight Network – Trent standalone revenue rises 23% in second quarter of FY27",
+              "https://www.retail-insight-network.com/news/trent-q2-standalone-revenue-rises-23/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "KOTAKBANK",
+          "yahoo": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "sector": "Financial Services / Banks",
+          "currency": "INR",
+          "refPrice": 431.9,
+          "refDate": "2026-10-06",
+          "buyLow": 428.25,
+          "buyHigh": 433.75,
+          "target": 442.4,
+          "stop": 424.15,
+          "risk": "Medium",
+          "thesis": "A strong Q2 FY27 business update on 6 Oct (net advances +24.7%, deposits +23.2%) on a bank that is already a 3-month leader.",
+          "reasons": [
+            "Kotak's Q2 FY27 update (6 Oct 2026) showed standalone net advances up 24.7% year on year to ₹5,77,094 crore (+12.7% on the quarter) and total deposits up 23.2% to ₹6,51,491 crore.",
+            "The stock rose 3.82% to ₹431.90 on 6 Oct, among the top Nifty 50 gainers, as the Bank Nifty rose on strong Q2 updates from HDFC Bank and Kotak.",
+            "It is a leader: up 14.5% in 3 months (21.2 pts ahead of the Nifty), above its 20-, 50- and 200-day averages, and 4.7% below its 52-week high of ₹453.20."
+          ],
+          "data": [
+            [
+              "Close (10/06)",
+              "₹431.90"
+            ],
+            [
+              "3-month vs index",
+              "+21.2 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.9 ATR"
+            ],
+            [
+              "ATR",
+              "2.11% of price"
+            ]
+          ],
+          "watch": "Banks are the most exposed to the RBI decision this morning: a bigger-than-expected hike or a hawkish tone could hit the sector. CASA growth (11.3%) lagged loan growth, which some analysts may question. Skip it if it opens outside ₹428.25–433.75.",
+          "sources": [
+            [
+              "Moneycontrol (via TradingView) – Bank Nifty rises for 5th day to reclaim 56,000 mark on strong Q2 biz updates from HDFC, Kotak Mahindra Bank",
+              "https://ru.tradingview.com/news/moneycontrol:19e31c63e094b:0-bank-nifty-rises-for-5th-day-to-reclaim-56-000-mark-on-strong-q2-biz-updates-from-hdfc-kotak-mahindra-bank"
+            ],
+            [
+              "Upstox News – Top gainers and losers, Oct 6: Trent rallies 13%, BSE, Kotak Bank shares jump 4%",
+              "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-oct-6-trent-rallies-13-bse-kotak-bank-shares-jump-4-coal-india-falls-3-check-list/article-201378/"
+            ],
+            [
+              "Business Standard – Stock Market Close: Sensex rises 685 pts, Nifty ends at 22,776 ahead of RBI MPC meet outcome (Oct 6, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-6-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-srit-india-ipo-listing-126100600087_1.html"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Stock Market Today (Oct. 6, 2026): S&P 500 sets new record as oil prices, Treasury yields settle",
+          "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-6-134418919.html"
+        ],
+        [
+          "Business Standard – Stock Market Close: Sensex rises 685 pts, Nifty ends at 22,776 ahead of RBI MPC meet outcome (Oct 6, 2026)",
+          "https://www.business-standard.com/amp/markets/news/stock-market-live-october-6-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-srit-india-ipo-listing-126100600087_1.html"
+        ],
+        [
+          "CNBC – Stock futures are little changed after S&P 500 hits fresh record: Live updates (Oct 6, 2026)",
+          "https://cnbc.com/2026/10/06/stock-market-today-live-updates.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-06-daily",
       "horizon": "daily",
       "date": "2026-10-06",

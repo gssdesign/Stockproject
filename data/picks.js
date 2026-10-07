@@ -77,7 +77,65 @@ window.PICKS = {
               "Yahoo Finance – Stock market today: S&P 500, Nasdaq hit record highs as Nvidia, AMD lead tech higher (Oct 6, 2026)",
               "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-october-6-dow-sp-500-nasdaq-080526166.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 649.42,
+            "date": "2026-10-06",
+            "researchPrice": 649.42,
+            "researchDate": "2026-10-06",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $12,924M (min $50M), price $649.42"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $581.38"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +34.7 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+245.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.69% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.69,
+            "sma20": 581.38,
+            "sma50": 518.82,
+            "sma200": 379.09,
+            "rs1m": 34.68,
+            "rs3m": 21.02,
+            "fromHigh52": -1.38,
+            "fromLow52": 245.03,
+            "avgValue20": 12923704286,
+            "extAtr": 2.84
+          }
         },
         {
           "market": "IN",
@@ -131,7 +189,65 @@ window.PICKS = {
               "Retail Insight Network – Trent standalone revenue rises 23% in second quarter of FY27",
               "https://www.retail-insight-network.com/news/trent-q2-standalone-revenue-rises-23/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 2906.0,
+            "date": "2026-10-06",
+            "researchPrice": 2906.0,
+            "researchDate": "2026-10-06",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹270 cr (min ₹100 cr), price ₹2,906.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹2731.32"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +7.8 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+33.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.53% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.53,
+            "sma20": 2731.32,
+            "sma50": 2862.53,
+            "sma200": 2827.86,
+            "rs1m": 7.85,
+            "rs3m": 6.72,
+            "fromHigh52": -40.29,
+            "fromLow52": 33.08,
+            "avgValue20": 2703949093,
+            "extAtr": 2.37
+          }
         },
         {
           "market": "IN",
@@ -185,7 +301,65 @@ window.PICKS = {
               "Business Standard – Stock Market Close: Sensex rises 685 pts, Nifty ends at 22,776 ahead of RBI MPC meet outcome (Oct 6, 2026)",
               "https://www.business-standard.com/amp/markets/news/stock-market-live-october-6-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-srit-india-ipo-listing-126100600087_1.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 431.9,
+            "date": "2026-10-06",
+            "researchPrice": 431.9,
+            "researchDate": "2026-10-06",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹741 cr (min ₹100 cr), price ₹431.9"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹414.06"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +6.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+25.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.11% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.11,
+            "sma20": 414.06,
+            "sma50": 407.7,
+            "sma200": 399.14,
+            "rs1m": 6.92,
+            "rs3m": 21.17,
+            "fromHigh52": -4.7,
+            "fromLow52": 25.01,
+            "avgValue20": 7409394488,
+            "extAtr": 1.95
+          }
         }
       ],
       "marketSources": [

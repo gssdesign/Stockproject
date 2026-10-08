@@ -77,7 +77,65 @@ window.PICKS = {
               "Yahoo Finance – Stock market today: Dow falls, S&P 500 and Nasdaq retreat from records amid bond market jitters (Oct 7, 2026)",
               "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-7-dow-sp-500-nasdaq-080241833.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 414.52,
+            "date": "2026-10-07",
+            "researchPrice": 414.52,
+            "researchDate": "2026-10-07",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $901M (min $50M), price $414.52"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $395.16"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +16.7 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+26.2% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.7 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.78% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.78,
+            "sma20": 395.16,
+            "sma50": 383.43,
+            "sma200": 444.98,
+            "rs1m": 16.71,
+            "rs3m": -2.7,
+            "fromHigh52": -31.36,
+            "fromLow52": 26.16,
+            "avgValue20": 900644884,
+            "extAtr": 1.68
+          }
         },
         {
           "market": "IN",
@@ -133,7 +191,65 @@ window.PICKS = {
               "Kotak Neo – Closing Bell, 7 October 2026: Sensex, Nifty end lower as RBI raises rates to 5.5%",
               "https://www.kotakneo.com/news/market-news/closing-bell-7-october-2026-sensex-nifty-end-in-red/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 18160.0,
+            "date": "2026-10-07",
+            "researchPrice": 18160.0,
+            "researchDate": "2026-10-07",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹221 cr (min ₹100 cr), price ₹18,160.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹17764.2"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +8.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+167.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.75% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.75,
+            "sma20": 17764.2,
+            "sma50": 17148.14,
+            "sma200": 12857.9,
+            "rs1m": 8.4,
+            "rs3m": 34.54,
+            "fromHigh52": -5.74,
+            "fromLow52": 167.02,
+            "avgValue20": 2206655847,
+            "extAtr": 0.58
+          }
         },
         {
           "market": "IN",
@@ -189,7 +305,65 @@ window.PICKS = {
               "Kotak Neo – Closing Bell, 7 October 2026: Sensex, Nifty end lower as RBI raises rates to 5.5%",
               "https://www.kotakneo.com/news/market-news/closing-bell-7-october-2026-sensex-nifty-end-in-red/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 3362.6,
+            "date": "2026-10-07",
+            "researchPrice": 3362.6,
+            "researchDate": "2026-10-07",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹561 cr (min ₹100 cr), price ₹3,362.6"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹3270.91"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +6.0 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+106.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.14% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.14,
+            "sma20": 3270.91,
+            "sma50": 3134.18,
+            "sma200": 2788.35,
+            "rs1m": 6.04,
+            "rs3m": 26.72,
+            "fromHigh52": -3.41,
+            "fromLow52": 106.8,
+            "avgValue20": 5605679977,
+            "extAtr": 0.87
+          }
         },
         {
           "market": "IN",
@@ -245,7 +419,65 @@ window.PICKS = {
               "Kotak Neo – Closing Bell, 7 October 2026: Sensex, Nifty end lower as RBI raises rates to 5.5%",
               "https://www.kotakneo.com/news/market-news/closing-bell-7-october-2026-sensex-nifty-end-in-red/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 328.0,
+            "date": "2026-10-07",
+            "researchPrice": 328.0,
+            "researchDate": "2026-10-07",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹652 cr (min ₹100 cr), price ₹328.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹326.3"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +7.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+54.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.52% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.52,
+            "sma20": 326.3,
+            "sma50": 322.55,
+            "sma200": 277.15,
+            "rs1m": 7.41,
+            "rs3m": 18.6,
+            "fromHigh52": -10.98,
+            "fromLow52": 54.28,
+            "avgValue20": 6516119507,
+            "extAtr": 0.21
+          }
         }
       ],
       "marketSources": [

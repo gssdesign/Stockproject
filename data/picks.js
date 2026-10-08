@@ -4,6 +4,266 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-08-daily",
+      "horizon": "daily",
+      "date": "2026-10-08",
+      "horizonDays": 1,
+      "expires": "2026-10-08",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7801.77,
+          "summary": "Risk-on: the S&P 500 closed at 7,801.77 on 2026-10-07 (-0.22%), slipping from its record as bond yields rose and oil neared $100. One standard pick, Intuitive Surgical, after Barclays began coverage at Overweight on 7 Oct; other upgrades that day (Marvell, NetApp) failed the volatility or overextension checks, so the list isn't padded."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22603.05,
+          "summary": "Risk-off: the Nifty 50 closed at 22,603.05 on 2026-10-07 (-0.76%) after the RBI raised the repo rate by 25 bp to 5.50% and signalled more tightening. Plan B list: no stock on the daily screen had a fresh, dated catalyst (Trent and Kotak were yesterday's picks with no new news), so three Plan B ideas (the maximum in a risk-off market) come from the looser rule in CRITERIA.md section 9: strong 3-month leaders resting near their 20-day averages, in three different sectors. Treat them as lower-conviction. TCS reports Q2 results after today's close; this week's weekly list has APL Apollo Tubes."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "ISRG",
+          "yahoo": "ISRG",
+          "name": "Intuitive Surgical",
+          "sector": "Health Care / Medical Devices",
+          "currency": "USD",
+          "refPrice": 414.52,
+          "refDate": "2026-10-07",
+          "buyLow": 409.9,
+          "buyHigh": 416.83,
+          "target": 427.79,
+          "stop": 404.71,
+          "risk": "Medium",
+          "thesis": "Barclays started coverage at Overweight with a $485 target on 7 Oct, extending a one-month recovery in the robotic-surgery leader.",
+          "reasons": [
+            "Barclays initiated Intuitive Surgical at Overweight with a $485 target on 7 Oct 2026 (about 17% above the $414.52 close), expecting medtech fundamentals and sentiment to improve from 2027.",
+            "The stock rose 2.41% on 7 Oct while the S&P 500 slipped from its record, and it is up 18.4% in a month (16.7 pts ahead of the index).",
+            "It has reclaimed its 20-day ($395.16) and 50-day ($383.43) averages and is only 1.7 ATR above the 20-day, so it isn't overextended; Q3 results are expected around 20 Oct, outside today's window."
+          ],
+          "data": [
+            [
+              "Close (10/07)",
+              "$414.52"
+            ],
+            [
+              "1-month vs index",
+              "+16.7 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.7 ATR"
+            ],
+            [
+              "ATR",
+              "2.78% of price"
+            ]
+          ],
+          "watch": "The stock is still 31% below its 52-week high and 3-month relative strength is slightly negative (-2.7 pts), so the recovery is young; competition from Johnson & Johnson and planned 2027 fee cuts are the known worries. Skip it if it opens outside $409.90–416.83.",
+          "sources": [
+            [
+              "Yahoo Finance – Here are Wednesday's top Wall Street analyst research calls: Abbott, AppFolio, Delek, Flutter, Honeywell, Intuitive Surgical, Marvell, NetApp and more (Oct 7, 2026)",
+              "https://finance.yahoo.com/markets/stocks/articles/wednesday-top-wall-street-analyst-115932278.html"
+            ],
+            [
+              "GuruFocus – ISRG initiated coverage by Barclays, price target announced at $485",
+              "https://www.gurufocus.com/news/9113365/isrg-initiated-coverage-by-barclays-price-target-announced-at-485"
+            ],
+            [
+              "Yahoo Finance – Stock market today: Dow falls, S&P 500 and Nasdaq retreat from records amid bond market jitters (Oct 7, 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-7-dow-sp-500-nasdaq-080241833.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "APARINDS",
+          "yahoo": "APARINDS.NS",
+          "name": "Apar Industries",
+          "sector": "Capital Goods / Cables & Conductors",
+          "currency": "INR",
+          "refPrice": 18160.0,
+          "refDate": "2026-10-07",
+          "buyLow": 17887.7,
+          "buyHigh": 18296.15,
+          "target": 18942.85,
+          "stop": 17581.35,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): one of the market's strongest 3-month leaders, resting just above its 20-day average, with results not due until late October.",
+          "reasons": [
+            "It's a leader: up 29.2% in 3 months, 34.5 pts ahead of the Nifty 50, with a rising 50-day average (₹17,148) and the close 5.7% below its 52-week high (₹19,265).",
+            "The setup is a calm pause, not a spike: it closed at ₹18,160 on 7 Oct (+0.80%) on a down day for the Nifty, only 0.6 ATR above its 20-day average (₹17,764).",
+            "Results are expected in late October (around 27–29 Oct), well outside today's window, so there's no earnings event today."
+          ],
+          "data": [
+            [
+              "Close (10/07)",
+              "₹18,160"
+            ],
+            [
+              "3-month vs index",
+              "+34.5 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.6 ATR"
+            ],
+            [
+              "ATR",
+              "3.75% of price"
+            ]
+          ],
+          "watch": "There's no fresh news behind this pick, and the market is in a downtrend after the RBI's 25 bp hike on 7 Oct. Its daily range is wide (ATR 3.75%), so size small. Skip it if it opens outside ₹17,887.70–18,296.15.",
+          "sources": [
+            [
+              "Business Standard – Stock Market Close: Sensex falls 429 pts, Nifty ends at 22,603 as RBI hikes rate amid price pressure (Oct 7, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-7-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-rbi-mpc-repo-rate-ipo-today-126100700099_1.html"
+            ],
+            [
+              "ETV Bharat – Stock Markets Closing: Sensex, Nifty decline after two straight days of gains (Oct 7, 2026)",
+              "https://www.etvbharat.com/en/business/stock-markets-on-october-7-bse-sensex-nifty-crude-oil-prices-rbi-repo-rate-enn26100701343"
+            ],
+            [
+              "Kotak Neo – Closing Bell, 7 October 2026: Sensex, Nifty end lower as RBI raises rates to 5.5%",
+              "https://www.kotakneo.com/news/market-news/closing-bell-7-october-2026-sensex-nifty-end-in-red/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "MCX",
+          "yahoo": "MCX.NS",
+          "name": "Multi Commodity Exchange of India",
+          "sector": "Financial Services / Exchanges",
+          "currency": "INR",
+          "refPrice": 3362.6,
+          "refDate": "2026-10-07",
+          "buyLow": 3320.4,
+          "buyHigh": 3383.7,
+          "target": 3483.9,
+          "stop": 3272.95,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): a 3-month leader near its 52-week high that is holding just above its 20-day average.",
+          "reasons": [
+            "It's a leader: up 21.4% in 3 months, 26.7 pts ahead of the Nifty 50, with a rising 50-day average (₹3,134) and the close 3.4% below its 52-week high (₹3,481.40).",
+            "It rose 1.59% to ₹3,362.60 on 7 Oct while the Nifty fell 0.76%, and sits only 0.9 ATR above its 20-day average (₹3,270.91).",
+            "Volatile commodity markets (crude near $100, a weak rupee) tend to support trading volumes on the exchange; Q2 results are not expected until late October or early November."
+          ],
+          "data": [
+            [
+              "Close (10/07)",
+              "₹3,362.60"
+            ],
+            [
+              "3-month vs index",
+              "+26.7 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.9 ATR"
+            ],
+            [
+              "ATR",
+              "3.14% of price"
+            ]
+          ],
+          "watch": "There's no fresh news behind this pick, and the 52-week high near ₹3,481 may act as resistance just below the target. Skip it if it opens outside ₹3,320.40–3,383.70, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Business Standard – Stock Market Close: Sensex falls 429 pts, Nifty ends at 22,603 as RBI hikes rate amid price pressure (Oct 7, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-7-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-rbi-mpc-repo-rate-ipo-today-126100700099_1.html"
+            ],
+            [
+              "ETV Bharat – Stock Markets Closing: Sensex, Nifty decline after two straight days of gains (Oct 7, 2026)",
+              "https://www.etvbharat.com/en/business/stock-markets-on-october-7-bse-sensex-nifty-crude-oil-prices-rbi-repo-rate-enn26100701343"
+            ],
+            [
+              "Kotak Neo – Closing Bell, 7 October 2026: Sensex, Nifty end lower as RBI raises rates to 5.5%",
+              "https://www.kotakneo.com/news/market-news/closing-bell-7-october-2026-sensex-nifty-end-in-red/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "ETERNAL",
+          "yahoo": "ETERNAL.NS",
+          "name": "Eternal (Zomato, Blinkit)",
+          "sector": "Consumer Services / Internet",
+          "currency": "INR",
+          "refPrice": 328.0,
+          "refDate": "2026-10-07",
+          "buyLow": 324.7,
+          "buyHigh": 329.65,
+          "target": 337.5,
+          "stop": 320.95,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): a 3-month leader that has pulled back to sit right on its 20-day average.",
+          "reasons": [
+            "It's a leader: up 13.2% in 3 months, 18.6 pts ahead of the Nifty 50, with a rising 50-day average (₹322.55).",
+            "The pullback is orderly: it closed at ₹328 on 7 Oct (-0.30%, better than the Nifty's -0.76%), just 0.2 ATR above its 20-day average (₹326.30), where leaders often find support.",
+            "Its 1-month return beats the index by 7.4 pts; Q2 results are expected mid-to-late October, outside today's window."
+          ],
+          "data": [
+            [
+              "Close (10/07)",
+              "₹328.00"
+            ],
+            [
+              "3-month vs index",
+              "+18.6 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.2 ATR"
+            ],
+            [
+              "ATR",
+              "2.52% of price"
+            ]
+          ],
+          "watch": "There's no fresh news behind this pick; a close below the 20-day average (₹326) would break the setup, and rate hikes can weigh on richly valued growth stocks. Skip it if it opens outside ₹324.70–329.65.",
+          "sources": [
+            [
+              "Business Standard – Stock Market Close: Sensex falls 429 pts, Nifty ends at 22,603 as RBI hikes rate amid price pressure (Oct 7, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-7-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-rbi-mpc-repo-rate-ipo-today-126100700099_1.html"
+            ],
+            [
+              "ETV Bharat – Stock Markets Closing: Sensex, Nifty decline after two straight days of gains (Oct 7, 2026)",
+              "https://www.etvbharat.com/en/business/stock-markets-on-october-7-bse-sensex-nifty-crude-oil-prices-rbi-repo-rate-enn26100701343"
+            ],
+            [
+              "Kotak Neo – Closing Bell, 7 October 2026: Sensex, Nifty end lower as RBI raises rates to 5.5%",
+              "https://www.kotakneo.com/news/market-news/closing-bell-7-october-2026-sensex-nifty-end-in-red/"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Stock Market Today (Oct. 7, 2026): Market faces pullback after S&P 500, Nasdaq records",
+          "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-7-133458375.html"
+        ],
+        [
+          "Business Standard – Stock Market Close: Sensex falls 429 pts, Nifty ends at 22,603 as RBI hikes rate amid price pressure (Oct 7, 2026)",
+          "https://www.business-standard.com/amp/markets/news/stock-market-live-october-7-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-rbi-mpc-repo-rate-ipo-today-126100700099_1.html"
+        ],
+        [
+          "ETV Bharat – Stock Markets Closing: Sensex, Nifty decline after two straight days of gains (Oct 7, 2026)",
+          "https://www.etvbharat.com/en/business/stock-markets-on-october-7-bse-sensex-nifty-crude-oil-prices-rbi-repo-rate-enn26100701343"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-07-daily",
       "horizon": "daily",
       "date": "2026-10-07",

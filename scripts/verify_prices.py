@@ -80,7 +80,18 @@ def main() -> int:
             # window. (Sessions still trading are never used as closes: see
             # marketlib.completed.)
             if prev.get("status") in ("ok", "adjusted", "mismatch"):
-                continue
+                # One exception: a check made against an older session than the one the
+                # pick was priced from (Yahoo briefly served bars a session short) is
+                # wrong, so undo it and verify again.
+                if not (prev.get("date") and prev.get("researchDate") and prev["date"] < prev["researchDate"] <= exp.isoformat()):
+                    continue
+                for k, v in (prev.get("original") or {}).items():
+                    p[k] = v
+                p["refPrice"], p["refDate"] = prev["researchPrice"], prev["researchDate"]
+                for k in ("verified", "checks", "metricsAtPick", "eventRisk"):
+                    p.pop(k, None)
+                changed += 1
+                print(f"re-verifying {batch['id']} {p['yahoo']}: checked against {prev['date']}, priced from {prev['researchDate']}")
             mk = market_of(p["yahoo"])
             for sym in (p["yahoo"], BENCHMARK[mk]):
                 if sym not in cache:
@@ -98,6 +109,11 @@ def main() -> int:
             deadline = dt.datetime.combine(exp, dt.time(CLOSE_UTC_HOUR[mk] + 1), dt.timezone.utc) + dt.timedelta(hours=6)
             if ref["date"] < exp.isoformat() and now < deadline:
                 print(f"pending: {batch['id']} {p['yahoo']}: {exp} close not available yet")
+                continue
+            # The pick was priced from a session Yahoo isn't returning right now: wait for
+            # it rather than re-anchoring the pick to an older close.
+            if p.get("refDate") and ref["date"] < p["refDate"] <= exp.isoformat() and now < deadline + dt.timedelta(days=4):
+                print(f"pending: {batch['id']} {p['yahoo']}: {p['refDate']} close missing from Yahoo right now")
                 continue
 
             close = round(ref["close"], 2)

@@ -161,6 +161,23 @@ def main() -> int:
             continue
         m.update({k: v for k, v in universe[t].items() if v})
         stocks[t] = m
+    # Yahoo sometimes serves bars that stop a session short for a few hours (seen around
+    # midnight UTC). Never let that replace a newer close we already have: keep the
+    # previous snapshot's entry for any stock or benchmark that would go back in time.
+    prev = read_assigned(DATA / "market.js", "window.MARKET = ") if (DATA / "market.js").exists() else {}
+    kept = 0
+    for t, old in (prev.get("stocks") or {}).items():
+        if t in stocks and old.get("date", "") > stocks[t].get("date", ""):
+            stocks[t], kept = old, kept + 1
+    for mk, old in (prev.get("benchmarks") or {}).items():
+        if old.get("date") and (not bench.get(mk) or old["date"] > bench[mk].get("date", "")):
+            bench[mk] = {k: v for k, v in old.items() if k not in ("symbol", "regime")}
+    if kept:
+        print(f"kept the previous snapshot for {kept} ticker(s) whose new data was older")
+    for mk, old in (prev.get("latestSession") or {}).items():
+        latest[mk] = max(latest.get(mk, ""), old)
+    for t, m in stocks.items():
+        mk = market_of(t)
         for h in HORIZONS:
             lv = levels(m, h, mk)
             if all(c["pass"] for c in checks(m, h, mk, lv)):

@@ -86,12 +86,12 @@ window.PICKS = {
           "name": "Apar Industries",
           "sector": "Capital Goods / Cables & Conductors",
           "currency": "INR",
-          "refPrice": 18016.0,
-          "refDate": "2026-10-06",
-          "buyLow": 17745.85,
-          "buyHigh": 18151.05,
-          "target": 18792.65,
-          "stop": 17441.95,
+          "refPrice": 18160.0,
+          "refDate": "2026-10-07",
+          "buyLow": 17887.7,
+          "buyHigh": 18296.15,
+          "target": 18942.85,
+          "stop": 17581.35,
           "risk": "Medium",
           "planB": true,
           "planBBasis": "setup",
@@ -133,73 +133,7 @@ window.PICKS = {
               "Kotak Neo – Closing Bell, 7 October 2026: Sensex, Nifty end lower as RBI raises rates to 5.5%",
               "https://www.kotakneo.com/news/market-news/closing-bell-7-october-2026-sensex-nifty-end-in-red/"
             ]
-          ],
-          "verified": {
-            "source": "Yahoo Finance daily close",
-            "close": 18016.0,
-            "date": "2026-10-06",
-            "researchPrice": 18160.0,
-            "researchDate": "2026-10-07",
-            "diffPct": 0.8,
-            "original": {
-              "refPrice": 18160.0,
-              "refDate": "2026-10-07",
-              "buyLow": 17887.7,
-              "buyHigh": 18296.15,
-              "target": 18942.85,
-              "stop": 17581.35
-            },
-            "status": "adjusted"
-          },
-          "checks": [
-            {
-              "name": "Liquidity",
-              "pass": true,
-              "detail": "20-day avg traded value ₹220 cr (min ₹100 cr), price ₹18,016.0"
-            },
-            {
-              "name": "Trend",
-              "pass": true,
-              "detail": "close above 20-day avg ₹17728.6"
-            },
-            {
-              "name": "Relative strength",
-              "pass": true,
-              "detail": "1-month return vs index +6.2 pts (min +0.0)"
-            },
-            {
-              "name": "Not a falling knife",
-              "pass": true,
-              "detail": "+164.9% above 52-week low"
-            },
-            {
-              "name": "Not overextended",
-              "pass": true,
-              "detail": "+0.4 ATR from 20-day avg (max +3.0)"
-            },
-            {
-              "name": "Volatility fits horizon",
-              "pass": true,
-              "detail": "ATR 3.92% of price (max 4.0% for daily)"
-            },
-            {
-              "name": "Reward vs risk",
-              "pass": true,
-              "detail": "R:R 1.67 (min 1.5)"
-            }
-          ],
-          "metricsAtPick": {
-            "atrPct": 3.92,
-            "sma20": 17728.6,
-            "sma50": 17061.64,
-            "sma200": 12811.45,
-            "rs1m": 6.22,
-            "rs3m": 34.7,
-            "fromHigh52": -6.48,
-            "fromLow52": 164.9,
-            "avgValue20": 2201861634,
-            "extAtr": 0.41
-          }
+          ]
         },
         {
           "market": "IN",
@@ -208,12 +142,12 @@ window.PICKS = {
           "name": "Multi Commodity Exchange of India",
           "sector": "Financial Services / Exchanges",
           "currency": "INR",
-          "refPrice": 3310.0,
-          "refDate": "2026-10-06",
-          "buyLow": 3268.45,
-          "buyHigh": 3330.75,
-          "target": 3429.4,
-          "stop": 3221.75,
+          "refPrice": 3362.6,
+          "refDate": "2026-10-07",
+          "buyLow": 3320.4,
+          "buyHigh": 3383.7,
+          "target": 3483.9,
+          "stop": 3272.95,
           "risk": "Medium",
           "planB": true,
           "planBBasis": "setup",
@@ -255,73 +189,7 @@ window.PICKS = {
               "Kotak Neo – Closing Bell, 7 October 2026: Sensex, Nifty end lower as RBI raises rates to 5.5%",
               "https://www.kotakneo.com/news/market-news/closing-bell-7-october-2026-sensex-nifty-end-in-red/"
             ]
-          ],
-          "verified": {
-            "source": "Yahoo Finance daily close",
-            "close": 3310.0,
-            "date": "2026-10-06",
-            "researchPrice": 3362.6,
-            "researchDate": "2026-10-07",
-            "diffPct": 1.59,
-            "original": {
-              "refPrice": 3362.6,
-              "refDate": "2026-10-07",
-              "buyLow": 3320.4,
-              "buyHigh": 3383.7,
-              "target": 3483.9,
-              "stop": 3272.95
-            },
-            "status": "adjusted"
-          },
-          "checks": [
-            {
-              "name": "Liquidity",
-              "pass": true,
-              "detail": "20-day avg traded value ₹557 cr (min ₹100 cr), price ₹3,310.0"
-            },
-            {
-              "name": "Trend",
-              "pass": true,
-              "detail": "close above 20-day avg ₹3270.28"
-            },
-            {
-              "name": "Relative strength",
-              "pass": true,
-              "detail": "1-month return vs index +4.0 pts (min +0.0)"
-            },
-            {
-              "name": "Not a falling knife",
-              "pass": true,
-              "detail": "+103.6% above 52-week low"
-            },
-            {
-              "name": "Not overextended",
-              "pass": true,
-              "detail": "+0.4 ATR from 20-day avg (max +3.0)"
-            },
-            {
-              "name": "Volatility fits horizon",
-              "pass": true,
-              "detail": "ATR 3.18% of price (max 4.0% for daily)"
-            },
-            {
-              "name": "Reward vs risk",
-              "pass": true,
-              "detail": "R:R 1.67 (min 1.5)"
-            }
-          ],
-          "metricsAtPick": {
-            "atrPct": 3.18,
-            "sma20": 3270.28,
-            "sma50": 3121.28,
-            "sma200": 2782.36,
-            "rs1m": 3.99,
-            "rs3m": 25.48,
-            "fromHigh52": -4.92,
-            "fromLow52": 103.57,
-            "avgValue20": 5571577066,
-            "extAtr": 0.38
-          }
+          ]
         },
         {
           "market": "IN",
@@ -330,12 +198,12 @@ window.PICKS = {
           "name": "Eternal (Zomato, Blinkit)",
           "sector": "Consumer Services / Internet",
           "currency": "INR",
-          "refPrice": 329.0,
-          "refDate": "2026-10-06",
-          "buyLow": 325.7,
-          "buyHigh": 330.65,
-          "target": 338.55,
-          "stop": 321.95,
+          "refPrice": 328.0,
+          "refDate": "2026-10-07",
+          "buyLow": 324.7,
+          "buyHigh": 329.65,
+          "target": 337.5,
+          "stop": 320.95,
           "risk": "Medium",
           "planB": true,
           "planBBasis": "setup",
@@ -377,73 +245,7 @@ window.PICKS = {
               "Kotak Neo – Closing Bell, 7 October 2026: Sensex, Nifty end lower as RBI raises rates to 5.5%",
               "https://www.kotakneo.com/news/market-news/closing-bell-7-october-2026-sensex-nifty-end-in-red/"
             ]
-          ],
-          "verified": {
-            "source": "Yahoo Finance daily close",
-            "close": 329.0,
-            "date": "2026-10-06",
-            "researchPrice": 328.0,
-            "researchDate": "2026-10-07",
-            "diffPct": -0.3,
-            "original": {
-              "refPrice": 328.0,
-              "refDate": "2026-10-07",
-              "buyLow": 324.7,
-              "buyHigh": 329.65,
-              "target": 337.5,
-              "stop": 320.95
-            },
-            "status": "adjusted"
-          },
-          "checks": [
-            {
-              "name": "Liquidity",
-              "pass": true,
-              "detail": "20-day avg traded value ₹649 cr (min ₹100 cr), price ₹329.0"
-            },
-            {
-              "name": "Trend",
-              "pass": true,
-              "detail": "close above 20-day avg ₹325.93"
-            },
-            {
-              "name": "Relative strength",
-              "pass": true,
-              "detail": "1-month return vs index +7.2 pts (min +0.0)"
-            },
-            {
-              "name": "Not a falling knife",
-              "pass": true,
-              "detail": "+54.8% above 52-week low"
-            },
-            {
-              "name": "Not overextended",
-              "pass": true,
-              "detail": "+0.4 ATR from 20-day avg (max +3.0)"
-            },
-            {
-              "name": "Volatility fits horizon",
-              "pass": true,
-              "detail": "ATR 2.52% of price (max 4.0% for daily)"
-            },
-            {
-              "name": "Reward vs risk",
-              "pass": true,
-              "detail": "R:R 1.67 (min 1.5)"
-            }
-          ],
-          "metricsAtPick": {
-            "atrPct": 2.52,
-            "sma20": 325.93,
-            "sma50": 322.23,
-            "sma200": 276.94,
-            "rs1m": 7.16,
-            "rs3m": 19.15,
-            "fromHigh52": -10.71,
-            "fromLow52": 54.75,
-            "avgValue20": 6487997222,
-            "extAtr": 0.37
-          }
+          ]
         }
       ],
       "marketSources": [

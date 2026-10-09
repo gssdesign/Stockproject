@@ -133,7 +133,65 @@ window.PICKS = {
               "Angel One – Top gainers and losers on October 8, 2026: Infosys and Tech Mahindra gain, Adani Enterprises drops over 5%",
               "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-8-2026-infosys-and-tech-mahindra-gain-while-adani-enterprises-drops-over-5"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 115.29,
+            "date": "2026-10-08",
+            "researchPrice": 115.29,
+            "researchDate": "2026-10-08",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹161 cr (min ₹100 cr), price ₹115.29"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹115.13"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +5.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+17.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.43% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.43,
+            "sma20": 115.13,
+            "sma50": 115.33,
+            "sma200": 114.34,
+            "rs1m": 5.15,
+            "rs3m": 16.82,
+            "fromHigh52": -14.69,
+            "fromLow52": 17.05,
+            "avgValue20": 1606376080,
+            "extAtr": 0.06
+          }
         },
         {
           "market": "IN",
@@ -189,7 +247,65 @@ window.PICKS = {
               "Angel One – Top gainers and losers on October 8, 2026: Infosys and Tech Mahindra gain, Adani Enterprises drops over 5%",
               "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-8-2026-infosys-and-tech-mahindra-gain-while-adani-enterprises-drops-over-5"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1997.9,
+            "date": "2026-10-08",
+            "researchPrice": 1997.9,
+            "researchDate": "2026-10-08",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹341 cr (min ₹100 cr), price ₹1,997.9"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1985.12"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +11.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+137.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.53% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.53,
+            "sma20": 1985.12,
+            "sma50": 1902.01,
+            "sma200": 1374.05,
+            "rs1m": 11.88,
+            "rs3m": 37.9,
+            "fromHigh52": -3.26,
+            "fromLow52": 137.0,
+            "avgValue20": 3411446349,
+            "extAtr": 0.25
+          }
         },
         {
           "market": "IN",
@@ -245,7 +361,65 @@ window.PICKS = {
               "Upstox News – Top gainers and losers, October 8: AEL tumbles 5%, JSW Steel, ITC, Max Healthcare shares fall 4%",
               "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-october-8-ael-tumbles-5-jsw-steel-itc-max-healthcare-shares-fall-4-check-list/article-201540/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1814.3,
+            "date": "2026-10-08",
+            "researchPrice": 1814.3,
+            "researchDate": "2026-10-08",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹478 cr (min ₹100 cr), price ₹1,814.3"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1803.92"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "1-month return vs index -0.8 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+80.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.33% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.33,
+            "sma20": 1803.92,
+            "sma50": 1833.48,
+            "sma200": 1524.32,
+            "rs1m": -0.82,
+            "rs3m": 28.9,
+            "fromHigh52": -10.24,
+            "fromLow52": 79.97,
+            "avgValue20": 4782421828,
+            "extAtr": 0.17
+          }
         }
       ],
       "marketSources": [

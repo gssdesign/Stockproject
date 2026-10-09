@@ -77,7 +77,65 @@ window.PICKS = {
               "Yahoo Finance – Stock market today: S&P 500, Nasdaq fall for second day in a row as AI trade takes a hit (Oct 8, 2026)",
               "https://finance.yahoo.com/markets/live/stock-market-today-thursday-october-8-dow-sp-500-nasdaq-080537884.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 198.78,
+            "date": "2026-10-08",
+            "researchPrice": 198.78,
+            "researchDate": "2026-10-08",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $4,245M (min $50M), price $198.78"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $184.91"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +15.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+86.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.18% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.18,
+            "sma20": 184.91,
+            "sma50": 175.24,
+            "sma200": 152.26,
+            "rs1m": 15.56,
+            "rs3m": 54.27,
+            "fromHigh52": -4.21,
+            "fromLow52": 86.88,
+            "avgValue20": 4244701385,
+            "extAtr": 2.2
+          }
         },
         {
           "market": "IN",

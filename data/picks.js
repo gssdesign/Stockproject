@@ -77,7 +77,65 @@ window.PICKS = {
               "Seeking Alpha – Cboe Global double upgraded at Morgan Stanley (Oct 9, 2026)",
               "https://seekingalpha.com/news/4651775-cboe-global-double-upgraded-at-morgan-stanley-gemini-space-station-downgraded"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 304.16,
+            "date": "2026-10-09",
+            "researchPrice": 304.16,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $344M (min $50M), price $304.16"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $273.59"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +2.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+33.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.86% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.86,
+            "sma20": 273.59,
+            "sma50": 286.89,
+            "sma200": 288.03,
+            "rs1m": 2.9,
+            "rs3m": 5.81,
+            "fromHigh52": -18.06,
+            "fromLow52": 33.9,
+            "avgValue20": 343819076,
+            "extAtr": 2.61
+          }
         },
         {
           "market": "IN",
@@ -133,7 +191,65 @@ window.PICKS = {
               "Angel One – Top gainers and losers on October 9, 2026: Apollo Hospitals and ITC gain, while BSE drops over 1%",
               "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-9-2026-apollo-hospitals-and-itc-gain-while-bse-drops-over-1"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1693.0,
+            "date": "2026-10-09",
+            "researchPrice": 1693.0,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹135 cr (min ₹100 cr), price ₹1,693.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1688.49"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +4.8 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+58.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.28% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.28,
+            "sma20": 1688.49,
+            "sma50": 1656.65,
+            "sma200": 1427.24,
+            "rs1m": 4.78,
+            "rs3m": 15.17,
+            "fromHigh52": -2.7,
+            "fromLow52": 58.7,
+            "avgValue20": 1350720528,
+            "extAtr": 0.12
+          }
         },
         {
           "market": "IN",
@@ -189,7 +305,65 @@ window.PICKS = {
               "Upstox News – Top gainers and losers, October 9: Apollo Hospitals jumps 5%, ITC rallies 4%, BSE falls over 1%",
               "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-october-9-apollo-hospitals-jumps-5-itc-rallies-4-bse-falls-over-1-check-list/article-201611/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 433.6,
+            "date": "2026-10-09",
+            "researchPrice": 433.6,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹372 cr (min ₹100 cr), price ₹433.6"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹426.21"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +7.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+88.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.25% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.25,
+            "sma20": 426.21,
+            "sma50": 422.19,
+            "sma200": 350.21,
+            "rs1m": 7.43,
+            "rs3m": 16.67,
+            "fromHigh52": -4.9,
+            "fromLow52": 88.9,
+            "avgValue20": 3722005075,
+            "extAtr": 0.53
+          }
         },
         {
           "market": "IN",
@@ -245,7 +419,65 @@ window.PICKS = {
               "Kotak Neo – Closing Bell, 9 October 2026: Markets recover after sell-off as IT stocks, easing oil prices boost sentiment",
               "https://www.kotakneo.com/news/market-news/sensex-and-nifty-recover-after-sharp-sell-off/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 3318.2,
+            "date": "2026-10-09",
+            "researchPrice": 3318.2,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹621 cr (min ₹100 cr), price ₹3,318.2"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹3275.6"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +4.0 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+107.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.47% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.47,
+            "sma20": 3275.6,
+            "sma50": 3136.06,
+            "sma200": 2775.32,
+            "rs1m": 4.01,
+            "rs3m": 26.73,
+            "fromHigh52": -4.69,
+            "fromLow52": 107.91,
+            "avgValue20": 6208001442,
+            "extAtr": 0.37
+          }
         }
       ],
       "marketSources": [

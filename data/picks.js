@@ -4,6 +4,266 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-12-daily",
+      "horizon": "daily",
+      "date": "2026-10-12",
+      "horizonDays": 1,
+      "expires": "2026-10-12",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7811.54,
+          "summary": "Risk-on: the S&P 500 closed at 7,811.54 on 2026-10-09, near its record. One standard pick, Cboe Global Markets, after Morgan Stanley's double upgrade on 9 Oct; other recent calls were older than 3 days or on stocks that fail the daily checks, so the list isn't padded. Stock markets are open on Columbus Day (bond markets are closed); big-bank earnings start on 13 Oct and CPI is due this week."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22520.45,
+          "summary": "Risk-off: the Nifty 50 closed at 22,520.45 on 2026-10-09 (+1.30%), rebounding on IT stocks and easing oil but still below its 50- and 200-day averages. Plan B list: no stock on the daily screen had a fresh, dated catalyst, so three Plan B ideas (the maximum in a risk-off market) come from CRITERIA.md section 9: 3-month leaders resting near their 20-day averages, in three different sectors. Treat them as lower-conviction. HCLTech reports Q2 results after today's close."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "CBOE",
+          "yahoo": "CBOE",
+          "name": "Cboe Global Markets",
+          "sector": "Financials / Exchanges",
+          "currency": "USD",
+          "refPrice": 304.16,
+          "refDate": "2026-10-09",
+          "buyLow": 299.47,
+          "buyHigh": 306.51,
+          "target": 317.65,
+          "stop": 294.19,
+          "risk": "Medium",
+          "thesis": "Morgan Stanley double-upgraded Cboe to Overweight from Underweight on 9 Oct ($358 target, from $258) after it renewed its exclusive S&P 500 options licence through 2051.",
+          "reasons": [
+            "Morgan Stanley moved Cboe from Underweight straight to Overweight on 9 Oct 2026 and raised its target to $358 from $258, citing the renewed S&P Dow Jones Indices contract that keeps Cboe's exclusive right to list S&P 500 index options through 2051.",
+            "The stock rose 3.43% to $304.16 on 9 Oct, its first session after the upgrade, still 18% below its 52-week high of $371.18, so the removal of the licence-renewal risk has room to be priced in.",
+            "It passes every daily check: above its 20-day average ($273.59), 2.9 pts ahead of the S&P 500 over the past month, and up 33.9% from its 52-week low."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "$304.16"
+            ],
+            [
+              "1-month vs index",
+              "+2.9 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.6 ATR"
+            ],
+            [
+              "ATR",
+              "3.86% of price"
+            ]
+          ],
+          "watch": "It jumped on the upgrade and is 2.6 ATR above its 20-day average, so it could give some back; it only just moved back above its 50-day ($286.89) and 200-day ($288.03) averages. US markets are open on Columbus Day, but bond markets are closed and volume may be light. Q3 results are not due today. Skip it if it opens outside $299.47–306.51.",
+          "sources": [
+            [
+              "CNBC – This exchange stock is a buy on renewed options deal, Morgan Stanley says (Oct 9, 2026)",
+              "https://www.cnbc.com/2026/10/09/this-exchange-stock-is-a-buy-on-renewed-options-deal-morgan-stanley-says.html"
+            ],
+            [
+              "MarketScreener – Cboe Global Markets shares rise after Morgan Stanley upgrade (Oct 9, 2026)",
+              "https://www.marketscreener.com/news/cboe-global-markets-shares-rise-after-morgan-stanley-upgrade-ce785ddcdb8cf521"
+            ],
+            [
+              "Seeking Alpha – Cboe Global double upgraded at Morgan Stanley (Oct 9, 2026)",
+              "https://seekingalpha.com/news/4651775-cboe-global-double-upgraded-at-morgan-stanley-gemini-space-station-downgraded"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "AUROPHARMA",
+          "yahoo": "AUROPHARMA.NS",
+          "name": "Aurobindo Pharma",
+          "sector": "Healthcare / Pharmaceuticals",
+          "currency": "INR",
+          "refPrice": 1693.0,
+          "refDate": "2026-10-09",
+          "buyLow": 1677.6,
+          "buyHigh": 1700.7,
+          "target": 1737.3,
+          "stop": 1660.25,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on its 20-day average): a 3-month pharma leader that bounced 2.9% on 9 Oct as pharma and hospital stocks led the market, and still sits right on its 20-day average.",
+          "reasons": [
+            "It's a leader: up 8.2% in 3 months, 15.2 pts ahead of the Nifty 50, with its 50-day average (₹1,656.65) well above its 200-day (₹1,427.24) and 2.7% below its 52-week high.",
+            "It rose 2.92% to ₹1,693 on 9 Oct as the Nifty rebounded 1.30%, with pharma and hospital stocks among the leaders (Apollo Hospitals +4.7%).",
+            "The entry is calm: only 0.1 ATR above its 20-day average (₹1,688.49), so the stop sits close to support."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "₹1,693.00"
+            ],
+            [
+              "3-month vs index",
+              "+15.2 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.1 ATR"
+            ],
+            [
+              "ATR",
+              "2.28% of price"
+            ]
+          ],
+          "watch": "There's no fresh company news behind this pick; it's a lower-conviction setup in a risk-off market. US pricing pressure on generics or an FDA observation could hit it, and a close below its 20-day average (₹1,688) breaks the setup. Q2 results are not due today. Skip it if it opens outside ₹1,677.60–1,700.70, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Upstox News – Top gainers and losers, October 9: Apollo Hospitals jumps 5%, ITC rallies 4%, BSE falls over 1%",
+              "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-october-9-apollo-hospitals-jumps-5-itc-rallies-4-bse-falls-over-1-check-list/article-201611/"
+            ],
+            [
+              "Business Standard – Stock Market Close: Broad-based buying helps Sensex rebound 879 pts; Nifty at 22,536; IT pack shines (Oct 9, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-9-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-it-stocks-today-126100900099_1.html"
+            ],
+            [
+              "Angel One – Top gainers and losers on October 9, 2026: Apollo Hospitals and ITC gain, while BSE drops over 1%",
+              "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-9-2026-apollo-hospitals-and-itc-gain-while-bse-drops-over-1"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "BHEL",
+          "yahoo": "BHEL.NS",
+          "name": "Bharat Heavy Electricals",
+          "sector": "Capital Goods / Power Equipment",
+          "currency": "INR",
+          "refPrice": 433.6,
+          "refDate": "2026-10-09",
+          "buyLow": 427.95,
+          "buyHigh": 436.4,
+          "target": 449.8,
+          "stop": 421.65,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on its 20-day average): a 3-month capital-goods leader holding above its rising 50-day average, 0.5 ATR above its 20-day average.",
+          "reasons": [
+            "It's a leader: up 9.7% in 3 months, 16.7 pts ahead of the Nifty 50, with its 50-day average (₹422.19) far above its 200-day (₹350.21).",
+            "It held up through the 8 Oct sell-off and rose 0.93% to ₹433.60 on 9 Oct as broad-based buying lifted the Nifty 1.30%; it's 4.9% below its 52-week high.",
+            "The entry is calm: 0.5 ATR above its 20-day average (₹426.21), so the setup has a nearby floor."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "₹433.60"
+            ],
+            [
+              "3-month vs index",
+              "+16.7 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.5 ATR"
+            ],
+            [
+              "ATR",
+              "3.25% of price"
+            ]
+          ],
+          "watch": "There's no fresh company news behind this pick. Q2 results are expected around 14 Oct, so traders may hold back ahead of them; public-sector stocks swing with government-order news. A close below its 20-day average (₹426) breaks the setup. Skip it if it opens outside ₹427.95–436.40, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Business Standard – Stock Market Close: Broad-based buying helps Sensex rebound 879 pts; Nifty at 22,536; IT pack shines (Oct 9, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-9-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-it-stocks-today-126100900099_1.html"
+            ],
+            [
+              "Kotak Neo – Closing Bell, 9 October 2026: Markets recover after sell-off as IT stocks, easing oil prices boost sentiment",
+              "https://www.kotakneo.com/news/market-news/sensex-and-nifty-recover-after-sharp-sell-off/"
+            ],
+            [
+              "Upstox News – Top gainers and losers, October 9: Apollo Hospitals jumps 5%, ITC rallies 4%, BSE falls over 1%",
+              "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-october-9-apollo-hospitals-jumps-5-itc-rallies-4-bse-falls-over-1-check-list/article-201611/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "MCX",
+          "yahoo": "MCX.NS",
+          "name": "Multi Commodity Exchange of India",
+          "sector": "Financial Services / Exchanges",
+          "currency": "INR",
+          "refPrice": 3318.2,
+          "refDate": "2026-10-09",
+          "buyLow": 3272.1,
+          "buyHigh": 3341.25,
+          "target": 3450.65,
+          "stop": 3220.3,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on its 20-day average): a strong 3-month leader that rose 1.9% on 9 Oct and sits 0.4 ATR above its 20-day average, with commodity volatility (oil above $100) supporting trading volumes.",
+          "reasons": [
+            "It's a leader: up 19.8% in 3 months, 26.7 pts ahead of the Nifty 50, with a rising 50-day average (₹3,136.06) and 4.7% below its 52-week high.",
+            "It rose 1.92% to ₹3,318.20 on 9 Oct in the Nifty's 1.30% rebound, recovering from the 8 Oct sell-off.",
+            "The entry is calm: 0.4 ATR above its 20-day average (₹3,275.60); volatile oil and metal prices tend to lift commodity-exchange volumes."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "₹3,318.20"
+            ],
+            [
+              "3-month vs index",
+              "+26.7 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.4 ATR"
+            ],
+            [
+              "ATR",
+              "3.47% of price"
+            ]
+          ],
+          "watch": "There's no fresh company news behind this pick, and capital-market stocks are sensitive to SEBI rule changes; BSE, a peer, fell 1.4% on 9 Oct. A close below its 20-day average (₹3,276) breaks the setup. Q2 results are not due today. Skip it if it opens outside ₹3,272.10–3,341.25, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Angel One – Top gainers and losers on October 9, 2026: Apollo Hospitals and ITC gain, while BSE drops over 1%",
+              "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-9-2026-apollo-hospitals-and-itc-gain-while-bse-drops-over-1"
+            ],
+            [
+              "Business Standard – Stock Market Close: Broad-based buying helps Sensex rebound 879 pts; Nifty at 22,536; IT pack shines (Oct 9, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-9-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-it-stocks-today-126100900099_1.html"
+            ],
+            [
+              "Kotak Neo – Closing Bell, 9 October 2026: Markets recover after sell-off as IT stocks, easing oil prices boost sentiment",
+              "https://www.kotakneo.com/news/market-news/sensex-and-nifty-recover-after-sharp-sell-off/"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – This exchange stock is a buy on renewed options deal, Morgan Stanley says (Oct 9, 2026)",
+          "https://www.cnbc.com/2026/10/09/this-exchange-stock-is-a-buy-on-renewed-options-deal-morgan-stanley-says.html"
+        ],
+        [
+          "Business Standard – Stock Market Close: Broad-based buying helps Sensex rebound 879 pts; Nifty at 22,536; IT pack shines (Oct 9, 2026)",
+          "https://www.business-standard.com/amp/markets/news/stock-market-live-october-9-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-it-stocks-today-126100900099_1.html"
+        ],
+        [
+          "Kotak Neo – Closing Bell, 9 October 2026: Markets recover after sell-off as IT stocks, easing oil prices boost sentiment",
+          "https://www.kotakneo.com/news/market-news/sensex-and-nifty-recover-after-sharp-sell-off/"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-12-weekly",
       "horizon": "weekly",
       "date": "2026-10-12",

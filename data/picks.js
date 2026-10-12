@@ -77,7 +77,65 @@ window.PICKS = {
               "Yahoo Finance – Stock Market Today, Oct. 8: Tech stocks slide as Treasury yields and oil prices surge",
               "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-8-212502041.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 275.04,
+            "date": "2026-10-09",
+            "researchPrice": 275.04,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $2,700M (min $50M), price $275.04"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $228.7, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +42.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+221.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 4.2% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 4.2,
+            "sma20": 257.71,
+            "sma50": 228.7,
+            "sma200": 157.32,
+            "rs1m": 28.79,
+            "rs3m": 42.43,
+            "fromHigh52": -4.16,
+            "fromLow52": 221.01,
+            "avgValue20": 2700486138,
+            "extAtr": 1.5
+          }
         },
         {
           "market": "US",
@@ -131,7 +189,65 @@ window.PICKS = {
               "Investing.com – Melius upgrades Microsoft stock rating on AI security demand",
               "https://www.investing.com/news/analyst-ratings/melius-upgrades-microsoft-stock-rating-on-ai-security-demand-93CH-4931593"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 535.07,
+            "date": "2026-10-09",
+            "researchPrice": 535.07,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $11,417M (min $50M), price $535.07"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $500.45, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +32.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+53.2% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.21% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.21,
+            "sma20": 510.1,
+            "sma50": 500.45,
+            "sma200": 434.0,
+            "rs1m": 5.76,
+            "rs3m": 32.91,
+            "fromHigh52": -3.37,
+            "fromLow52": 53.23,
+            "avgValue20": 11417449868,
+            "extAtr": 2.11
+          }
         },
         {
           "market": "US",
@@ -185,7 +301,65 @@ window.PICKS = {
               "Yahoo Finance – Stock Market Today, Oct. 8: Tech stocks slide as Treasury yields and oil prices surge",
               "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-8-212502041.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 455.03,
+            "date": "2026-10-09",
+            "researchPrice": 455.03,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,240M (min $50M), price $455.03"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $378.97, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +49.3 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+181.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.51% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.51,
+            "sma20": 413.94,
+            "sma50": 378.97,
+            "sma200": 268.59,
+            "rs1m": 13.05,
+            "rs3m": 49.33,
+            "fromHigh52": -3.19,
+            "fromLow52": 181.0,
+            "avgValue20": 1239738863,
+            "extAtr": 2.57
+          }
         },
         {
           "market": "IN",
@@ -239,7 +413,65 @@ window.PICKS = {
               "Upstox News – Top gainers and losers, Oct 6: Trent rallies 13%, BSE, Kotak Bank shares jump 4%",
               "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-oct-6-trent-rallies-13-bse-kotak-bank-shares-jump-4-coal-india-falls-3-check-list/article-201378/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 441.0,
+            "date": "2026-10-09",
+            "researchPrice": 441.0,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹919 cr (min ₹100 cr), price ₹441.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹409.47, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +23.8 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+27.6% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.23% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.23,
+            "sma20": 417.29,
+            "sma50": 409.47,
+            "sma200": 399.95,
+            "rs1m": 9.91,
+            "rs3m": 23.76,
+            "fromHigh52": -2.69,
+            "fromLow52": 27.64,
+            "avgValue20": 9194820663,
+            "extAtr": 2.41
+          }
         },
         {
           "market": "IN",
@@ -293,7 +525,65 @@ window.PICKS = {
               "Entrackr – Nykaa expects around 30% GMV growth in Q2 FY27",
               "https://entrackr.com/news/nykaa-expects-around-30-gmv-growth-in-q2-fy27-12623169"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 343.0,
+            "date": "2026-10-09",
+            "researchPrice": 343.0,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹163 cr (min ₹100 cr), price ₹343.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹333.89, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +10.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+47.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.87% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.87,
+            "sma20": 333.78,
+            "sma50": 333.89,
+            "sma200": 286.41,
+            "rs1m": 5.31,
+            "rs3m": 10.88,
+            "fromHigh52": -1.87,
+            "fromLow52": 47.84,
+            "avgValue20": 1632782311,
+            "extAtr": 0.94
+          }
         }
       ],
       "marketSources": [

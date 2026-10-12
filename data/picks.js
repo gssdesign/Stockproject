@@ -4,6 +4,314 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-12-weekly",
+      "horizon": "weekly",
+      "date": "2026-10-12",
+      "horizonDays": 7,
+      "expires": "2026-10-19",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7811.54,
+          "summary": "Risk-on: the S&P 500 closed at 7,811.54 on 2026-10-09, near its record despite oil above $100 and the 10-year Treasury yield near 5.35%. Three picks with fresh analyst catalysts from the past week (CrowdStrike, Microsoft, Marathon Petroleum). This week brings big-bank earnings (JPMorgan, Goldman, Citi, Wells Fargo on 13 Oct) and the September CPI report; none of the picks reports inside the window. Last week's list had 2 targets hit and 3 stops, so entries stay disciplined."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22520.45,
+          "summary": "Risk-off: the Nifty 50 closed at 22,520.45 on 2026-10-09, below its 50- and 200-day averages after the RBI's rate hike to 5.50% and oil above $100. Two picks (the risk-off maximum is 3) with strong Q2 business updates and results after this window: Kotak Mahindra Bank and Nykaa. Q2 earnings season continues this week."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "CRWD",
+          "yahoo": "CRWD",
+          "name": "CrowdStrike",
+          "sector": "Information Technology / Cybersecurity",
+          "currency": "USD",
+          "refPrice": 275.04,
+          "refDate": "2026-10-09",
+          "buyLow": 269.27,
+          "buyHigh": 277.93,
+          "target": 299.58,
+          "stop": 259.16,
+          "risk": "Medium",
+          "thesis": "Three broker target raises in the week of 5 Oct (BMO to $295, Needham to $310, StoneX to $325) on a cybersecurity leader that held up while AI stocks sold off.",
+          "reasons": [
+            "BMO Capital raised its target to $295 from $235 after meeting senior management (shares rose on 8 Oct), and Needham ($310 from $250) and StoneX ($325 from $250) followed the same week.",
+            "The stock rose 4.57% to $275.04 on 9 Oct, 4.2% below its 52-week high, after the latest quarter showed revenue up 26% to $1.47B with $377M of free cash flow.",
+            "It's a strong leader: up 46.4% in 3 months (42.4 pts ahead of the S&P 500), above a rising 50-day average ($228.70), and only 1.5 ATR above its 20-day average."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "$275.04"
+            ],
+            [
+              "3-month vs index",
+              "+42.4 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.5 ATR"
+            ],
+            [
+              "ATR",
+              "4.2% of price"
+            ]
+          ],
+          "watch": "Volatile (ATR 4.2% of price): a hot US CPI print this week or another AI sell-off could hit high-valuation software hard. Next earnings are in early December, outside this window. Skip it if it opens well above $277.93; don't chase.",
+          "sources": [
+            [
+              "Stocktwits News – CRWD stock's new target implies 18% upside: Needham cites growth from CrowdStrike's Flex model (Oct 9, 2026)",
+              "https://stocktwits.com/news-articles/markets/equity/crwd-stock-price-target-hike-crowdstrike-flex-model-growth/cZD6oq9RBnb"
+            ],
+            [
+              "Benzinga – CrowdStrike stock rises amid tech turbulence: what's going on? (Oct 8, 2026)",
+              "https://www.benzinga.com/trading-ideas/movers/26/10/62255125/crowdstrike-stock-rises-amid-tech-turbulence-whats-going-on"
+            ],
+            [
+              "Yahoo Finance – Stock Market Today, Oct. 8: Tech stocks slide as Treasury yields and oil prices surge",
+              "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-8-212502041.html"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "MSFT",
+          "yahoo": "MSFT",
+          "name": "Microsoft",
+          "sector": "Information Technology / Software",
+          "currency": "USD",
+          "refPrice": 535.07,
+          "refDate": "2026-10-09",
+          "buyLow": 529.15,
+          "buyHigh": 538.03,
+          "target": 560.23,
+          "stop": 518.79,
+          "risk": "Low–Medium",
+          "thesis": "An upgrade to Buy at Melius Research on 5 Oct ($665 target) and a reiterated Overweight at Morgan Stanley on 8 Oct, on a steady mega-cap leader near its high.",
+          "reasons": [
+            "Melius Research upgraded Microsoft to Buy from Hold on 5 Oct 2026 with a $665 target, arguing enterprises will favour its software and security stack for lower-risk AI; Morgan Stanley reiterated Overweight on 8 Oct, calling it a key AI winner.",
+            "The stock closed the week at $535.07 (+2.38% on 9 Oct), up 8.7% in a month and 3.4% below its 52-week high of $553.72.",
+            "It's a steady leader: up 36.9% in 3 months (32.9 pts ahead of the S&P 500), above a rising 50-day average ($500.45), with a low ATR (2.2%) that keeps the stop tight."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "$535.07"
+            ],
+            [
+              "3-month vs index",
+              "+32.9 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.1 ATR"
+            ],
+            [
+              "ATR",
+              "2.21% of price"
+            ]
+          ],
+          "watch": "Rising Treasury yields (10-year near 5.35%) and this week's CPI report are the main risks for mega-cap tech. Fiscal Q1 results are due in late October, after this window. Skip it if it opens well above $538.03.",
+          "sources": [
+            [
+              "Yahoo Finance – Melius Research upgrades Microsoft stock to Buy, $665 target (Oct 5, 2026)",
+              "https://finance.yahoo.com/markets/stocks/articles/melius-research-upgrades-microsoft-stock-173111124.html"
+            ],
+            [
+              "CNBC – Here are Thursday's biggest analyst calls: Nvidia, Apple, SpaceX, Palantir, Microsoft, Generac, Netflix & more (Oct 8, 2026)",
+              "https://www.cnbc.com/2026/10/08/thursday-top-wall-street-analyst-calls.html"
+            ],
+            [
+              "Investing.com – Melius upgrades Microsoft stock rating on AI security demand",
+              "https://www.investing.com/news/analyst-ratings/melius-upgrades-microsoft-stock-rating-on-ai-security-demand-93CH-4931593"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "MPC",
+          "yahoo": "MPC",
+          "name": "Marathon Petroleum",
+          "sector": "Energy / Refining",
+          "currency": "USD",
+          "refPrice": 455.03,
+          "refDate": "2026-10-09",
+          "buyLow": 447.05,
+          "buyHigh": 459.02,
+          "target": 488.95,
+          "stop": 433.08,
+          "risk": "Medium",
+          "thesis": "UBS raised its target to $510 from $450 on 9 Oct as refining margins stay near records with oil above $100.",
+          "reasons": [
+            "UBS raised its Marathon Petroleum target to $510 from $450 (Buy) on 9 Oct 2026, citing refining margins; Mizuho lifted its refiner targets by about 40% on 'higher and longer-lasting' crack-spread assumptions.",
+            "Oil jumped more than 5% on 8 Oct after new tanker attacks in the Persian Gulf, keeping fuel margins elevated for refiners.",
+            "It's the strongest large refiner: up 53.3% in 3 months (49.3 pts ahead of the S&P 500), above a rising 50-day average ($378.97), and 3.2% below its 52-week high; it dipped 1.8% on 9 Oct, giving a calmer entry."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "$455.03"
+            ],
+            [
+              "3-month vs index",
+              "+49.3 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.6 ATR"
+            ],
+            [
+              "ATR",
+              "3.51% of price"
+            ]
+          ],
+          "watch": "Refiners move with oil headlines: a ceasefire or a drop in crack spreads could reverse the rally fast, and Jefferies downgraded MPC to Hold. This is also on the October monthly list (whose target was already hit). Q3 results come in early November. Skip it if it opens well above $459.02.",
+          "sources": [
+            [
+              "Investing.com – UBS raises Marathon Petroleum stock price target on refining margins (Oct 9, 2026)",
+              "https://www.investing.com/news/analyst-ratings/ubs-raises-marathon-petroleum-stock-price-target-on-refining-margins-93CH-4941356"
+            ],
+            [
+              "Investing.com – Mizuho cuts Phillips 66, Delek, Par Pacific as refiner rally prices in gains",
+              "https://in.investing.com/news/stock-market-news/mizuho-cuts-phillips-66-delek-par-pacific-as-refiner-rally-prices-in-gains-5624012"
+            ],
+            [
+              "Yahoo Finance – Stock Market Today, Oct. 8: Tech stocks slide as Treasury yields and oil prices surge",
+              "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-8-212502041.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "KOTAKBANK",
+          "yahoo": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "sector": "Financial Services / Banks",
+          "currency": "INR",
+          "refPrice": 441.0,
+          "refDate": "2026-10-09",
+          "buyLow": 436.05,
+          "buyHigh": 443.45,
+          "target": 461.95,
+          "stop": 427.45,
+          "risk": "Medium",
+          "thesis": "A strong Q2 business update on 6 Oct (net advances +24.7%, deposits +23.2%) that the stock has held all week, with full results not until 24 Oct.",
+          "reasons": [
+            "Kotak's provisional Q2 FY27 update showed standalone net advances up 24.7% year on year to ₹5,77,094 crore and total deposits up 23.2% to ₹6,51,491 crore; the stock rose 3.8% on 6 Oct.",
+            "It kept rising through a rough week for the Nifty, closing at ₹441 on 9 Oct (+1.38%), 2.7% below its 52-week high of ₹453.20.",
+            "It's a leader: up 16.8% in 3 months (24.0 pts ahead of the Nifty 50), above a rising 50-day average (₹409.47); Q2 results are due on 24 Oct, after this window."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "₹441.00"
+            ],
+            [
+              "3-month vs index",
+              "+24.0 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.4 ATR"
+            ],
+            [
+              "ATR",
+              "2.23% of price"
+            ]
+          ],
+          "watch": "Banks are sensitive to the RBI's tightening (repo raised to 5.50% on 7 Oct) and to foreign selling; CASA growth (11.3%) lagged loan growth. The market is in a downtrend, so keep size modest. Skip it if it opens well above ₹443.45.",
+          "sources": [
+            [
+              "Moneycontrol (via TradingView) – Bank Nifty rises for 5th day to reclaim 56,000 mark on strong Q2 biz updates from HDFC, Kotak Mahindra Bank",
+              "https://ru.tradingview.com/news/moneycontrol:19e31c63e094b:0-bank-nifty-rises-for-5th-day-to-reclaim-56-000-mark-on-strong-q2-biz-updates-from-hdfc-kotak-mahindra-bank"
+            ],
+            [
+              "PSU Connect – Kotak Mahindra Bank board meeting on Oct 24 for Q2 results",
+              "https://www.psuconnect.in/bank-news/kotak-mahindra-bank-board-meeting-on-oct-24-for-q2-results"
+            ],
+            [
+              "Upstox News – Top gainers and losers, Oct 6: Trent rallies 13%, BSE, Kotak Bank shares jump 4%",
+              "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-oct-6-trent-rallies-13-bse-kotak-bank-shares-jump-4-coal-india-falls-3-check-list/article-201378/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "NYKAA",
+          "yahoo": "NYKAA.NS",
+          "name": "FSN E-Commerce Ventures (Nykaa)",
+          "sector": "Consumer Services / E-commerce",
+          "currency": "INR",
+          "refPrice": 343.0,
+          "refDate": "2026-10-09",
+          "buyLow": 338.1,
+          "buyHigh": 345.45,
+          "target": 363.9,
+          "stop": 329.5,
+          "risk": "Medium",
+          "thesis": "A strong Q2 update on 5 Oct (GMV growth near 30%, fashion accelerating) that Morgan Stanley said beat its estimates, with the stock now 1.9% from its 52-week high.",
+          "reasons": [
+            "Nykaa's Q2 FY27 update (5 Oct 2026) guided consolidated GMV growth close to 30% and net revenue growth in the late twenties; Morgan Stanley kept Overweight (₹356 target), saying growth tracked ahead of its estimates.",
+            "The stock held its gains through the market's sell-off and closed the week at ₹343 (+3.22% on 9 Oct), 1.9% below its 52-week high of ₹349.55.",
+            "It sits only 0.9 ATR above its 20-day average (₹333.78), above a rising 50-day average, and beats the Nifty by 11.1 pts over 3 months; the festive season (Diwali in early November) supports demand."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "₹343.00"
+            ],
+            [
+              "3-month vs index",
+              "+11.1 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.9 ATR"
+            ],
+            [
+              "ATR",
+              "2.87% of price"
+            ]
+          ],
+          "watch": "The 52-week high near ₹349.55 may act as resistance on the way to the target, and the broad market is in a downtrend. Full Q2 results come in November, after this window. Skip it if it opens well above ₹345.45.",
+          "sources": [
+            [
+              "BusinessToday – Nykaa stock gains 6% post Q2 update, Morgan Stanley shares target price (Oct 5, 2026)",
+              "https://www.businesstoday.in/amp/markets/trending-stocks/story/nykaa-stock-gains-6-post-q2-update-morgan-stanley-shares-target-price-559456-2026-10-05"
+            ],
+            [
+              "Business Standard – Nykaa Q2 update: JM sees 'excellent trends' in BPC & Fashion; stock up 5% (Oct 5, 2026)",
+              "https://www.business-standard.com/markets/news/nykaa-q2-update-jm-sees-excellent-trends-in-bpc-fashion-stock-up-5-126100500310_1.html"
+            ],
+            [
+              "Entrackr – Nykaa expects around 30% GMV growth in Q2 FY27",
+              "https://entrackr.com/news/nykaa-expects-around-30-gmv-growth-in-q2-fy27-12623169"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Stocktwits News – What to expect in markets this week: JPM, GS, C bank earnings, CPI report and more (Oct 10, 2026)",
+          "https://stocktwits.com/news-articles/markets/equity/what-to-expect-markets-this-week-oct-10-2026/cZxdPFCRBF5"
+        ],
+        [
+          "Yahoo Finance – Stock Market Today, Oct. 8: Tech stocks slide as Treasury yields and oil prices surge",
+          "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-8-212502041.html"
+        ],
+        [
+          "Business Standard – Stock Market Close: Sensex tanks 1,045 pts, Nifty ends at 22,232 as oil tops $104; VIX jumps 10% (Oct 8, 2026)",
+          "https://www.business-standard.com/amp/markets/news/stock-market-live-october-8-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-rbi-repo-rate-hike-ipo-today-126100800108_1.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-09-daily",
       "horizon": "daily",
       "date": "2026-10-09",

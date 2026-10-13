@@ -303,7 +303,65 @@ window.PICKS = {
               "Upstox News – Upcoming Q2 FY27 results this week: HCLTech, Nestle, Wipro, BHEL, Tech Mahindra, HDFC Bank and more",
               "https://upstox.com/news/market-news/stocks/upcoming-q2-fy-27-results-this-week-hcl-tech-nestle-wipro-bhel-tech-mahindra-hdfc-bank-and-more-check-list/article-201629/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 9426.0,
+            "date": "2026-10-12",
+            "researchPrice": 9426.0,
+            "researchDate": "2026-10-12",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹463 cr (min ₹100 cr), price ₹9,426.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹9398.33"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +3.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+66.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.2% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.2,
+            "sma20": 9398.33,
+            "sma50": 9036.65,
+            "sma200": 7130.39,
+            "rs1m": 3.91,
+            "rs3m": 43.48,
+            "fromHigh52": -3.22,
+            "fromLow52": 66.91,
+            "avgValue20": 4632518138,
+            "extAtr": 0.13
+          }
         },
         {
           "market": "IN",
@@ -359,7 +417,65 @@ window.PICKS = {
               "Upstox News – Upcoming Q2 FY27 results this week: HCLTech, Nestle, Wipro, BHEL, Tech Mahindra, HDFC Bank and more",
               "https://upstox.com/news/market-news/stocks/upcoming-q2-fy-27-results-this-week-hcl-tech-nestle-wipro-bhel-tech-mahindra-hdfc-bank-and-more-check-list/article-201629/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1732.7,
+            "date": "2026-10-12",
+            "researchPrice": 1732.7,
+            "researchDate": "2026-10-12",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹118 cr (min ₹100 cr), price ₹1,732.7"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1705.97"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +9.7 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+32.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.74% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.74,
+            "sma20": 1705.97,
+            "sma50": 1661.08,
+            "sma200": 1556.19,
+            "rs1m": 9.71,
+            "rs3m": 19.89,
+            "fromHigh52": -5.06,
+            "fromLow52": 32.87,
+            "avgValue20": 1175844517,
+            "extAtr": 0.56
+          }
         },
         {
           "market": "IN",
@@ -415,7 +531,65 @@ window.PICKS = {
               "Upstox News – Upcoming Q2 FY27 results this week: HCLTech, Nestle, Wipro, BHEL, Tech Mahindra, HDFC Bank and more",
               "https://upstox.com/news/market-news/stocks/upcoming-q2-fy-27-results-this-week-hcl-tech-nestle-wipro-bhel-tech-mahindra-hdfc-bank-and-more-check-list/article-201629/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 18100.0,
+            "date": "2026-10-12",
+            "researchPrice": 18100.0,
+            "researchDate": "2026-10-12",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹238 cr (min ₹100 cr), price ₹18,100.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹17834.7"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +8.3 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+166.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.86% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.86,
+            "sma20": 17834.7,
+            "sma50": 17248.28,
+            "sma200": 12830.91,
+            "rs1m": 8.3,
+            "rs3m": 38.34,
+            "fromHigh52": -6.05,
+            "fromLow52": 166.14,
+            "avgValue20": 2377991482,
+            "extAtr": 0.38
+          }
         }
       ],
       "marketSources": [

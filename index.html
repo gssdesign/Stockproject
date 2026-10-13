@@ -474,10 +474,10 @@
 
   <!-- RESULTS -->
   <section id="view-history" role="tabpanel" hidden>
+    <div class="note" id="histNote" hidden></div>
     <div class="chips" id="histChips" role="group" aria-label="Period"></div>
     <div class="card score" id="score" hidden></div>
     <p class="scope" id="histScope"></p>
-    <div class="note" id="histNote" hidden></div>
     <div id="batches"></div>
     <p class="scope">Scoring is conservative: if the stop and the target are touched on the same day, the stop counts. Returns are from each pick's reference close and exclude brokerage and taxes.</p>
   </section>
@@ -1021,8 +1021,9 @@
 
     const note = $("histNote");
     const label = { daily: `The ${upcoming ? fday(upcoming.date) : ""} daily list`, weekly: `This week's list${upcoming ? ` (${fdate(upcoming.date)} – ${fdate(upcoming.expires)})` : ""}`, monthly: `This month's list${upcoming ? ` (${fdate(upcoming.date)} – ${fdate(upcoming.expires)})` : ""}` }[state.horizon];
-    const curLine = upcoming ? `${label} is still running on the <a href="#" data-goto="">Today</a> tab. Its result appears here at ${resultAt(upcoming, state.market)}.` : "";
-    note.hidden = !(curLine || !done.length) || !!state.hf;
+    const curLine = upcoming ? `🆕 <b>${label}</b> is live now on the Today tab; its result appears here at ${resultAt(upcoming, state.market)}. <button class="btn" data-goto="" style="margin-left:6px">See ${state.horizon === "daily" ? "today's" : state.horizon === "weekly" ? "this week's" : "this month's"} picks →</button>` : "";
+    // Always point to the running list, even when a past week/month chip is selected.
+    note.hidden = !(curLine || (!done.length && !state.hf));
     note.innerHTML = done.length ? curLine
       : `<b>No ${state.horizon} results yet.</b> ${curLine || "Nothing has been published for this market and holding period yet."}`;
   }

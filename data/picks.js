@@ -4,6 +4,320 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-13-daily",
+      "horizon": "daily",
+      "date": "2026-10-13",
+      "horizonDays": 1,
+      "expires": "2026-10-13",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7807.24,
+          "summary": "Risk-on: the S&P 500 closed at 7,807.24 on 2026-10-12, near flat, as higher oil and a slide in memory-chip stocks offset gains elsewhere. Two standard picks with fresh 12 Oct catalysts: Meta (new Muse Wonder AI model) and eBay (Morgan Stanley top pick). Other 12 Oct calls (Salesforce, Tyler, First Solar, Robinhood) were on stocks that fail the daily checks. Big banks and Johnson & Johnson report today, and CPI is due this week."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22363.35,
+          "summary": "Risk-off: the Nifty 50 closed at 22,363.35 on 2026-10-12 (−0.70%), below its 50- and 200-day averages. Plan B list: no stock on the daily screen had a fresh, dated catalyst, so three Plan B ideas (the maximum in a risk-off market) come from CRITERIA.md section 9: 3-month leaders resting near their 20-day averages, in three different sectors. Treat them as lower-conviction. HCLTech reported Q2 results after the 12 Oct close; BHEL and ICICI Lombard report on 14 Oct."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "META",
+          "yahoo": "META",
+          "name": "Meta Platforms",
+          "sector": "Communication Services / Internet",
+          "currency": "USD",
+          "refPrice": 742.96,
+          "refDate": "2026-10-12",
+          "buyLow": 733.8,
+          "buyHigh": 747.54,
+          "target": 769.31,
+          "stop": 723.49,
+          "risk": "Medium",
+          "thesis": "Meta launched Muse Wonder, which it calls its most capable AI model, on 12 Oct, and the stock rose 3.38% on a flat day for the S&P 500.",
+          "reasons": [
+            "On 12 Oct 2026 Meta released Muse Wonder and Muse Wonder Full, aimed mainly at enterprise customers, which it says deliver state-of-the-art performance on agentic tasks; investors read it as a step toward charging for its AI.",
+            "The stock closed up 3.38% at $742.96 on 12 Oct (intraday up as much as 4.7%) while the S&P 500 finished near flat and memory-chip stocks fell.",
+            "It's a leader on a calm entry: up 14.7% in a month (12.7 pts ahead of the S&P 500), 4.7% below its 52-week high and only 0.9 ATR above its 20-day average ($723.05)."
+          ],
+          "data": [
+            [
+              "Close (10/12)",
+              "$742.96"
+            ],
+            [
+              "1-month vs index",
+              "+12.7 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.9 ATR"
+            ],
+            [
+              "ATR",
+              "3.08% of price"
+            ]
+          ],
+          "watch": "The model's benchmark claims are Meta's own and unverified, and AI stocks have been swinging on doubts about AI revenue. Big-bank earnings and CPI this week can move the whole market. Q3 results come later in October, not today. Skip it if it opens outside $733.80–747.54.",
+          "sources": [
+            [
+              "The Motley Fool – Why Meta Platforms stock rallied Monday morning (Oct 12, 2026)",
+              "https://www.fool.com/investing/2026/10/12/why-meta-platforms-stock-rallied-monday-morning/"
+            ],
+            [
+              "GuruFocus – Meta Platforms unveils AI model Muse Wonder, stock rises",
+              "https://www.gurufocus.com/news/9119811/meta-platforms-unveils-ai-model-muse-wonder-stock-rises-meta"
+            ],
+            [
+              "CNBC – Stocks making the biggest moves midday: eBay, Sandisk, Meta Platforms, IonQ, Lumentum & more (Oct 12, 2026)",
+              "https://www.cnbc.com/2026/10/12/midday-stock-movers-ebay-meta-ionq-lumentum.html"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "EBAY",
+          "yahoo": "EBAY",
+          "name": "eBay",
+          "sector": "Consumer Discretionary / E-commerce",
+          "currency": "USD",
+          "refPrice": 114.65,
+          "refDate": "2026-10-12",
+          "buyLow": 113.31,
+          "buyHigh": 115.32,
+          "target": 118.51,
+          "stop": 111.8,
+          "risk": "Medium",
+          "thesis": "Morgan Stanley named eBay its top internet pick on 12 Oct (target $132 from $127), citing eBay Live, and the stock rose 2.19%.",
+          "reasons": [
+            "Morgan Stanley analyst Nathan Feather made eBay his Top Pick on 12 Oct 2026, raising the target to $132 from $127 (Overweight); he estimates eBay Live drove at least 40% of fiscal 2026 GMV growth and could add about 4 points a year to GMV growth through 2030.",
+            "The stock closed up 2.19% at $114.65 on 12 Oct, 3.9% below its 52-week high of $119.31.",
+            "It passes every daily check: 6.4% up in a month (4.4 pts ahead of the S&P 500), above its 20-day ($108.79), 50-day and 200-day averages, and 1.7 ATR above its 20-day average."
+          ],
+          "data": [
+            [
+              "Close (10/12)",
+              "$114.65"
+            ],
+            [
+              "1-month vs index",
+              "+4.4 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.7 ATR"
+            ],
+            [
+              "ATR",
+              "2.93% of price"
+            ]
+          ],
+          "watch": "Not everyone agrees: Wells Fargo kept Underweight and cut its target to $91 on earnings risk from investment spending and competition. Its 3-month return trails the index. Q3 results come later in October, not today. Skip it if it opens outside $113.31–115.32.",
+          "sources": [
+            [
+              "Investing.com – eBay named Morgan Stanley top pick on live commerce flywheel; stock surges",
+              "https://www.investing.com/news/stock-market-news/ebay-named-morgan-stanley-top-pick-on-live-commerce-flywheel-stock-surges-4944881"
+            ],
+            [
+              "Yahoo Finance – eBay stock rises as Morgan Stanley names it a top pick",
+              "https://finance.yahoo.com/markets/stocks/articles/ebay-stock-rises-morgan-stanley-191128165.html"
+            ],
+            [
+              "CNBC – Stocks making the biggest moves midday: eBay, Sandisk, Meta Platforms, IonQ, Lumentum & more (Oct 12, 2026)",
+              "https://www.cnbc.com/2026/10/12/midday-stock-movers-ebay-meta-ionq-lumentum.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "DIVISLAB",
+          "yahoo": "DIVISLAB.NS",
+          "name": "Divi's Laboratories",
+          "sector": "Healthcare / Pharmaceuticals",
+          "currency": "INR",
+          "refPrice": 9426.0,
+          "refDate": "2026-10-12",
+          "buyLow": 9343.0,
+          "buyHigh": 9467.5,
+          "target": 9664.6,
+          "stop": 9249.65,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on its 20-day average): one of the strongest 3-month leaders in the Nifty 200, sitting right on its 20-day average, with pharma among the few gainers on 12 Oct.",
+          "reasons": [
+            "It's a leader: up 35.9% in 3 months, 43.5 pts ahead of the Nifty 50, with a rising 50-day average (₹9,036.65) and 3.2% below its 52-week high.",
+            "It rose 0.92% to ₹9,426 on 12 Oct while the Nifty fell 0.70%; pharma held up, with Dr Reddy's the top Nifty gainer (+2.71%).",
+            "The entry is calm: only 0.1 ATR above its 20-day average (₹9,398.33), so the stop sits near support."
+          ],
+          "data": [
+            [
+              "Close (10/12)",
+              "₹9,426.00"
+            ],
+            [
+              "3-month vs index",
+              "+43.5 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.1 ATR"
+            ],
+            [
+              "ATR",
+              "2.2% of price"
+            ]
+          ],
+          "watch": "There's no fresh company news behind this pick; it's a lower-conviction setup in a falling market. A close below its 20-day average (₹9,398) breaks the setup. Q2 results are not due today. Skip it if it opens outside ₹9,343.00–9,467.50, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Angel One – Top gainers and losers on October 12, 2026: Dr Reddy's and Bajaj Auto gain, while Apollo Hospitals drops over 3%",
+              "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-12-2026-dr-reddy-s-and-bajaj-auto-gain-while-apollo-hospitals-drops-over-3"
+            ],
+            [
+              "Kotak Neo – Closing Bell, 12 October 2026: Sensex and Nifty 50 fall as equities end Monday's session in red",
+              "https://www.kotakneo.com/news/market-news/sensex-and-nifty-50-close-lower/"
+            ],
+            [
+              "Upstox News – Upcoming Q2 FY27 results this week: HCLTech, Nestle, Wipro, BHEL, Tech Mahindra, HDFC Bank and more",
+              "https://upstox.com/news/market-news/stocks/upcoming-q2-fy-27-results-this-week-hcl-tech-nestle-wipro-bhel-tech-mahindra-hdfc-bank-and-more-check-list/article-201629/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "LGEINDIA",
+          "yahoo": "LGEINDIA.NS",
+          "name": "LG Electronics India",
+          "sector": "Consumer Durables",
+          "currency": "INR",
+          "refPrice": 1732.7,
+          "refDate": "2026-10-12",
+          "buyLow": 1713.7,
+          "buyHigh": 1742.2,
+          "target": 1787.35,
+          "stop": 1692.3,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on its 20-day average): a 3-month consumer-durables leader that pulled back 1.4% on 12 Oct to 0.6 ATR above its 20-day average, ahead of festive-season demand.",
+          "reasons": [
+            "It's a leader: up 12.3% in 3 months, 19.9 pts ahead of the Nifty 50, with a rising 50-day average (₹1,661.08) and 5.1% below its 52-week high.",
+            "It slipped 1.38% to ₹1,732.70 on 12 Oct in a weak market (Nifty −0.70%), a pullback rather than a breakdown.",
+            "The entry is calm: 0.6 ATR above its 20-day average (₹1,705.97); Diwali in early November is the peak season for appliances and TVs."
+          ],
+          "data": [
+            [
+              "Close (10/12)",
+              "₹1,732.70"
+            ],
+            [
+              "3-month vs index",
+              "+19.9 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.6 ATR"
+            ],
+            [
+              "ATR",
+              "2.74% of price"
+            ]
+          ],
+          "watch": "There's no fresh company news behind this pick. Its Q2 results date isn't announced yet (due by 14 Nov), so check for a board-meeting notice. A close below its 20-day average (₹1,706) breaks the setup. Skip it if it opens outside ₹1,713.70–1,742.20, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Kotak Neo – Closing Bell, 12 October 2026: Sensex and Nifty 50 fall as equities end Monday's session in red",
+              "https://www.kotakneo.com/news/market-news/sensex-and-nifty-50-close-lower/"
+            ],
+            [
+              "Angel One – Top gainers and losers on October 12, 2026: Dr Reddy's and Bajaj Auto gain, while Apollo Hospitals drops over 3%",
+              "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-12-2026-dr-reddy-s-and-bajaj-auto-gain-while-apollo-hospitals-drops-over-3"
+            ],
+            [
+              "Upstox News – Upcoming Q2 FY27 results this week: HCLTech, Nestle, Wipro, BHEL, Tech Mahindra, HDFC Bank and more",
+              "https://upstox.com/news/market-news/stocks/upcoming-q2-fy-27-results-this-week-hcl-tech-nestle-wipro-bhel-tech-mahindra-hdfc-bank-and-more-check-list/article-201629/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "APARINDS",
+          "yahoo": "APARINDS.NS",
+          "name": "Apar Industries",
+          "sector": "Capital Goods / Electrical Equipment",
+          "currency": "INR",
+          "refPrice": 18100.0,
+          "refDate": "2026-10-12",
+          "buyLow": 17820.55,
+          "buyHigh": 18239.7,
+          "target": 18903.4,
+          "stop": 17506.2,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on its 20-day average): a strong 3-month leader in power cables and conductors that rose on a down day for the Nifty, 0.4 ATR above its 20-day average.",
+          "reasons": [
+            "It's a leader: up 30.7% in 3 months, 38.3 pts ahead of the Nifty 50, with a rising 50-day average (₹17,248.28) and 6.1% below its 52-week high.",
+            "It rose 0.65% to ₹18,100 on 12 Oct while the Nifty fell 0.70%.",
+            "The entry is calm: 0.4 ATR above its 20-day average (₹17,834.70), so the setup has a nearby floor."
+          ],
+          "data": [
+            [
+              "Close (10/12)",
+              "₹18,100.00"
+            ],
+            [
+              "3-month vs index",
+              "+38.3 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.4 ATR"
+            ],
+            [
+              "ATR",
+              "3.86% of price"
+            ]
+          ],
+          "watch": "There's no fresh company news behind this pick, and it's volatile (ATR 3.9% of price). Q2 results are typically in late October, not today. A close below its 20-day average (₹17,835) breaks the setup. Skip it if it opens outside ₹17,820.55–18,239.70, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Kotak Neo – Closing Bell, 12 October 2026: Sensex and Nifty 50 fall as equities end Monday's session in red",
+              "https://www.kotakneo.com/news/market-news/sensex-and-nifty-50-close-lower/"
+            ],
+            [
+              "Angel One – Top gainers and losers on October 12, 2026: Dr Reddy's and Bajaj Auto gain, while Apollo Hospitals drops over 3%",
+              "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-12-2026-dr-reddy-s-and-bajaj-auto-gain-while-apollo-hospitals-drops-over-3"
+            ],
+            [
+              "Upstox News – Upcoming Q2 FY27 results this week: HCLTech, Nestle, Wipro, BHEL, Tech Mahindra, HDFC Bank and more",
+              "https://upstox.com/news/market-news/stocks/upcoming-q2-fy-27-results-this-week-hcl-tech-nestle-wipro-bhel-tech-mahindra-hdfc-bank-and-more-check-list/article-201629/"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – Tuesday's big stock stories: What's likely to move the market in the next trading session (Oct 12, 2026)",
+          "https://cnbc.com/2026/10/12/tuesdays-big-stock-stories-whats-likely-to-move-the-market.html"
+        ],
+        [
+          "Kotak Neo – Closing Bell, 12 October 2026: Sensex and Nifty 50 fall as equities end Monday's session in red",
+          "https://www.kotakneo.com/news/market-news/sensex-and-nifty-50-close-lower/"
+        ],
+        [
+          "Upstox News – Upcoming Q2 FY27 results this week: HCLTech, Nestle, Wipro, BHEL, Tech Mahindra, HDFC Bank and more",
+          "https://upstox.com/news/market-news/stocks/upcoming-q2-fy-27-results-this-week-hcl-tech-nestle-wipro-bhel-tech-mahindra-hdfc-bank-and-more-check-list/article-201629/"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-12-daily",
       "horizon": "daily",
       "date": "2026-10-12",

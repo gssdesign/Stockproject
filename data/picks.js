@@ -77,7 +77,65 @@ window.PICKS = {
               "CNBC – Stocks making the biggest moves midday: eBay, Sandisk, Meta Platforms, IonQ, Lumentum & more (Oct 12, 2026)",
               "https://www.cnbc.com/2026/10/12/midday-stock-movers-ebay-meta-ionq-lumentum.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 742.96,
+            "date": "2026-10-12",
+            "researchPrice": 742.96,
+            "researchDate": "2026-10-12",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $15,961M (min $50M), price $742.96"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $723.05"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +12.7 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+42.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.08% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.08,
+            "sma20": 723.05,
+            "sma50": 643.46,
+            "sma200": 630.52,
+            "rs1m": 12.69,
+            "rs3m": 8.89,
+            "fromHigh52": -4.73,
+            "fromLow52": 42.81,
+            "avgValue20": 15960539529,
+            "extAtr": 0.87
+          }
         },
         {
           "market": "US",

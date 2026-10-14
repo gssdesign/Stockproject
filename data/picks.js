@@ -77,7 +77,65 @@ window.PICKS = {
               "Benzinga – This Exelon analyst is no longer bearish; here are top 5 upgrades for Tuesday (Oct 13, 2026)",
               "https://www.benzinga.com/analyst-stock-ratings/upgrades/26/10/62323641/this-exelon-analyst-is-no-longer-bearish-here-are-top-5-upgrades-for-tuesday"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 125.65,
+            "date": "2026-10-13",
+            "researchPrice": 125.65,
+            "researchDate": "2026-10-13",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $489M (min $50M), price $125.65"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $120.54"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +0.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+11.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.58% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.58,
+            "sma20": 120.54,
+            "sma50": 122.71,
+            "sma200": 127.32,
+            "rs1m": 0.37,
+            "rs3m": -8.25,
+            "fromHigh52": -10.62,
+            "fromLow52": 11.65,
+            "avgValue20": 489156103,
+            "extAtr": 2.57
+          }
         },
         {
           "market": "IN",

@@ -4,6 +4,152 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-14-daily",
+      "horizon": "daily",
+      "date": "2026-10-14",
+      "horizonDays": 1,
+      "expires": "2026-10-14",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7805.45,
+          "summary": "Risk-on: the S&P 500 closed at 7,805.45 on 2026-10-13, flat, as big-bank earnings disappointed (Citigroup −5.6%, Wells Fargo −3.1%) and Johnson & Johnson fell 5.7%. One standard pick, American Electric Power, after KeyBanc's upgrade on 13 Oct; the banks, J&J and most other names in 13 Oct's analyst calls fail the daily checks, and a reported Linde initiation couldn't be confirmed, so the list isn't padded. CPI is due this week."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22721.95,
+          "summary": "Risk-off: the Nifty 50 closed at 22,721.95 on 2026-10-13 (+1.60%), led by IT stocks after HCLTech's results, but it is still below its 50- and 200-day averages. One standard pick, HCLTech, on its Q2 beat and guidance raise; no other screen stock had a fresh, dated catalyst, so the list isn't padded (Plan B applies only when a market has no standard pick). BHEL, ICICI Lombard and Tech Mahindra report this week."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "AEP",
+          "yahoo": "AEP",
+          "name": "American Electric Power",
+          "sector": "Utilities / Electric",
+          "currency": "USD",
+          "refPrice": 125.65,
+          "refDate": "2026-10-13",
+          "buyLow": 124.86,
+          "buyHigh": 126.05,
+          "target": 127.93,
+          "stop": 123.96,
+          "risk": "Low–Medium",
+          "thesis": "KeyBanc upgraded AEP to Overweight from Sector Weight on 13 Oct with a $133 target, citing transmission investment (the Piketon project), and the stock rose 1.1% while the S&P 500 was flat.",
+          "reasons": [
+            "KeyBanc analyst Sophie Karp upgraded American Electric Power to Overweight on 13 Oct 2026 with a $133 target, expecting a constructive Q3 update and upside to its capital plan and earnings growth from transmission investment.",
+            "The stock rose 1.14% to $125.65 on 13 Oct while the S&P 500 slipped 0.02% and bank stocks fell after earnings.",
+            "It passes every daily check: above its 20-day average ($120.54), 2.8% up in a month, and with a low ATR (1.58%) that keeps the stop tight."
+          ],
+          "data": [
+            [
+              "Close (10/13)",
+              "$125.65"
+            ],
+            [
+              "1-month vs index",
+              "+0.4 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.6 ATR"
+            ],
+            [
+              "ATR",
+              "1.58% of price"
+            ]
+          ],
+          "watch": "Utilities are sensitive to bond yields (the 10-year is near 5.35%), and this week's CPI report could push yields higher. It's 2.6 ATR above its 20-day average and still below its 200-day ($127.32), which may cap gains near the $127.93 target; Barclays recently cut its target to $120. Q3 results are later in October, not today. Skip it if it opens outside $124.86–126.05.",
+          "sources": [
+            [
+              "GuruFocus – American Electric Power (AEP) stock rises 1.2% after KeyBanc upgrade to Overweight",
+              "https://www.gurufocus.com/news/9121539/american-electric-power-aep-stock-rises-12-after-keybanc-upgrade-to-overweight"
+            ],
+            [
+              "Seeking Alpha – Utilities American Electric Power, Exelon upgraded at KeyBanc (Oct 13, 2026)",
+              "https://seekingalpha.com/news/4652614-utilities-american-electric-power-exelon-upgraded-at-keybanc?feed_item_type=news"
+            ],
+            [
+              "Benzinga – This Exelon analyst is no longer bearish; here are top 5 upgrades for Tuesday (Oct 13, 2026)",
+              "https://www.benzinga.com/analyst-stock-ratings/upgrades/26/10/62323641/this-exelon-analyst-is-no-longer-bearish-here-are-top-5-upgrades-for-tuesday"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "HCLTECH",
+          "yahoo": "HCLTECH.NS",
+          "name": "HCL Technologies",
+          "sector": "Information Technology / IT Services",
+          "currency": "INR",
+          "refPrice": 1326.0,
+          "refDate": "2026-10-13",
+          "buyLow": 1310.1,
+          "buyHigh": 1333.95,
+          "target": 1371.65,
+          "stop": 1292.25,
+          "risk": "Medium",
+          "thesis": "HCLTech beat on profit and margins in Q2 FY27 (reported 12 Oct), raised the low end of its FY27 revenue guidance, and the stock jumped 8.4% on 13 Oct; post-earnings drift favours follow-through.",
+          "reasons": [
+            "Q2 FY27 (reported 12 Oct 2026): net profit rose 21.2% year on year to ₹5,132 crore and revenue 11.5% to ₹35,620 crore; EBIT margin widened to 18.2%, and advanced-AI revenue grew 78% to $219 million.",
+            "It raised the low end of FY27 constant-currency revenue growth guidance to 2.5–4% (from 1–4%), reported record first-half deal bookings, and declared a ₹12 dividend (record date 16 Oct).",
+            "The stock closed up 8.42% at ₹1,326 on 13 Oct, leading an IT rally that lifted the Nifty 1.6%; it is 14.4 pts ahead of the Nifty over a month and 2.2 ATR above its 20-day average."
+          ],
+          "data": [
+            [
+              "Close (10/13)",
+              "₹1,326.00"
+            ],
+            [
+              "1-month vs index",
+              "+14.4 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.2 ATR"
+            ],
+            [
+              "ATR",
+              "2.99% of price"
+            ]
+          ],
+          "watch": "After an 8.4% jump some profit-taking is likely, and brokerages are split: Nomura's target is ₹1,330 and Goldman Sachs (Neutral) cut to ₹1,200, both near or below the current price, so the ₹1,371.65 target needs follow-through buying. Revenue was a bit below some estimates. Tech Mahindra and Wipro report this week and can move IT stocks. Skip it if it opens outside ₹1,310.10–1,333.95.",
+          "sources": [
+            [
+              "BusinessToday – HCLTech Q2 results: Profit up 21% at Rs 5,132 crore; announces Rs 12 per share dividend (Oct 12, 2026)",
+              "https://www.businesstoday.in/markets/stocks/story/hcltech-q2-results-profit-up-21-at-rs-5132-crore-announces-rs-12-per-share-dividend-561080-2026-10-12"
+            ],
+            [
+              "Business Standard – HCL Tech shares gain over 4% after Q2 results; brokerages remain mixed (Oct 13, 2026)",
+              "https://www.business-standard.com/amp/markets/news/hcl-tech-shares-gain-over-4-after-q2-results-brokerages-remain-mixed-126101300164_1.html"
+            ],
+            [
+              "BusinessToday – HCL Tech share price: Targets suggest limited upside; what JPMorgan, Jefferies, Citi say (Oct 13, 2026)",
+              "https://www.businesstoday.in/markets/stocks/story/hcl-tech-share-price-targets-suggest-limited-upside-what-jpmorgan-jefferies-citi-say-561157-2026-10-13"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – Bank earnings October 2026: JPMorgan, Goldman, Wells Fargo, Citigroup (Oct 13, 2026)",
+          "https://www.cnbc.com/2026/10/13/bank-earnings-live-updates.html"
+        ],
+        [
+          "CNBC – Here are Tuesday's biggest analyst calls: Nvidia, Apple, Netflix, Meta, Galaxy, SoFi, Viking, AT&T & more (Oct 13, 2026)",
+          "https://www.cnbc.com/2026/10/13/tuesday-big-wall-street-analyst-calls-like-nvidia.html"
+        ],
+        [
+          "Business Standard – HCL Tech shares gain over 4% after Q2 results; brokerages remain mixed (Oct 13, 2026)",
+          "https://www.business-standard.com/amp/markets/news/hcl-tech-shares-gain-over-4-after-q2-results-brokerages-remain-mixed-126101300164_1.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-13-daily",
       "horizon": "daily",
       "date": "2026-10-13",

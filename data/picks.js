@@ -131,7 +131,65 @@ window.PICKS = {
               "BusinessToday – HCL Tech share price: Targets suggest limited upside; what JPMorgan, Jefferies, Citi say (Oct 13, 2026)",
               "https://www.businesstoday.in/markets/stocks/story/hcl-tech-share-price-targets-suggest-limited-upside-what-jpmorgan-jefferies-citi-say-561157-2026-10-13"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1326.0,
+            "date": "2026-10-13",
+            "researchPrice": 1326.0,
+            "researchDate": "2026-10-13",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹474 cr (min ₹100 cr), price ₹1,326.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1240.28"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +14.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+28.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.99% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.99,
+            "sma20": 1240.28,
+            "sma50": 1286.51,
+            "sma200": 1340.08,
+            "rs1m": 14.42,
+            "rs3m": 21.28,
+            "fromHigh52": -25.51,
+            "fromLow52": 28.74,
+            "avgValue20": 4743227515,
+            "extAtr": 2.16
+          }
         }
       ],
       "marketSources": [

@@ -77,7 +77,65 @@ window.PICKS = {
               "CNBC – Here are Wednesday's biggest analyst calls: SpaceX, Nvidia, Apple, Meta, Brinker, Kontoor Brands & more (Oct 14, 2026)",
               "https://www.cnbc.com/2026/10/14/wednesday-top-analyst-calls-on-wall-street-like-spacex.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 471.29,
+            "date": "2026-10-14",
+            "researchPrice": 471.29,
+            "researchDate": "2026-10-14",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $568M (min $50M), price $471.29"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $456.22"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +9.7 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+35.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.44% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.44,
+            "sma20": 456.22,
+            "sma50": 455.99,
+            "sma200": 451.03,
+            "rs1m": 9.73,
+            "rs3m": -3.24,
+            "fromHigh52": -6.84,
+            "fromLow52": 35.4,
+            "avgValue20": 568041714,
+            "extAtr": 1.31
+          }
         },
         {
           "market": "IN",
@@ -131,7 +189,65 @@ window.PICKS = {
               "BusinessToday – BHEL Q2 results today: Check preview, key expectations, growth, monitorables & price targets (Oct 14, 2026)",
               "https://www.businesstoday.in/markets/trending-stocks/story/bhel-q2-results-today-check-preview-key-expectations-growth-monitorables-price-targets-561424-2026-10-14"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 464.0,
+            "date": "2026-10-14",
+            "researchPrice": 464.0,
+            "researchDate": "2026-10-14",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹475 cr (min ₹100 cr), price ₹464.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹429.85"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +11.0 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+102.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.15% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.15,
+            "sma20": 429.85,
+            "sma50": 424.69,
+            "sma200": 352.77,
+            "rs1m": 10.97,
+            "rs3m": 17.07,
+            "fromHigh52": 0.0,
+            "fromLow52": 102.14,
+            "avgValue20": 4751368499,
+            "extAtr": 2.34
+          }
         }
       ],
       "marketSources": [

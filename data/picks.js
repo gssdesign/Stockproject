@@ -4,6 +4,152 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-15-daily",
+      "horizon": "daily",
+      "date": "2026-10-15",
+      "horizonDays": 1,
+      "expires": "2026-10-15",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7718.94,
+          "summary": "Risk-on: the S&P 500 closed at 7,718.94 on 2026-10-14 (−1.1%), still above its 50- and 200-day averages. One standard pick, Trane Technologies, after Goldman Sachs's upgrade on 14 Oct; the other 14 Oct calls were on stocks that fail the daily checks or are outside the data universe (Albemarle, Dell, Brinker), so the list isn't padded. The CPI report is due this week."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22622.7,
+          "summary": "Risk-off: the Nifty 50 closed at 22,622.70 on 2026-10-14 (−0.44%), below its 50- and 200-day averages. One standard pick, BHEL, on its Q2 profit beat; Tech Mahindra and Wipro report on 15 Oct, so they are excluded, and no other screen stock had a fresh, dated catalyst (Plan B applies only when a market has no standard pick)."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "TT",
+          "yahoo": "TT",
+          "name": "Trane Technologies",
+          "sector": "Industrials / HVAC",
+          "currency": "USD",
+          "refPrice": 471.29,
+          "refDate": "2026-10-14",
+          "buyLow": 466.7,
+          "buyHigh": 473.59,
+          "target": 484.49,
+          "stop": 461.53,
+          "risk": "Medium",
+          "thesis": "Goldman Sachs upgraded Trane to Buy from Neutral on 14 Oct (target $565 from $548), expecting faster organic growth after three straight quarters of 20%+ order growth; the stock dipped 1.4% with the market, giving a calmer entry.",
+          "reasons": [
+            "Goldman Sachs analyst Joe Ritchie upgraded Trane Technologies to Buy on 14 Oct 2026 with a $565 target, citing orders up more than 20% for three straight quarters and 2027–28 EPS estimates 3.7% and 5.5% above consensus.",
+            "Goldman notes the shares de-rated about 10% over six months and trade at roughly a one-turn discount to their three-year average multiple.",
+            "It passes every daily check: up 11.5% in a month (9.7 pts ahead of the S&P 500), above its 20-day average ($456.22) and only 1.3 ATR above it after a 1.41% dip to $471.29 on a down day (S&P −1.1%)."
+          ],
+          "data": [
+            [
+              "Close (10/14)",
+              "$471.29"
+            ],
+            [
+              "1-month vs index",
+              "+9.7 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.3 ATR"
+            ],
+            [
+              "ATR",
+              "2.44% of price"
+            ]
+          ],
+          "watch": "The S&P 500 fell 1.1% on 14 Oct and this week's CPI report could add volatility; the stock still trades around 36 times earnings. Its 3-month return trails the index. Q3 results come later in October, not today. Skip it if it opens outside $466.70–473.59.",
+          "sources": [
+            [
+              "StreetInsider – Goldman Sachs upgrades Trane Technologies (TT) to Buy",
+              "https://www.streetinsider.com/Analyst+Comments/Goldman+Sachs+Upgrades+Trane+Technologies+(TT)+to+Buy/27182556.html"
+            ],
+            [
+              "Investing.com – Goldman Sachs upgrades Trane Technologies stock rating on growth outlook",
+              "https://in.investing.com/news/stock-market-news/goldman-sachs-upgrades-trane-technologies-stock-rating-on-growth-outlook-93CH-5632152"
+            ],
+            [
+              "CNBC – Here are Wednesday's biggest analyst calls: SpaceX, Nvidia, Apple, Meta, Brinker, Kontoor Brands & more (Oct 14, 2026)",
+              "https://www.cnbc.com/2026/10/14/wednesday-top-analyst-calls-on-wall-street-like-spacex.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "BHEL",
+          "yahoo": "BHEL.NS",
+          "name": "Bharat Heavy Electricals",
+          "sector": "Capital Goods / Power Equipment",
+          "currency": "INR",
+          "refPrice": 464.0,
+          "refDate": "2026-10-14",
+          "buyLow": 458.15,
+          "buyHigh": 466.9,
+          "target": 480.8,
+          "stop": 451.55,
+          "risk": "Medium",
+          "thesis": "BHEL's Q2 FY27 profit more than doubled (reported 14 Oct), well ahead of estimates, and the stock closed at a record ₹464 (+4.9%); post-earnings drift favours follow-through.",
+          "reasons": [
+            "Q2 FY27 (14 Oct 2026): standalone net profit rose about 120% year on year to ₹810 crore on revenue up 24% to about ₹9,300 crore, beating pre-results estimates of roughly ₹607–654 crore.",
+            "The order book reached ₹2,57,571 crore at 30 Sep 2026, up 17.3% from a year earlier, giving years of revenue visibility; first-half profit was ₹1,192 crore against a loss a year ago.",
+            "The stock closed at an all-time high of ₹464 (+4.89%) on 14 Oct while the Nifty fell 0.44%; it is 10.9 pts ahead of the Nifty over a month and 2.3 ATR above its 20-day average."
+          ],
+          "data": [
+            [
+              "Close (10/14)",
+              "₹464.00"
+            ],
+            [
+              "1-month vs index",
+              "+10.9 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.3 ATR"
+            ],
+            [
+              "ATR",
+              "3.15% of price"
+            ]
+          ],
+          "watch": "After a near-5% jump to a record and a 100% gain in a year, profit-taking is likely; margin figures differ between reports, so check the official release. Public-sector stocks swing with government-order news, and the market is in a downtrend. Skip it if it opens outside ₹458.15–466.90.",
+          "sources": [
+            [
+              "Business Standard – BHEL gains 5%, hits new high post Q2 results; stock up 100% in one year (Oct 14, 2026)",
+              "https://www.business-standard.com/amp/markets/news/bhel-gains-5-hits-new-high-post-q2-results-stock-up-100-in-one-year-126101400694_1.html"
+            ],
+            [
+              "HDFC Sky – BHEL Q2 results: Profit jumps 120%; shares rise 4.44%",
+              "https://hdfcsky.com/news/bhel-q2-profit-jumps-120-percent-shares-rise-4-44-percent"
+            ],
+            [
+              "BusinessToday – BHEL Q2 results today: Check preview, key expectations, growth, monitorables & price targets (Oct 14, 2026)",
+              "https://www.businesstoday.in/markets/trending-stocks/story/bhel-q2-results-today-check-preview-key-expectations-growth-monitorables-price-targets-561424-2026-10-14"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – Thursday's big stock stories: What's likely to move the market in the next trading session (Oct 14, 2026)",
+          "https://www.cnbc.com/2026/10/14/thursdays-big-stock-stories-whats-likely-to-move-the-market.html"
+        ],
+        [
+          "CNBC – Here are Wednesday's biggest analyst calls: SpaceX, Nvidia, Apple, Meta, Brinker, Kontoor Brands & more (Oct 14, 2026)",
+          "https://www.cnbc.com/2026/10/14/wednesday-top-analyst-calls-on-wall-street-like-spacex.html"
+        ],
+        [
+          "Business Standard – BHEL gains 5%, hits new high post Q2 results; stock up 100% in one year (Oct 14, 2026)",
+          "https://www.business-standard.com/amp/markets/news/bhel-gains-5-hits-new-high-post-q2-results-stock-up-100-in-one-year-126101400694_1.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-14-daily",
       "horizon": "daily",
       "date": "2026-10-14",

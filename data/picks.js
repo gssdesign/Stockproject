@@ -77,7 +77,65 @@ window.PICKS = {
               "CNBC – Here are Thursday's biggest analyst calls: Nvidia, CoreWeave, Walmart, Crocs, CarMax, Regeneron & more (Oct 15, 2026)",
               "https://www.cnbc.com/2026/10/15/thursday-big-wall-street-analyst-calls-like-coreweave.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 696.49,
+            "date": "2026-10-15",
+            "researchPrice": 696.49,
+            "researchDate": "2026-10-15",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,555M (min $50M), price $696.49"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $666.42"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +4.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+60.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.74% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.74,
+            "sma20": 666.42,
+            "sma50": 634.49,
+            "sma200": 546.79,
+            "rs1m": 4.86,
+            "rs3m": 26.96,
+            "fromHigh52": -1.07,
+            "fromLow52": 60.01,
+            "avgValue20": 1554926371,
+            "extAtr": 1.58
+          }
         },
         {
           "market": "IN",
@@ -131,7 +189,65 @@ window.PICKS = {
               "Business Standard – Tech Mahindra Q2 preview: PAT may jump 30-40% YoY; firm to mull bonus issue (Oct 14, 2026)",
               "https://www.business-standard.com/markets/news/tech-mahindra-q2-preview-pat-may-jump-30-40-yoy-firm-to-mull-bonus-issue-126101400282_1.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1650.0,
+            "date": "2026-10-15",
+            "researchPrice": 1650.0,
+            "researchDate": "2026-10-15",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹401 cr (min ₹100 cr), price ₹1,650.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1537.37"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +5.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+26.5% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.78% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.78,
+            "sma20": 1537.37,
+            "sma50": 1574.17,
+            "sma200": 1516.13,
+            "rs1m": 5.22,
+            "rs3m": 13.72,
+            "fromHigh52": -11.0,
+            "fromLow52": 26.52,
+            "avgValue20": 4006804763,
+            "extAtr": 2.46
+          }
         }
       ],
       "marketSources": [

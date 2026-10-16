@@ -4,6 +4,152 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-16-daily",
+      "horizon": "daily",
+      "date": "2026-10-16",
+      "horizonDays": 1,
+      "expires": "2026-10-16",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7744.06,
+          "summary": "Risk-on: the S&P 500 closed at 7,744.06 on 2026-10-15 (+0.33%). One standard pick, Thermo Fisher, after Guggenheim's Buy call on 15 Oct; the other 15 Oct calls were on stocks that fail the daily checks (Walmart is overextended, Bank of America is in a downtrend) or are outside the data universe, so the list isn't padded."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22997.35,
+          "summary": "Risk-off: the Nifty 50 closed at 22,997.35 on 2026-10-15 (+1.66%), a strong rebound but still below its 50- and 200-day averages. One standard pick, Tech Mahindra, on its Q2 results; ICICI Lombard's results were mixed (weak premium growth) and no other screen stock had a fresh, dated catalyst, so the list isn't padded."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "TMO",
+          "yahoo": "TMO",
+          "name": "Thermo Fisher Scientific",
+          "sector": "Health Care / Life Science Tools",
+          "currency": "USD",
+          "refPrice": 696.49,
+          "refDate": "2026-10-15",
+          "buyLow": 688.93,
+          "buyHigh": 700.27,
+          "target": 718.22,
+          "stop": 680.43,
+          "risk": "Medium",
+          "thesis": "Guggenheim started Thermo Fisher at Buy with a $740 target on 15 Oct, and the stock rose 3.46% to $696.49, near its record high.",
+          "reasons": [
+            "Guggenheim began coverage of Thermo Fisher on 15 Oct 2026 with a Buy rating and a $740 target (about 6% above the close), calling the shares compelling; UBS had earlier upgraded it to Buy with a $730 target.",
+            "The stock rose 3.46% to $696.49 on 15 Oct, 0.7% below its 52-week high of $701.64, while the S&P 500 gained 0.33%.",
+            "It's a strong leader: up 30.8% in 3 months (27 pts ahead of the S&P 500), above its 20-, 50- and 200-day averages and 1.6 ATR above its 20-day average ($666.42)."
+          ],
+          "data": [
+            [
+              "Close (10/15)",
+              "$696.49"
+            ],
+            [
+              "3-month vs index",
+              "+27.0 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.6 ATR"
+            ],
+            [
+              "ATR",
+              "2.71% of price"
+            ]
+          ],
+          "watch": "Q3 results are due on 21 Oct, so some traders may hold back ahead of them; the stock is near its record high and some valuation models flag it as rich. Not a holding through earnings. Skip it if it opens outside $688.93–700.27.",
+          "sources": [
+            [
+              "MarketScreener – Guggenheim initiates coverage on Thermo Fisher Scientific with Buy rating, $740 price target (Oct 15, 2026)",
+              "https://www.marketscreener.com/news/guggenheim-initiates-coverage-on-thermo-fisher-scientific-with-buy-rating-740-price-target-ce785dd3dc89f620"
+            ],
+            [
+              "Investing.com – Guggenheim reiterates Thermo Fisher Scientific stock Buy rating",
+              "https://in.investing.com/news/stock-market-news/guggenheim-reiterates-thermo-fisher-scientific-stock-buy-rating-93CH-5634853"
+            ],
+            [
+              "CNBC – Here are Thursday's biggest analyst calls: Nvidia, CoreWeave, Walmart, Crocs, CarMax, Regeneron & more (Oct 15, 2026)",
+              "https://www.cnbc.com/2026/10/15/thursday-big-wall-street-analyst-calls-like-coreweave.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "TECHM",
+          "yahoo": "TECHM.NS",
+          "name": "Tech Mahindra",
+          "sector": "Information Technology / IT Services",
+          "currency": "INR",
+          "refPrice": 1650.0,
+          "refDate": "2026-10-15",
+          "buyLow": 1631.65,
+          "buyHigh": 1659.15,
+          "target": 1702.7,
+          "stop": 1611.05,
+          "risk": "Medium",
+          "thesis": "Tech Mahindra's Q2 FY27 (15 Oct) beat on revenue with a 260 bp margin jump and 25% higher deal wins, plus a 1:1 bonus and ₹15 dividend; the stock rose 4.75%, and post-earnings drift favours follow-through.",
+          "reasons": [
+            "Q2 FY27 (15 Oct 2026): revenue rose 15.6% to ₹16,180 crore, ahead of the ₹16,027 crore estimate; net profit rose 32.7% to ₹1,586 crore (slightly below estimates) and EBIT jumped 40.5% as the margin widened about 260 bp to 14.8%.",
+            "New deal wins were $1.023 billion, up 25.4% year on year, and the board declared a ₹15 interim dividend and a 1:1 bonus issue, its first bonus since 2015.",
+            "The stock closed up 4.75% at ₹1,650 on 15 Oct as the Nifty rose 1.66%; it is 8 pts ahead of the Nifty over a month and 2.5 ATR above its 20-day average (₹1,537.37)."
+          ],
+          "data": [
+            [
+              "Close (10/15)",
+              "₹1,650.00"
+            ],
+            [
+              "1-month vs index",
+              "+8.0 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.5 ATR"
+            ],
+            [
+              "ATR",
+              "2.78% of price"
+            ]
+          ],
+          "watch": "Profit missed estimates, and some brokerages were cautious before results (Jefferies Underperform, ₹1,260 target); after a near-5% jump, profit-taking is likely. Skip it if it opens outside ₹1,631.65–1,659.15.",
+          "sources": [
+            [
+              "Business Standard – Tech Mahindra Q2 profit rises 32.7% to ₹1,586 crore; revenue up 15.6% (Oct 15, 2026)",
+              "https://www.business-standard.com/companies/quarterly-results/tech-mahindra-q2-profit-rises-32-7-to-1-586-crore-revenue-up-15-6-126101501369_1.html"
+            ],
+            [
+              "Kotak Neo – Tech Mahindra Q2 FY27 results: revenue grows 15.6%, deal wins reach $1.023 billion, EBIT margin hits 14.8%",
+              "https://www.kotakneo.com/news/stocks/tech-mahindra-share-price-in-focus-as-company-announces-q2-fy27-results/"
+            ],
+            [
+              "Business Standard – Tech Mahindra Q2 preview: PAT may jump 30-40% YoY; firm to mull bonus issue (Oct 14, 2026)",
+              "https://www.business-standard.com/markets/news/tech-mahindra-q2-preview-pat-may-jump-30-40-yoy-firm-to-mull-bonus-issue-126101400282_1.html"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – Here are Thursday's biggest analyst calls: Nvidia, CoreWeave, Walmart, Crocs, CarMax, Regeneron & more (Oct 15, 2026)",
+          "https://www.cnbc.com/2026/10/15/thursday-big-wall-street-analyst-calls-like-coreweave.html"
+        ],
+        [
+          "Business Standard – Tech Mahindra Q2 profit rises 32.7% to ₹1,586 crore; revenue up 15.6% (Oct 15, 2026)",
+          "https://www.business-standard.com/companies/quarterly-results/tech-mahindra-q2-profit-rises-32-7-to-1-586-crore-revenue-up-15-6-126101501369_1.html"
+        ],
+        [
+          "Kotak Neo – Tech Mahindra Q2 FY27 results: revenue grows 15.6%, deal wins reach $1.023 billion, EBIT margin hits 14.8%",
+          "https://www.kotakneo.com/news/stocks/tech-mahindra-share-price-in-focus-as-company-announces-q2-fy27-results/"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-15-daily",
       "horizon": "daily",
       "date": "2026-10-15",

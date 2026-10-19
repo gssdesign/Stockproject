@@ -4,6 +4,152 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-19-weekly",
+      "horizon": "weekly",
+      "date": "2026-10-19",
+      "horizonDays": 7,
+      "expires": "2026-10-26",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7659.44,
+          "summary": "Neutral: the S&P 500 closed at 7,659.44 on 2026-10-16 after its worst week since June, with Nvidia and Tesla down 6–7% on the week. Two picks with catalysts from the past week: Salesforce (BofA double upgrade) and Thermo Fisher (Guggenheim Buy, reports 21 Oct — the list's one binary event). A heavy earnings week (Netflix 20 Oct; Tesla, Meta, IBM 21 Oct) can move the market."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 23146.15,
+          "summary": "Risk-off: the Nifty 50 closed at 23,146.15 on 2026-10-16, up three days in a row but still below its 50- and 200-day averages. No India picks this week: the stocks with fresh catalysts (Tech Mahindra, HCLTech, HDFC Bank, ICICI Lombard) fail the weekly checks (overextended or below a falling 50-day average), and no stock on the weekly screen had a dated catalyst in the past week, so the list isn't padded. NSE is closed on 20 Oct for Diwali."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "CRM",
+          "yahoo": "CRM",
+          "name": "Salesforce",
+          "sector": "Information Technology / Software",
+          "currency": "USD",
+          "refPrice": 240.7,
+          "refDate": "2026-10-16",
+          "buyLow": 236.18,
+          "buyHigh": 242.96,
+          "target": 259.91,
+          "stop": 228.27,
+          "risk": "Medium",
+          "thesis": "Bank of America double-upgraded Salesforce to Buy from Underperform on 12 Oct (target $285 from $160), arguing AI strengthens its platform, and the stock has held the gain near its 20-day average.",
+          "reasons": [
+            "BofA analyst Tal Liani moved Salesforce from Underperform straight to Buy on 12 Oct 2026 and raised the target to $285 from $160, saying CIOs are unlikely to abandon the platforms that hold their business logic and data as AI spreads.",
+            "The stock rallied as much as 5.1% to $240.90 on the upgrade and closed the week at $240.70, despite the S&P 500's worst week since June.",
+            "It's a strong 3-month leader (up 38.5%, 35.6 pts ahead of the S&P 500), above a rising 50-day average ($230.12) and only 0.8 ATR above its 20-day average, so the entry isn't stretched."
+          ],
+          "data": [
+            [
+              "Close (10/16)",
+              "$240.70"
+            ],
+            [
+              "3-month vs index",
+              "+35.6 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.8 ATR"
+            ],
+            [
+              "ATR",
+              "3.76% of price"
+            ]
+          ],
+          "watch": "Software stocks are volatile (ATR 3.8%), and a heavy mega-cap earnings week (Meta, Tesla, IBM on 21 Oct) can swing the whole tech group. Salesforce's own results are not until late November, outside this window. Skip it if it opens well above $242.96.",
+          "sources": [
+            [
+              "CNBC – An AI pivot will drive Salesforce shares higher, says Bank of America (Oct 12, 2026)",
+              "https://www.cnbc.com/2026/10/12/salesforce-to-punch-into-the-green-on-ai-pivot-bank-of-america-says-.html"
+            ],
+            [
+              "Investing.com – BofA double upgrades Salesforce to Buy on AI strategy, nearly doubles target",
+              "https://www.investing.com/news/stock-market-news/bofa-double-upgrades-salesforce-to-buy-on-ai-strategy-nearly-doubles-target-4944274"
+            ],
+            [
+              "Benzinga – Salesforce stock gets rare double upgrade from Bank of America",
+              "https://www.benzinga.com/markets/tech/26/10/62303548/salesforce-double-upgrade-bank-of-america"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "TMO",
+          "yahoo": "TMO",
+          "name": "Thermo Fisher Scientific",
+          "sector": "Health Care / Life Science Tools",
+          "currency": "USD",
+          "refPrice": 690.0,
+          "refDate": "2026-10-16",
+          "buyLow": 680.59,
+          "buyHigh": 694.7,
+          "target": 729.98,
+          "stop": 664.13,
+          "risk": "High",
+          "thesis": "Guggenheim rated Thermo Fisher Buy with a $740 target on 15 Oct, joining UBS's recent upgrade, and Q3 results land on 21 Oct inside this window: a binary event.",
+          "reasons": [
+            "Guggenheim began coverage on 15 Oct 2026 with a Buy rating and a $740 target, calling the shares compelling; UBS had earlier upgraded the stock to Buy with a $730 target.",
+            "Revenue grew about 10% year on year with 5% organic growth in the latest reported quarter, and the stock is 2% below its 52-week high of $704.",
+            "It's a strong leader: up 31.1% in 3 months (28.2 pts ahead of the S&P 500), above a rising 50-day average ($636.69) and 1.1 ATR above its 20-day average."
+          ],
+          "data": [
+            [
+              "Close (10/16)",
+              "$690.00"
+            ],
+            [
+              "3-month vs index",
+              "+28.2 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.1 ATR"
+            ],
+            [
+              "ATR",
+              "2.73% of price"
+            ]
+          ],
+          "watch": "BINARY EVENT: Q3 results are due on 21 Oct, inside this window; a miss or weak guidance could gap the stock through the stop. Some valuation models flag it as rich near its high. This is the list's one binary event; size it small. Skip it if it opens well above $694.70.",
+          "sources": [
+            [
+              "MarketScreener – Guggenheim initiates coverage on Thermo Fisher Scientific with Buy rating, $740 price target (Oct 15, 2026)",
+              "https://www.marketscreener.com/news/guggenheim-initiates-coverage-on-thermo-fisher-scientific-with-buy-rating-740-price-target-ce785dd3dc89f620"
+            ],
+            [
+              "Investing.com – Guggenheim reiterates Thermo Fisher Scientific stock Buy rating",
+              "https://in.investing.com/news/stock-market-news/guggenheim-reiterates-thermo-fisher-scientific-stock-buy-rating-93CH-5634853"
+            ],
+            [
+              "CNBC – Here are Thursday's biggest analyst calls: Nvidia, CoreWeave, Walmart, Crocs, CarMax, Regeneron & more (Oct 15, 2026)",
+              "https://www.cnbc.com/2026/10/15/thursday-big-wall-street-analyst-calls-like-coreweave.html"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "TipRanks – Major earnings this week (October 19–23, 2026)",
+          "https://www.tipranks.com/news/major-earnings-this-week-october-19-23-2026"
+        ],
+        [
+          "Kiplinger – Earnings calendar and analysis for this week (October 19–23)",
+          "https://www.kiplinger.com/investing/stocks/17494/next-week-earnings-calendar-stocks"
+        ],
+        [
+          "Goodreturns – Stocks to watch on October 19: Bajaj Finance, Hindustan Zinc, UltraTech Cement, HDFC Bank in focus",
+          "https://www.goodreturns.in/personal-finance/stocks-to-watch-on-october-19-bajaj-finance-hindustan-zinc-ultratech-cement-hdfc-bank-in-focus-1542335.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-16-daily",
       "horizon": "daily",
       "date": "2026-10-16",

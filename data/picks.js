@@ -77,7 +77,65 @@ window.PICKS = {
               "Benzinga – Salesforce stock gets rare double upgrade from Bank of America",
               "https://www.benzinga.com/markets/tech/26/10/62303548/salesforce-double-upgrade-bank-of-america"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 240.7,
+            "date": "2026-10-16",
+            "researchPrice": 240.7,
+            "researchDate": "2026-10-16",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $2,099M (min $50M), price $240.7"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $230.12, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +35.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+64.5% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.77% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.77,
+            "sma20": 233.23,
+            "sma50": 230.12,
+            "sma200": 199.05,
+            "rs1m": -1.17,
+            "rs3m": 35.6,
+            "fromHigh52": -10.56,
+            "fromLow52": 64.5,
+            "avgValue20": 2099360396,
+            "extAtr": 0.82
+          }
         },
         {
           "market": "US",
@@ -131,7 +189,66 @@ window.PICKS = {
               "CNBC – Here are Thursday's biggest analyst calls: Nvidia, CoreWeave, Walmart, Crocs, CarMax, Regeneron & more (Oct 15, 2026)",
               "https://www.cnbc.com/2026/10/15/thursday-big-wall-street-analyst-calls-like-coreweave.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 690.0,
+            "date": "2026-10-16",
+            "researchPrice": 690.0,
+            "researchDate": "2026-10-16",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,478M (min $50M), price $690.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $636.69, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +28.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+58.5% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.73% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.73,
+            "sma20": 668.35,
+            "sma50": 636.69,
+            "sma200": 547.32,
+            "rs1m": 4.53,
+            "rs3m": 28.22,
+            "fromHigh52": -1.99,
+            "fromLow52": 58.52,
+            "avgValue20": 1478434855,
+            "extAtr": 1.15
+          },
+          "eventRisk": "Earnings on 2026-10-21, inside the holding window"
         }
       ],
       "marketSources": [

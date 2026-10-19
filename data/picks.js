@@ -4,6 +4,152 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-19-daily",
+      "horizon": "daily",
+      "date": "2026-10-19",
+      "horizonDays": 1,
+      "expires": "2026-10-19",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7659.44,
+          "summary": "Neutral: the S&P 500 closed at 7,659.44 on 2026-10-16 (−1.09%), ending its worst week since June. One standard pick, Travelers, which beat estimates on 16 Oct and closed higher after an early drop; Friday's other analyst calls were on stocks that fail the daily checks (Nvidia, Tesla, JPMorgan, Workday) or are outside the data universe, so the list isn't padded."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 23146.15,
+          "summary": "Risk-off: the Nifty 50 closed at 23,146.15 on 2026-10-16 (+0.65%), still below its 50- and 200-day averages. One standard pick, ICICI Bank, on Saturday's Q2 beat; HDFC Bank, Federal Bank and Reliance fail the daily checks, LTM and Persistent fell on their results, and NSE is shut on 20 Oct, so the list isn't padded."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "TRV",
+          "yahoo": "TRV",
+          "name": "The Travelers Companies",
+          "sector": "Financials / Property & Casualty Insurance",
+          "currency": "USD",
+          "refPrice": 389.54,
+          "refDate": "2026-10-16",
+          "buyLow": 386.41,
+          "buyHigh": 391.1,
+          "target": 398.53,
+          "stop": 382.9,
+          "risk": "Medium",
+          "thesis": "Travelers beat Q3 estimates by more than 20% on 16 Oct and the stock reversed an early drop to close up 1.47% near its high, a setup where post-earnings drift favours follow-through.",
+          "reasons": [
+            "Q3 2026 (16 Oct): core income was $9.18 a share against a Zacks consensus of $7.07, and net income rose to $1.917 billion ($9.04 a share) from $1.888 billion, helped by $234 million of favourable reserve development and record net investment income of $1.098 billion.",
+            "Shares fell about 4.4% before the open on higher catastrophe losses ($538 million vs $402 million a year ago), then recovered to close up 1.47% at $389.54 while the S&P 500 fell 1.09%.",
+            "It's 2.4 pts ahead of the S&P 500 over a month, above its 20-, 50- and 200-day averages, 2.3% below its 52-week high of $398.70, and returned $1.769 billion to shareholders in the quarter."
+          ],
+          "data": [
+            [
+              "Close (10/16)",
+              "$389.54"
+            ],
+            [
+              "1-month vs index",
+              "+2.4 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.9 ATR"
+            ],
+            [
+              "ATR",
+              "2.01% of price"
+            ]
+          ],
+          "watch": "It's 2.9 ATR above its 20-day average, close to the stretch limit, and much of the beat came from reserve releases rather than underwriting; a weak open in a nervous market could undo Friday's reversal. Skip it if it opens outside $386.41–391.10.",
+          "sources": [
+            [
+              "SEC EDGAR – The Travelers Companies, Form 8-K Exhibit 99.1: third-quarter 2026 results (Oct 16, 2026)",
+              "https://www.sec.gov/Archives/edgar/data/0000086312/000008631226000180/a991pressrelease93026.htm"
+            ],
+            [
+              "Yahoo Finance – TRV Q3 earnings beat on reserve gains and investment income (Oct 16, 2026)",
+              "https://finance.yahoo.com/markets/stocks/articles/trv-q3-earnings-beat-gains-142600561.html"
+            ],
+            [
+              "Investing.com – Travelers beats estimates but shares slip on catastrophe losses (Oct 16, 2026)",
+              "https://www.investing.com/news/earnings/travelers-beats-estimates-but-shares-slip-on-catastrophe-losses-4953755"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "ICICIBANK",
+          "yahoo": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "sector": "Financial Services / Private Bank",
+          "currency": "INR",
+          "refPrice": 1397,
+          "refDate": "2026-10-16",
+          "buyLow": 1387.15,
+          "buyHigh": 1401.95,
+          "target": 1425.35,
+          "stop": 1376.05,
+          "risk": "Medium",
+          "thesis": "ICICI Bank's Q2 FY27 (17 Oct) beat estimates with 20% profit growth, 30% loan growth and better asset quality, and Monday is the first session to price it in.",
+          "reasons": [
+            "Q2 FY27 (17 Oct 2026): standalone net profit rose 20.1% to ₹14,843 crore, ahead of the Bloomberg survey average of ₹14,365 crore; net interest income rose about 17.7% to ₹25,339 crore.",
+            "Loans grew 30% year on year and deposits 27.1%; the gross NPA ratio improved to 1.20% from 1.38% a quarter earlier, and consolidated profit rose to ₹16,333 crore from ₹13,357 crore.",
+            "The stock closed at ₹1,397 on 16 Oct (+0.55%), 3.1 pts ahead of the Nifty over a month, above its 20-, 50- and 200-day averages and 2.3 ATR above its 20-day average (₹1,340.64)."
+          ],
+          "data": [
+            [
+              "Close (10/16)",
+              "₹1,397.00"
+            ],
+            [
+              "1-month vs index",
+              "+3.1 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.3 ATR"
+            ],
+            [
+              "ATR",
+              "1.76% of price"
+            ]
+          ],
+          "watch": "The net interest margin slipped to 4.18% from 4.36% and management expects it to dip again in Q3, which could cap the reaction; the Nifty is risk-off and the market is closed on 20 Oct, so there's no follow-through day. Skip it if it opens outside ₹1,387.15–1,401.95.",
+          "sources": [
+            [
+              "Bloomberg – ICICI Bank profit beats estimates as lending growth accelerates (Oct 17, 2026)",
+              "https://www.bloomberg.com/news/articles/2026-10-17/icici-bank-profit-beats-estimates-as-lending-growth-accelerates"
+            ],
+            [
+              "BusinessToday – ICICI Bank Q2 results: net profit jumps 20% to Rs 14,843 crore; NIM contracts (Oct 17, 2026)",
+              "https://www.businesstoday.in/markets/stocks/story/icici-bank-q2-results-net-profit-jumps-20-to-rs-14843-crore-nim-contracts-562250-2026-10-17"
+            ],
+            [
+              "Investing.com – ICICI Bank Q2 profit beats estimates on strong loan growth (Oct 17, 2026)",
+              "https://ca.investing.com/news/earnings/icici-bank-q2-profit-beats-estimates-on-strong-loan-growth-4886426"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "SEC EDGAR – The Travelers Companies, Form 8-K Exhibit 99.1: third-quarter 2026 results (Oct 16, 2026)",
+          "https://www.sec.gov/Archives/edgar/data/0000086312/000008631226000180/a991pressrelease93026.htm"
+        ],
+        [
+          "Yahoo Finance – TRV Q3 earnings beat on reserve gains and investment income (Oct 16, 2026)",
+          "https://finance.yahoo.com/markets/stocks/articles/trv-q3-earnings-beat-gains-142600561.html"
+        ],
+        [
+          "Bloomberg – ICICI Bank profit beats estimates as lending growth accelerates (Oct 17, 2026)",
+          "https://www.bloomberg.com/news/articles/2026-10-17/icici-bank-profit-beats-estimates-as-lending-growth-accelerates"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-19-weekly",
       "horizon": "weekly",
       "date": "2026-10-19",

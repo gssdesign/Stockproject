@@ -77,7 +77,65 @@ window.PICKS = {
               "Investing.com – Travelers beats estimates but shares slip on catastrophe losses (Oct 16, 2026)",
               "https://www.investing.com/news/earnings/travelers-beats-estimates-but-shares-slip-on-catastrophe-losses-4953755"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 389.54,
+            "date": "2026-10-16",
+            "researchPrice": 389.54,
+            "researchDate": "2026-10-16",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $459M (min $50M), price $389.54"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $367.05"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +2.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+54.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.01% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.01,
+            "sma20": 367.05,
+            "sma50": 369.29,
+            "sma200": 324.11,
+            "rs1m": 2.37,
+            "rs3m": 2.81,
+            "fromHigh52": -2.3,
+            "fromLow52": 54.42,
+            "avgValue20": 458885500,
+            "extAtr": 2.88
+          }
         },
         {
           "market": "IN",
@@ -86,7 +144,7 @@ window.PICKS = {
           "name": "ICICI Bank",
           "sector": "Financial Services / Private Bank",
           "currency": "INR",
-          "refPrice": 1397,
+          "refPrice": 1397.0,
           "refDate": "2026-10-16",
           "buyLow": 1387.15,
           "buyHigh": 1401.95,
@@ -131,7 +189,65 @@ window.PICKS = {
               "Investing.com – ICICI Bank Q2 profit beats estimates on strong loan growth (Oct 17, 2026)",
               "https://ca.investing.com/news/earnings/icici-bank-q2-profit-beats-estimates-on-strong-loan-growth-4886426"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1397.0,
+            "date": "2026-10-16",
+            "researchPrice": 1397,
+            "researchDate": "2026-10-16",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹1,372 cr (min ₹100 cr), price ₹1,397.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1340.64"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +3.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+17.6% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.76% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.76,
+            "sma20": 1340.64,
+            "sma50": 1384.22,
+            "sma200": 1353.74,
+            "rs1m": 3.12,
+            "rs3m": 1.61,
+            "fromHigh52": -5.61,
+            "fromLow52": 17.63,
+            "avgValue20": 13715218501,
+            "extAtr": 2.29
+          }
         }
       ],
       "marketSources": [

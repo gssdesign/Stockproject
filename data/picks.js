@@ -77,7 +77,65 @@ window.PICKS = {
               "About Amazon – Amazon will share its Q3 2026 earnings on October 29",
               "https://www.aboutamazon.com/md/news/company-news/amazon-earnings-q3-2026-report"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 262.45,
+            "date": "2026-10-19",
+            "researchPrice": 262.45,
+            "researchDate": "2026-10-19",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $9,243M (min $50M), price $262.45"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $253.43"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +2.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+33.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.48% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.48,
+            "sma20": 253.43,
+            "sma50": 256.84,
+            "sma200": 242.89,
+            "rs1m": 2.91,
+            "rs3m": 3.6,
+            "fromHigh52": -8.62,
+            "fromLow52": 33.9,
+            "avgValue20": 9242976909,
+            "extAtr": 1.39
+          }
         }
       ],
       "marketSources": [

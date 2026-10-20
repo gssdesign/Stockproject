@@ -4,6 +4,98 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-20-daily",
+      "horizon": "daily",
+      "date": "2026-10-20",
+      "horizonDays": 1,
+      "expires": "2026-10-20",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7690.73,
+          "summary": "Neutral: the S&P 500 closed at 7,690.73 on 2026-10-19 (+0.41%) as tech rebounded. One standard pick, Amazon, after Morgan Stanley named it a top pick on 19 Oct; Monday's other upgrades were on stocks that fail the daily checks (Datadog, Intel, Meta) or outside the data universe, and Hasbro, Steel Dynamics and W. R. Berkley are excluded because they report just before or during today's session, so the list isn't padded."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22888.95,
+          "summary": "Risk-off, and no India picks today: NSE and BSE are closed on Tue 20 Oct 2026 for Dussehra. The Nifty 50 last closed at 22,888.95 on 2026-10-19, below its 50- and 200-day averages. India daily picks resume on the next trading day, Wed 21 Oct."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "AMZN",
+          "yahoo": "AMZN",
+          "name": "Amazon",
+          "sector": "Consumer Discretionary / Internet Retail & Cloud",
+          "currency": "USD",
+          "refPrice": 262.45,
+          "refDate": "2026-10-19",
+          "buyLow": 259.85,
+          "buyHigh": 263.75,
+          "target": 269.93,
+          "stop": 256.92,
+          "risk": "Medium",
+          "thesis": "Morgan Stanley named Amazon its top pick on 19 Oct and raised its target to $350, lifting AWS growth forecasts sharply; the stock had its best day in three months, and analyst-upgrade drift favours follow-through.",
+          "reasons": [
+            "On 19 Oct 2026 Morgan Stanley's Brian Nowak made Amazon a top pick, kept Overweight and raised the target to $350 from $335 (about 33% above the close), with a $410 bull case.",
+            "He now expects AWS revenue to grow 47% in 2027 and 42% in 2028 (from 41% and 37%), citing AWS's plan to deploy about 2 million Nvidia GPUs over two years, with AWS margins of 42–44%.",
+            "The stock rose 4.98% to $262.45 while the S&P 500 gained 0.41%; it is 2.9 pts ahead of the index over a month, above its 20-, 50- and 200-day averages and only 1.4 ATR above its 20-day average ($253.43)."
+          ],
+          "data": [
+            [
+              "Close (10/19)",
+              "$262.45"
+            ],
+            [
+              "1-month vs index",
+              "+2.9 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.4 ATR"
+            ],
+            [
+              "ATR",
+              "2.48% of price"
+            ]
+          ],
+          "watch": "After a near-5% one-day jump some profit-taking is likely, and the bull case leans on heavy AI spending (Morgan Stanley sees capex of $355 billion in 2027); Q3 results come on 29 Oct, outside this window. Skip it if it opens outside $259.85–263.75.",
+          "sources": [
+            [
+              "Yahoo Finance – Amazon soars 5% as Morgan Stanley names it a top pick: AWS runway 'under-appreciated' (Oct 19, 2026)",
+              "https://finance.yahoo.com/markets/stocks/articles/amazon-soars-5-morgan-stanley-191852197.html"
+            ],
+            [
+              "CNBC – Here are Monday's biggest analyst calls: SpaceX, Nvidia, Apple, CoreWeave, Amazon, Meta, Eli Lilly & more (Oct 19, 2026)",
+              "https://www.cnbc.com/2026/10/19/mondays-biggest-analyst-calls-include-coreweave.html"
+            ],
+            [
+              "About Amazon – Amazon will share its Q3 2026 earnings on October 29",
+              "https://www.aboutamazon.com/md/news/company-news/amazon-earnings-q3-2026-report"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – Here are Monday's biggest analyst calls: SpaceX, Nvidia, Apple, CoreWeave, Amazon, Meta, Eli Lilly & more (Oct 19, 2026)",
+          "https://www.cnbc.com/2026/10/19/mondays-biggest-analyst-calls-include-coreweave.html"
+        ],
+        [
+          "Yahoo Finance – Amazon soars 5% as Morgan Stanley names it a top pick: AWS runway 'under-appreciated' (Oct 19, 2026)",
+          "https://finance.yahoo.com/markets/stocks/articles/amazon-soars-5-morgan-stanley-191852197.html"
+        ],
+        [
+          "HDFC Sky – BSE, NSE to remain closed on Friday for Gandhi Jayanti; next holiday on October 20",
+          "https://hdfcsky.com/news/bse-nse-to-remain-closed-on-friday-for-gandhi-jayanti-next-holiday-on-october-20"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-19-daily",
       "horizon": "daily",
       "date": "2026-10-19",

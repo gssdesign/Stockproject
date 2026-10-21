@@ -239,7 +239,65 @@ window.PICKS = {
               "TradingView (Moody's) – Union Bank of India posts 30% jump in Q2 profit, shares surge 4.7% (Oct 19, 2026)",
               "https://www.tradingview.com/news/moodys:ab1d3647ba0b0:0-union-bank-of-india-posts-30-jump-in-q2-profit-shares-surge-4-7/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 180.7,
+            "date": "2026-10-19",
+            "researchPrice": 180.7,
+            "researchDate": "2026-10-19",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹214 cr (min ₹100 cr), price ₹180.7"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹173.44"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +3.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+33.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.97% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.97,
+            "sma20": 173.44,
+            "sma50": 179.8,
+            "sma200": 175.27,
+            "rs1m": 3.11,
+            "rs3m": 8.28,
+            "fromHigh52": -12.06,
+            "fromLow52": 33.06,
+            "avgValue20": 2140564472,
+            "extAtr": 1.35
+          }
         }
       ],
       "marketSources": [

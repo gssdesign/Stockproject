@@ -77,7 +77,65 @@ window.PICKS = {
               "Investing.com – Earnings call transcript: 3M tops Q3 2026 profit views as shares rise (Oct 20, 2026)",
               "https://www.investing.com/news/transcripts/earnings-call-transcript-3m-tops-q3-2026-profit-views-as-shares-rise-93CH-4960515"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 171.37,
+            "date": "2026-10-20",
+            "researchPrice": 171.37,
+            "researchDate": "2026-10-20",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $517M (min $50M), price $171.37"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $164.92"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +4.5 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+23.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.28% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.28,
+            "sma20": 164.92,
+            "sma50": 169.65,
+            "sma200": 160.77,
+            "rs1m": 4.55,
+            "rs3m": -2.49,
+            "fromHigh52": -7.32,
+            "fromLow52": 22.99,
+            "avgValue20": 516643643,
+            "extAtr": 1.65
+          }
         },
         {
           "market": "US",
@@ -131,7 +189,65 @@ window.PICKS = {
               "SEC EDGAR – Northrop Grumman Form 8-K: third-quarter 2026 earnings release (Oct 20, 2026)",
               "https://www.sec.gov/Archives/edgar/data/0001133421/000113342126000037/noc-09302026xearningsrelea.htm"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 534.0,
+            "date": "2026-10-20",
+            "researchPrice": 534.0,
+            "researchDate": "2026-10-20",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $530M (min $50M), price $534.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $495.59"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +2.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+13.6% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.7 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.64% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.64,
+            "sma20": 495.59,
+            "sma50": 524.08,
+            "sma200": 593.48,
+            "rs1m": 2.06,
+            "rs3m": -1.19,
+            "fromHigh52": -31.01,
+            "fromLow52": 13.6,
+            "avgValue20": 530060052,
+            "extAtr": 2.73
+          }
         },
         {
           "market": "US",
@@ -185,7 +301,65 @@ window.PICKS = {
               "Seeking Alpha – BlackRock raised to Buy at TD Cowen based on Q3 inflection (Oct 20, 2026)",
               "https://seekingalpha.com/news/4654607-blackrock-raised-to-buy-at-td-cowen-based-on-q3-inflection"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1128.68,
+            "date": "2026-10-20",
+            "researchPrice": 1128.68,
+            "researchDate": "2026-10-20",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $682M (min $50M), price $1,128.68"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $1081.88"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +4.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+23.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.33% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.33,
+            "sma20": 1081.88,
+            "sma50": 1106.12,
+            "sma200": 1061.65,
+            "rs1m": 4.19,
+            "rs3m": 3.97,
+            "fromHigh52": -4.93,
+            "fromLow52": 23.03,
+            "avgValue20": 682265126,
+            "extAtr": 1.78
+          }
         },
         {
           "market": "IN",

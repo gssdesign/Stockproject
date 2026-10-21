@@ -4,6 +4,260 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-21-daily",
+      "horizon": "daily",
+      "date": "2026-10-21",
+      "horizonDays": 1,
+      "expires": "2026-10-21",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7712.57,
+          "summary": "Risk-on: the S&P 500 closed at 7,712.57 on 2026-10-20 (+0.28%), back above its 50- and 200-day averages. Three standard picks on fresh, dated catalysts: 3M and Northrop Grumman beat and raised full-year guidance on 20 Oct, and TD Cowen upgraded BlackRock to Buy the same day. Hasbro (+11%) is too stretched, GE and GM fell on their results, and stocks reporting just before or during today's session (Intuitive Surgical, Netflix, Danaher, Abbott and others) are excluded, so the list isn't padded."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22888.95,
+          "summary": "Risk-off: the Nifty 50 closed at 22,888.95 on 2026-10-19 (−1.11%), below its 50- and 200-day averages; NSE was shut on 20 Oct for Dussehra. One standard pick, Union Bank of India, on its 19 Oct Q2 beat; Federal Bank's results are five days old and Infosys, Kotak Bank and Dr. Reddy's report later this week, so the list isn't padded."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "MMM",
+          "yahoo": "MMM",
+          "name": "3M",
+          "sector": "Industrials / Diversified Industrials",
+          "currency": "USD",
+          "refPrice": 171.37,
+          "refDate": "2026-10-20",
+          "buyLow": 169.8,
+          "buyHigh": 172.15,
+          "target": 175.87,
+          "stop": 168.04,
+          "risk": "Medium",
+          "thesis": "3M beat Q3 estimates and raised its 2026 EPS guidance for a second time on 20 Oct; the stock jumped 5.78%, and post-earnings drift favours follow-through.",
+          "reasons": [
+            "Q3 2026 (20 Oct): adjusted EPS rose 12% to $2.50, ahead of the $2.39 consensus, with organic sales growth of 3.3% and the adjusted operating margin up 110 bp to 26.2%.",
+            "3M raised its full-year adjusted EPS guidance to $9.10–$9.15 and generated $1.2 billion of adjusted free cash flow in the quarter; the CEO cited productivity gains and a stronger product pipeline.",
+            "The stock closed up 5.78% at $171.37 while the S&P 500 rose 0.28%; it is 4.6 pts ahead of the index over a month and only 1.6 ATR above its 20-day average ($164.92)."
+          ],
+          "data": [
+            [
+              "Close (10/20)",
+              "$171.37"
+            ],
+            [
+              "1-month vs index",
+              "+4.6 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.6 ATR"
+            ],
+            [
+              "ATR",
+              "2.28% of price"
+            ]
+          ],
+          "watch": "Revenue was slightly below estimates and China sales fell 10.7% organically; PFAS-related payments remain a cash drag, and after a near-6% jump some profit-taking is possible. Skip it if it opens outside $169.80–172.15.",
+          "sources": [
+            [
+              "SEC EDGAR – 3M Form 8-K Exhibit 99.1: 3M reports third-quarter 2026 results; raises full-year EPS guidance (Oct 20, 2026)",
+              "https://www.sec.gov/Archives/edgar/data/0000066740/000006674026000308/q32026-8kerexx991.htm"
+            ],
+            [
+              "Benzinga – Post-it maker 3M raises 2026 profit outlook again (Oct 20, 2026)",
+              "https://www.benzinga.com/markets/earnings/26/10/62462373/post-it-maker-3m-raises-2026-profit-outlook-again"
+            ],
+            [
+              "Investing.com – Earnings call transcript: 3M tops Q3 2026 profit views as shares rise (Oct 20, 2026)",
+              "https://www.investing.com/news/transcripts/earnings-call-transcript-3m-tops-q3-2026-profit-views-as-shares-rise-93CH-4960515"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "NOC",
+          "yahoo": "NOC",
+          "name": "Northrop Grumman",
+          "sector": "Industrials / Aerospace & Defense",
+          "currency": "USD",
+          "refPrice": 534.0,
+          "refDate": "2026-10-20",
+          "buyLow": 528.36,
+          "buyHigh": 536.82,
+          "target": 550.2,
+          "stop": 522.02,
+          "risk": "Medium",
+          "thesis": "Northrop Grumman beat Q3 profit estimates and raised its 2026 EPS forecast on 20 Oct with a record $109.6 billion backlog; the stock rose 4.57%.",
+          "reasons": [
+            "Q3 2026 (20 Oct): EPS of $7.89 beat the $7.18 estimate on sales of $11.12 billion, with Aeronautics Systems up 14% on B-21 bomber and F-35 work.",
+            "Full-year adjusted EPS guidance was raised to $29.35–$29.75 from $28.60–$29.10, and the backlog reached a record $109.6 billion at 30 September.",
+            "The stock closed up 4.57% at $534.00 (from $510.65), 2.1 pts ahead of the S&P 500 over a month and back above its 20- and 50-day averages."
+          ],
+          "data": [
+            [
+              "Close (10/20)",
+              "$534.00"
+            ],
+            [
+              "1-month vs index",
+              "+2.1 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.7 ATR"
+            ],
+            [
+              "ATR",
+              "2.64% of price"
+            ]
+          ],
+          "watch": "It's 2.7 ATR above its 20-day average after the jump, still 31% below its 52-week high and below its 200-day average, so sellers may return; defense budget headlines can move it. Skip it if it opens outside $528.36–536.82.",
+          "sources": [
+            [
+              "Yahoo Finance (Reuters) – Northrop lifts 2026 profit forecast on strong defense demand, record backlog (Oct 20, 2026)",
+              "https://finance.yahoo.com/news/northrop-lifts-2026-profit-forecast-100815151.html"
+            ],
+            [
+              "Investing.com – Northrop Grumman shares rise on Q3 profit beat, raised 2026 earnings outlook (Oct 20, 2026)",
+              "https://www.investing.com/news/earnings/northrop-grumman-shares-rise-on-q3-profit-beat-raised-2026-earnings-outlook-4959436"
+            ],
+            [
+              "SEC EDGAR – Northrop Grumman Form 8-K: third-quarter 2026 earnings release (Oct 20, 2026)",
+              "https://www.sec.gov/Archives/edgar/data/0001133421/000113342126000037/noc-09302026xearningsrelea.htm"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "BLK",
+          "yahoo": "BLK",
+          "name": "BlackRock",
+          "sector": "Financials / Asset Management",
+          "currency": "USD",
+          "refPrice": 1128.68,
+          "refDate": "2026-10-20",
+          "buyLow": 1118.17,
+          "buyHigh": 1133.94,
+          "target": 1158.9,
+          "stop": 1106.34,
+          "risk": "Medium",
+          "thesis": "TD Cowen upgraded BlackRock to Buy from Hold on 20 Oct and raised its target to $1,405, citing a path to more than $100 of EPS by 2030.",
+          "reasons": [
+            "On 20 Oct 2026 TD Cowen's Bill Katz upgraded BlackRock to Buy and lifted the target to $1,405 from $1,212 (about 24% above the close), forecasting adjusted EPS above $103 in 2030, roughly 15% a year.",
+            "The note follows a strong Q3: adjusted EPS of $15.93 beat the roughly $14.25 consensus on revenue of $7.75 billion; TD Cowen also expects about $40 billion of dividends and buybacks through 2030.",
+            "The stock closed at $1,128.68 (+0.36%), 4.2 pts ahead of the S&P 500 over a month, above its 20-, 50- and 200-day averages and 1.8 ATR above its 20-day average ($1,081.88)."
+          ],
+          "data": [
+            [
+              "Close (10/20)",
+              "$1,128.68"
+            ],
+            [
+              "1-month vs index",
+              "+4.2 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.8 ATR"
+            ],
+            [
+              "ATR",
+              "2.33% of price"
+            ]
+          ],
+          "watch": "The stock only rose 0.36% on the upgrade day, so the market may already price much of it in; it's sensitive to equity and bond-market swings. Skip it if it opens outside $1,118.17–1,133.94.",
+          "sources": [
+            [
+              "Investing.com – TD Cowen upgrades BlackRock to Buy, sets $1,405 price target (Oct 20, 2026)",
+              "https://www.investing.com/news/stock-market-news/td-cowen-upgrades-blackrock-to-buy-sets-1405-price-target-93CH-4959972"
+            ],
+            [
+              "CNBC – Here are Tuesday's biggest analyst calls: SpaceX, Nvidia, Apple, BlackRock, Alphabet, CoreWeave & more (Oct 20, 2026)",
+              "https://www.cnbc.com/2026/10/20/tuesday-big-wall-street-analyst-calls-like-spacex.html"
+            ],
+            [
+              "Seeking Alpha – BlackRock raised to Buy at TD Cowen based on Q3 inflection (Oct 20, 2026)",
+              "https://seekingalpha.com/news/4654607-blackrock-raised-to-buy-at-td-cowen-based-on-q3-inflection"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "UNIONBANK",
+          "yahoo": "UNIONBANK.NS",
+          "name": "Union Bank of India",
+          "sector": "Financial Services / Public Sector Bank",
+          "currency": "INR",
+          "refPrice": 180.7,
+          "refDate": "2026-10-19",
+          "buyLow": 178.55,
+          "buyHigh": 181.75,
+          "target": 186.85,
+          "stop": 176.15,
+          "risk": "Medium",
+          "thesis": "Union Bank of India's Q2 FY27 profit rose 30% with better asset quality on 19 Oct and the stock jumped 5.25%; today is the first session since the Dussehra holiday.",
+          "reasons": [
+            "Q2 FY27 (19 Oct 2026): net profit rose 30.3% to ₹5,537 crore from ₹4,249 crore and operating profit rose about 19% to ₹8,108 crore.",
+            "Gross NPA fell 87 bp year on year to 2.42% and net NPA to 0.42%; gross advances grew 18.5%, with return on assets of 1.38% and return on equity of 17.2%.",
+            "The stock closed up 5.25% at ₹180.70 on 19 Oct while the Nifty fell 1.11%; it is 3.1 pts ahead of the Nifty over a month and 1.4 ATR above its 20-day average (₹173.44)."
+          ],
+          "data": [
+            [
+              "Close (10/19)",
+              "₹180.70"
+            ],
+            [
+              "1-month vs index",
+              "+3.1 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.4 ATR"
+            ],
+            [
+              "ATR",
+              "2.97% of price"
+            ]
+          ],
+          "watch": "The Nifty is risk-off, and PSU bank stocks often give back sharp results-day gains; the net interest margin is still thin at about 2.86%. Skip it if it opens outside ₹178.55–181.75.",
+          "sources": [
+            [
+              "Business Standard – Union Bank shares jump 5% as Q2 PAT rises 30% YoY, asset quality improves (Oct 19, 2026)",
+              "https://www.business-standard.com/markets/news/union-bank-shares-jump-5-as-q2-pat-rises-30-yoy-asset-quality-improves-126101900455_1.html"
+            ],
+            [
+              "Investing.com – Union Bank Q2 FY2027 slides: profit surges 30%, asset quality improves (Oct 19, 2026)",
+              "https://www.investing.com/news/company-news/union-bank-q2-fy2027-slides-profit-surges-30-asset-quality-improves-93CH-4956941"
+            ],
+            [
+              "TradingView (Moody's) – Union Bank of India posts 30% jump in Q2 profit, shares surge 4.7% (Oct 19, 2026)",
+              "https://www.tradingview.com/news/moodys:ab1d3647ba0b0:0-union-bank-of-india-posts-30-jump-in-q2-profit-shares-surge-4-7/"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "SEC EDGAR – 3M Form 8-K Exhibit 99.1: 3M reports third-quarter 2026 results; raises full-year EPS guidance (Oct 20, 2026)",
+          "https://www.sec.gov/Archives/edgar/data/0000066740/000006674026000308/q32026-8kerexx991.htm"
+        ],
+        [
+          "Yahoo Finance (Reuters) – Northrop lifts 2026 profit forecast on strong defense demand, record backlog (Oct 20, 2026)",
+          "https://finance.yahoo.com/news/northrop-lifts-2026-profit-forecast-100815151.html"
+        ],
+        [
+          "Business Standard – Union Bank shares jump 5% as Q2 PAT rises 30% YoY, asset quality improves (Oct 19, 2026)",
+          "https://www.business-standard.com/markets/news/union-bank-shares-jump-5-as-q2-pat-rises-30-yoy-asset-quality-improves-126101900455_1.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-20-daily",
       "horizon": "daily",
       "date": "2026-10-20",

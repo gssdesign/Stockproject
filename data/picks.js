@@ -4,6 +4,206 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-22-daily",
+      "horizon": "daily",
+      "date": "2026-10-22",
+      "horizonDays": 1,
+      "expires": "2026-10-22",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7757.17,
+          "summary": "Risk-on: the S&P 500 closed at 7,757.17 on 2026-10-21 (+0.58%), above its 50- and 200-day averages. Two standard picks on fresh results: Danaher beat and raised guidance and Capital One beat on a wider margin, and both closed higher on 21 Oct. Northrop Grumman (Baird upgrade) is now too stretched above its 20-day average, Intuitive Surgical fell after its report, and stocks reporting just before or during today's session are excluded, so the list isn't padded. First learned rule change: the US daily target is now 1.12 ATR (was 1.25) because only 15% of the last 20 picks reached it."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22811.35,
+          "summary": "Risk-off: the Nifty 50 closed at 22,811.35 on 2026-10-21 (−0.34%), below its 50- and 200-day averages. One standard pick, Indian Hotels, after a record quarter and a raised revenue outlook on 21 Oct; PNB's and Federal Bank's results are now six days old, and Dr. Reddy's and Infosys report on 23 Oct, so the list isn't padded."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "DHR",
+          "yahoo": "DHR",
+          "name": "Danaher",
+          "sector": "Health Care / Life Science Tools",
+          "currency": "USD",
+          "refPrice": 233.86,
+          "refDate": "2026-10-21",
+          "buyLow": 231.17,
+          "buyHigh": 235.21,
+          "target": 240.77,
+          "stop": 228.13,
+          "risk": "Medium",
+          "thesis": "Danaher beat Q3 estimates and raised its 2026 EPS guidance on 21 Oct, and the stock reversed an early drop to close up 4.29%, a setup where post-earnings drift favours follow-through.",
+          "reasons": [
+            "Q3 2026 (21 Oct): adjusted EPS rose 11.5% to $2.11 against a $1.92 estimate, on sales of about $6.6 billion (+8.5%); core growth excluding respiratory products accelerated to 5.5% from 4.5% in Q2.",
+            "Full-year adjusted EPS guidance was raised to $8.57–$8.62 from $8.45–$8.60, in the first report under new CEO Julie Sawyer Montgomery.",
+            "Shares fell about 3.7% before the open, then closed up 4.29% at $233.86 (from $224.24); the stock is 16.8 pts ahead of the S&P 500 over three months and 3.7% below its 52-week high."
+          ],
+          "data": [
+            [
+              "Close (10/21)",
+              "$233.86"
+            ],
+            [
+              "1-month vs index",
+              "+5.9 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.7 ATR"
+            ],
+            [
+              "ATR",
+              "2.88% of price"
+            ]
+          ],
+          "watch": "Respiratory revenue (about $350 million) is still a drag, and after a 4%+ reversal some profit-taking is possible. Skip it if it opens outside $231.17–235.21.",
+          "sources": [
+            [
+              "Danaher Investor Relations – Danaher reports third quarter 2026 results (Oct 21, 2026)",
+              "https://investors.danaher.com/2026-10-21-Danaher-Reports-Third-Quarter-2026-Results"
+            ],
+            [
+              "Yahoo Finance – Danaher Corp (DHR) Q3 2026 earnings call highlights: core growth accelerates (Oct 21, 2026)",
+              "https://finance.yahoo.com/healthcare/articles/danaher-corp-dhr-q3-2026-190147113.html"
+            ],
+            [
+              "Investing.com – Earnings call transcript: Danaher tops Q3 2026 estimates but shares fall premarket (Oct 21, 2026)",
+              "https://www.investing.com/news/transcripts/earnings-call-transcript-danaher-tops-q3-2026-estimates-but-shares-fall-premarket-93CH-4963206"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "COF",
+          "yahoo": "COF",
+          "name": "Capital One",
+          "sector": "Financials / Consumer Finance",
+          "currency": "USD",
+          "refPrice": 206.66,
+          "refDate": "2026-10-21",
+          "buyLow": 204.64,
+          "buyHigh": 207.67,
+          "target": 211.83,
+          "stop": 202.37,
+          "risk": "Medium",
+          "thesis": "Capital One's Q3 adjusted EPS of $6.69 beat the $5.50 estimate by about 22% on 20 Oct, with a wider margin and a reserve release; the stock rose 2.53% and analysts lifted targets.",
+          "reasons": [
+            "Q3 2026 (20 Oct): net income was $3.5 billion, or $5.61 a share ($6.69 adjusted for Discover and Brex deal items), against a roughly $5.50 consensus; revenue of $16.34 billion beat the $16.26 billion estimate.",
+            "The net interest margin widened 40 bp to 8.41%, the bank released $225 million of loan-loss reserves and bought back $2.6 billion of stock in the quarter ($7.9 billion year to date).",
+            "The stock closed up 2.53% at $206.66 on 21 Oct (it traded as high as about $210 intraday), 3.2 pts ahead of the S&P 500 over a month and back above its 20-day average ($197.99)."
+          ],
+          "data": [
+            [
+              "Close (10/21)",
+              "$206.66"
+            ],
+            [
+              "1-month vs index",
+              "+3.2 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.7 ATR"
+            ],
+            [
+              "ATR",
+              "2.44% of price"
+            ]
+          ],
+          "watch": "It gave back part of its intraday gain on 21 Oct, expenses and provisions rose and deposits fell quarter on quarter; it's still 20% below its 52-week high. Skip it if it opens outside $204.64–207.67.",
+          "sources": [
+            [
+              "Capital One Investor Relations – Capital One reports third quarter 2026 net income of $3.5 billion, or $5.61 per share (Oct 20, 2026)",
+              "https://investor.capitalone.com/news-releases/news-release-details/capital-one-reports-third-quarter-2026-net-income-35-billion-or"
+            ],
+            [
+              "Benzinga – Capital One Financial analysts increase their forecasts following upbeat Q3 results (Oct 21, 2026)",
+              "https://www.benzinga.com/analyst-stock-ratings/price-target/26/10/62499229/capital-one-financial-analysts-increase-their-forecasts-following-upbeat-q3-results"
+            ],
+            [
+              "Investing.com – Capital One Q3 2026 slides: credit trends improve, NIM rises 40bps (Oct 21, 2026)",
+              "https://ng.investing.com/news/stock-market-news/capital-one-q3-2026-slides-credit-trends-improve-nim-rises-40bps-93CH-2747096"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "INDHOTEL",
+          "yahoo": "INDHOTEL.NS",
+          "name": "Indian Hotels (IHCL)",
+          "sector": "Consumer Services / Hotels",
+          "currency": "INR",
+          "refPrice": 753.0,
+          "refDate": "2026-10-21",
+          "buyLow": 745.65,
+          "buyHigh": 756.7,
+          "target": 774.15,
+          "stop": 737.4,
+          "risk": "Medium",
+          "thesis": "IHCL reported its 18th straight record quarter on 21 Oct and raised its FY27 revenue growth guidance to 15–17% from 12–14%, while the stock dipped 0.92%, leaving room to price it in.",
+          "reasons": [
+            "Q2 FY27 (21 Oct 2026): consolidated revenue rose about 21% to ₹2,566 crore and net profit about 19% to ₹379.85 crore; EBITDA was ₹788 crore at a 30.7% margin.",
+            "Management raised FY27 consolidated revenue growth guidance to 15–17% (from 12–14%) and expects 17–19% growth in the hotel segment; domestic Taj RevPAR grew 28%.",
+            "The stock closed at ₹753 (−0.92%), 3% below its 52-week high, 4.4 pts ahead of the Nifty over a month and only 1.2 ATR above its 20-day average (₹730.74)."
+          ],
+          "data": [
+            [
+              "Close (10/21)",
+              "₹753.00"
+            ],
+            [
+              "1-month vs index",
+              "+4.4 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.2 ATR"
+            ],
+            [
+              "ATR",
+              "2.44% of price"
+            ]
+          ],
+          "watch": "Profit included an exceptional charge tied to an associate's merger, the stock didn't rise on the day, and the Nifty is risk-off. Skip it if it opens outside ₹745.65–756.70.",
+          "sources": [
+            [
+              "Investing.com – IHCL Q2FY27 slides: 18th record quarter, guidance raised to 17% (Oct 21, 2026)",
+              "https://in.investing.com/news/stock-market-news/ihcl-q2fy27-slides-18th-record-quarter-guidance-raised-to-17-93CH-5646010"
+            ],
+            [
+              "Zee Business – Tata Group's Taj Hotel operator IHCL reports 19% rise in Q2 profit, revenue jumps 22% (Oct 21, 2026)",
+              "https://www.zeebiz.com/market-news/news-tata-groups-taj-hotel-operator-ihcl-reports-19-rise-in-q2-profit-revenue-jumps-22-404283"
+            ],
+            [
+              "Free Press Journal – Indian Hotels Company reports 21% jump in Q2 FY27 revenue to ₹2,566 crore, raises full-year guidance (Oct 21, 2026)",
+              "https://www.freepressjournal.in/business/indian-hotels-company-reports-21-jump-in-q2-fy27-revenue-to-2566-crore-raises-full-year-guidance"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Danaher Investor Relations – Danaher reports third quarter 2026 results (Oct 21, 2026)",
+          "https://investors.danaher.com/2026-10-21-Danaher-Reports-Third-Quarter-2026-Results"
+        ],
+        [
+          "Capital One Investor Relations – Capital One reports third quarter 2026 net income of $3.5 billion, or $5.61 per share (Oct 20, 2026)",
+          "https://investor.capitalone.com/news-releases/news-release-details/capital-one-reports-third-quarter-2026-net-income-35-billion-or"
+        ],
+        [
+          "Investing.com – IHCL Q2FY27 slides: 18th record quarter, guidance raised to 17% (Oct 21, 2026)",
+          "https://in.investing.com/news/stock-market-news/ihcl-q2fy27-slides-18th-record-quarter-guidance-raised-to-17-93CH-5646010"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-21-daily",
       "horizon": "daily",
       "date": "2026-10-21",

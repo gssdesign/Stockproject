@@ -185,7 +185,65 @@ window.PICKS = {
               "Free Press Journal – Indian Hotels Company reports 21% jump in Q2 FY27 revenue to ₹2,566 crore, raises full-year guidance (Oct 21, 2026)",
               "https://www.freepressjournal.in/business/indian-hotels-company-reports-21-jump-in-q2-fy27-revenue-to-2566-crore-raises-full-year-guidance"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 753.0,
+            "date": "2026-10-21",
+            "researchPrice": 753.0,
+            "researchDate": "2026-10-21",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹304 cr (min ₹100 cr), price ₹753.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹730.74"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +4.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+33.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.44% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.44,
+            "sma20": 730.74,
+            "sma50": 726.56,
+            "sma200": 689.05,
+            "rs1m": 4.4,
+            "rs3m": 8.5,
+            "fromHigh52": -2.98,
+            "fromLow52": 33.27,
+            "avgValue20": 3042624952,
+            "extAtr": 1.21
+          }
         }
       ],
       "marketSources": [

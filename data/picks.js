@@ -77,7 +77,65 @@ window.PICKS = {
               "Investing.com – Earnings call transcript: Danaher tops Q3 2026 estimates but shares fall premarket (Oct 21, 2026)",
               "https://www.investing.com/news/transcripts/earnings-call-transcript-danaher-tops-q3-2026-estimates-but-shares-fall-premarket-93CH-4963206"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 233.86,
+            "date": "2026-10-21",
+            "researchPrice": 233.86,
+            "researchDate": "2026-10-21",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,087M (min $50M), price $233.86"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $222.67"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +5.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+45.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.93% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.93,
+            "sma20": 222.67,
+            "sma50": 215.12,
+            "sma200": 201.26,
+            "rs1m": 5.88,
+            "rs3m": 16.78,
+            "fromHigh52": -3.68,
+            "fromLow52": 45.32,
+            "avgValue20": 1087110624,
+            "extAtr": 1.64
+          }
         },
         {
           "market": "US",
@@ -131,7 +189,65 @@ window.PICKS = {
               "Investing.com – Capital One Q3 2026 slides: credit trends improve, NIM rises 40bps (Oct 21, 2026)",
               "https://ng.investing.com/news/stock-market-news/capital-one-q3-2026-slides-credit-trends-improve-nim-rises-40bps-93CH-2747096"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 206.66,
+            "date": "2026-10-21",
+            "researchPrice": 206.66,
+            "researchDate": "2026-10-21",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $768M (min $50M), price $206.66"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $197.99"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +3.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+18.6% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.7 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.44% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.44,
+            "sma20": 197.99,
+            "sma50": 207.1,
+            "sma200": 202.64,
+            "rs1m": 3.15,
+            "rs3m": -1.36,
+            "fromHigh52": -20.41,
+            "fromLow52": 18.61,
+            "avgValue20": 768215970,
+            "extAtr": 1.72
+          }
         },
         {
           "market": "IN",

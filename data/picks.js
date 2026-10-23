@@ -77,7 +77,65 @@ window.PICKS = {
               "CNBC – Stocks making the biggest moves midday: Procter & Gamble, Lam Research, Blackstone, Southwest & more (Oct 22, 2026)",
               "https://www.cnbc.com/2026/10/22/stocks-making-the-biggest-moves-midday-pg-lrcx-bx-luv-ttmi-.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 118.75,
+            "date": "2026-10-22",
+            "researchPrice": 118.75,
+            "researchDate": "2026-10-22",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $664M (min $50M), price $118.75"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $111.97"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +0.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+16.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.68% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.68,
+            "sma20": 111.97,
+            "sma50": 125.66,
+            "sma200": 125.28,
+            "rs1m": 0.11,
+            "rs3m": -12.04,
+            "fromHigh52": -28.09,
+            "fromLow52": 16.73,
+            "avgValue20": 663562248,
+            "extAtr": 1.55
+          }
         },
         {
           "market": "US",
@@ -131,7 +189,65 @@ window.PICKS = {
               "Investing.com – Elevance Health Q3 2026 slides: EPS beats, guidance raised to $29 (Oct 21, 2026)",
               "https://ng.investing.com/news/stock-market-news/elevance-health-q3-2026-slides-eps-beats-guidance-raised-to-29-93CH-2748943"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 445.28,
+            "date": "2026-10-22",
+            "researchPrice": 445.28,
+            "researchDate": "2026-10-22",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $552M (min $50M), price $445.28"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $411.74"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +12.3 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+62.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.66% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.66,
+            "sma20": 411.74,
+            "sma50": 407.21,
+            "sma200": 370.77,
+            "rs1m": 12.27,
+            "rs3m": 14.51,
+            "fromHigh52": -1.2,
+            "fromLow52": 62.01,
+            "avgValue20": 552105411,
+            "extAtr": 2.83
+          }
         },
         {
           "market": "IN",
@@ -415,7 +531,65 @@ window.PICKS = {
               "Goodreturns – Stock market outlook today, October 22, 2026: Sensex, Nifty likely to remain under pressure as crude oil tops $110",
               "https://www.goodreturns.in/news/stock-market-outlook-today-october-22-2026-sensex-nifty-likely-to-remain-under-pressure-as-crude-oil-1542951.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 5740.5,
+            "date": "2026-10-22",
+            "researchPrice": 5740.5,
+            "researchDate": "2026-10-22",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹389 cr (min ₹100 cr), price ₹5,740.5"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹5568.23"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +8.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+35.2% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.29% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.29,
+            "sma20": 5568.23,
+            "sma50": 5567.21,
+            "sma200": 5337.97,
+            "rs1m": 8.45,
+            "rs3m": 18.04,
+            "fromHigh52": -13.01,
+            "fromLow52": 35.25,
+            "avgValue20": 3887196222,
+            "extAtr": 0.91
+          }
         }
       ],
       "marketSources": [

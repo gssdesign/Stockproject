@@ -4,6 +4,320 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-23-daily",
+      "horizon": "daily",
+      "date": "2026-10-23",
+      "horizonDays": 1,
+      "expires": "2026-10-23",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7663.43,
+          "summary": "Neutral: the S&P 500 closed at 7,663.43 on 2026-10-22 (−1.21%) as tech sold off after Meta's and Tesla's results. Two standard picks on fresh results: Blackstone beat on earnings with $63 billion of inflows and jumped 8.4% on 22 Oct, and Elevance Health raised its guidance on 21 Oct and recovered 2.6% on 22 Oct. Procter & Gamble is too stretched after a 5.6% jump, Lam Research and Meta fell, and stocks reporting just before or during today's session are excluded, so the list isn't padded. Learned rule in force: US daily target 1.12 ATR."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22687.65,
+          "summary": "Risk-off: the Nifty 50 closed at 22,687.65 on 2026-10-22 (−0.54%), below its 50- and 200-day averages, with Brent crude above $110. This is a Plan B list: no screen stock had a fresh, dated catalyst (Infosys, Coforge, Dr. Reddy's and Bank of India report today, so they're excluded), so three strong leaders pulling back to within 1 ATR of their 20-day averages are listed instead. Lower conviction than standard picks."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "BX",
+          "yahoo": "BX",
+          "name": "Blackstone",
+          "sector": "Financials / Asset Management",
+          "currency": "USD",
+          "refPrice": 118.75,
+          "refDate": "2026-10-22",
+          "buyLow": 117.0,
+          "buyHigh": 119.62,
+          "target": 123.23,
+          "stop": 115.04,
+          "risk": "Medium",
+          "thesis": "Blackstone beat Q3 earnings estimates with $63 billion of inflows and record assets on 22 Oct, and the stock jumped 8.38%, its first close back above its 20-day average after a long slide.",
+          "reasons": [
+            "Q3 2026 (22 Oct): distributable earnings were $1.7 billion, or $1.32 a share, above the $1.29 forecast; inflows reached $63 billion and assets under management a record $1.4 trillion (+10% year on year).",
+            "The firm declared a $1.12 quarterly dividend and said its flagship strategies outperformed comparable public-market indices.",
+            "The stock closed up 8.38% at $118.75 (from $109.57) while the S&P 500 fell 1.21%; it is now 1.6 ATR above its 20-day average ($111.97) but still 28% below its 52-week high."
+          ],
+          "data": [
+            [
+              "Close (10/22)",
+              "$118.75"
+            ],
+            [
+              "1-month vs index",
+              "+0.1 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.6 ATR"
+            ],
+            [
+              "ATR",
+              "3.68% of price"
+            ]
+          ],
+          "watch": "Revenue of $3.06 billion missed the $3.35 billion estimate, the stock is still below its 50- and 200-day averages and lagging the index over three months, and an 8% jump can partly reverse. Skip it if it opens outside $117.00–119.62.",
+          "sources": [
+            [
+              "SEC EDGAR – Blackstone Form 8-K Exhibit 99.1: third-quarter 2026 results (Oct 22, 2026)",
+              "https://www.sec.gov/Archives/edgar/data/0001393818/000119312526428297/d160590dex991.htm"
+            ],
+            [
+              "Investing.com – Earnings call transcript: Blackstone tops Q3 2026 EPS forecast, shares rise (Oct 22, 2026)",
+              "https://www.investing.com/news/transcripts/earnings-call-transcript-blackstone-tops-q3-2026-eps-forecast-shares-rise-93CH-4966764"
+            ],
+            [
+              "CNBC – Stocks making the biggest moves midday: Procter & Gamble, Lam Research, Blackstone, Southwest & more (Oct 22, 2026)",
+              "https://www.cnbc.com/2026/10/22/stocks-making-the-biggest-moves-midday-pg-lrcx-bx-luv-ttmi-.html"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "ELV",
+          "yahoo": "ELV",
+          "name": "Elevance Health",
+          "sector": "Health Care / Managed Care",
+          "currency": "USD",
+          "refPrice": 445.28,
+          "refDate": "2026-10-22",
+          "buyLow": 440.56,
+          "buyHigh": 447.64,
+          "target": 457.38,
+          "stop": 435.25,
+          "risk": "Medium",
+          "thesis": "Elevance beat Q3 estimates and raised its 2026 guidance on 21 Oct; after an initial 2.2% dip the stock recovered 2.57% to near its 52-week high on 22 Oct.",
+          "reasons": [
+            "Q3 2026 (21 Oct): adjusted EPS was $6.99 against an estimate of about $4.70 on revenue of $50.4 billion; the benefit expense ratio improved 70 bp to 90.6%.",
+            "Full-year adjusted EPS guidance was raised to at least $29.00 and operating cash flow guidance to at least $6.5 billion; management still expects at least 12% adjusted EPS growth in 2027.",
+            "The stock closed at $445.28 (+2.57%) on 22 Oct while the S&P 500 fell 1.21%; it is 12.3 pts ahead of the index over a month and 1.2% below its 52-week high."
+          ],
+          "data": [
+            [
+              "Close (10/22)",
+              "$445.28"
+            ],
+            [
+              "1-month vs index",
+              "+12.3 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.8 ATR"
+            ],
+            [
+              "ATR",
+              "2.65% of price"
+            ]
+          ],
+          "watch": "About $1.85 a share of the beat came from non-operating items (mainly investment-valuation gains), and the stock is 2.8 ATR above its 20-day average, close to the stretch limit. Skip it if it opens outside $440.56–447.64.",
+          "sources": [
+            [
+              "BioSpace (company release) – Elevance Health reports third quarter 2026 results; raises full-year guidance (Oct 21, 2026)",
+              "https://www.biospace.com/press-releases/elevance-health-reports-third-quarter-2026-results-raises-full-year-guidance"
+            ],
+            [
+              "Investing.com – Earnings call transcript: Elevance Health tops Q3 2026 estimates, raises outlook (Oct 21, 2026)",
+              "https://www.investing.com/news/transcripts/earnings-call-transcript-elevance-health-tops-q3-2026-estimates-raises-outlook-93CH-4963308"
+            ],
+            [
+              "Investing.com – Elevance Health Q3 2026 slides: EPS beats, guidance raised to $29 (Oct 21, 2026)",
+              "https://ng.investing.com/news/stock-market-news/elevance-health-q3-2026-slides-eps-beats-guidance-raised-to-29-93CH-2748943"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "HAL",
+          "yahoo": "HAL.NS",
+          "name": "Hindustan Aeronautics",
+          "sector": "Capital Goods / Aerospace & Defence",
+          "currency": "INR",
+          "refPrice": 4875.0,
+          "refDate": "2026-10-22",
+          "buyLow": 4829.55,
+          "buyHigh": 4897.7,
+          "target": 5005.6,
+          "stop": 4778.45,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on a pullback): HAL is 12 pts ahead of the Nifty over three months with a rising 50-day average and has pulled back to 0.8 ATR above its 20-day average; there's no fresh company catalyst.",
+          "reasons": [
+            "Relative strength: HAL is up 6.6% in three months, 12.3 pts ahead of the Nifty 50, and only 5.3% below its 52-week high of ₹5,149.90.",
+            "Setup: it closed at ₹4,875 (+0.42%) on 22 Oct, 0.8 ATR above its 20-day average (₹4,783.06), above a rising 50-day average (₹4,850.04) and well above its 200-day average (₹4,440.50).",
+            "Backdrop: the Nifty fell 0.54% to 22,687.65 on 22 Oct with crude above $110; HAL held up, and its Q2 results aren't due until November."
+          ],
+          "data": [
+            [
+              "Close (10/22)",
+              "₹4,875.00"
+            ],
+            [
+              "3-month vs index",
+              "+12.3 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.8 ATR"
+            ],
+            [
+              "ATR",
+              "2.33% of price"
+            ]
+          ],
+          "watch": "Plan B: there's no dated catalyst, the Nifty is risk-off and crude-driven selling can drag the whole market. Skip it if it opens outside ₹4,829.55–4,897.70.",
+          "sources": [
+            [
+              "Goodreturns – Stock market outlook today, October 22, 2026: Sensex, Nifty likely to remain under pressure as crude oil tops $110",
+              "https://www.goodreturns.in/news/stock-market-outlook-today-october-22-2026-sensex-nifty-likely-to-remain-under-pressure-as-crude-oil-1542951.html"
+            ],
+            [
+              "India TV – 22 October 2026 stock market updates: Sensex down 366 points, Nifty below 22,700",
+              "https://www.indiatvnews.com/business/markets/sensex-nifty-opening-october-22-stock-market-updates-gift-nifty-brent-crude-oil-price-geopolitical-tension-asian-markets-2026-10-22-1057584"
+            ],
+            [
+              "Business Standard – Infosys Q2 results preview: analysts see PAT rising 10%; guidance in focus (Oct 22, 2026)",
+              "https://business-standard.com/amp/markets/news/infosys-q2-results-preview-analysts-see-pat-rising-10-guidance-in-focus-126102200709_1.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "KOTAKBANK",
+          "yahoo": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "sector": "Financial Services / Private Bank",
+          "currency": "INR",
+          "refPrice": 437.0,
+          "refDate": "2026-10-22",
+          "buyLow": 433.25,
+          "buyHigh": 438.85,
+          "target": 447.8,
+          "stop": 429.05,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on a pullback): Kotak Bank is 20 pts ahead of the Nifty over three months with a rising 50-day average and has eased to within 1 ATR of its 20-day average ahead of its 24 Oct results.",
+          "reasons": [
+            "Relative strength: the stock is up 14.7% in three months, 20.3 pts ahead of the Nifty 50, and 3.6% below its 52-week high of ₹453.20.",
+            "Setup: it closed at ₹437 (−0.18%) on 22 Oct, 1.0 ATR above its 20-day average (₹428.10) and above a rising 50-day average (₹417.06).",
+            "Its Q2 business update showed net advances up 24.7% year on year; full results are due on Saturday 24 Oct, after today's session."
+          ],
+          "data": [
+            [
+              "Close (10/22)",
+              "₹437.00"
+            ],
+            [
+              "3-month vs index",
+              "+20.3 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.0 ATR"
+            ],
+            [
+              "ATR",
+              "2.14% of price"
+            ]
+          ],
+          "watch": "Plan B: no fresh catalyst, and traders may trim positions before Saturday's results; this is a one-session idea, not a hold through earnings. Skip it if it opens outside ₹433.25–438.85.",
+          "sources": [
+            [
+              "Trade Brains – Kotak Mahindra Bank Q2 expectations: can earnings growth surprise investors? (Oct 2026)",
+              "https://tradebrains.in/indian-markets/kotak-mahindra-bank-q2-expectations-can-earnings-growth-surprise-investors-12737636"
+            ],
+            [
+              "Goodreturns – Stock market outlook today, October 22, 2026: Sensex, Nifty likely to remain under pressure as crude oil tops $110",
+              "https://www.goodreturns.in/news/stock-market-outlook-today-october-22-2026-sensex-nifty-likely-to-remain-under-pressure-as-crude-oil-1542951.html"
+            ],
+            [
+              "India TV – 22 October 2026 stock market updates: Sensex down 366 points, Nifty below 22,700",
+              "https://www.indiatvnews.com/business/markets/sensex-nifty-opening-october-22-stock-market-updates-gift-nifty-brent-crude-oil-price-geopolitical-tension-asian-markets-2026-10-22-1057584"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "PERSISTENT",
+          "yahoo": "PERSISTENT.NS",
+          "name": "Persistent Systems",
+          "sector": "Information Technology / IT Services",
+          "currency": "INR",
+          "refPrice": 5740.5,
+          "refDate": "2026-10-22",
+          "buyLow": 5665.05,
+          "buyHigh": 5778.2,
+          "target": 5957.35,
+          "stop": 5580.2,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on a pullback): Persistent is 18 pts ahead of the Nifty over three months with a rising 50-day average and dipped 2% to within 1 ATR of its 20-day average as Nifty IT leads the market.",
+          "reasons": [
+            "Relative strength: the stock is up 12.6% in three months, 18.0 pts ahead of the Nifty 50; the Nifty IT index has risen about 16% from 30 Sep to 22 Oct.",
+            "Setup: it closed at ₹5,740.50 (−2.01%) on 22 Oct, 0.9 ATR above its 20-day average (₹5,568.23) and above a rising 50-day average (₹5,567.21).",
+            "Its own Q2 results came on 15 Oct, so there's no company event today; Infosys reports after today's close."
+          ],
+          "data": [
+            [
+              "Close (10/22)",
+              "₹5,740.50"
+            ],
+            [
+              "3-month vs index",
+              "+18.0 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.9 ATR"
+            ],
+            [
+              "ATR",
+              "3.29% of price"
+            ]
+          ],
+          "watch": "Plan B: no fresh catalyst; Persistent fell after its own results, and IT stocks may wait for Infosys's guidance after the close. Skip it if it opens outside ₹5,665.05–5,778.20.",
+          "sources": [
+            [
+              "EconoTimes – India's Nifty IT index gains 16% from Sept. 30 through Oct. 22",
+              "https://econotimes.com/India-s-Nifty-IT-Index-Gains-16-From-Sept-30-Through-Oct-22-1760712"
+            ],
+            [
+              "Business Standard – Infosys Q2 results preview: analysts see PAT rising 10%; guidance in focus (Oct 22, 2026)",
+              "https://business-standard.com/amp/markets/news/infosys-q2-results-preview-analysts-see-pat-rising-10-guidance-in-focus-126102200709_1.html"
+            ],
+            [
+              "Goodreturns – Stock market outlook today, October 22, 2026: Sensex, Nifty likely to remain under pressure as crude oil tops $110",
+              "https://www.goodreturns.in/news/stock-market-outlook-today-october-22-2026-sensex-nifty-likely-to-remain-under-pressure-as-crude-oil-1542951.html"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – Stocks making the biggest moves midday: Procter & Gamble, Lam Research, Blackstone, Southwest & more (Oct 22, 2026)",
+          "https://www.cnbc.com/2026/10/22/stocks-making-the-biggest-moves-midday-pg-lrcx-bx-luv-ttmi-.html"
+        ],
+        [
+          "Goodreturns – Stock market outlook today, October 22, 2026: Sensex, Nifty likely to remain under pressure as crude oil tops $110",
+          "https://www.goodreturns.in/news/stock-market-outlook-today-october-22-2026-sensex-nifty-likely-to-remain-under-pressure-as-crude-oil-1542951.html"
+        ],
+        [
+          "EconoTimes – India's Nifty IT index gains 16% from Sept. 30 through Oct. 22",
+          "https://econotimes.com/India-s-Nifty-IT-Index-Gains-16-From-Sept-30-Through-Oct-22-1760712"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-22-daily",
       "horizon": "daily",
       "date": "2026-10-22",

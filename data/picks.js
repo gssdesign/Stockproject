@@ -187,7 +187,65 @@ window.PICKS = {
               "Business Standard – Infosys Q2 results preview: analysts see PAT rising 10%; guidance in focus (Oct 22, 2026)",
               "https://business-standard.com/amp/markets/news/infosys-q2-results-preview-analysts-see-pat-rising-10-guidance-in-focus-126102200709_1.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 4875.0,
+            "date": "2026-10-22",
+            "researchPrice": 4875.0,
+            "researchDate": "2026-10-22",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹330 cr (min ₹100 cr), price ₹4,875.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹4783.06"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +3.3 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+40.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.33% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.33,
+            "sma20": 4783.06,
+            "sma50": 4850.04,
+            "sma200": 4440.5,
+            "rs1m": 3.31,
+            "rs3m": 12.25,
+            "fromHigh52": -5.34,
+            "fromLow52": 40.12,
+            "avgValue20": 3296033587,
+            "extAtr": 0.81
+          }
         },
         {
           "market": "IN",
@@ -243,7 +301,65 @@ window.PICKS = {
               "India TV – 22 October 2026 stock market updates: Sensex down 366 points, Nifty below 22,700",
               "https://www.indiatvnews.com/business/markets/sensex-nifty-opening-october-22-stock-market-updates-gift-nifty-brent-crude-oil-price-geopolitical-tension-asian-markets-2026-10-22-1057584"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 437.0,
+            "date": "2026-10-22",
+            "researchPrice": 437.0,
+            "researchDate": "2026-10-22",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹1,104 cr (min ₹100 cr), price ₹437.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹428.1"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +7.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+26.5% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.14% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.68 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.14,
+            "sma20": 428.1,
+            "sma50": 417.06,
+            "sma200": 400.34,
+            "rs1m": 7.64,
+            "rs3m": 20.34,
+            "fromHigh52": -3.57,
+            "fromLow52": 26.48,
+            "avgValue20": 11039772752,
+            "extAtr": 0.95
+          }
         },
         {
           "market": "IN",

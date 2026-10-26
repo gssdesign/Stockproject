@@ -4,6 +4,266 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-26-daily",
+      "horizon": "daily",
+      "date": "2026-10-26",
+      "horizonDays": 1,
+      "expires": "2026-10-26",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7623.68,
+          "summary": "Neutral: the S&P 500 closed at 7,623.68 on 2026-10-23 (−0.52%), with WTI crude near $117. This is a Plan B list: no screen stock had a fresh catalyst within three days that passed every check (Crown Castle and CrowdStrike jumped but are too stretched or too volatile, and American Tower's SpaceX news is four days old and it reports on 27 Oct), so three strong leaders near their 20-day averages are listed instead. Stocks reporting before or during today's session (Verizon, Cadence, Electronic Arts and others) are excluded. Learned rule in force: US daily target 1.12 ATR."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22600.0,
+          "summary": "Risk-off: the Nifty 50 closed at 22,600.00 on 2026-10-23 (−0.39%), below its 50- and 200-day averages. One standard pick, Kotak Mahindra Bank, whose Saturday Q2 results get their first trading session today; IDFC First and AU Small Finance Bank also reported but fail the daily checks, and Infosys cut its guidance, so the list isn't padded."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "TMO",
+          "yahoo": "TMO",
+          "name": "Thermo Fisher Scientific",
+          "sector": "Health Care / Life Science Tools",
+          "currency": "USD",
+          "refPrice": 673.82,
+          "refDate": "2026-10-23",
+          "buyLow": 665.6,
+          "buyHigh": 677.93,
+          "target": 694.89,
+          "stop": 656.35,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "older-catalyst",
+          "thesis": "Plan B (catalyst from 4–5 days ago): Thermo Fisher beat Q3 estimates on 21 Oct and Stifel and Barclays lifted targets to $775 on 22 Oct, yet the stock has pulled back to its 20-day average.",
+          "reasons": [
+            "Q3 2026 (21 Oct): EPS of $6.68 topped the $6.40 consensus; on 22 Oct Stifel raised its target to $775 from $650 (Buy) and Barclays to $775 from $750 (Overweight).",
+            "After swinging on results day, the stock closed at $673.82 on 23 Oct, just 0.1 ATR above its 20-day average ($672.10) and above a rising 50-day average ($644.96).",
+            "It's a 3-month leader, up 20.4% (17.6 pts ahead of the S&P 500), 4.5% below its 52-week high."
+          ],
+          "data": [
+            [
+              "Close (10/23)",
+              "$673.82"
+            ],
+            [
+              "3-month vs index",
+              "+17.6 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.1 ATR"
+            ],
+            [
+              "ATR",
+              "3.05% of price"
+            ]
+          ],
+          "watch": "Plan B: the catalyst is four to five days old and the stock hasn't followed through yet; it hit its stop as a weekly pick on 21 Oct. Skip it if it opens outside $665.60–677.93.",
+          "sources": [
+            [
+              "MarketBeat – Thermo Fisher Scientific (NYSE:TMO) price target raised to $775.00 (Oct 22, 2026)",
+              "https://www.marketbeat.com/instant-alerts/analyst-thermo-fisher-scientific-nyse-tmo-price-target-raised-to-77500-2026-10-22/"
+            ],
+            [
+              "GuruFocus – TMO maintained by Stifel, price target raised to $775 (Oct 2026)",
+              "https://www.gurufocus.com/news/9136746/tmo-maintains-by-stifel-price-target-raised-to-775"
+            ],
+            [
+              "TheStreet – Stock market today (Oct. 23, 2026): Nasdaq falls following tech sell-off",
+              "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-23-2026"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "MPC",
+          "yahoo": "MPC",
+          "name": "Marathon Petroleum",
+          "sector": "Energy / Refining",
+          "currency": "USD",
+          "refPrice": 457.22,
+          "refDate": "2026-10-23",
+          "buyLow": 450.65,
+          "buyHigh": 460.51,
+          "target": 474.07,
+          "stop": 443.25,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on a pullback): Marathon Petroleum is up 46% in three months with a rising 50-day average and has eased to 0.6 ATR above its 20-day average.",
+          "reasons": [
+            "Relative strength: up 46.4% in three months, 43.5 pts ahead of the S&P 500, and 7.4% below its 52-week high of $493.98.",
+            "Setup: it closed at $457.22 (−0.45%) on 23 Oct, 0.6 ATR above its 20-day average ($447.74) and well above a rising 50-day average ($409.30).",
+            "Backdrop: energy led the market on 23 Oct as WTI crude jumped to about $117, its highest since April."
+          ],
+          "data": [
+            [
+              "Close (10/23)",
+              "$457.22"
+            ],
+            [
+              "3-month vs index",
+              "+43.5 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.6 ATR"
+            ],
+            [
+              "ATR",
+              "3.59% of price"
+            ]
+          ],
+          "watch": "Plan B: no company catalyst; a crude spike can squeeze refining margins (MPC slipped while producers rallied on 23 Oct), and oil prices are volatile. Skip it if it opens outside $450.65–460.51.",
+          "sources": [
+            [
+              "Yahoo Finance – Stock market midday, Oct. 23: energy surges on oil price spike, cybersecurity stocks gain",
+              "https://finance.yahoo.com/markets/stocks/articles/stock-market-midday-oct-23-163938103.html"
+            ],
+            [
+              "CNBC – Stocks making the biggest moves midday: Chevron, CrowdStrike, American Express, SK Hynix & more (Oct 23, 2026)",
+              "https://www.cnbc.com/2026/10/23/stocks-making-the-biggest-moves-midday-cvx-crwd-axp-skhy-t.html"
+            ],
+            [
+              "TheStreet – Stock market today (Oct. 23, 2026): Nasdaq falls following tech sell-off",
+              "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-23-2026"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "A",
+          "yahoo": "A",
+          "name": "Agilent Technologies",
+          "sector": "Health Care / Life Science Tools",
+          "currency": "USD",
+          "refPrice": 173.07,
+          "refDate": "2026-10-23",
+          "buyLow": 171.06,
+          "buyHigh": 174.07,
+          "target": 178.21,
+          "stop": 168.8,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on a pullback): Agilent is up 25.5% in three months with a rising 50-day average and has pulled back to 0.2 ATR above its 20-day average.",
+          "reasons": [
+            "Relative strength: up 25.5% in three months, 22.7 pts ahead of the S&P 500, and 3.4% below its 52-week high of $179.10.",
+            "Setup: it closed at $173.07 (−0.47%) on 23 Oct, 0.2 ATR above its 20-day average ($171.92) and above a rising 50-day average ($161.41).",
+            "Backdrop: life-science tools peers Danaher and Thermo Fisher both beat estimates last week; Agilent's own results aren't due until late November."
+          ],
+          "data": [
+            [
+              "Close (10/23)",
+              "$173.07"
+            ],
+            [
+              "3-month vs index",
+              "+22.7 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.2 ATR"
+            ],
+            [
+              "ATR",
+              "2.9% of price"
+            ]
+          ],
+          "watch": "Plan B: no company-specific catalyst, and the Nasdaq-led sell-off could keep weighing on growth stocks. Skip it if it opens outside $171.06–174.07.",
+          "sources": [
+            [
+              "TheStreet – Stock market today (Oct. 23, 2026): Nasdaq falls following tech sell-off",
+              "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-23-2026"
+            ],
+            [
+              "Yahoo Finance – Stock market midday, Oct. 23: energy surges on oil price spike, cybersecurity stocks gain",
+              "https://finance.yahoo.com/markets/stocks/articles/stock-market-midday-oct-23-163938103.html"
+            ],
+            [
+              "MarketBeat – Thermo Fisher Scientific (NYSE:TMO) price target raised to $775.00 (Oct 22, 2026)",
+              "https://www.marketbeat.com/instant-alerts/analyst-thermo-fisher-scientific-nyse-tmo-price-target-raised-to-77500-2026-10-22/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "KOTAKBANK",
+          "yahoo": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "sector": "Financial Services / Private Bank",
+          "currency": "INR",
+          "refPrice": 430.5,
+          "refDate": "2026-10-23",
+          "buyLow": 426.7,
+          "buyHigh": 432.4,
+          "target": 441.45,
+          "stop": 422.4,
+          "risk": "Medium",
+          "thesis": "Kotak Mahindra Bank reported a 26% rise in consolidated Q2 profit with NII ahead of estimates on Saturday 24 Oct, and today is the first session to react.",
+          "reasons": [
+            "Q2 FY27 (24 Oct 2026): consolidated net profit rose 26% to ₹5,645 crore and standalone profit about 29% to ₹4,212 crore; net interest income of about ₹8,459 crore (+16%) beat estimates.",
+            "Gross NPA improved to 1.04% and net NPA to 0.24%, and deposits rose 23% to ₹6,51,491 crore.",
+            "The stock closed at ₹430.50 on 23 Oct, 7.5 pts ahead of the Nifty over a month and only 0.2 ATR above its 20-day average (₹428.96), so there's room for a results-day move."
+          ],
+          "data": [
+            [
+              "Close (10/23)",
+              "₹430.50"
+            ],
+            [
+              "1-month vs index",
+              "+7.5 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.2 ATR"
+            ],
+            [
+              "ATR",
+              "2.22% of price"
+            ]
+          ],
+          "watch": "The net interest margin fell to 4.31% from 4.53% and the CASA ratio slipped to 38.2%, which could cap the reaction; it's also in this week's weekly list, so this is the one-session view of the same results. Skip it if it opens outside ₹426.70–432.40.",
+          "sources": [
+            [
+              "Business Standard – Kotak Mahindra Bank's Q2 consolidated net profit rises 26% to ₹5,645 crore (Oct 24, 2026)",
+              "https://www.business-standard.com/companies/quarterly-results/kotak-mahindra-bank-q2-fy27-profit-nii-fcnr-deposits-asset-quality-126102400637_1.html"
+            ],
+            [
+              "Zee Business – Kotak Mahindra Bank Q2 results: PAT rises 29.5% to Rs 4,212 crore, asset quality improves (Oct 24, 2026)",
+              "https://www.zeebiz.com/companies/news-kotak-mahindra-bank-q2fy27-results-highlights-key-takeaways-for-share-market-investors-404481"
+            ],
+            [
+              "NewsBytes – Kotak Mahindra Bank's Q2 FY27 profit jumps 26% to ₹5,645cr (Oct 24, 2026)",
+              "https://www.newsbytesapp.com/news/business/kotak-mahindra-bank-s-q2-fy27-results-are-now-out/story"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – Stocks making the biggest moves midday: Chevron, CrowdStrike, American Express, SK Hynix & more (Oct 23, 2026)",
+          "https://www.cnbc.com/2026/10/23/stocks-making-the-biggest-moves-midday-cvx-crwd-axp-skhy-t.html"
+        ],
+        [
+          "Yahoo Finance – Stock market midday, Oct. 23: energy surges on oil price spike, cybersecurity stocks gain",
+          "https://finance.yahoo.com/markets/stocks/articles/stock-market-midday-oct-23-163938103.html"
+        ],
+        [
+          "Business Standard – Kotak Mahindra Bank's Q2 consolidated net profit rises 26% to ₹5,645 crore (Oct 24, 2026)",
+          "https://www.business-standard.com/companies/quarterly-results/kotak-mahindra-bank-q2-fy27-profit-nii-fcnr-deposits-asset-quality-126102400637_1.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-26-weekly",
       "horizon": "weekly",
       "date": "2026-10-26",

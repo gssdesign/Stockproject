@@ -4,6 +4,314 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-26-weekly",
+      "horizon": "weekly",
+      "date": "2026-10-26",
+      "horizonDays": 7,
+      "expires": "2026-11-02",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7623.68,
+          "summary": "Neutral: the S&P 500 closed at 7,623.68 on 2026-10-23, down 0.5% on the week after a tech sell-off. Two picks, both health-care companies that beat and raised or strengthened their outlooks in the last week (Danaher, Intuitive Surgical); a busy earnings week follows (ServiceNow on 28 Oct, Amazon on 29 Oct and others), and none of those binary reports is in this list."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22600.0,
+          "summary": "Risk-off: the Nifty 50 closed at 22,600.00 on 2026-10-23, below its 50- and 200-day averages, with Brent crude above $110. Three picks (the risk-off maximum) on results from the last week: Kotak Mahindra Bank (24 Oct), Indian Hotels (21 Oct) and Coforge (23 Oct); Laurus Labs is left out because it reports inside the window, and Dr. Reddy's and Infosys disappointed."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "DHR",
+          "yahoo": "DHR",
+          "name": "Danaher",
+          "sector": "Health Care / Life Science Tools",
+          "currency": "USD",
+          "refPrice": 230.5,
+          "refDate": "2026-10-23",
+          "buyLow": 227.04,
+          "buyHigh": 232.23,
+          "target": 245.21,
+          "stop": 220.98,
+          "risk": "Medium",
+          "thesis": "Danaher beat Q3 estimates and raised its 2026 EPS guidance on 21 Oct as core growth accelerated, and the stock has held above its 20- and 50-day averages since.",
+          "reasons": [
+            "Q3 2026 (21 Oct): adjusted EPS rose 11.5% to $2.11 against a $1.92 estimate on sales of about $6.6 billion (+8.5%); core growth excluding respiratory products accelerated to 5.5% from 4.5% in Q2.",
+            "Full-year adjusted EPS guidance was raised to $8.57–$8.62 from $8.45–$8.60, in the first report under new CEO Julie Sawyer Montgomery.",
+            "The stock is up 17.3% in three months (14.5 pts ahead of the S&P 500), above a rising 50-day average ($216.13) and 5.1% below its 52-week high; it closed at $230.50 on 23 Oct."
+          ],
+          "data": [
+            [
+              "Close (10/23)",
+              "$230.50"
+            ],
+            [
+              "3-month vs index",
+              "+14.5 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.0 ATR"
+            ],
+            [
+              "ATR",
+              "3.0% of price"
+            ]
+          ],
+          "watch": "Respiratory revenue (about $350 million) remains a drag, and it gave back part of its results-day jump on 22 Oct; a weak tech-led market could weigh on it. No earnings inside the window. Skip it if it opens outside $227.04–232.23.",
+          "sources": [
+            [
+              "Danaher Investor Relations – Danaher reports third quarter 2026 results (Oct 21, 2026)",
+              "https://investors.danaher.com/2026-10-21-Danaher-Reports-Third-Quarter-2026-Results"
+            ],
+            [
+              "Yahoo Finance – Danaher Corp (DHR) Q3 2026 earnings call highlights: core growth accelerates (Oct 21, 2026)",
+              "https://finance.yahoo.com/healthcare/articles/danaher-corp-dhr-q3-2026-190147113.html"
+            ],
+            [
+              "Investing.com – Earnings call transcript: Danaher tops Q3 2026 estimates but shares fall premarket (Oct 21, 2026)",
+              "https://www.investing.com/news/transcripts/earnings-call-transcript-danaher-tops-q3-2026-estimates-but-shares-fall-premarket-93CH-4963206"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "ISRG",
+          "yahoo": "ISRG",
+          "name": "Intuitive Surgical",
+          "sector": "Health Care / Medical Devices",
+          "currency": "USD",
+          "refPrice": 452.29,
+          "refDate": "2026-10-23",
+          "buyLow": 445.68,
+          "buyHigh": 455.6,
+          "target": 480.39,
+          "stop": 434.11,
+          "risk": "Medium",
+          "thesis": "Intuitive Surgical's Q3 (20 Oct) showed 15% procedure growth and 546 da Vinci placements; after an initial dip the stock rallied to $452 by 23 Oct, above a rising 50-day average.",
+          "reasons": [
+            "Q3 2026 (20 Oct): revenue rose 22% to $3.05 billion, worldwide procedures grew about 15% (Ion up about 31%) and da Vinci placements rose to 546 from 427 a year earlier.",
+            "Management narrowed full-year da Vinci procedure growth guidance to 14–15% (from 13.5–15.5%) and expects to land near the midpoint.",
+            "The stock fell 2.3% on 21 Oct, then rose for two straight sessions to $452.29 on 23 Oct; it is up 26.8% in three months (23.9 pts ahead of the S&P 500)."
+          ],
+          "data": [
+            [
+              "Close (10/23)",
+              "$452.29"
+            ],
+            [
+              "3-month vs index",
+              "+23.9 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.4 ATR"
+            ],
+            [
+              "ATR",
+              "2.92% of price"
+            ]
+          ],
+          "watch": "Q3 included a $450 million antitrust settlement charge, and instrument revenue per procedure is expected to fall 3–5% as price cuts take effect; it's 2.4 ATR above its 20-day average after a quick rebound. No earnings inside the window. Skip it if it opens outside $445.68–455.60.",
+          "sources": [
+            [
+              "SEC EDGAR – Intuitive Surgical Form 8-K Exhibit 99.1: third-quarter 2026 earnings release (Oct 20, 2026)",
+              "https://www.sec.gov/Archives/edgar/data/0001035267/000103526726000067/q326ex-991earningsrelease.htm"
+            ],
+            [
+              "Intuitive Investor Relations – Intuitive announces third quarter earnings (Oct 20, 2026)",
+              "https://isrg.intuitive.com/news-releases/news-release-details/intuitive-announces-third-quarter-earnings-6/"
+            ],
+            [
+              "Yahoo Finance – What Intuitive Surgical (ISRG) said on its Q3 earnings call (Oct 2026)",
+              "https://finance.yahoo.com/healthcare/articles/intuitive-surgical-isrg-said-q3-000258365.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "KOTAKBANK",
+          "yahoo": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "sector": "Financial Services / Private Bank",
+          "currency": "INR",
+          "refPrice": 430.5,
+          "refDate": "2026-10-23",
+          "buyLow": 425.75,
+          "buyHigh": 432.9,
+          "target": 450.75,
+          "stop": 417.4,
+          "risk": "Medium",
+          "thesis": "Kotak Mahindra Bank's Q2 FY27 (24 Oct) showed 26% consolidated profit growth, NII ahead of estimates and better asset quality, and this week is the first chance for the market to price it in.",
+          "reasons": [
+            "Q2 FY27 (24 Oct 2026): consolidated net profit rose 26% to ₹5,645 crore and standalone profit about 29% to ₹4,212 crore; net interest income of about ₹8,459 crore (+16%) beat estimates.",
+            "Gross NPA improved to 1.04% and net NPA to 0.24%, and total deposits rose 23% to ₹6,51,491 crore.",
+            "The stock closed at ₹430.50 on 23 Oct, 17.6 pts ahead of the Nifty over three months, above a rising 50-day average (₹417.81) and just 0.2 ATR above its 20-day average."
+          ],
+          "data": [
+            [
+              "Close (10/23)",
+              "₹430.50"
+            ],
+            [
+              "3-month vs index",
+              "+17.6 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.2 ATR"
+            ],
+            [
+              "ATR",
+              "2.22% of price"
+            ]
+          ],
+          "watch": "The net interest margin fell to 4.31% from 4.53% in Q1 on costly FCNR(B) deposits, and the CASA ratio slipped to 38.2%; the Nifty is risk-off. No earnings inside the window. Skip it if it opens outside ₹425.75–432.90.",
+          "sources": [
+            [
+              "Business Standard – Kotak Mahindra Bank's Q2 consolidated net profit rises 26% to ₹5,645 crore (Oct 24, 2026)",
+              "https://www.business-standard.com/companies/quarterly-results/kotak-mahindra-bank-q2-fy27-profit-nii-fcnr-deposits-asset-quality-126102400637_1.html"
+            ],
+            [
+              "Zee Business – Kotak Mahindra Bank Q2 results: PAT rises 29.5% to Rs 4,212 crore, asset quality improves (Oct 24, 2026)",
+              "https://www.zeebiz.com/companies/news-kotak-mahindra-bank-q2fy27-results-highlights-key-takeaways-for-share-market-investors-404481"
+            ],
+            [
+              "NewsBytes – Kotak Mahindra Bank's Q2 FY27 profit jumps 26% to ₹5,645cr (Oct 24, 2026)",
+              "https://www.newsbytesapp.com/news/business/kotak-mahindra-bank-s-q2-fy27-results-are-now-out/story"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "INDHOTEL",
+          "yahoo": "INDHOTEL.NS",
+          "name": "Indian Hotels (IHCL)",
+          "sector": "Consumer Services / Hotels",
+          "currency": "INR",
+          "refPrice": 781.75,
+          "refDate": "2026-10-23",
+          "buyLow": 771.2,
+          "buyHigh": 787.0,
+          "target": 826.5,
+          "stop": 752.8,
+          "risk": "Medium",
+          "thesis": "IHCL posted its 18th straight record quarter and raised FY27 revenue growth guidance to 15–17% on 21 Oct; the stock broke out to a 52-week high and held its gains.",
+          "reasons": [
+            "Q2 FY27 (21 Oct 2026): consolidated revenue rose about 21% to ₹2,566 crore and net profit about 19% to ₹379.85 crore; domestic Taj RevPAR grew 28%.",
+            "FY27 consolidated revenue growth guidance was raised to 15–17% from 12–14%, with 17–19% expected in the hotel segment.",
+            "The stock rose 3.9% to a 52-week high on 22 Oct and closed at ₹781.75 on 23 Oct, 13.3 pts ahead of the Nifty over three months and above a rising 50-day average (₹728.78)."
+          ],
+          "data": [
+            [
+              "Close (10/23)",
+              "₹781.75"
+            ],
+            [
+              "3-month vs index",
+              "+13.3 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.2 ATR"
+            ],
+            [
+              "ATR",
+              "2.69% of price"
+            ]
+          ],
+          "watch": "Profit included an exceptional charge tied to an associate's merger, and after a breakout the stock is 2.2 ATR above its 20-day average; the Nifty is risk-off. No earnings inside the window. Skip it if it opens outside ₹771.20–787.00.",
+          "sources": [
+            [
+              "Zee Business – IHCL shares surge 4% after Q2 results to hit 52-week high; FY27 revenue growth guidance raised to 15-17% (Oct 22, 2026)",
+              "https://www.zeebiz.com/market-news/news-ihcl-shares-surge-4-after-q2-results-to-hit-52-week-high-fy27-revenue-growth-guidance-raised-to-15-17-404343"
+            ],
+            [
+              "Investing.com – IHCL Q2FY27 slides: 18th record quarter, guidance raised to 17% (Oct 21, 2026)",
+              "https://in.investing.com/news/stock-market-news/ihcl-q2fy27-slides-18th-record-quarter-guidance-raised-to-17-93CH-5646010"
+            ],
+            [
+              "Free Press Journal – Indian Hotels Company reports 21% jump in Q2 FY27 revenue to ₹2,566 crore, raises full-year guidance (Oct 21, 2026)",
+              "https://www.freepressjournal.in/business/indian-hotels-company-reports-21-jump-in-q2-fy27-revenue-to-2566-crore-raises-full-year-guidance"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "COFORGE",
+          "yahoo": "COFORGE.NS",
+          "name": "Coforge",
+          "sector": "Information Technology / IT Services",
+          "currency": "INR",
+          "refPrice": 1900.5,
+          "refDate": "2026-10-23",
+          "buyLow": 1869.0,
+          "buyHigh": 1916.25,
+          "target": 2034.35,
+          "stop": 1813.9,
+          "risk": "Medium",
+          "thesis": "Coforge's Q2 FY27 (23 Oct) brought record order intake above $1 billion and a raised FY27 margin target, and this week is the first full week to price it in.",
+          "reasons": [
+            "Q2 FY27 (23 Oct 2026): revenue rose 40.1% year on year to $652.2 million (10.9% sequential growth in constant currency, 3.8% organic).",
+            "Order intake topped $1 billion for only the second time, and FY27 EBIT margin guidance was raised to 16% from 15.5%, with 17% targeted for Q4.",
+            "The stock closed at ₹1,900.50 on 23 Oct, 37.3 pts ahead of the Nifty over three months, above a rising 50-day average (₹1,863.23) and 0.7 ATR above its 20-day average."
+          ],
+          "data": [
+            [
+              "Close (10/23)",
+              "₹1,900.50"
+            ],
+            [
+              "3-month vs index",
+              "+37.3 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.7 ATR"
+            ],
+            [
+              "ATR",
+              "3.31% of price"
+            ]
+          ],
+          "watch": "Net profit (about ₹605 crore) missed the ₹660 crore estimate, organic growth was only 3.8%, and Infosys cut its guidance on 23 Oct, which could weigh on IT stocks. No earnings inside the window. Skip it if it opens outside ₹1,869.00–1,916.25.",
+          "sources": [
+            [
+              "Investing.com – Coforge Q2 FY27 slides: margins upgraded as order intake tops $1B (Oct 23, 2026)",
+              "https://ph.investing.com/news/stock-market-news/coforge-q2-fy27-slides-margins-upgraded-as-order-intake-tops-1b-93CH-2646925"
+            ],
+            [
+              "Investing.com – Earnings call transcript: Coforge lifts margins in Q2 on record deal intake (Oct 2026)",
+              "https://in.investing.com/news/stock-market-news/earnings-call-transcript-coforge-lifts-margins-in-q2-2026-on-record-deal-intake-93CH-5651470"
+            ],
+            [
+              "Business Upturn – Coforge reports $652.2 million revenue in Q2 FY27 (Oct 23, 2026)",
+              "https://businessupturn.com/business/coforge-reports-652-2-million-revenue-in-q2-fy27/"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Danaher Investor Relations – Danaher reports third quarter 2026 results (Oct 21, 2026)",
+          "https://investors.danaher.com/2026-10-21-Danaher-Reports-Third-Quarter-2026-Results"
+        ],
+        [
+          "Business Standard – Kotak Mahindra Bank's Q2 consolidated net profit rises 26% to ₹5,645 crore (Oct 24, 2026)",
+          "https://www.business-standard.com/companies/quarterly-results/kotak-mahindra-bank-q2-fy27-profit-nii-fcnr-deposits-asset-quality-126102400637_1.html"
+        ],
+        [
+          "Zee Business – IHCL shares surge 4% after Q2 results to hit 52-week high; FY27 revenue growth guidance raised to 15-17% (Oct 22, 2026)",
+          "https://www.zeebiz.com/market-news/news-ihcl-shares-surge-4-after-q2-results-to-hit-52-week-high-fy27-revenue-growth-guidance-raised-to-15-17-404343"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-23-daily",
       "horizon": "daily",
       "date": "2026-10-23",

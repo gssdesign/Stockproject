@@ -79,7 +79,65 @@ window.PICKS = {
               "TheStreet – Stock market today (Oct. 23, 2026): Nasdaq falls following tech sell-off",
               "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-23-2026"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 673.82,
+            "date": "2026-10-23",
+            "researchPrice": 673.82,
+            "researchDate": "2026-10-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,647M (min $50M), price $673.82"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $672.1"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +0.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+54.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.05% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.05,
+            "sma20": 672.1,
+            "sma50": 644.96,
+            "sma200": 549.28,
+            "rs1m": 0.37,
+            "rs3m": 17.59,
+            "fromHigh52": -4.53,
+            "fromLow52": 54.81,
+            "avgValue20": 1647180831,
+            "extAtr": 0.08
+          }
         },
         {
           "market": "US",
@@ -135,7 +193,65 @@ window.PICKS = {
               "TheStreet – Stock market today (Oct. 23, 2026): Nasdaq falls following tech sell-off",
               "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-23-2026"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 457.22,
+            "date": "2026-10-23",
+            "researchPrice": 457.22,
+            "researchDate": "2026-10-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $885M (min $50M), price $457.22"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $447.74"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +18.0 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+182.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.59% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.59,
+            "sma20": 447.74,
+            "sma50": 409.3,
+            "sma200": 283.79,
+            "rs1m": 17.99,
+            "rs3m": 43.54,
+            "fromHigh52": -7.44,
+            "fromLow52": 182.36,
+            "avgValue20": 885058366,
+            "extAtr": 0.58
+          }
         },
         {
           "market": "US",
@@ -191,7 +307,65 @@ window.PICKS = {
               "MarketBeat – Thermo Fisher Scientific (NYSE:TMO) price target raised to $775.00 (Oct 22, 2026)",
               "https://www.marketbeat.com/instant-alerts/analyst-thermo-fisher-scientific-nyse-tmo-price-target-raised-to-77500-2026-10-22/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 173.07,
+            "date": "2026-10-23",
+            "researchPrice": 173.07,
+            "researchDate": "2026-10-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $374M (min $50M), price $173.07"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $171.92"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +1.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+59.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.9% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.9,
+            "sma20": 171.92,
+            "sma50": 161.41,
+            "sma200": 135.28,
+            "rs1m": 1.17,
+            "rs3m": 22.67,
+            "fromHigh52": -3.37,
+            "fromLow52": 59.73,
+            "avgValue20": 374418453,
+            "extAtr": 0.23
+          }
         },
         {
           "market": "IN",
@@ -245,7 +419,65 @@ window.PICKS = {
               "NewsBytes – Kotak Mahindra Bank's Q2 FY27 profit jumps 26% to ₹5,645cr (Oct 24, 2026)",
               "https://www.newsbytesapp.com/news/business/kotak-mahindra-bank-s-q2-fy27-results-are-now-out/story"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 430.5,
+            "date": "2026-10-23",
+            "researchPrice": 430.5,
+            "researchDate": "2026-10-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹1,121 cr (min ₹100 cr), price ₹430.5"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹428.96"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +7.5 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+24.6% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.22% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.22,
+            "sma20": 428.96,
+            "sma50": 417.81,
+            "sma200": 400.29,
+            "rs1m": 7.45,
+            "rs3m": 17.62,
+            "fromHigh52": -5.01,
+            "fromLow52": 24.6,
+            "avgValue20": 11205136050,
+            "extAtr": 0.16
+          }
         }
       ],
       "marketSources": [

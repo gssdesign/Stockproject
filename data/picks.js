@@ -77,7 +77,65 @@ window.PICKS = {
               "Investing.com – Earnings call transcript: Danaher tops Q3 2026 estimates but shares fall premarket (Oct 21, 2026)",
               "https://www.investing.com/news/transcripts/earnings-call-transcript-danaher-tops-q3-2026-estimates-but-shares-fall-premarket-93CH-4963206"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 230.5,
+            "date": "2026-10-23",
+            "researchPrice": 230.5,
+            "researchDate": "2026-10-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,095M (min $50M), price $230.5"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $216.13, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +14.5 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+43.2% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.0 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.0% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.0,
+            "sma20": 223.27,
+            "sma50": 216.13,
+            "sma200": 201.2,
+            "rs1m": 4.05,
+            "rs3m": 14.46,
+            "fromHigh52": -5.07,
+            "fromLow52": 43.23,
+            "avgValue20": 1094670588,
+            "extAtr": 1.04
+          }
         },
         {
           "market": "US",
@@ -131,7 +189,65 @@ window.PICKS = {
               "Yahoo Finance – What Intuitive Surgical (ISRG) said on its Q3 earnings call (Oct 2026)",
               "https://finance.yahoo.com/healthcare/articles/intuitive-surgical-isrg-said-q3-000258365.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 452.29,
+            "date": "2026-10-23",
+            "researchPrice": 452.29,
+            "researchDate": "2026-10-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $962M (min $50M), price $452.29"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $396.06, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +23.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+37.6% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.92% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.92,
+            "sma20": 420.59,
+            "sma50": 396.06,
+            "sma200": 436.21,
+            "rs1m": 14.25,
+            "rs3m": 23.91,
+            "fromHigh52": -25.1,
+            "fromLow52": 37.65,
+            "avgValue20": 962047415,
+            "extAtr": 2.4
+          }
         },
         {
           "market": "IN",
@@ -185,7 +301,65 @@ window.PICKS = {
               "NewsBytes – Kotak Mahindra Bank's Q2 FY27 profit jumps 26% to ₹5,645cr (Oct 24, 2026)",
               "https://www.newsbytesapp.com/news/business/kotak-mahindra-bank-s-q2-fy27-results-are-now-out/story"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 430.5,
+            "date": "2026-10-23",
+            "researchPrice": 430.5,
+            "researchDate": "2026-10-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹1,121 cr (min ₹100 cr), price ₹430.5"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹417.81, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +17.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+24.6% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.22% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.22,
+            "sma20": 428.96,
+            "sma50": 417.81,
+            "sma200": 400.29,
+            "rs1m": 7.45,
+            "rs3m": 17.62,
+            "fromHigh52": -5.01,
+            "fromLow52": 24.6,
+            "avgValue20": 11205136050,
+            "extAtr": 0.16
+          }
         },
         {
           "market": "IN",
@@ -239,7 +413,65 @@ window.PICKS = {
               "Free Press Journal – Indian Hotels Company reports 21% jump in Q2 FY27 revenue to ₹2,566 crore, raises full-year guidance (Oct 21, 2026)",
               "https://www.freepressjournal.in/business/indian-hotels-company-reports-21-jump-in-q2-fy27-revenue-to-2566-crore-raises-full-year-guidance"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 781.75,
+            "date": "2026-10-23",
+            "researchPrice": 781.75,
+            "researchDate": "2026-10-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹423 cr (min ₹100 cr), price ₹781.75"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹728.78, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +13.3 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+38.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.69% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.69,
+            "sma20": 734.94,
+            "sma50": 728.78,
+            "sma200": 689.53,
+            "rs1m": 9.3,
+            "rs3m": 13.29,
+            "fromHigh52": -1.62,
+            "fromLow52": 38.36,
+            "avgValue20": 4226858051,
+            "extAtr": 2.22
+          }
         },
         {
           "market": "IN",
@@ -293,7 +525,65 @@ window.PICKS = {
               "Business Upturn – Coforge reports $652.2 million revenue in Q2 FY27 (Oct 23, 2026)",
               "https://businessupturn.com/business/coforge-reports-652-2-million-revenue-in-q2-fy27/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1900.5,
+            "date": "2026-10-23",
+            "researchPrice": 1900.5,
+            "researchDate": "2026-10-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹422 cr (min ₹100 cr), price ₹1,900.5"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹1863.23, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +37.3 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+88.5% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.7 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.31% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.31,
+            "sma20": 1856.06,
+            "sma50": 1863.23,
+            "sma200": 1532.01,
+            "rs1m": 8.53,
+            "rs3m": 37.31,
+            "fromHigh52": -5.97,
+            "fromLow52": 88.52,
+            "avgValue20": 4217592953,
+            "extAtr": 0.71
+          }
         }
       ],
       "marketSources": [

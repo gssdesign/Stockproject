@@ -77,7 +77,65 @@ window.PICKS = {
               "Benzinga – This Tesla analyst turns bullish; here are top 5 upgrades for Monday (Oct 26, 2026)",
               "https://benzinga.com/analyst-stock-ratings/upgrades/26/10/62588551/this-tesla-analyst-turns-bullish-here-are-top-5-upgrades-for-monday"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 391.62,
+            "date": "2026-10-26",
+            "researchPrice": 391.62,
+            "researchDate": "2026-10-26",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $13,725M (min $50M), price $391.62"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $371.58"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +6.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+31.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.44% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.44,
+            "sma20": 371.58,
+            "sma50": 364.76,
+            "sma200": 386.13,
+            "rs1m": 6.1,
+            "rs3m": 24.04,
+            "fromHigh52": -21.49,
+            "fromLow52": 31.69,
+            "avgValue20": 13725406454,
+            "extAtr": 1.49
+          }
         },
         {
           "market": "IN",
@@ -131,7 +189,65 @@ window.PICKS = {
               "TradingView (Moneycontrol) – Dr Reddy's shares jump despite 36% Q2 profit fall: what Nomura, Citi and others say (Oct 26, 2026)",
               "https://www.tradingview.com/news/moneycontrol:7b352ee41094b:0-dr-reddy-s-shares-jump-despite-36-q2-profit-fall-buy-sell-or-hold-what-nomura-citi-and-others-say/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1310.9,
+            "date": "2026-10-26",
+            "researchPrice": 1310.9,
+            "researchDate": "2026-10-26",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹321 cr (min ₹100 cr), price ₹1,310.9"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1225.43"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +11.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+19.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.7 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.43% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.43,
+            "sma20": 1225.43,
+            "sma50": 1194.66,
+            "sma200": 1243.63,
+            "rs1m": 11.19,
+            "rs3m": 18.09,
+            "fromHigh52": -7.35,
+            "fromLow52": 19.06,
+            "avgValue20": 3205637064,
+            "extAtr": 2.68
+          }
         }
       ],
       "marketSources": [

@@ -4,6 +4,152 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-27-daily",
+      "horizon": "daily",
+      "date": "2026-10-27",
+      "horizonDays": 1,
+      "expires": "2026-10-27",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7676.77,
+          "summary": "Neutral: the S&P 500 closed at 7,676.77 on 2026-10-26 (+0.70%). One standard pick, Tesla, after Barclays upgraded it to Overweight on 26 Oct; Lockheed Martin (+5%) is too stretched, CACI is outside the data universe, and stocks reporting just before or during today's session (HCA, American Tower, Brown & Brown and others) are excluded, so the list isn't padded. Learned rule in force: US daily target 1.12 ATR."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22753.2,
+          "summary": "Risk-off: the Nifty 50 closed at 22,753.20 on 2026-10-26 (+0.68%), still below its 50- and 200-day averages. One standard pick, Dr. Reddy's, after brokerage upgrades on 26 Oct; Coforge and Kotak Bank are already in this week's weekly list, and other 26 Oct reporters (ITC Hotels, Indian Overseas Bank, Bank of Maharashtra) are outside the universe or fail the daily checks, so the list isn't padded."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "TSLA",
+          "yahoo": "TSLA",
+          "name": "Tesla",
+          "sector": "Consumer Discretionary / Automobiles",
+          "currency": "USD",
+          "refPrice": 391.62,
+          "refDate": "2026-10-26",
+          "buyLow": 386.23,
+          "buyHigh": 394.31,
+          "target": 405.42,
+          "stop": 380.17,
+          "risk": "Medium",
+          "thesis": "Barclays upgraded Tesla to Overweight from Equal Weight on 26 Oct and raised its target to $450, citing a possible SpaceX combination, and the stock jumped 5.21%; analyst-upgrade drift favours follow-through.",
+          "reasons": [
+            "On 26 Oct 2026 Barclays' Dan Levy raised Tesla to Overweight and lifted the target to $450 from $370, about 15% above the close.",
+            "The note cites a possible Tesla–SpaceX combination (both have formed committees to study it), Full Self-Driving adoption and energy-storage demand it says is nearly sold out for 2027.",
+            "The stock closed up 5.21% at $391.62 while the S&P 500 rose 0.70%; it is 24 pts ahead of the index over three months and 1.5 ATR above its 20-day average ($371.58)."
+          ],
+          "data": [
+            [
+              "Close (10/26)",
+              "$391.62"
+            ],
+            [
+              "1-month vs index",
+              "+6.1 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.5 ATR"
+            ],
+            [
+              "ATR",
+              "3.44% of price"
+            ]
+          ],
+          "watch": "The bull case leans on a merger that isn't agreed; any denial or delay could reverse the move, and Tesla is a high-volatility stock. Skip it if it opens outside $386.23–394.31.",
+          "sources": [
+            [
+              "CNBC – Barclays upgrades Tesla on potential SpaceX merger (Oct 26, 2026)",
+              "https://www.cnbc.com/2026/10/26/tesla-spacex-merger-barclays.html"
+            ],
+            [
+              "Yahoo Finance – Tesla rises 6% as Barclays upgrade cites SpaceX merger potential (Oct 26, 2026)",
+              "https://finance.yahoo.com/markets/stocks/articles/tesla-rises-6-barclays-upgrade-135853310.html"
+            ],
+            [
+              "Benzinga – This Tesla analyst turns bullish; here are top 5 upgrades for Monday (Oct 26, 2026)",
+              "https://benzinga.com/analyst-stock-ratings/upgrades/26/10/62588551/this-tesla-analyst-turns-bullish-here-are-top-5-upgrades-for-monday"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "DRREDDY",
+          "yahoo": "DRREDDY.NS",
+          "name": "Dr. Reddy's Laboratories",
+          "sector": "Healthcare / Pharmaceuticals",
+          "currency": "INR",
+          "refPrice": 1310.9,
+          "refDate": "2026-10-26",
+          "buyLow": 1298.15,
+          "buyHigh": 1317.25,
+          "target": 1347.55,
+          "stop": 1283.8,
+          "risk": "Medium",
+          "thesis": "Brokerages upgraded Dr. Reddy's on 26 Oct after Q2 profit doubled quarter on quarter, and the stock jumped 6.62%; upgrade drift favours follow-through.",
+          "reasons": [
+            "On 26 Oct 2026 Jefferies upgraded the stock to Hold from Underperform and Systematix to Buy from Hold; Citi raised its target.",
+            "Q2 FY27 (23 Oct): profit of ₹925 crore was down 36% year on year on lower lenalidomide sales but up 109% from Q1, with revenue up 7.4% sequentially and gross margin steady at 52.1%.",
+            "The stock closed up 6.62% at ₹1,310.90 while the Nifty rose 0.68%; it is 11.2 pts ahead of the Nifty over a month and 2.7 ATR above its 20-day average (₹1,225.43)."
+          ],
+          "data": [
+            [
+              "Close (10/26)",
+              "₹1,310.90"
+            ],
+            [
+              "1-month vs index",
+              "+11.2 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.7 ATR"
+            ],
+            [
+              "ATR",
+              "2.43% of price"
+            ]
+          ],
+          "watch": "Year-on-year profit still fell 36%, Goldman Sachs kept Sell and Nomura cut its target; after a 6.6% jump the stock is near the stretch limit. Skip it if it opens outside ₹1,298.15–1,317.25.",
+          "sources": [
+            [
+              "Business Standard – Dr Reddy's share price spurts post Q2 earnings; analysts upgrade rating (Oct 26, 2026)",
+              "https://www.business-standard.com/amp/markets/news/dr-reddy-s-share-price-spurts-4-post-q2-earnings-analysts-upgrade-rating-126102600209_1.html"
+            ],
+            [
+              "BusinessToday – Dr Reddy's Labs share price: PAT falls 36% in Q2; should you buy, sell or hold? (Oct 26, 2026)",
+              "https://www.businesstoday.in/markets/trending-stocks/story/dr-reddys-labs-share-price-pat-falls-36-in-q2-should-you-buy-sell-or-hold-check-targets-563703-2026-10-26"
+            ],
+            [
+              "TradingView (Moneycontrol) – Dr Reddy's shares jump despite 36% Q2 profit fall: what Nomura, Citi and others say (Oct 26, 2026)",
+              "https://www.tradingview.com/news/moneycontrol:7b352ee41094b:0-dr-reddy-s-shares-jump-despite-36-q2-profit-fall-buy-sell-or-hold-what-nomura-citi-and-others-say/"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – Barclays upgrades Tesla on potential SpaceX merger (Oct 26, 2026)",
+          "https://www.cnbc.com/2026/10/26/tesla-spacex-merger-barclays.html"
+        ],
+        [
+          "Business Standard – Dr Reddy's share price spurts post Q2 earnings; analysts upgrade rating (Oct 26, 2026)",
+          "https://www.business-standard.com/amp/markets/news/dr-reddy-s-share-price-spurts-4-post-q2-earnings-analysts-upgrade-rating-126102600209_1.html"
+        ],
+        [
+          "Yahoo Finance – Tesla rises 6% as Barclays upgrade cites SpaceX merger potential (Oct 26, 2026)",
+          "https://finance.yahoo.com/markets/stocks/articles/tesla-rises-6-barclays-upgrade-135853310.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-26-daily",
       "horizon": "daily",
       "date": "2026-10-26",

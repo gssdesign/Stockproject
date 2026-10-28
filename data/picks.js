@@ -4,6 +4,380 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-28-daily",
+      "horizon": "daily",
+      "date": "2026-10-28",
+      "horizonDays": 1,
+      "expires": "2026-10-28",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7722.6,
+          "summary": "Risk-on: the S&P 500 closed at 7,722.60 on 2026-10-27 (+0.60%), led by AI and chip stocks, with the Fed's rate decision due at 2 PM ET today. This is a Plan B list: no screen stock had a fresh company catalyst within three days that passed every check (Tesla's Barclays upgrade was used yesterday and it hit its target; ServiceNow reports after today's close and is excluded), so three strong leaders within 1 ATR of their 20-day averages are listed. Learned rule in force: US daily target 1.12 ATR."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22749.75,
+          "summary": "Risk-off: the Nifty 50 closed at 22,749.75 on 2026-10-27 (−0.02%), below its 50- and 200-day averages, so at most 3 picks. This is a Plan B list: no screen stock had fresh company news that passed every check (Dr. Reddy's was yesterday's pick, and Laurus Labs' Q2 results are still pending), so three leaders near their 20-day averages are listed, led by pharma, the day's strongest sector."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "SNPS",
+          "yahoo": "SNPS",
+          "name": "Synopsys",
+          "sector": "Information Technology / Chip-design software",
+          "currency": "USD",
+          "refPrice": 474.42,
+          "refDate": "2026-10-27",
+          "buyLow": 466.91,
+          "buyHigh": 478.18,
+          "target": 493.67,
+          "stop": 458.46,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "sector",
+          "thesis": "Plan B (sector leadership): AI and chip stocks led the market on 27 Oct, and Synopsys, the chip-design software leader, was among the S&P 500's top gainers (+4.4%) while sitting right on its 20-day average.",
+          "reasons": [
+            "27 Oct: chip and AI stocks rallied for a second day (Broadcom +4%, Nasdaq +1.2%); Synopsys closed at $474.42, up 4.42%.",
+            "It's still only 0.1 ATR above its 20-day average ($472.69), 12.1% below its 52-week high, and above a rising 50-day average ($432.75).",
+            "A 3-month leader: up 27.0% (21.4 pts ahead of the S&P 500), and 13.1 pts ahead over 1 month."
+          ],
+          "data": [
+            [
+              "Close (10/27)",
+              "$474.42"
+            ],
+            [
+              "3-month vs index",
+              "+21.4 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.1 ATR"
+            ],
+            [
+              "ATR",
+              "3.96% of price"
+            ]
+          ],
+          "watch": "Plan B: no stock-specific news; the move rides the AI/chip trade, and the Fed's rate decision lands Wednesday afternoon (2 PM ET). ATR is near the 4% daily limit, so moves can be sharp. Skip it if it opens outside $466.91–478.18.",
+          "sources": [
+            [
+              "CNBC – S&P 500 posts back-to-back winning days as chips rally and oil prices slide (Oct. 27, 2026)",
+              "https://www.cnbc.com/2026/10/26/stock-market-today-live-updates.html"
+            ],
+            [
+              "Yahoo Finance – Stock market today (Oct. 27, 2026): Dow, S&P 500, Nasdaq rise as tech gains for second day, chip stocks rally",
+              "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-october-27-dow-sp-500-nasdaq-tech-sector-160557664.html"
+            ],
+            [
+              "Trefis – What just happened to Synopsys stock? (Oct 27, 2026)",
+              "https://www.trefis.com/stock/snps/articles/620838/what-just-happened-to-synopsys-stock/2026-10-27"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "NTAP",
+          "yahoo": "NTAP",
+          "name": "NetApp",
+          "sector": "Information Technology / Data storage",
+          "currency": "USD",
+          "refPrice": 227.58,
+          "refDate": "2026-10-27",
+          "buyLow": 223.98,
+          "buyHigh": 229.38,
+          "target": 236.8,
+          "stop": 219.93,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader near its 20-day average): NetApp is one of the S&P 500's strongest 3-month leaders and is trading just 0.6 ATR above its 20-day average, with no earnings until 1 Dec.",
+          "reasons": [
+            "3-month return +31.4%, 25.8 pts ahead of the S&P 500; 1-month +11.3% (10.8 pts ahead).",
+            "Closed at $227.58 on 27 Oct (+2.48%), 0.6 ATR above its 20-day average ($221.93) and well above a rising 50-day average ($204.19); 5.5% below its 52-week high.",
+            "No earnings risk in the window: NetApp's Q2 FY27 results are scheduled for 1 Dec 2026."
+          ],
+          "data": [
+            [
+              "Close (10/27)",
+              "$227.58"
+            ],
+            [
+              "3-month vs index",
+              "+25.8 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.6 ATR"
+            ],
+            [
+              "ATR",
+              "3.95% of price"
+            ]
+          ],
+          "watch": "Plan B: there's no fresh company catalyst, so it depends on the tech tape holding up through the Fed decision (2 PM ET). Skip it if it opens outside $223.98–229.38.",
+          "sources": [
+            [
+              "Yahoo Finance – Stock market today (Oct. 27, 2026): Dow, S&P 500, Nasdaq rise as tech gains for second day, chip stocks rally",
+              "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-october-27-dow-sp-500-nasdaq-tech-sector-160557664.html"
+            ],
+            [
+              "CNBC – S&P 500 posts back-to-back winning days as chips rally and oil prices slide (Oct. 27, 2026)",
+              "https://www.cnbc.com/2026/10/26/stock-market-today-live-updates.html"
+            ],
+            [
+              "NetApp – First Quarter of Fiscal Year 2027 results (lists Q2 FY27 results date: 1 Dec 2026)",
+              "https://s21.q4cdn.com/371534297/files/doc_earnings/2027/q1/earnings-result/NetApp_First-Quarter.pdf"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "TMO",
+          "yahoo": "TMO",
+          "name": "Thermo Fisher Scientific",
+          "sector": "Health Care / Life Science Tools",
+          "currency": "USD",
+          "refPrice": 693.02,
+          "refDate": "2026-10-27",
+          "buyLow": 684.91,
+          "buyHigh": 697.08,
+          "target": 713.81,
+          "stop": 675.78,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader near its 20-day average): Thermo Fisher, a 3-month leader that raised its 2026 guidance on 21 Oct, is grinding toward its 52-week high while still within 1 ATR of its 20-day average.",
+          "reasons": [
+            "Q3 2026 (21 Oct): adjusted EPS $6.68 vs $6.40 expected; 2026 revenue guidance raised to $47.7–48.2B and adjusted EPS to $25.13–25.43.",
+            "Closed at $693.02 on 27 Oct (+1.19%), 1.0 ATR above its 20-day average ($673.09), above a rising 50-day average ($649.04), 1.8% below its 52-week high.",
+            "3-month return +20.2%, 14.7 pts ahead of the S&P 500."
+          ],
+          "data": [
+            [
+              "Close (10/27)",
+              "$693.02"
+            ],
+            [
+              "3-month vs index",
+              "+14.7 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.0 ATR"
+            ],
+            [
+              "ATR",
+              "2.93% of price"
+            ]
+          ],
+          "watch": "Plan B: it was a Plan B daily pick on 26 Oct (closed +1.6%) and is now at the top of the allowed entry range; the 52-week high ($705.79) is just above the target and may act as resistance. Skip it if it opens outside $684.91–697.08.",
+          "sources": [
+            [
+              "SEC – Thermo Fisher Scientific Form 8-K, Q3 2026 earnings release (Oct 21, 2026)",
+              "https://www.sec.gov/Archives/edgar/data/0000097745/000009774526000173/q32026earnings8kex99_1.htm"
+            ],
+            [
+              "Yahoo Finance – Stock market today (Oct. 27, 2026): Dow, S&P 500, Nasdaq rise as tech gains for second day, chip stocks rally",
+              "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-october-27-dow-sp-500-nasdaq-tech-sector-160557664.html"
+            ],
+            [
+              "CNBC – S&P 500 posts back-to-back winning days as chips rally and oil prices slide (Oct. 27, 2026)",
+              "https://www.cnbc.com/2026/10/26/stock-market-today-live-updates.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "DIVISLAB",
+          "yahoo": "DIVISLAB.NS",
+          "name": "Divi's Laboratories",
+          "sector": "Healthcare / Pharma (API)",
+          "currency": "INR",
+          "refPrice": 9505.5,
+          "refDate": "2026-10-27",
+          "buyLow": 9406.2,
+          "buyHigh": 9555.15,
+          "target": 9790.95,
+          "stop": 9294.5,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "sector",
+          "thesis": "Plan B (sector leadership): pharma was the standout sector on a flat 27 Oct session, and Divi's led it with a 5% gain while still within 1 ATR of its 20-day average.",
+          "reasons": [
+            "27 Oct: the Nifty Pharma index outperformed (about +1.6%) while the Nifty 50 closed flat at 22,749.75; Divi's closed at ₹9,505.50, up 5.03%.",
+            "It's 0.9 ATR above its 20-day average (₹9,270.48), above a rising 50-day average (₹9,185.00), and 2.4% below its 52-week high (₹9,740).",
+            "The strongest 3-month leader in the Plan B pool: up 28.2%, 32.5 pts ahead of the Nifty 50."
+          ],
+          "data": [
+            [
+              "Close (10/27)",
+              "₹9,505.50"
+            ],
+            [
+              "3-month vs index",
+              "+32.5 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.9 ATR"
+            ],
+            [
+              "ATR",
+              "2.61% of price"
+            ]
+          ],
+          "watch": "Plan B: no company news. Q2 results haven't been dated yet (last year's were on 7 Nov); if a board-meeting date for this week is announced, skip it. After a 5% jump, a pullback is likely. Skip it if it opens outside ₹9,406.20–9,555.15.",
+          "sources": [
+            [
+              "Business Standard – Stock Market Close: Sensex ends flat, Nifty at 22,750; pharma, realty, consumer durables outperform (Oct 27, 2026)",
+              "https://www.business-standard.com/markets/news/stock-market-live-october-27-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-listing-price-126102700086_1.html"
+            ],
+            [
+              "Free Press Journal – Closing bell: Sensex settles at 73,599, Nifty ends below 22,750 as pharma and realty rally fails to lift benchmarks (Oct 27, 2026)",
+              "https://www.freepressjournal.in/business/stock-market-closing-bell-sensex-settles-at-73599-and-nifty-ends-below-22750-as-pharma-and-realty-rally-fails-to-lift-benchmarks"
+            ],
+            [
+              "The Hans India – Sensex, Nifty end flat as pharma, realty stocks shine (Oct 27, 2026)",
+              "https://www.thehansindia.com/business/sensex-nifty-end-flat-as-pharma-realty-stocks-shine-1136394"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "PERSISTENT",
+          "yahoo": "PERSISTENT.NS",
+          "name": "Persistent Systems",
+          "sector": "Information Technology / IT services",
+          "currency": "INR",
+          "refPrice": 5832.5,
+          "refDate": "2026-10-27",
+          "buyLow": 5754.05,
+          "buyHigh": 5871.75,
+          "target": 6058.05,
+          "stop": 5665.8,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader near its 20-day average): Persistent has recovered its post-results drop and held near ₹5,830 even as IT stocks fell on 27 Oct, a sign of relative strength.",
+          "reasons": [
+            "3-month return +10.7%, 15.9 pts ahead of the Nifty 50; 1-month +10.5% (11.9 pts ahead).",
+            "Closed at ₹5,832.50 on 27 Oct (−0.30%) while the IT sector fell; it's 1.0 ATR above its 20-day average (₹5,644.27) and above a rising 50-day average (₹5,584.75).",
+            "Earnings risk is gone: Q2 FY27 was reported on 15 Oct (revenue +30% YoY, deal wins $633.5M) and the stock has since recovered the ~6% drop that followed."
+          ],
+          "data": [
+            [
+              "Close (10/27)",
+              "₹5,832.50"
+            ],
+            [
+              "3-month vs index",
+              "+15.9 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+1.0 ATR"
+            ],
+            [
+              "ATR",
+              "3.36% of price"
+            ]
+          ],
+          "watch": "Plan B: margins missed in Q2 and IT is weak as a sector; it's at the top of the allowed entry range. Skip it if it opens outside ₹5,754.05–5,871.75.",
+          "sources": [
+            [
+              "Business Standard – Stock Market Close: Sensex ends flat, Nifty at 22,750; pharma, realty, consumer durables outperform (Oct 27, 2026)",
+              "https://www.business-standard.com/markets/news/stock-market-live-october-27-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-listing-price-126102700086_1.html"
+            ],
+            [
+              "Free Press Journal – Closing bell: Sensex settles at 73,599, Nifty ends below 22,750 as pharma and realty rally fails to lift benchmarks (Oct 27, 2026)",
+              "https://www.freepressjournal.in/business/stock-market-closing-bell-sensex-settles-at-73599-and-nifty-ends-below-22750-as-pharma-and-realty-rally-fails-to-lift-benchmarks"
+            ],
+            [
+              "BusinessToday – Persistent Systems shares: why this stock fell 6% after Q2 results (Oct 16, 2026; background)",
+              "https://www.businesstoday.in/markets/stocks/story/persistent-systems-shares-why-this-stock-fell-6-after-q2-results-target-prices-562026-2026-10-16"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "ETERNAL",
+          "yahoo": "ETERNAL.NS",
+          "name": "Eternal (Zomato, Blinkit)",
+          "sector": "Consumer Services / Quick commerce",
+          "currency": "INR",
+          "refPrice": 331.0,
+          "refDate": "2026-10-27",
+          "buyLow": 326.9,
+          "buyHigh": 333.05,
+          "target": 342.85,
+          "stop": 322.25,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader near its 20-day average): Eternal is a 3-month leader that has climbed back above its 20- and 50-day averages after Blinkit-driven Q2 results, gaining 1.7% on a flat 27 Oct.",
+          "reasons": [
+            "Q2 FY27 (21 Oct): profit +92% YoY to ₹125 crore, revenue +78%; Blinkit's net order value rose 79.3% to ₹20,940 crore.",
+            "Closed at ₹331.00 on 27 Oct (+1.67%), 0.9 ATR above its 20-day average (₹321.59) and above a rising 50-day average (₹324.27); 4.5% below its 52-week high.",
+            "3-month return +11.9%, 16.2 pts ahead of the Nifty 50, while smallcaps and midcaps outperformed on 27 Oct."
+          ],
+          "data": [
+            [
+              "Close (10/27)",
+              "₹331.00"
+            ],
+            [
+              "3-month vs index",
+              "+16.2 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.9 ATR"
+            ],
+            [
+              "ATR",
+              "3.11% of price"
+            ]
+          ],
+          "watch": "Plan B: profit missed estimates and Macquarie stays cautious on valuation; quick-commerce competition is intense. Skip it if it opens outside ₹326.90–333.05.",
+          "sources": [
+            [
+              "Business Standard – Stock Market Close: Sensex ends flat, Nifty at 22,750; pharma, realty, consumer durables outperform (Oct 27, 2026)",
+              "https://www.business-standard.com/markets/news/stock-market-live-october-27-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-listing-price-126102700086_1.html"
+            ],
+            [
+              "Kotak Neo – Eternal share price rises 2% after Q2 results; Blinkit NOV jumps 79% (Oct 22, 2026)",
+              "https://www.kotakneo.com/news/stocks/why-is-eternal-share-price-rising-today/"
+            ],
+            [
+              "Inc42 – Eternal's Q2 profit surges 92% YoY to ₹125 Cr (Oct 2026)",
+              "https://inc42.com/buzz/eternals-q2-profit-surges-92-yoy-to-₹125-cr/"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Stock market today (Oct. 27, 2026): Dow, S&P 500, Nasdaq rise as tech gains for second day, chip stocks rally",
+          "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-october-27-dow-sp-500-nasdaq-tech-sector-160557664.html"
+        ],
+        [
+          "CNBC – S&P 500 posts back-to-back winning days as chips rally and oil prices slide (Oct. 27, 2026)",
+          "https://www.cnbc.com/2026/10/26/stock-market-today-live-updates.html"
+        ],
+        [
+          "Business Standard – Stock Market Close: Sensex ends flat, Nifty at 22,750; pharma, realty, consumer durables outperform (Oct 27, 2026)",
+          "https://www.business-standard.com/markets/news/stock-market-live-october-27-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-jio-ipo-listing-price-126102700086_1.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-27-daily",
       "horizon": "daily",
       "date": "2026-10-27",

@@ -79,7 +79,65 @@ window.PICKS = {
               "Trefis – What just happened to Synopsys stock? (Oct 27, 2026)",
               "https://www.trefis.com/stock/snps/articles/620838/what-just-happened-to-synopsys-stock/2026-10-27"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 474.42,
+            "date": "2026-10-27",
+            "researchPrice": 474.42,
+            "researchDate": "2026-10-27",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,286M (min $50M), price $474.42"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $472.69"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +13.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+30.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.96% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.96,
+            "sma20": 472.69,
+            "sma50": 432.75,
+            "sma200": 444.02,
+            "rs1m": 13.09,
+            "rs3m": 21.4,
+            "fromHigh52": -12.06,
+            "fromLow52": 30.86,
+            "avgValue20": 1286013935,
+            "extAtr": 0.09
+          }
         },
         {
           "market": "US",
@@ -135,7 +193,65 @@ window.PICKS = {
               "NetApp – First Quarter of Fiscal Year 2027 results (lists Q2 FY27 results date: 1 Dec 2026)",
               "https://s21.q4cdn.com/371534297/files/doc_earnings/2027/q1/earnings-result/NetApp_First-Quarter.pdf"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 227.58,
+            "date": "2026-10-27",
+            "researchPrice": 227.58,
+            "researchDate": "2026-10-27",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $545M (min $50M), price $227.58"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $221.93"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +10.8 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+142.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.95% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.95,
+            "sma20": 221.93,
+            "sma50": 204.19,
+            "sma200": 148.47,
+            "rs1m": 10.83,
+            "rs3m": 25.81,
+            "fromHigh52": -5.52,
+            "fromLow52": 142.91,
+            "avgValue20": 545249472,
+            "extAtr": 0.63
+          }
         },
         {
           "market": "US",
@@ -191,7 +307,65 @@ window.PICKS = {
               "CNBC – S&P 500 posts back-to-back winning days as chips rally and oil prices slide (Oct. 27, 2026)",
               "https://www.cnbc.com/2026/10/26/stock-market-today-live-updates.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 693.02,
+            "date": "2026-10-27",
+            "researchPrice": 693.02,
+            "researchDate": "2026-10-27",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,650M (min $50M), price $693.02"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $673.09"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +1.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+59.2% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.0 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.93% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.93,
+            "sma20": 673.09,
+            "sma50": 649.04,
+            "sma200": 550.04,
+            "rs1m": 1.61,
+            "rs3m": 14.66,
+            "fromHigh52": -1.81,
+            "fromLow52": 59.22,
+            "avgValue20": 1649762209,
+            "extAtr": 0.98
+          }
         },
         {
           "market": "IN",
@@ -361,7 +535,65 @@ window.PICKS = {
               "BusinessToday – Persistent Systems shares: why this stock fell 6% after Q2 results (Oct 16, 2026; background)",
               "https://www.businesstoday.in/markets/stocks/story/persistent-systems-shares-why-this-stock-fell-6-after-q2-results-target-prices-562026-2026-10-16"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 5832.5,
+            "date": "2026-10-27",
+            "researchPrice": 5832.5,
+            "researchDate": "2026-10-27",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹434 cr (min ₹100 cr), price ₹5,832.5"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹5644.27"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +11.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+37.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.0 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.36% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.36,
+            "sma20": 5644.27,
+            "sma50": 5584.75,
+            "sma200": 5330.8,
+            "rs1m": 11.89,
+            "rs3m": 15.9,
+            "fromHigh52": -11.62,
+            "fromLow52": 37.41,
+            "avgValue20": 4335588106,
+            "extAtr": 0.96
+          }
         },
         {
           "market": "IN",

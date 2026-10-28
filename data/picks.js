@@ -247,7 +247,65 @@ window.PICKS = {
               "The Hans India – Sensex, Nifty end flat as pharma, realty stocks shine (Oct 27, 2026)",
               "https://www.thehansindia.com/business/sensex-nifty-end-flat-as-pharma-realty-stocks-shine-1136394"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 9505.5,
+            "date": "2026-10-27",
+            "researchPrice": 9505.5,
+            "researchDate": "2026-10-27",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹540 cr (min ₹100 cr), price ₹9,505.5"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹9270.48"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +2.0 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+68.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.61% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.61,
+            "sma20": 9270.48,
+            "sma50": 9185.0,
+            "sma200": 7266.17,
+            "rs1m": 1.96,
+            "rs3m": 32.48,
+            "fromHigh52": -2.41,
+            "fromLow52": 68.31,
+            "avgValue20": 5404661816,
+            "extAtr": 0.95
+          }
         },
         {
           "market": "IN",
@@ -359,7 +417,65 @@ window.PICKS = {
               "Inc42 – Eternal's Q2 profit surges 92% YoY to ₹125 Cr (Oct 2026)",
               "https://inc42.com/buzz/eternals-q2-profit-surges-92-yoy-to-₹125-cr/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 331.0,
+            "date": "2026-10-27",
+            "researchPrice": 331.0,
+            "researchDate": "2026-10-27",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹891 cr (min ₹100 cr), price ₹331.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹321.59"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +1.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+55.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.11% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.11,
+            "sma20": 321.59,
+            "sma50": 324.27,
+            "sma200": 279.69,
+            "rs1m": 1.62,
+            "rs3m": 16.15,
+            "fromHigh52": -4.47,
+            "fromLow52": 55.69,
+            "avgValue20": 8914991798,
+            "extAtr": 0.91
+          }
         }
       ],
       "marketSources": [

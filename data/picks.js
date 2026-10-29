@@ -77,7 +77,65 @@ window.PICKS = {
               "SEC – HCA Healthcare Form 8-K, Q3 2026 earnings release (Oct 27, 2026)",
               "https://www.sec.gov/Archives/edgar/data/0000860730/000119312526432665/hca-ex99_1.htm"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 463.22,
+            "date": "2026-10-28",
+            "researchPrice": 463.22,
+            "researchDate": "2026-10-28",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $574M (min $50M), price $463.22"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $453.22"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +6.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+30.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.7 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.21% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.21,
+            "sma20": 453.22,
+            "sma50": 434.65,
+            "sma200": 444.42,
+            "rs1m": 6.37,
+            "rs3m": 12.92,
+            "fromHigh52": -16.76,
+            "fromLow52": 30.86,
+            "avgValue20": 574047041,
+            "extAtr": 0.67
+          }
         },
         {
           "market": "IN",

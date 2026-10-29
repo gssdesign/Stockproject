@@ -4,6 +4,152 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-29-daily",
+      "horizon": "daily",
+      "date": "2026-10-29",
+      "horizonDays": 1,
+      "expires": "2026-10-29",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7743.98,
+          "summary": "Risk-on: the S&P 500 closed at 7,743.98 on 2026-10-28 (+0.28%) after the Fed held rates at 3.75–4% in a 10–2 vote, with two members favouring a hike. One standard pick, HCA Healthcare; Microsoft, ServiceNow, Alphabet and Fortinet reported after the close and are left out until their reactions settle, and the list isn't padded. Learned rule in force: US daily target 1.12 ATR."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22698.85,
+          "summary": "Risk-off: the Nifty 50 closed at 22,698.85 on 2026-10-28 (−0.22%), below its 50- and 200-day averages, with IT shares down sharply. One standard pick, Adani Ports, whose Q2 beat and guidance raise came after the close; no other screen stock had fresh news that passed every check, so the list isn't padded."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "HCA",
+          "yahoo": "HCA",
+          "name": "HCA Healthcare",
+          "sector": "Health Care / Hospitals",
+          "currency": "USD",
+          "refPrice": 463.22,
+          "refDate": "2026-10-28",
+          "buyLow": 457.27,
+          "buyHigh": 466.2,
+          "target": 478.48,
+          "stop": 450.57,
+          "risk": "Medium",
+          "thesis": "HCA beat Q3 estimates on 27 Oct and guided to the upper half of its 2026 range; after a choppy results day the stock rose 2.95% on 28 Oct as analysts raised forecasts, a classic post-earnings drift setup.",
+          "reasons": [
+            "Q3 2026 (27 Oct): adjusted EPS $7.22 vs about $6.66 expected; revenue $19.85B (+3.6% YoY) vs $19.33B consensus.",
+            "Management now expects 2026 results in the upper half of its guidance range, and analysts raised their forecasts after the beat (Benzinga, 28 Oct).",
+            "Closed at $463.22 on 28 Oct (+2.95%), 0.7 ATR above its 20-day average ($453.22) and above a rising 50-day average ($434.65); 3-month return +17.0% (12.9 pts ahead of the S&P 500)."
+          ],
+          "data": [
+            [
+              "Close (10/28)",
+              "$463.22"
+            ],
+            [
+              "Q3 adj. EPS",
+              "$7.22 vs ~$6.66 est."
+            ],
+            [
+              "3-month vs index",
+              "+12.9 pts"
+            ],
+            [
+              "ATR",
+              "3.21% of price"
+            ]
+          ],
+          "watch": "Uninsured-patient growth cut Q3 pre-tax income by about $400M and some analysts see softer 2027 earnings; the stock swung both ways on results day. Skip it if it opens outside $457.27–466.20.",
+          "sources": [
+            [
+              "Yahoo Finance – HCA Healthcare reports Q3 adjusted EPS of $7.22, raises expectations within 2026 guidance range (Oct 27, 2026)",
+              "https://finance.yahoo.com/healthcare/articles/hca-healthcare-reports-q3-adjusted-150643418.html"
+            ],
+            [
+              "Benzinga – HCA Healthcare analysts raise their forecasts following better-than-expected Q3 results (Oct 2026)",
+              "https://www.benzinga.com/analyst-stock-ratings/price-target/26/10/62654618/hca-healthcare-analysts-raise-their-forecasts-following-better-than-expected-q3-results"
+            ],
+            [
+              "SEC – HCA Healthcare Form 8-K, Q3 2026 earnings release (Oct 27, 2026)",
+              "https://www.sec.gov/Archives/edgar/data/0000860730/000119312526432665/hca-ex99_1.htm"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "ADANIPORTS",
+          "yahoo": "ADANIPORTS.NS",
+          "name": "Adani Ports and SEZ",
+          "sector": "Services / Ports & logistics",
+          "currency": "INR",
+          "refPrice": 1761.3,
+          "refDate": "2026-10-28",
+          "buyLow": 1742.9,
+          "buyHigh": 1770.5,
+          "target": 1814.15,
+          "stop": 1722.25,
+          "risk": "Medium",
+          "thesis": "Adani Ports reported an 18% jump in Q2 profit and raised its FY27 revenue, EBITDA and capex guidance after the close on 28 Oct; today is the first session to trade the news.",
+          "reasons": [
+            "Q2 FY27 (28 Oct, after market): net profit up about 18% YoY to ₹3,682 crore; EBITDA up 23% to about ₹6,807 crore, ahead of consensus.",
+            "FY27 guidance raised: revenue to ₹44,000–46,000 crore and EBITDA to ₹26,000–27,000 crore (each +₹1,000 crore); international ports EBITDA margin hit a record 47.7%.",
+            "Closed at ₹1,761.30 on 28 Oct (+0.39%) on a weak day for the Nifty, just 0.1 ATR above its 20-day average (₹1,756.51) and above a rising 50-day average (₹1,736.29)."
+          ],
+          "data": [
+            [
+              "Close (10/28)",
+              "₹1,761.30"
+            ],
+            [
+              "Q2 net profit",
+              "₹3,682 cr (+18% YoY)"
+            ],
+            [
+              "FY27 EBITDA guide",
+              "₹26,000–27,000 cr"
+            ],
+            [
+              "ATR",
+              "2.61% of price"
+            ]
+          ],
+          "watch": "Results came after the close, so the stock may gap above the buy zone at the open; don't chase. Adani-group headlines can move it sharply. Skip it if it opens outside ₹1,742.90–1,770.50.",
+          "sources": [
+            [
+              "Business Standard – Adani Ports Q2 profit rises 18% to ₹3,682 crore, raises FY27 guidance (Oct 28, 2026)",
+              "https://www.business-standard.com/companies/quarterly-results/adani-ports-q2-profit-rises-18-to-3-682-crore-raises-fy27-guidance-126102801519_1.html"
+            ],
+            [
+              "Upstox – Adani Ports Q2 result: net profit jumps 17% YoY; firm raises revenue, EBITDA guidance for FY27 (Oct 28, 2026)",
+              "https://upstox.com/news/market-news/earnings/adani-ports-q2-result-net-profit-jumps-17-yo-y-firm-raises-revenue-ebitda-guidance-for-fy-27/article-202540/"
+            ],
+            [
+              "Angel One – Adani Ports share price in focus after Q2 FY27 earnings results (Oct 2026)",
+              "https://www.angelone.in/news/stocks/adani-ports-share-price-in-focus-after-q2-fy27-earnings-results-total-income-up-16-1-yoy"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Motley Fool – Stock market today, Oct. 28: markets edge higher as Fed holds rates steady",
+          "https://www.fool.com/coverage/stock-market-today/2026/10/28/stock-market-today-oct-28-markets-edge-higher-as-fed-holds-rates-steady/"
+        ],
+        [
+          "CNN – Fed keeps interest rates unchanged, but two officials dissented in favor of a rate hike (Oct 28, 2026)",
+          "https://cnn.com/2026/10/28/business/live-news/federal-reserve-interest-rate-october"
+        ],
+        [
+          "Business Standard – Stock Market Close: Sensex slips 353 pts, Nifty ends near 22,700; FMCG, IT, energy shares decline (Oct 28, 2026)",
+          "https://www.business-standard.com/markets/news/stock-market-live-oct-28-nse-bse-sensex-today-nifty-gift-nifty-us-iran-tension-iran-strikes-brent-crude-ipos-jio-listing-jio-share-price-it-stocks-maruti-share-price-q1-result-today-share-market-today-126102800114_1.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-28-daily",
       "horizon": "daily",
       "date": "2026-10-28",

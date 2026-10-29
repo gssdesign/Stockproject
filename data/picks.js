@@ -131,7 +131,65 @@ window.PICKS = {
               "Angel One – Adani Ports share price in focus after Q2 FY27 earnings results (Oct 2026)",
               "https://www.angelone.in/news/stocks/adani-ports-share-price-in-focus-after-q2-fy27-earnings-results-total-income-up-16-1-yoy"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1761.3,
+            "date": "2026-10-28",
+            "researchPrice": 1761.3,
+            "researchDate": "2026-10-28",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹545 cr (min ₹100 cr), price ₹1,761.3"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1756.51"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "1-month return vs index -0.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+36.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.61% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.61,
+            "sma20": 1756.51,
+            "sma50": 1736.29,
+            "sma200": 1650.04,
+            "rs1m": -0.13,
+            "rs3m": 4.43,
+            "fromHigh52": -6.86,
+            "fromLow52": 36.32,
+            "avgValue20": 5445066696,
+            "extAtr": 0.1
+          }
         }
       ],
       "marketSources": [

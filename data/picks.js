@@ -4,6 +4,152 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-10-30-daily",
+      "horizon": "daily",
+      "date": "2026-10-30",
+      "horizonDays": 1,
+      "expires": "2026-10-30",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7720.39,
+          "summary": "Risk-on: the S&P 500 closed at 7,720.39 on 2026-10-29 (−0.30%) as Alphabet fell about 12% on AI-spending worries while Microsoft rose on Azure growth. One standard pick, Mastercard; Amazon and Intel fell after hours on their results and are left out, and HCA (yesterday's pick) hit its target. Learned rule in force: US daily target 1.12 ATR."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22936.75,
+          "summary": "Risk-off: the Nifty 50 closed at 22,936.75 on 2026-10-29 (+1.05%), still below its 50- and 200-day averages, after a broad rally on Q2 earnings and easing crude. One standard pick, Trent, whose Q2 results came after the close; Adani Ports (yesterday's pick, +6.3%) isn't repeated without a new catalyst, and the list isn't padded."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "MA",
+          "yahoo": "MA",
+          "name": "Mastercard",
+          "sector": "Financials / Payments",
+          "currency": "USD",
+          "refPrice": 635.7,
+          "refDate": "2026-10-29",
+          "buyLow": 631.02,
+          "buyHigh": 638.04,
+          "target": 647.7,
+          "stop": 625.75,
+          "risk": "Medium",
+          "thesis": "Mastercard beat Q3 estimates on 29 Oct (adjusted EPS $5.31, revenue +14%) and the stock rose 4.2% on a down day for the S&P 500, a post-earnings drift setup.",
+          "reasons": [
+            "Q3 2026 (29 Oct, before the open): adjusted EPS $5.31 vs about $5.15 expected; net revenue $9.8B (+14%) vs about $9.65B expected; purchase volume +9%.",
+            "The stock closed at $635.70 (+4.16%) on 29 Oct while the S&P 500 fell 0.3% on Alphabet's slide, so it held its post-results gain into the close.",
+            "Low-volatility leader: ATR just 1.84% of price; above a rising 50-day average and 7.8 pts ahead of the S&P 500 over 3 months."
+          ],
+          "data": [
+            [
+              "Close (10/29)",
+              "$635.70 (+4.16%)"
+            ],
+            [
+              "Q3 adj. EPS",
+              "$5.31 vs ~$5.15 est."
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.9 ATR"
+            ],
+            [
+              "ATR",
+              "1.84% of price"
+            ]
+          ],
+          "watch": "After a 4% jump it's 2.9 ATR above its 20-day average, near the limit, so a pause is possible; in Q1 it fell 4% despite a beat. Skip it if it opens outside $631.02–638.04.",
+          "sources": [
+            [
+              "SEC – Mastercard Form 8-K, Q3 2026 earnings release (Oct 29, 2026)",
+              "https://www.sec.gov/Archives/edgar/data/0001141391/000114139126000122/ma09302026-exx991xearnings.htm"
+            ],
+            [
+              "RTTNews – Mastercard Incorporated Q3 profit increases, beats estimates (Oct 29, 2026)",
+              "https://www.rttnews.com/3588422/mastercard-incorporated-q3-profit-increases-beats-estimates.aspx"
+            ],
+            [
+              "TheStreet – Stock market today (Oct. 29, 2026): S&P 500 falls after Alphabet and Microsoft issue divergent earnings",
+              "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-29-2026"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "TRENT",
+          "yahoo": "TRENT.NS",
+          "name": "Trent (Westside, Zudio)",
+          "sector": "Consumer Services / Retail",
+          "currency": "INR",
+          "refPrice": 2861.7,
+          "refDate": "2026-10-29",
+          "buyLow": 2829.55,
+          "buyHigh": 2877.8,
+          "target": 2954.2,
+          "stop": 2793.35,
+          "risk": "Medium",
+          "thesis": "Trent reported a 23% rise in Q2 profit to ₹464 crore with a 137 bp better operating margin after the close on 29 Oct; today is the first session to trade the results.",
+          "reasons": [
+            "Q2 FY27 (29 Oct, after market): consolidated net profit up 23% YoY to ₹464 crore (₹377 crore a year ago); operating margin up 137 basis points.",
+            "Standalone revenue grew 23% to ₹5,788 crore (faster than Q1's 18.5%), and Zudio passed 1,000 stores (company update, 5 Oct).",
+            "Closed at ₹2,861.70 on 29 Oct (−1.79%, pre-results), only 0.3 ATR above its 20-day average (₹2,835.99); 1-month return 8.3 pts ahead of the Nifty 50."
+          ],
+          "data": [
+            [
+              "Close (10/29)",
+              "₹2,861.70"
+            ],
+            [
+              "Q2 net profit",
+              "₹464 cr (+23% YoY)"
+            ],
+            [
+              "1-month vs index",
+              "+8.3 pts"
+            ],
+            [
+              "ATR",
+              "2.81% of price"
+            ]
+          ],
+          "watch": "Results came after the close, so the stock may gap outside the buy zone; it's still 41% below its 52-week high, and some brokerages stay cautious on valuation. Skip it if it opens outside ₹2,829.55–2,877.80.",
+          "sources": [
+            [
+              "Upstox – Trent Q2 results: net profit rises 23% YoY to ₹464 crore; operating margin improves by 137 basis points (Oct 29, 2026)",
+              "https://upstox.com/news/market-news/earnings/trent-q2-results-net-profit-rises-23-yo-y-to-464-crore-operating-margin-improves-by-137-basis-points/article-202651/"
+            ],
+            [
+              "Business Standard – Stock Market Close: Sensex ends 905 pts higher, Nifty 50 at 22,936; Realty top sectoral gainer (Oct 29, 2026)",
+              "https://www.business-standard.com/markets/news/stock-market-live-oct-29-nse-bse-sensex-today-nifty-gift-nifty-jpl-share-price-ipo-today-126102900090_1.html"
+            ],
+            [
+              "Angel One – Trent share price gains over 11% as Q2 FY27 revenue jumps 23% to ₹5,788 crore (Oct 2026; background)",
+              "https://www.angelone.in/news/stocks/trent-share-price-gains-over-11-as-q2-fy27-revenue-jumps-23-to-5-788-crore"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "TheStreet – Stock market today (Oct. 29, 2026): S&P 500 falls after Alphabet and Microsoft issue divergent earnings",
+          "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-29-2026"
+        ],
+        [
+          "Yahoo Finance – Stock market today: Dow, S&P 500, Nasdaq slip as Alphabet stock sinks 12% and AI jitters return (Oct 29, 2026)",
+          "https://finance.yahoo.com/markets/live/stock-market-today-thursday-october-29-dow-sp-500-nasdaq-alphabet-microsoft-earnings-130305714.html"
+        ],
+        [
+          "Business Standard – Stock Market Close: Sensex ends 905 pts higher, Nifty 50 at 22,936; Realty top sectoral gainer (Oct 29, 2026)",
+          "https://www.business-standard.com/markets/news/stock-market-live-oct-29-nse-bse-sensex-today-nifty-gift-nifty-jpl-share-price-ipo-today-126102900090_1.html"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-29-daily",
       "horizon": "daily",
       "date": "2026-10-29",

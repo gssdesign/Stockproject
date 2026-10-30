@@ -77,7 +77,65 @@ window.PICKS = {
               "TheStreet – Stock market today (Oct. 29, 2026): S&P 500 falls after Alphabet and Microsoft issue divergent earnings",
               "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-29-2026"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 635.7,
+            "date": "2026-10-29",
+            "researchPrice": 635.7,
+            "researchDate": "2026-10-29",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,876M (min $50M), price $635.7"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $601.99"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +14.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+36.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.84% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.84,
+            "sma20": 601.99,
+            "sma50": 585.45,
+            "sma200": 535.28,
+            "rs1m": 14.37,
+            "rs3m": 7.84,
+            "fromHigh52": -0.91,
+            "fromLow52": 36.85,
+            "avgValue20": 1876023134,
+            "extAtr": 2.88
+          }
         },
         {
           "market": "IN",
@@ -131,7 +189,65 @@ window.PICKS = {
               "Angel One – Trent share price gains over 11% as Q2 FY27 revenue jumps 23% to ₹5,788 crore (Oct 2026; background)",
               "https://www.angelone.in/news/stocks/trent-share-price-gains-over-11-as-q2-fy27-revenue-jumps-23-to-5-788-crore"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 2861.7,
+            "date": "2026-10-29",
+            "researchPrice": 2861.7,
+            "researchDate": "2026-10-29",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹327 cr (min ₹100 cr), price ₹2,861.7"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹2835.99"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +8.3 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+31.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.81% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.81,
+            "sma20": 2835.99,
+            "sma50": 2828.98,
+            "sma200": 2781.35,
+            "rs1m": 8.29,
+            "rs3m": 0.64,
+            "fromHigh52": -41.2,
+            "fromLow52": 31.05,
+            "avgValue20": 3270261145,
+            "extAtr": 0.32
+          }
         }
       ],
       "marketSources": [

@@ -5,6 +5,30 @@ window.ARCHIVE_INDEX = {
       "month": "2026-10",
       "batches": [
         {
+          "id": "2026-10-05-daily",
+          "horizon": "daily",
+          "date": "2026-10-05",
+          "expires": "2026-10-05",
+          "markets": {
+            "US": {
+              "n": 3,
+              "priced": 3,
+              "finished": 3,
+              "hits": 1,
+              "sumExpected": 8.9207,
+              "sumCloseRet": 6.1537
+            },
+            "IN": {
+              "n": 3,
+              "priced": 3,
+              "finished": 3,
+              "hits": 0,
+              "sumExpected": 8.7796,
+              "sumCloseRet": -0.9653
+            }
+          }
+        },
+        {
           "id": "2026-10-02-daily",
           "horizon": "daily",
           "date": "2026-10-02",

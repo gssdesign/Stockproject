@@ -4,6 +4,728 @@ window.ARCHIVE = window.ARCHIVE || {};
 window.ARCHIVE["2026-10"] = {
   "batches": [
     {
+      "id": "2026-10-05-daily",
+      "horizon": "daily",
+      "date": "2026-10-05",
+      "horizonDays": 1,
+      "expires": "2026-10-05",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7722.72,
+          "summary": "Risk-on: the S&P 500 closed at 7,722.72 on 2026-10-02 (+0.73%) after a weak September jobs report (29,000 jobs) pulled Treasury yields lower. Plan B list: none of the stocks passing the daily screen had a fresh, dated catalyst for today (AMD and Meta were Friday's picks with no new news, and Target is this week's weekly pick), so today's three US ideas come from the looser Plan B rule (CRITERIA.md section 9, minimum 3 picks): strong 3-month leaders in three different sectors pulling back to their 20-day averages. All price and risk checks still apply; treat it as lower-conviction. ISM services data at 10 AM ET is the main event today."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22421.95,
+          "summary": "Risk-off: the Nifty 50 closed at 22,421.95 on 2026-10-01 after eight straight weekly falls, below its 50-day (23,870) and 200-day (24,356) averages. Plan B list: no stock on the daily screen had a fresh, verifiable catalyst, so three Plan B ideas (the minimum, and the maximum in a risk-off market) were added mid-session (12:30–2:30 PM IST): leaders pulling back to their 20-day averages and one stock with a 4-day-old catalyst. Because it was published mid-session, only buy if the live price is inside the buy zone. The RBI policy decision is due Wed 7 Oct (a 25 bp hike is widely expected). This week's weekly list has APL Apollo Tubes."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "TMO",
+          "yahoo": "TMO",
+          "name": "Thermo Fisher Scientific",
+          "sector": "Health Care / Life Science Tools",
+          "currency": "USD",
+          "refPrice": 654.8,
+          "refDate": "2026-10-02",
+          "buyLow": 648.58,
+          "buyHigh": 657.91,
+          "target": 672.7,
+          "stop": 641.57,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): a strong 3-month leader that has pulled back to just above its 20-day average after a 3.3% drop on 1 Oct, with no earnings until 21 Oct.",
+          "reasons": [
+            "It's a leader: up 26.5% in 3 months, beating the S&P 500 by 24.1 pts, with the 50-day average ($617) rising and the stock 4.2% below its 52-week high ($683.63).",
+            "The pullback is orderly: after falling 3.3% on 1 Oct as yields rose, it closed at $654.80 on 2 Oct (+0.35%), only 0.55 ATR above its 20-day average ($646.26), where leaders often find support.",
+            "Fundamentals back it up: Q2 2026 organic growth returned to 5% (the best since 2021), adjusted EPS rose 13% and the 2026 outlook was raised. Q3 results come on 21 Oct, outside today's window."
+          ],
+          "data": [
+            [
+              "Close (10/02)",
+              "$654.80"
+            ],
+            [
+              "3-month vs index",
+              "+24.1 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.55 ATR"
+            ],
+            [
+              "ATR",
+              "2.38% of price"
+            ]
+          ],
+          "watch": "There's no fresh news behind this pick, so it relies on the uptrend holding. A rise in Treasury yields (e.g. after a hot ISM services print) hit it on 1 Oct and could again. Skip it if it opens outside $648.58–657.91, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Yahoo Finance – Thermo Fisher Scientific to hold earnings conference call on Wednesday, October 21, 2026",
+              "https://finance.yahoo.com/markets/stocks/articles/thermo-fisher-scientific-hold-earnings-120000258.html"
+            ],
+            [
+              "Yahoo Finance – Stock market today, Oct 2: stocks rally as Fed rate-hike expectations fade",
+              "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-2-dow-sp-500-nasdaq-september-jobs-report-080623878.html"
+            ],
+            [
+              "WTOP/AP – Wall Street week ahead: Fed minutes, unemployment data, consumer sentiment",
+              "https://wtop.com/national/2026/10/wall-street-week-ahead-fed-minutes-unemployment-data-consumer-sentiment-update"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 654.8,
+            "date": "2026-10-02",
+            "researchPrice": 654.8,
+            "researchDate": "2026-10-02",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $1,499M (min $50M), price $654.8"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $646.26"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +6.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+50.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.38% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.38,
+            "sma20": 646.26,
+            "sma50": 617.45,
+            "sma200": 542.61,
+            "rs1m": 6.87,
+            "rs3m": 24.05,
+            "fromHigh52": -4.22,
+            "fromLow52": 50.44,
+            "avgValue20": 1499415425,
+            "extAtr": 0.55
+          }
+        },
+        {
+          "market": "US",
+          "symbol": "EXPD",
+          "yahoo": "EXPD",
+          "name": "Expeditors International",
+          "sector": "Industrials / Logistics",
+          "currency": "USD",
+          "refPrice": 192.47,
+          "refDate": "2026-10-02",
+          "buyLow": 190.87,
+          "buyHigh": 193.27,
+          "target": 197.06,
+          "stop": 189.08,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): a low-volatility logistics leader within 1.1% of its 52-week high, sitting just above its 20-day average, with no earnings until 3 Nov.",
+          "reasons": [
+            "It's a steady leader: up 16.2% in 3 months, beating the S&P 500 by 13.7 pts, with the 50-day average ($184.88) rising and the stock 1.1% below its 52-week high ($194.59).",
+            "Entry is close to support: $192.47 (2 Oct close) is 0.84 ATR above the 20-day average ($189.10), and with an ATR of only 2.07% it has the tightest stop on the list (−1.8%).",
+            "Fundamentals back it up: Q2 2026 EPS rose 51% to $2.03 on revenue up 32% to $3.50B (reported 4 Aug), a technology restructuring should cut about $50M a year of costs, and Q3 results aren't due until 3 Nov."
+          ],
+          "data": [
+            [
+              "Close (10/02)",
+              "$192.47"
+            ],
+            [
+              "3-month vs index",
+              "+13.7 pts"
+            ],
+            [
+              "Q2 2026 EPS",
+              "$2.03 (+51% YoY)"
+            ],
+            [
+              "ATR",
+              "2.07% of price"
+            ]
+          ],
+          "watch": "There's no fresh news behind this pick, and several valuation models call the stock expensive after its run. Trade or tariff headlines can move freight names quickly. Skip it if it opens outside $190.87–193.27, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Yahoo Finance – Expeditors reports second quarter 2026 EPS of $2.03",
+              "https://finance.yahoo.com/markets/stocks/articles/expeditors-reports-second-quarter-2026-123000310.html"
+            ],
+            [
+              "SEC EDGAR – Expeditors Form 8-K, Q2 2026 results (Exhibit 99.1)",
+              "https://www.sec.gov/Archives/edgar/data/0000746515/000119312526332198/expd-ex99_1.htm"
+            ],
+            [
+              "Yahoo Finance – Stock market today, Oct 2: stocks rally as Fed rate-hike expectations fade",
+              "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-2-dow-sp-500-nasdaq-september-jobs-report-080623878.html"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 192.47,
+            "date": "2026-10-02",
+            "researchPrice": 192.47,
+            "researchDate": "2026-10-02",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $203M (min $50M), price $192.47"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $189.1"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +2.7 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+70.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.07% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.07,
+            "sma20": 189.1,
+            "sma50": 184.88,
+            "sma200": 162.72,
+            "rs1m": 2.66,
+            "rs3m": 13.7,
+            "fromHigh52": -1.09,
+            "fromLow52": 70.4,
+            "avgValue20": 203316898,
+            "extAtr": 0.84
+          }
+        },
+        {
+          "market": "US",
+          "symbol": "PSX",
+          "yahoo": "PSX",
+          "name": "Phillips 66",
+          "sector": "Energy / Refining",
+          "currency": "USD",
+          "refPrice": 264.58,
+          "refDate": "2026-10-02",
+          "buyLow": 261.08,
+          "buyHigh": 266.33,
+          "target": 274.64,
+          "stop": 257.15,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): a refining leader (up 49% in 3 months) consolidating 0.5 ATR above its 20-day average while refining margins stay elevated.",
+          "reasons": [
+            "It's one of the strongest large caps: up 49.2% in 3 months, beating the S&P 500 by 46.7 pts, with the 50-day average ($240.64) rising and the stock 4.5% below its 52-week high ($277.12).",
+            "It's a calm consolidation, not a spike: $264.58 on 2 Oct (+0.13%) is just 0.5 ATR above its 20-day average ($260.18), while peers Marathon and Valero jumped 5–6% on 1 Oct on refining margins.",
+            "Refining margins are the driver: Phillips 66's realized refining margin more than doubled to $24.08/bbl in Q2 2026 (from $10.11), and Q3 results aren't due until late October."
+          ],
+          "data": [
+            [
+              "Close (10/02)",
+              "$264.58"
+            ],
+            [
+              "3-month vs index",
+              "+46.7 pts"
+            ],
+            [
+              "Q2 refining margin",
+              "$24.08/bbl (vs $10.11 in Q1)"
+            ],
+            [
+              "ATR",
+              "3.31% of price"
+            ]
+          ],
+          "watch": "Refiners are crowded after a huge run, and any sign of easing fuel tightness or a crude spike could hit margins fast. It was in last week's weekly list. Skip it if it opens outside $261.08–266.33, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Yahoo Finance – Phillips 66 profit jumps as refining margins more than double",
+              "https://finance.yahoo.com/energy/articles/phillips-66-profit-jumps-refining-021800484.html"
+            ],
+            [
+              "Yahoo Finance – Marathon Petroleum (MPC) and Valero Energy (VLO) have exploded in 2026. But Barron's sees more upside",
+              "https://finance.yahoo.com/energy/articles/marathon-petroleum-mpc-valero-energy-020319205.html"
+            ],
+            [
+              "Phillips 66 – Second-quarter 2026 results news release",
+              "https://investor.phillips66.com/financial-information/news-releases/news-release-details/2026/Phillips-66-Delivers-Strong-Second-Quarter-Results-and-Operating-Performance/default.aspx"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 264.58,
+            "date": "2026-10-02",
+            "researchPrice": 264.58,
+            "researchDate": "2026-10-02",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $866M (min $50M), price $264.58"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $260.18"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +2.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+108.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.31% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.31,
+            "sma20": 260.18,
+            "sma50": 240.64,
+            "sma200": 184.02,
+            "rs1m": 2.59,
+            "rs3m": 46.74,
+            "fromHigh52": -4.53,
+            "fromLow52": 108.76,
+            "avgValue20": 865774845,
+            "extAtr": 0.5
+          }
+        },
+        {
+          "market": "IN",
+          "symbol": "LAURUSLABS",
+          "yahoo": "LAURUSLABS.NS",
+          "name": "Laurus Labs",
+          "sector": "Healthcare / Pharmaceuticals",
+          "currency": "INR",
+          "refPrice": 1984.0,
+          "refDate": "2026-10-01",
+          "buyLow": 1965.25,
+          "buyHigh": 1993.4,
+          "target": 2037.95,
+          "stop": 1944.1,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): one of the strongest Nifty-200 leaders, in pharma, a defensive sector, sitting just above its 20-day average while the broad market falls.",
+          "reasons": [
+            "It's a strong leader in a falling market: up 29.7% in 3 months, beating the Nifty by 37.4 pts over 3 months and 13.2 pts over 1 month, 3.5% below its 52-week high (₹2,055.30).",
+            "Entry is close to support: ₹1,984.00 (1 Oct close) is only 0.44 ATR above the 20-day average (₹1,963.15), and the 50-day average (₹1,881) is rising.",
+            "Pharma is the market's defensive refuge this year (export earnings gain from a weak rupee), and Laurus' Q1 FY27 net profit more than doubled (+125% YoY to ₹367.6 cr). Q2 results are due later in October, outside today's window."
+          ],
+          "data": [
+            [
+              "Close (10/01)",
+              "₹1,984.0"
+            ],
+            [
+              "3-month vs index",
+              "+37.4 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.44 ATR"
+            ],
+            [
+              "ATR",
+              "2.36% of price"
+            ]
+          ],
+          "watch": "There's no fresh news behind this pick, and the market is risk-off (8 straight weekly falls, RBI decision on 7 Oct). It was published mid-session (~12:30 PM IST), so check the live price first. Skip it if it's outside ₹1,965.25–1,993.40, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "BusinessToday – Laurus Labs Ltd share price and news (Oct 2026)",
+              "https://www.businesstoday.in/stocks/laurus-labs-ltd-lauruslabs-share-price-364161"
+            ],
+            [
+              "Business Standard – Patent wins vs tariff risks: analysts pick top pharma stocks",
+              "https://www.business-standard.com/markets/news/india-pharma-stocks-outlook-2026-domestic-focus-us-trump-tariffs-iran-war-stocks-dr-reddy-sun-pharma-torrent-pharma-divis-labs-cipla-126040300420_1.html"
+            ],
+            [
+              "IANS – Market outlook: RBI policy stance, Q2 earnings key triggers next week (Oct 4, 2026)",
+              "https://ianslive.in/market-outlook-rbi-policy-stance-q2-earnings-key-triggers-next-week--20261004110048"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1984.0,
+            "date": "2026-10-01",
+            "researchPrice": 1984.0,
+            "researchDate": "2026-10-01",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹317 cr (min ₹100 cr), price ₹1,984.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1963.15"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +13.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+135.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.36% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.36,
+            "sma20": 1963.15,
+            "sma50": 1881.41,
+            "sma200": 1363.19,
+            "rs1m": 13.23,
+            "rs3m": 37.36,
+            "fromHigh52": -3.47,
+            "fromLow52": 135.35,
+            "avgValue20": 3170239118,
+            "extAtr": 0.44
+          }
+        },
+        {
+          "market": "IN",
+          "symbol": "KOTAKBANK",
+          "yahoo": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "sector": "Financial Services / Banks",
+          "currency": "INR",
+          "refPrice": 418.35,
+          "refDate": "2026-10-01",
+          "buyLow": 414.85,
+          "buyHigh": 420.1,
+          "target": 428.45,
+          "stop": 410.85,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "older-catalyst",
+          "thesis": "Plan B (catalyst 4 days old): the RBI-approved appointment of a new MD & CEO on 1 Oct briefly lifted the stock 4%, and it has since held just above its 20-day average.",
+          "reasons": [
+            "On 1 Oct the RBI approved Anup Kumar Saha as Kotak's MD & CEO for three years from 1 Jan 2027. The shares jumped as much as 4% to ₹435.50 intraday, a 3-year high, on 2.98 crore shares traded, before closing at ₹418.35 (+0.3%).",
+            "It's beating a falling Nifty by 17.3 pts over 3 months and 5.6 pts over 1 month, sitting 0.49 ATR above its 20-day average (₹414.04) with a rising 50-day average (₹405.47).",
+            "Analysts are positive: the average of 36 targets is about ₹487, and Prabhudas Lilladher kept a Buy with a ₹500 target."
+          ],
+          "data": [
+            [
+              "Close (10/01)",
+              "₹418.35"
+            ],
+            [
+              "3-month vs index",
+              "+17.3 pts"
+            ],
+            [
+              "New MD & CEO",
+              "RBI-approved 1 Oct (from Jan 2027)"
+            ],
+            [
+              "ATR",
+              "2.10% of price"
+            ]
+          ],
+          "watch": "Banks react to the RBI decision on Wed 7 Oct (a 25 bp hike is expected), and the market is risk-off. It was published mid-session (~2:30 PM IST), so check the live price first. Skip it if it's outside ₹414.85–420.10, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Moneycontrol via TradingView – Kotak Mahindra Bank shares jump 4%, hit over 3-year high on key leadership changes",
+              "https://tr.tradingview.com/news/moneycontrol:d1b13de3e094b:0-kotak-mahindra-bank-shares-jump-4-hit-over-3-year-high-on-key-leadership-changes"
+            ],
+            [
+              "TradingView News – Kotak Mahindra Bank shares climb 4% after naming new MD, CEO",
+              "https://www.tradingview.com/news/moodys:8539392f07021:0-kotak-mahindra-bank-shares-climb-4-after-naming-new-md-ceo/"
+            ],
+            [
+              "IANS – Market outlook: RBI policy stance, Q2 earnings key triggers next week (Oct 4, 2026)",
+              "https://ianslive.in/market-outlook-rbi-policy-stance-q2-earnings-key-triggers-next-week--20261004110048"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 418.35,
+            "date": "2026-10-01",
+            "researchPrice": 418.35,
+            "researchDate": "2026-10-01",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹670 cr (min ₹100 cr), price ₹418.35"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹414.04"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +5.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+21.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.1% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.1,
+            "sma20": 414.04,
+            "sma50": 405.47,
+            "sma200": 399.3,
+            "rs1m": 5.57,
+            "rs3m": 17.34,
+            "fromHigh52": -7.69,
+            "fromLow52": 21.09,
+            "avgValue20": 6698835035,
+            "extAtr": 0.49
+          }
+        },
+        {
+          "market": "IN",
+          "symbol": "LENSKART",
+          "yahoo": "LENSKART.NS",
+          "name": "Lenskart Solutions",
+          "sector": "Consumer Services / Retail",
+          "currency": "INR",
+          "refPrice": 691.15,
+          "refDate": "2026-10-01",
+          "buyLow": 682.4,
+          "buyHigh": 695.55,
+          "target": 716.35,
+          "stop": 672.5,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): one of the Nifty-200's strongest 3-month leaders, holding just above its 20-day average and the ₹682 block-deal price while the market falls.",
+          "reasons": [
+            "It's a strong leader: up 28.9% in 3 months, beating the Nifty by 36.5 pts over 3 months and 10.1 pts over 1 month, 4.7% below its 52-week high (₹725).",
+            "Entry is close to support: ₹691.15 (1 Oct close) is only 0.3 ATR above its 20-day average (₹684.60), and a ₹2,047 cr block deal last month cleared at ₹682.45, just below today's buy zone.",
+            "The trend is intact: the 50-day average (₹639.43) is rising, and the next result (Q2) is after today's session."
+          ],
+          "data": [
+            [
+              "Close (10/01)",
+              "₹691.15"
+            ],
+            [
+              "3-month vs index",
+              "+36.5 pts"
+            ],
+            [
+              "Block-deal price",
+              "₹682.45 (Sep)"
+            ],
+            [
+              "ATR",
+              "3.17% of price"
+            ]
+          ],
+          "watch": "There's no fresh news, more stake sales by early investors could add supply, and the market is risk-off. It was published mid-session (~2:30 PM IST), so check the live price first. Skip it if it's outside ₹682.40–695.55, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Business Standard – Block deal alert: Lenskart Solutions slips 3% amid heavy volume on NSE",
+              "https://www.business-standard.com/amp/markets/news/block-deal-alert-lenskart-solutions-slips-3-amid-heavy-volume-on-nse-126092100132_1.html"
+            ],
+            [
+              "Value Research – Lenskart Solutions Ltd share price and data",
+              "https://www.valueresearchonline.com/stocks/371529/lenskart-solutions-ltd/"
+            ],
+            [
+              "IANS – Market outlook: RBI policy stance, Q2 earnings key triggers next week (Oct 4, 2026)",
+              "https://ianslive.in/market-outlook-rbi-policy-stance-q2-earnings-key-triggers-next-week--20261004110048"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 691.15,
+            "date": "2026-10-01",
+            "researchPrice": 691.15,
+            "researchDate": "2026-10-01",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹562 cr (min ₹100 cr), price ₹691.15"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹684.6"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +10.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+94.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.17% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.17,
+            "sma20": 684.6,
+            "sma50": 639.43,
+            "sma200": 532.32,
+            "rs1m": 10.12,
+            "rs3m": 36.53,
+            "fromHigh52": -4.67,
+            "fromLow52": 94.09,
+            "avgValue20": 5620701922,
+            "extAtr": 0.3
+          }
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Stock market today, Oct 2: stocks rally as Fed rate-hike expectations fade",
+          "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-2-dow-sp-500-nasdaq-september-jobs-report-080623878.html"
+        ],
+        [
+          "IANS – Market outlook: RBI policy stance, Q2 earnings key triggers next week (Oct 4, 2026)",
+          "https://ianslive.in/market-outlook-rbi-policy-stance-q2-earnings-key-triggers-next-week--20261004110048"
+        ],
+        [
+          "WTOP/AP – Wall Street week ahead: Fed minutes, unemployment data, consumer sentiment",
+          "https://wtop.com/national/2026/10/wall-street-week-ahead-fed-minutes-unemployment-data-consumer-sentiment-update"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-02-daily",
       "horizon": "daily",
       "date": "2026-10-02",
@@ -2274,6 +2996,106 @@ window.ARCHIVE["2026-10"] = {
       "^GSPC": {
         "markPrice": 7722.72,
         "returnPct": 0.73
+      }
+    },
+    "2026-10-05-daily": {
+      "TMO": {
+        "status": "Target hit",
+        "exitPrice": 672.7,
+        "exitDate": "2026-10-05",
+        "maxHigh": 676.760009765625,
+        "minLow": 648.0399780273438,
+        "markPrice": 672.7,
+        "returnPct": 2.73,
+        "periodClose": 676.76,
+        "periodCloseDate": "2026-10-05",
+        "periodFinal": true,
+        "closeReturnPct": 3.35,
+        "targetHit": true,
+        "stopHit": false
+      },
+      "EXPD": {
+        "status": "Expired",
+        "exitPrice": 194.1199951171875,
+        "exitDate": "2026-10-05",
+        "maxHigh": 195.32000732421875,
+        "minLow": 190.22000122070312,
+        "markPrice": 194.12,
+        "returnPct": 0.86,
+        "periodClose": 194.12,
+        "periodCloseDate": "2026-10-05",
+        "periodFinal": true,
+        "closeReturnPct": 0.86,
+        "targetHit": false,
+        "stopHit": false
+      },
+      "PSX": {
+        "status": "Expired",
+        "exitPrice": 269.7200012207031,
+        "exitDate": "2026-10-05",
+        "maxHigh": 271.489990234375,
+        "minLow": 262.0299987792969,
+        "markPrice": 269.72,
+        "returnPct": 1.94,
+        "periodClose": 269.72,
+        "periodCloseDate": "2026-10-05",
+        "periodFinal": true,
+        "closeReturnPct": 1.94,
+        "targetHit": false,
+        "stopHit": false
+      },
+      "LAURUSLABS.NS": {
+        "status": "Expired",
+        "exitPrice": 1971.4000244140625,
+        "exitDate": "2026-10-05",
+        "maxHigh": 2002.0,
+        "minLow": 1955.0999755859375,
+        "markPrice": 1971.4,
+        "returnPct": -0.64,
+        "periodClose": 1971.4,
+        "periodCloseDate": "2026-10-05",
+        "periodFinal": true,
+        "closeReturnPct": -0.64,
+        "targetHit": false,
+        "stopHit": false
+      },
+      "KOTAKBANK.NS": {
+        "status": "Expired",
+        "exitPrice": 416.0,
+        "exitDate": "2026-10-05",
+        "maxHigh": 424.45001220703125,
+        "minLow": 413.75,
+        "markPrice": 416.0,
+        "returnPct": -0.56,
+        "periodClose": 416.0,
+        "periodCloseDate": "2026-10-05",
+        "periodFinal": true,
+        "closeReturnPct": -0.56,
+        "targetHit": false,
+        "stopHit": false
+      },
+      "LENSKART.NS": {
+        "status": "Expired",
+        "exitPrice": 692.75,
+        "exitDate": "2026-10-05",
+        "maxHigh": 697.9500122070312,
+        "minLow": 676.2999877929688,
+        "markPrice": 692.75,
+        "returnPct": 0.23,
+        "periodClose": 692.75,
+        "periodCloseDate": "2026-10-05",
+        "periodFinal": true,
+        "closeReturnPct": 0.23,
+        "targetHit": false,
+        "stopHit": false
+      },
+      "^GSPC": {
+        "markPrice": 7773.95,
+        "returnPct": 0.66
+      },
+      "^NSEI": {
+        "markPrice": 22555.75,
+        "returnPct": 0.6
       }
     }
   }

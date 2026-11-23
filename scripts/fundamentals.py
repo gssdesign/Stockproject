@@ -69,7 +69,7 @@ STYLES = {
         "min_profit_growth": 0.15,
         "min_promoter": 0.40,                     # skin in the game (insider/promoter holding)
         "max_pe": {"IN": 60.0}, "max_peg": 2.0,   # balance valuation and growth
-        "growth_cap": 0.20,                       # fair value: DCF with growth up to 20%/yr
+        "fair_peg": 1.5,                          # fair value = price at PEG 1.5 (pays up for growth)
         "mos": 0.0,                               # buy-below = fair value
     },
 }
@@ -174,7 +174,6 @@ def fetch(t: str) -> dict | None:
     fcf_ttm = owner
     fcf_ps = owner / shares if owner and shares else None
     fv = fair_value(fcf_ps, rev_cagr, mk)
-    fv_growth = fair_value(fcf_ps, rev_cagr, mk, STYLES["kedia"]["growth_cap"]) if mk == "IN" else None
     pe_t, eps = num(info.get("trailingPE")), num(info.get("trailingEps"))
     peg = pe_t / (ni_cagr * 100) if pe_t and pe_t > 0 and ni_cagr and ni_cagr > 0 else None
     # Price at PEG 1 (Motilal Oswal's buy rule): EPS x earnings growth in %, growth capped at 30%.
@@ -201,7 +200,6 @@ def fetch(t: str) -> dict | None:
         "minRoe": min(roes[:4]) if roes else None,
         "fcfSum": sum(fcf[:4]) if fcf else None,
         "promoterHolding": num(info.get("heldPercentInsiders")),
-        "fairValueGrowth": round(fv_growth, 2) if fv_growth else None,
         "pegOnePrice": round(peg1, 2) if peg1 else None,
         "dividendYield": num(info.get("dividendYield")),
         "fairValue": round(fv, 2) if fv else None,
@@ -246,14 +244,20 @@ def passes(f: dict, style: str, mk: str) -> list[str]:
         pe = f.get("pe")
         need(pe is not None and 0 < pe <= s["max_pe"][mk] and f.get("peg") is not None and f["peg"] <= s["max_peg"],
              "valuation vs growth")
-        need(f.get("fairValueGrowth"), "fair value")
+        need(f.get("pegOnePrice"), "fair value")
     return fails
 
 
 def fair_and_buy(f: dict, style: str) -> tuple[float | None, float | None]:
     """Fair value and buy-below price for a style (STYLES.md)."""
     s = STYLES[style]
-    fv = {"agrawal": f.get("pegOnePrice"), "kedia": f.get("fairValueGrowth")}.get(style, f.get("fairValue"))
+    p1 = f.get("pegOnePrice")
+    if style == "agrawal":
+        fv = p1
+    elif style == "kedia":
+        fv = round(p1 * s["fair_peg"], 2) if p1 else None
+    else:
+        fv = f.get("fairValue")
     return fv, (round(fv * (1 - s["mos"]), 2) if fv else None)
 
 

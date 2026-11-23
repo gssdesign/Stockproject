@@ -130,7 +130,7 @@ daily in `data/market.js` as `styleOnly` stocks that are never used for trading 
 | Growth | Net profit growth ≥ 15%/yr, revenue ≥ 10%/yr | Revenue growth ≥ 15%/yr and profit growth ≥ 15%/yr |
 | Other | Profitable every year; positive free cash flow in total over the years | Profitable every year |
 | Price | PEG ≤ 1.5 to qualify | P/E ≤ 60 and PEG ≤ 2 |
-| Fair value | **Price at PEG 1** = EPS × profit growth % (growth capped at 30) | 10-year DCF as §3, growth capped at **20%** (not 12%) |
+| Fair value | **Price at PEG 1** = EPS × profit growth % (growth capped at 30) | **Price at PEG 1.5** = 1.5 × EPS × profit growth % (cap 30). A cash-flow DCF undervalues small companies reinvesting for growth, so it isn't used here |
 | Buy-below | = fair value (PEG ≤ 1) | = fair value |
 | Ranked by | Lowest PEG first, then RoE | Fastest revenue growth first |
 | List size | Up to 5 | Up to 5 |

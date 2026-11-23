@@ -223,6 +223,32 @@ def checks(m: dict, horizon: str, market: str, pick: dict | None = None) -> list
 
 
 # ---------------------------------------------------------------------------
+# Chart-only picks (CRITERIA.md section 10): the last-resort daily list, ranked
+# purely from price data so the choice is mechanical, not hand-picked.
+#   score = 3-month RS + 1-month RS - 6 x (ATRs above the 20-day avg beyond 1)
+# Momentum ranks the leaders (Jegadeesh & Titman, 1993); the penalty avoids
+# buying stocks already stretched far above their 20-day average for a 1-day
+# trade (short-term reversal, Jegadeesh, 1990).
+# ---------------------------------------------------------------------------
+CHART_EXT_PENALTY = 6.0
+CHART_COUNT = 3
+
+
+def chart_score(m: dict) -> float:
+    ext = m.get("extAtr") or 0.0
+    return round((m.get("rs3m") or 0.0) + (m.get("rs1m") or 0.0) - CHART_EXT_PENALTY * max(0.0, ext - 1.0), 2)
+
+
+def chart_ranking(market: dict, mk: str) -> list[str]:
+    """Daily-screen stocks (every daily hard check passed) in a 3-month uptrend
+    vs the index with a rising 50-day average, best chart score first."""
+    stocks = market.get("stocks", {})
+    pool = [t for t in market.get("screen", {}).get(mk, {}).get("daily", [])
+            if t in stocks and (stocks[t].get("rs3m") or 0) > 0 and stocks[t].get("sma50Rising")]
+    return sorted(pool, key=lambda t: (-chart_score(stocks[t]), t))
+
+
+# ---------------------------------------------------------------------------
 # data/*.js helpers
 # ---------------------------------------------------------------------------
 def read_assigned(path: pathlib.Path, marker: str) -> dict:

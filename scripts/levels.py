@@ -7,6 +7,7 @@ so it works offline. Use it for EVERY number that goes into a pick.
   python3 scripts/levels.py weekly MU TCS.NS        # levels + checks for tickers
   python3 scripts/levels.py monthly --screen IN     # stocks passing every check
   python3 scripts/levels.py daily MU --json         # machine-readable
+  python3 scripts/levels.py daily --chart IN        # Chart-only ranking (CRITERIA.md section 10)
 
 Levels follow CRITERIA.md: buy zone around the last close, stop and target
 sized by ATR(14) with a minimum reward-to-risk per holding period.
@@ -18,7 +19,7 @@ import datetime as dt
 import json
 import sys
 
-from marketlib import HORIZONS, checks, levels, load_market, market_of
+from marketlib import CHART_COUNT, HORIZONS, chart_ranking, chart_score, checks, levels, load_market, market_of
 from marketlib import tuning as load_tuning
 
 
@@ -55,6 +56,8 @@ def main() -> int:
     ap.add_argument("horizon", choices=list(HORIZONS))
     ap.add_argument("tickers", nargs="*", help="Yahoo symbols, e.g. MU or TCS.NS")
     ap.add_argument("--screen", choices=["US", "IN"], help="list stocks passing every check")
+    ap.add_argument("--chart", choices=["US", "IN"],
+                    help="daily only: Chart-only ranking, best score first (CRITERIA.md section 10)")
     ap.add_argument("--top", type=int, default=40)
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
@@ -83,6 +86,27 @@ def main() -> int:
                   "; ".join(f"{mk}: " + ", ".join(f"{k}={v}" for k, v in d.items()) for mk, d in tuned.items()))
         if age_h > 36:
             print("WARNING: snapshot is more than 36h old; prices may be stale.")
+
+    if args.chart:
+        if args.horizon != "daily":
+            print("--chart is for daily lists only.", file=sys.stderr)
+            return 2
+        ranked = chart_ranking(market, args.chart)
+        if args.json:
+            json.dump([dict(describe(t, stocks[t], "daily"), chartScore=chart_score(stocks[t]), rank=i + 1)
+                       for i, t in enumerate(ranked[: args.top])], sys.stdout, indent=2, ensure_ascii=False)
+            print()
+            return 0
+        print(f"\nChart-only ranking, {args.chart} ({len(ranked)} daily-screen stocks with 3-month RS > 0 and a rising "
+              f"50-day avg). Publish the top {CHART_COUNT}; skip one only for earnings during/just before the session, "
+              f"a surveillance/F&O-ban listing or the 2-per-sector cap, and name it in context.{args.chart}.chartSkipped.")
+        print("  score = RS3m + RS1m - 6 x max(0, ATRs above 20-day avg - 1)")
+        for i, t in enumerate(ranked[: args.top], 1):
+            m, lv = stocks[t], levels(stocks[t], "daily", args.chart)
+            print(f"  {i:>2}. {t:<14} {str(m.get('name') or '')[:26]:<26} score {chart_score(m):>6}  RS3m {m.get('rs3m')!s:>6}  "
+                  f"RS1m {m.get('rs1m')!s:>5}  ext {m.get('extAtr')!s:>5} ATR  [{(m.get('sector') or '')[:18]}]  "
+                  f"buy {lv['buyLow']:,}-{lv['buyHigh']:,} tgt {lv['target']:,} stop {lv['stop']:,}")
+        return 0
 
     rows = []
     if args.screen:

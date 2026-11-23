@@ -7,7 +7,8 @@ Checks, per pick: symbol is in the market snapshot; refPrice/refDate equal the
 snapshot's last close; every hard check passes; levels are no wider than the
 rule-based ones and reward:risk meets the minimum; buy zone brackets the close;
 3 reasons, 4 data rows, 3 sources, a watch note. Per market: at most 5 picks,
-at most 2 per sector, at most 2 High risk; Plan B limits (CRITERIA.md section 9).
+at most 2 per sector, at most 2 High risk; Plan B limits (CRITERIA.md section 9) and the
+Chart-only ranking (section 10).
 Exits non-zero if anything fails,
 so a routine can't publish a batch that breaks the rules.
 """
@@ -16,7 +17,8 @@ from __future__ import annotations
 import sys
 from collections import Counter
 
-from marketlib import DATA, HORIZONS, checks, levels, load_market, market_of, read_assigned
+from marketlib import (CHART_COUNT, DATA, HORIZONS, chart_ranking, chart_score, checks, levels, load_market,
+                       market_of, read_assigned)
 
 
 def main() -> int:
@@ -76,7 +78,9 @@ def main() -> int:
         rr = (p["target"] - mid) / (mid - p["stop"]) if mid > p["stop"] else 0
         if rr < rules["min_rr"] - 0.05:
             problems.append(f"{tag}: reward:risk {rr:.2f} below {rules['min_rr']}")
-        for key, n in (("reasons", 3), ("data", 4), ("sources", 3)):
+        chart = p.get("planB") and p.get("planBBasis") == "chart"
+        # Chart-only picks rest on price data, so one source (the quote page) is enough.
+        for key, n in (("reasons", 3), ("data", 4), ("sources", 1 if chart else 3)):
             if len(p.get(key, [])) < n:
                 problems.append(f"{tag}: needs {n} {key}, has {len(p.get(key, []))}")
         if not p.get("watch") or not p.get("thesis"):
@@ -93,29 +97,54 @@ def main() -> int:
                 problems.append(f"{mk}: {n} picks in sector '{sector}' (max 2)")
         if sum(p.get("risk") == "High" for p in lst) > 2:
             problems.append(f"{mk}: more than 2 High-risk picks")
-        # Plan B (CRITERIA.md section 9): daily only, never mixed with standard picks.
+        # Plan B (CRITERIA.md section 9) and Chart-only (section 10): daily only, never mixed with standard picks.
         plan_b = [p for p in lst if p.get("planB")]
         if plan_b:
             regime = (market.get("benchmarks", {}).get(mk) or {}).get("regime")
             cap = 3 if regime == "risk-off" else 5
+            if horizon != "daily":
+                problems.append(f"{mk}: Plan B / Chart-only picks are allowed only in daily lists")
+            if len(plan_b) != len(lst):
+                problems.append(f"{mk}: Plan B / Chart-only picks can't be mixed with standard picks for the same market")
+            chart = [p for p in plan_b if p.get("planBBasis") == "chart"]
+            if chart and len(chart) != len(plan_b):
+                problems.append(f"{mk}: a Chart-only list can't be mixed with other Plan B picks")
+            if chart:
+                # Section 10: exactly the top-ranked stocks, skipping only those named in
+                # context.<mk>.chartSkipped with a reason (earnings, surveillance list, sector cap).
+                skipped = ((batch.get("context") or {}).get(mk) or {}).get("chartSkipped") or {}
+                ranking = [t for t in chart_ranking(market, mk) if t not in skipped]
+                expect = ranking[:CHART_COUNT]
+                got = [p["yahoo"] for p in chart]
+                if sorted(got) != sorted(expect):
+                    top = ", ".join(f"{t} ({chart_score(stocks[t])})" for t in ranking[:6])
+                    problems.append(f"{mk}: Chart-only picks must be the top {len(expect)} by chart score after skips; "
+                                    f"expected {', '.join(expect) or 'none'}, got {', '.join(got)}. Ranking: {top}")
+                for t, why in skipped.items():
+                    if not str(why).strip():
+                        problems.append(f"{mk}: chartSkipped {t} needs a reason")
+                for p in chart:
+                    tag = f"{mk} {p['symbol']} (Chart-only)"
+                    if p.get("risk") not in ("Medium", "High"):
+                        problems.append(f"{tag}: risk must be at least Medium")
+                    if not str(p.get("thesis", "")).startswith("Chart-only"):
+                        problems.append(f"{tag}: thesis must start with 'Chart-only'")
+                continue
             # At least 3 Plan B picks, unless the daily screen has fewer stocks meeting the Plan B limits.
             pool = [t for t in market.get("screen", {}).get(mk, {}).get("daily", [])
                     if (stocks.get(t) or {}).get("extAtr") is not None and stocks[t]["extAtr"] <= 1.0
                     and (stocks[t].get("rs3m") or 0) > 0]
-            need = min(3, len(pool))
+            need = 3
             if len(plan_b) < need:
                 problems.append(f"{mk}: {len(plan_b)} Plan B picks; at least {need} required "
-                                f"({len(pool)} screen stocks meet the Plan B limits: {', '.join(pool[:8])})")
-            if horizon != "daily":
-                problems.append(f"{mk}: Plan B picks are allowed only in daily lists")
-            if len(plan_b) != len(lst):
-                problems.append(f"{mk}: Plan B picks can't be mixed with standard picks for the same market")
+                                f"({len(pool)} screen stocks meet the Plan B limits: {', '.join(pool[:8])}). "
+                                "If fewer than 3 can be published, use a Chart-only list instead (section 10)")
             if len(plan_b) > cap:
                 problems.append(f"{mk}: {len(plan_b)} Plan B picks (max {cap} in {regime or 'this'} regime)")
             for p in plan_b:
                 tag, m = f"{mk} {p['symbol']} (Plan B)", stocks.get(p["yahoo"]) or {}
                 if p.get("planBBasis") not in ("sector", "setup", "older-catalyst"):
-                    problems.append(f"{tag}: planBBasis must be sector, setup or older-catalyst")
+                    problems.append(f"{tag}: planBBasis must be sector, setup, older-catalyst or chart")
                 if p.get("risk") not in ("Medium", "High"):
                     problems.append(f"{tag}: risk must be at least Medium")
                 if m.get("extAtr") is None or m["extAtr"] > 1.0:

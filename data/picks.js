@@ -79,7 +79,65 @@ window.PICKS = {
             ]
           ],
           "planB": true,
-          "planBBasis": "setup"
+          "planBBasis": "setup",
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 68.44,
+            "date": "2026-11-20",
+            "researchPrice": 68.44,
+            "researchDate": "2026-11-20",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $376M (min $50M), price $68.44"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $68.27"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +10.7 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+26.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.71% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.49 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.71,
+            "sma20": 68.27,
+            "sma50": 63.97,
+            "sma200": 64.06,
+            "rs1m": 10.67,
+            "rs3m": 25.54,
+            "fromHigh52": -10.63,
+            "fromLow52": 26.39,
+            "avgValue20": 375530142,
+            "extAtr": 0.09
+          }
         },
         {
           "market": "US",
@@ -135,7 +193,65 @@ window.PICKS = {
             ]
           ],
           "planB": true,
-          "planBBasis": "setup"
+          "planBBasis": "setup",
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 570.0,
+            "date": "2026-11-20",
+            "researchPrice": 570.0,
+            "researchDate": "2026-11-20",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $3,035M (min $50M), price $570.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $568.89"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +14.0 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+22.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.69% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.69,
+            "sma20": 568.89,
+            "sma50": 536.86,
+            "sma200": 502.57,
+            "rs1m": 14.04,
+            "rs3m": 22.72,
+            "fromHigh52": -4.51,
+            "fromLow52": 22.84,
+            "avgValue20": 3035035253,
+            "extAtr": 0.12
+          }
         },
         {
           "market": "US",
@@ -191,7 +307,65 @@ window.PICKS = {
             ]
           ],
           "planB": true,
-          "planBBasis": "setup"
+          "planBBasis": "setup",
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 246.59,
+            "date": "2026-11-20",
+            "researchPrice": 246.59,
+            "researchDate": "2026-11-20",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $364M (min $50M), price $246.59"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $246.08"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +11.8 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+25.6% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.99% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.99,
+            "sma20": 246.08,
+            "sma50": 230.44,
+            "sma200": 219.28,
+            "rs1m": 11.77,
+            "rs3m": 20.24,
+            "fromHigh52": -3.97,
+            "fromLow52": 25.55,
+            "avgValue20": 363610983,
+            "extAtr": 0.1
+          }
         }
       ],
       "marketSources": [

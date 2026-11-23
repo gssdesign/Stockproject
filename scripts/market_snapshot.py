@@ -8,7 +8,8 @@ relying on web-search snippets.
 
 Universe: S&P 500 (from Wikipedia) and Nifty 200 (from niftyindices.com),
 with built-in fallback lists if either download fails, plus every ticker in
-the active picks. Also writes a pre-screened candidate list per market and
+the active picks. The rest of the Nifty 500 is added as "styleOnly": priced
+for the India investor-style lists (STYLES.md), never screened for trading picks. Also writes a pre-screened candidate list per market and
 holding period: the stocks that pass every hard check in CRITERIA.md.
 
 Usage:  pip install -r requirements.txt && python scripts/market_snapshot.py
@@ -70,6 +71,31 @@ def in_universe() -> dict[str, dict]:
         except Exception as exc:
             print(f"warn: Nifty 200 list from {url}: {exc}", file=sys.stderr)
     return {f"{t}.NS": {} for t in IN_FALLBACK}
+
+
+def in_style_universe() -> dict[str, dict]:
+    """Nifty 500 names outside the Nifty 200: smaller companies for the India style lists only."""
+    for url in ("https://niftyindices.com/IndexConstituent/ind_nifty500list.csv",
+                "https://archives.nseindia.com/content/indices/ind_nifty500list.csv"):
+        try:
+            text = requests.get(url, headers=UA, timeout=30).text
+            table = pd.read_csv(io.StringIO(text))
+            out = {f"{r['Symbol']}.NS": {"name": r["Company Name"], "sector": r["Industry"], "styleOnly": True}
+                   for _, r in table.iterrows()}
+            if len(out) > 400:
+                return out
+        except Exception as exc:
+            print(f"warn: Nifty 500 list from {url}: {exc}", file=sys.stderr)
+    return {}
+
+
+def style_tickers() -> set[str]:
+    """Every stock in the investor-style lists, so each one always has a close."""
+    try:
+        st = read_assigned(DATA / "styles.js", "window.STYLES = ")
+        return {p["yahoo"] for lists in st.get("lists", {}).values() for lst in lists.values() for p in lst}
+    except Exception:
+        return set()
 
 
 def pick_tickers() -> set[str]:
@@ -144,9 +170,13 @@ def regime(m: dict | None) -> str:
 
 
 def main() -> int:
-    universe = {**us_universe(), **in_universe()}
+    core = {**us_universe(), **in_universe()}
+    universe = {**{t: v for t, v in in_style_universe().items() if t not in core}, **core}
     for t in pick_tickers():
         universe.setdefault(t, {})
+        universe[t].pop("styleOnly", None)  # an existing pick is always tradable
+    for t in style_tickers():
+        universe.setdefault(t, {"styleOnly": True})
     tickers = sorted(universe)
     print(f"universe: {len(tickers)} tickers")
     bars = download(tickers + list(BENCHMARK.values()))
@@ -176,8 +206,15 @@ def main() -> int:
         print(f"kept the previous snapshot for {kept} ticker(s) whose new data was older")
     for mk, old in (prev.get("latestSession") or {}).items():
         latest[mk] = max(latest.get(mk, ""), old)
+    for t, m in stocks.items():  # the flag follows today's universe, even for kept entries
+        if (universe.get(t) or {}).get("styleOnly"):
+            m["styleOnly"] = True
+        else:
+            m.pop("styleOnly", None)
     for t, m in stocks.items():
         mk = market_of(t)
+        if m.get("styleOnly"):
+            continue  # priced for the style lists only; never a trading pick
         for h in HORIZONS:
             lv = levels(m, h, mk)
             if all(c["pass"] for c in checks(m, h, mk, lv)):

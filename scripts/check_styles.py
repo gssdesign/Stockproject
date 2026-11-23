@@ -7,7 +7,8 @@ Per pick: the stock passes its style's hard filters in data/fundamentals.js;
 price/priceDate equal the market snapshot close; fair value, buy-below price
 and the metrics shown equal the fundamentals data; moat, thesis, 3 reasons,
 a "what could go wrong" note and 3 sources are present. Per list: at most 5
-(Buffett style) or 3 (Munger style) ideas and at most 2 per sector.
+(Buffett, Agrawal, Kedia style) or 3 (Munger style) ideas and at most 2 per
+sector. Buffett/Munger lists are US only; Agrawal/Kedia lists are India only.
 """
 from __future__ import annotations
 
@@ -16,8 +17,10 @@ from collections import Counter
 
 from marketlib import DATA, load_market, market_of, read_assigned
 
-MAX = {"buffett": 5, "munger": 3}
+MAX = {"buffett": 5, "munger": 3, "agrawal": 5, "kedia": 5}
+MARKETS = {"buffett": ("US",), "munger": ("US",), "agrawal": ("IN",), "kedia": ("IN",)}
 METRICS = ("avgRoe", "netMargin", "debtEquity", "pe", "fcfYield", "revCagr")
+INDIA_METRICS = ("profitCagr", "peg", "promoterHolding")
 
 
 def close(a, b, tol):
@@ -34,7 +37,11 @@ def main() -> int:
             problems.append(f"unknown style '{style}'")
             continue
         for mk, lst in lists.items():
-            screen = {r["ticker"]: r for r in fund["screens"][style].get(mk, [])}
+            if lst and mk not in MARKETS[style]:
+                problems.append(f"{style} {mk}: this style is for {'/'.join(MARKETS[style])} only; move these ideas "
+                                f"to notes ({', '.join(p.get('symbol', '?') for p in lst)})")
+                continue
+            screen = {r["ticker"]: r for r in fund["screens"].get(style, {}).get(mk, [])}
             if len(lst) > MAX[style]:
                 problems.append(f"{style} {mk}: {len(lst)} ideas (max {MAX[style]})")
             for sector, n in Counter((p.get("sector") or "").split("/")[0].strip() for p in lst).items():
@@ -53,7 +60,7 @@ def main() -> int:
                                     f"{m and m['close']} {m and m['date']}")
                 if not close(p.get("fairValue"), r.get("fairValue"), 0.011) or not close(p.get("buyBelow"), r.get("buyBelow"), 0.011):
                     problems.append(f"{tag}: fairValue/buyBelow must equal the screen ({r.get('fairValue')} / {r.get('buyBelow')})")
-                for k in METRICS:
+                for k in METRICS + (INDIA_METRICS if style in ("agrawal", "kedia") else ()):
                     if not close((p.get("metrics") or {}).get(k), f.get(k), 1e-6):
                         problems.append(f"{tag}: metrics.{k} must equal data/fundamentals.js ({f.get(k)})")
                 for key, n in (("reasons", 3), ("sources", 3)):

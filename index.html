@@ -446,8 +446,10 @@
   <path d="M62.5 41.5 73 25l10.5 16.5z" fill="#3ddc97" stroke="#3ddc97" stroke-width="3" stroke-linejoin="round"/>
 </svg>Stock SI<select id="styleSel" class="style-sel" aria-label="Whose recommendations">
         <option value="claude">Claude recommendations</option>
-        <option value="buffett">Warren Buffett style</option>
-        <option value="munger">Charlie Munger style</option>
+        <option value="buffett" data-mk="US">Warren Buffett style</option>
+        <option value="munger" data-mk="US">Charlie Munger style</option>
+        <option value="agrawal" data-mk="IN">Raamdeo Agrawal style</option>
+        <option value="kedia" data-mk="IN">Vijay Kedia style</option>
       </select></div>
       <nav class="tabs-top" role="tablist" aria-label="Sections">
         <button role="tab" data-view="picks">Today</button>
@@ -685,22 +687,31 @@
   const trackOf = id => PRICES.tracking[id] || ARCH_TRACK[id] || {};
   const windowLabel = m => m.horizon === "daily" ? fday(m.date) : `${fdate(m.date)} – ${fdate(m.expires)}`;
 
+  // Investor styles differ by market (STYLES.md): US Buffett/Munger, India Agrawal/Kedia.
+  // Switching market keeps the same slot: Buffett <-> Agrawal, Munger <-> Kedia.
+  function styleFor(style, market) {
+    const pair = { US: { agrawal: "buffett", kedia: "munger" }, IN: { buffett: "agrawal", munger: "kedia" } };
+    return (pair[market] || {})[style] || style;
+  }
+
   // ---------- state / routing: #view/market/horizon[/batchId] ----------
   function setState(patch) {
     if (("market" in patch || "horizon" in patch) && !("batch" in patch)) patch.batch = "";
     if ("market" in patch || "horizon" in patch) patch.hf = "";
     Object.assign(state, patch);
+    state.style = styleFor(state.style, state.market);
     try { history.replaceState(null, "", `#${state.view}/${state.market}/${state.horizon}${state.batch ? "/" + state.batch : ""}`); } catch (e) {}
     try { localStorage.setItem("spd-prefs", JSON.stringify({ market: state.market, horizon: state.horizon, style: state.style })); } catch (e) {}
     render();
   }
   (function init() {
-    try { const p = JSON.parse(localStorage.getItem("spd-prefs") || "{}"); if (p.market) state.market = p.market; if (p.horizon) state.horizon = p.horizon; if (["claude", "buffett", "munger"].includes(p.style)) state.style = p.style; } catch (e) {}
+    try { const p = JSON.parse(localStorage.getItem("spd-prefs") || "{}"); if (p.market) state.market = p.market; if (p.horizon) state.horizon = p.horizon; if (["claude", "buffett", "munger", "agrawal", "kedia"].includes(p.style)) state.style = p.style; } catch (e) {}
     const [v, m, h, b] = (location.hash || "").slice(1).split("/");
     if (["picks", "history", "funds", "method"].includes(v)) state.view = v;
     if (["US", "IN"].includes(m)) state.market = m;
     if (["daily", "weekly", "monthly"].includes(h)) state.horizon = h;
     if (b) state.batch = decodeURIComponent(b);
+    state.style = styleFor(state.style, state.market);
   })();
   document.querySelectorAll("[data-view]").forEach(b => b.addEventListener("click", () => { setState({ view: b.dataset.view }); window.scrollTo(0, 0); }));
   document.querySelectorAll("[data-market]").forEach(b => b.addEventListener("click", () => setState({ market: b.dataset.market })));
@@ -1173,7 +1184,14 @@
   }
 
   // ---------- investor-style lists (data/styles.js, STYLES.md) ----------
-  const SNAME = { buffett: "Warren Buffett style", munger: "Charlie Munger style" };
+  const SNAME = { buffett: "Warren Buffett style", munger: "Charlie Munger style",
+                  agrawal: "Raamdeo Agrawal style (QGLP)", kedia: "Vijay Kedia style (SMILE)" };
+  const INDIA_STYLES = ["agrawal", "kedia"];
+  const SDISCLAIM = {
+    buffett: "It isn't Warren Buffett's portfolio or a Berkshire Hathaway holding, and isn't endorsed by or affiliated with him or Berkshire.",
+    munger: "It isn't Charlie Munger's portfolio or a Berkshire Hathaway holding, and isn't endorsed by or affiliated with him or Berkshire.",
+    agrawal: "It isn't Raamdeo Agrawal's portfolio or a Motilal Oswal recommendation, and isn't endorsed by or affiliated with him or Motilal Oswal. The screen numbers are our reading of his published QGLP framework.",
+    kedia: "It isn't Vijay Kedia's portfolio, and isn't endorsed by or affiliated with him or Kedia Securities. The screen numbers are our reading of his published SMILE framework." };
   const pctf = v => v == null ? "—" : (v * 100).toFixed(1) + "%";
   function styleCard(p, i) {
     const c = p.currency, q = PRICES.quotes[p.yahoo];
@@ -1181,7 +1199,8 @@
     const below = p.buyBelow != null && price <= p.buyBelow;
     const [pk, pt] = p.buyBelow == null ? ["neutral", "No buy price"] : below ? ["good", "✓ Below buy price"] : ["wait", "Wait · above buy price"];
     const added = p.addedPrice || p.price, since = added ? (price / added - 1) * 100 : null;
-    const m = p.metrics || {};
+    const m = p.metrics || {}, india = INDIA_STYLES.includes(state.style), qglp = state.style === "agrawal";
+    const fvLabel = qglp ? "price at PEG 1" : "estimate";
     const lo = Math.min(p.buyBelow || price, price) * 0.97, hi = Math.max(p.fairValue || price, price) * 1.03;
     const x = v => ((v - lo) / (hi - lo) * 100).toFixed(2) + "%";
     return `<details class="card pick">
@@ -1194,17 +1213,23 @@
             ${p.fairValue ? `<span class="end t" style="left:${x(p.fairValue)}"></span>` : ""}
             <span class="dot" style="left:${x(price)}"></span></div></div>
         <div class="levels num">
-          <div class="t">Buy below<b>${cmp(p.buyBelow, c)}</b>${p.marginOfSafety != null ? Math.round(p.marginOfSafety * 100) + "% under fair" : ""}</div>
+          <div class="t">Buy below<b>${cmp(p.buyBelow, c)}</b>${p.marginOfSafety ? Math.round(p.marginOfSafety * 100) + "% under fair" : qglp ? "PEG ≤ 1" : p.marginOfSafety === 0 ? "at fair value" : ""}</div>
           <div>Price<b>${cmp(price, c)}</b>${fdate(asOf)}</div>
-          <div>Fair value<b>${cmp(p.fairValue, c)}</b>estimate</div>
+          <div>Fair value<b>${cmp(p.fairValue, c)}</b>${fvLabel}</div>
         </div>
-        <div class="metrics num">
+        <div class="metrics num">${india ? `
+          <div>ROE (4-yr avg)<b>${pctf(m.avgRoe)}</b></div>
+          <div>Profit growth/yr<b>${pctf(m.profitCagr)}</b></div>
+          <div>Revenue growth/yr<b>${pctf(m.revCagr)}</b></div>
+          <div>P/E · PEG<b>${m.pe == null ? "—" : m.pe.toFixed(1)} · ${m.peg == null ? "—" : m.peg.toFixed(2)}</b></div>
+          <div>Debt / equity<b>${m.debtEquity == null ? "—" : m.debtEquity.toFixed(2)}</b></div>
+          <div>Promoter holding<b>${pctf(m.promoterHolding)}</b></div>` : `
           <div>ROE (4-yr avg)<b>${pctf(m.avgRoe)}</b></div>
           <div>Net margin<b>${pctf(m.netMargin)}</b></div>
           <div>Debt / equity<b>${m.debtEquity == null ? "—" : m.debtEquity.toFixed(2)}</b></div>
           <div>P/E<b>${m.pe == null ? "—" : m.pe.toFixed(1)}</b></div>
           <div>FCF yield<b>${pctf(m.fcfYield)}</b></div>
-          <div>Revenue growth/yr<b>${pctf(m.revCagr)}</b></div>
+          <div>Revenue growth/yr<b>${pctf(m.revCagr)}</b></div>`}
         </div>
         <p class="thesis">${esc(p.thesis)}</p>
         <div class="p-foot"><span class="num">Added ${fdate(p.addedOn)} at ${fmt(added, c)}${since == null ? "" : ` · <span class="${cls(since)}">${pct(since)}</span> since`}</span>
@@ -1216,7 +1241,7 @@
         <h4>What could go wrong</h4><div class="watch">${esc(p.watch)}</div>
         <h4>Plan</h4><div class="plan num">
           <div>Buy below<b>${fmt(p.buyBelow, c)}</b></div>
-          <div>Fair value (estimate)<b>${fmt(p.fairValue, c)}</b></div>
+          <div>Fair value (${fvLabel})<b>${fmt(p.fairValue, c)}</b></div>
           <div>Holding period<b>Years, while the moat holds</b></div>
           <div>Review<b>Monthly</b></div>
         </div>
@@ -1233,7 +1258,7 @@
         <details class="backdrop"><summary><span><b>The style:</b> ${esc(info.tagline || "")}</span>${CHEV}</summary>
           <div class="body"><ul class="principles">${(info.principles || []).map(([t, src, u]) => `<li>${esc(t)}${src ? ` <span class="muted">(<a href="${esc(u)}" target="_blank" rel="noopener">${esc(src)}</a>)</span>` : ""}</li>`).join("")}</ul>
           <p style="margin:8px 0 0">Screen: ${esc(info.screen || "")}</p></div></details></div>
-      <div class="style-note">ℹ️ <b>In the style of ${esc(info.person || "")}, not their picks.</b> This list applies their published investing principles to today's data. It isn't ${esc(info.person || "their")}'s portfolio or a Berkshire Hathaway holding, and isn't endorsed by or affiliated with them or Berkshire. Long-term ideas: no stop-loss or short-term target.</div>
+      <div class="style-note">ℹ️ <b>In the style of ${esc(info.person || "")}, not their picks.</b> This list applies their published investing principles to today's data. ${esc(info.disclaimer || SDISCLAIM[state.style] || "")} Long-term ideas: no stop-loss or short-term target.</div>
       <div class="list-title"><h2>${list.length ? `${list.length} ${list.length === 1 ? "idea" : "ideas"}` : "No ideas yet"}</h2><span>${list.length ? "Fair value is an estimate, not a promise" : ""}</span></div>
       <div class="picks">${list.length ? list.map(styleCard).join("") : `<p class="empty">No ${mktName(state.market)} stock meets every ${esc(SNAME[state.style])} rule right now. ${esc(((S.notes || {})[state.style] || {})[state.market] || "")}</p>`}</div>`;
   }
@@ -1242,6 +1267,7 @@
   function render() {
     // Investor-style lists replace the tabs with one long-term list per market.
     const styleMode = state.style !== "claude";
+    $("styleSel").querySelectorAll("option[data-mk]").forEach(o => { const on = o.dataset.mk === state.market; o.hidden = !on; o.disabled = !on; });
     $("styleSel").value = state.style;
     document.querySelectorAll(".tabs-top, .tabbar").forEach(el => el.hidden = styleMode);
     document.querySelector(".seg.h").hidden = styleMode;

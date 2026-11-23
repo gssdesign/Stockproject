@@ -58,6 +58,8 @@ def main() -> int:
         if not m:
             problems.append(f"{tag}: not in data/market.js (unknown or illiquid symbol)")
             continue
+        if m.get("styleOnly"):
+            problems.append(f"{tag}: outside the trading universe (Nifty 500 extra, priced for the style lists only)")
         if not p.get("verified") and m["date"] < latest.get(mk, ""):
             problems.append(f"{tag}: stale price: snapshot close is from {m['date']} but {mk}'s latest session is "
                             f"{latest[mk]}; wait for the next Market data run or choose another stock")

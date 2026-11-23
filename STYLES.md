@@ -1,10 +1,20 @@
-# Investor-style lists: Buffett style and Munger style
+# Investor-style lists
 
-The site's "Claude recommendations" are short-term trading ideas (CRITERIA.md). The two
-style lists are something different: **long-term ideas chosen the way Warren Buffett and
-Charlie Munger said they choose investments**, built from their published letters and
-speeches. They are *in the style of* these investors. They are **not** their picks, not
-Berkshire Hathaway holdings, and not endorsed by or affiliated with either man or Berkshire.
+The site's "Claude recommendations" are short-term trading ideas (CRITERIA.md). The style
+lists are something different: **long-term ideas chosen the way well-known investors say they
+choose investments**, built from what they have published.
+
+| Market | Styles |
+|---|---|
+| US | Warren Buffett style, Charlie Munger style (§1–§5) |
+| India | Raamdeo Agrawal style (QGLP) and Vijay Kedia style (SMILE) (§6) |
+
+(India switched from Buffett/Munger to Agrawal/Kedia on 23 Nov 2026 at the owner's request:
+"top Indian investors". There is no official rating of investors; these two were chosen because
+each is among India's best-known investors **and** has a published, checkable method.)
+
+All lists are *in the style of* these investors. They are **not** their picks or holdings,
+and not endorsed by or affiliated with them, Berkshire Hathaway, Motilal Oswal or Kedia Securities.
 
 Numbers in §3 are implemented in `scripts/fundamentals.py`; change both together.
 
@@ -90,3 +100,52 @@ At most 2 per sector per list. A stock may appear in both style lists only if it
 - Buffett, letters to shareholders 1989, 1996, 2007: https://www.berkshirehathaway.com/letters/letters.html
 - Munger, *A Lesson on Elementary, Worldly Wisdom* (USC, 1994): https://worldlypartners.com/wp-content/uploads/2024/01/1994-lecture-by-charlie-munger-at-usc-a-lesson-on-elementary-worldly-wisdom-as-it-relates-to-investment.pdf
 - *Poor Charlie's Almanack* (Munger's speeches, ed. P. Kaufman).
+
+## 6. India: Raamdeo Agrawal style (QGLP) and Vijay Kedia style (SMILE)
+Universe: the Nifty 500 (the Nifty 200 trading universe plus the next 300 companies, priced
+daily in `data/market.js` as `styleOnly` stocks that are never used for trading picks).
+
+**Raamdeo Agrawal** (co-founder and chairman, Motilal Oswal; 30 years of Annual Wealth Creation Studies)
+- QGLP = **Quality** of business and management, **Growth** in earnings, **Longevity** of both,
+  at a reasonable **Price**. "Buy right, sit tight."
+- Quality of business: an industry leader, ideally consumer-facing, ideally in a monopoly, duopoly or
+  oligopoly, with little debt. Quality of management: trustworthy, transparent, good capital allocators.
+- Growth: avoid "quality traps", good companies that don't grow. Look for new capacity, products,
+  regions. The Wealth Creation Studies name RoE and earnings growth as the two drivers of value, and
+  find that buying at **PEG < 1** (P/E ÷ earnings growth) has been a near-infallible formula.
+- Longevity: the competitive advantage and growth must last; price comes last.
+
+**Vijay Kedia** (founder, Kedia Securities; investing since age 19)
+- SMILE = **S**mall in size, **M**edium in experience (management with about 15–20 years in the
+  business), **L**arge in aspiration (ambition that shows in the numbers), **E**xtra-large market
+  potential (low share of a fast-growing market that it can realistically grow).
+- Management first: honest promoters with skin in the game (he cites high promoter holding);
+  sell when the story changes, not when the price falls; concentrated (~20 stocks), held 10–15 years.
+- Valuation is balanced against growth, not used as a hard filter.
+
+| | Agrawal style (QGLP) | Kedia style (SMILE) |
+|---|---|---|
+| Size | Market cap ≥ ₹5,000 cr | **Small**: ₹1,000–30,000 cr |
+| Quality | 4-yr avg RoE ≥ 15%, latest ≥ 15%, **no year below 12%**; debt/equity ≤ 1 | 4-yr avg RoE ≥ 12%; debt/equity ≤ 1; promoter/insider holding ≥ 40% |
+| Growth | Net profit growth ≥ 15%/yr, revenue ≥ 10%/yr | Revenue growth ≥ 15%/yr and profit growth ≥ 15%/yr |
+| Other | Profitable every year; positive free cash flow in total over the years | Profitable every year |
+| Price | PEG ≤ 1.5 to qualify | P/E ≤ 60 and PEG ≤ 2 |
+| Fair value | **Price at PEG 1** = EPS × profit growth % (growth capped at 30) | 10-year DCF as §3, growth capped at **20%** (not 12%) |
+| Buy-below | = fair value (PEG ≤ 1) | = fair value |
+| Ranked by | Lowest PEG first, then RoE | Fastest revenue growth first |
+| List size | Up to 5 | Up to 5 |
+
+These numbers are **our quantification** of their published principles; neither investor set them.
+Growth rates use up to 4 reported fiscal years; PEG = trailing P/E ÷ (net profit growth × 100).
+The judgment rules of §4 apply too, plus: **Agrawal style** names the leadership position and the
+growth driver in the thesis; **Kedia style** names the management's experience, the market
+share and the size of the market (the M and E of SMILE, which no screen can measure), and skips
+promoters with governance or pledging red flags. Each pick's `metrics` also carries
+`profitCagr`, `peg` and `promoterHolding` from `data/fundamentals.js`.
+
+## India references
+- Motilal Oswal, *The QGLP Checklist: 25 questions, 25 frameworks* (25th Annual Wealth Creation Study, 2020): https://www.motilaloswal.com/site/rreports/637443115602580742.pdf
+- Motilal Oswal, 23rd Annual Wealth Creation Study (2018), *Valuation Insights*: PEG < 1: https://www.motilaloswal.com/site/rreports/HTML/636766965804335553/index.htm
+- Value Research, *How to invest like Raamdeo Agrawal*: https://valueresearchonline.com/stories/201307/how-to-invest-like-raamdeo-agrawal
+- BloombergQuint, *Dalal Street veteran Vijay Kedia's secret to investing is SMILE*: https://www.bloombergquint.com/markets/this-dalal-street-veterans-secret-to-investing-is-smile
+- Value Research, *How to invest like Vijay Kedia*: https://www.valueresearchonline.com/stories/54019/how-to-invest-like-vijay-kedia/

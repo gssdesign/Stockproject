@@ -85,6 +85,11 @@
   .tabs-top button { border: 0; background: none; color: var(--muted); font-weight: 600; padding: 8px 14px; border-radius: 10px; cursor: pointer; min-height: 40px; }
   .tabs-top button[aria-selected="true"] { background: var(--accent-soft); color: var(--accent); }
   .icon-btn { border: 1px solid var(--line); background: var(--surface); color: var(--muted); border-radius: 10px; width: 40px; height: 40px; cursor: pointer; display: grid; place-items: center; }
+  #refreshBtn.busy svg { animation: spin .9s linear infinite; }
+  #refreshBtn:disabled { cursor: progress; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { #refreshBtn.busy svg { animation: none; opacity: .5; } }
+  .toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 60; background: var(--text); color: var(--bg); font-size: 13.5px; font-weight: 500; padding: 10px 16px; border-radius: 12px; box-shadow: 0 6px 24px rgba(0, 0, 0, .18); max-width: calc(100vw - 32px); text-align: center; }
   .filters { display: flex; gap: 8px; padding: 0 0 10px; flex-wrap: wrap; }
   .seg { display: flex; background: var(--surface-2); border-radius: 12px; padding: 3px; gap: 2px; }
   .seg button { border: 0; background: none; color: var(--muted); font-weight: 600; font-size: 14px; padding: 0 12px; border-radius: 9px; cursor: pointer; min-height: 36px; white-space: nowrap; }
@@ -328,7 +333,12 @@
     .tabbar { display: flex; }
     body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
     .r-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bar { gap: 8px; }
+    .bar .icon-btn { width: 36px; height: 36px; flex: none; }
+    .brand { min-width: 0; gap: 8px; }
+    .style-sel { min-width: 0; max-width: 168px; flex: 0 1 auto; }
   }
+  @media (max-width: 400px) { .style-sel { max-width: 132px; font-size: 12.5px; } }
 </style>
 </head>
 <body>
@@ -445,6 +455,7 @@
         <button role="tab" data-view="funds">Mutual funds</button>
         <button role="tab" data-view="method">How it works</button>
       </nav>
+      <button class="icon-btn" id="refreshBtn" title="Get the latest picks and prices" aria-label="Refresh data"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg></button>
       <button class="icon-btn" id="themeBtn" title="Light or dark" aria-label="Toggle light or dark theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
     </div>
     <div class="filters" id="filters">
@@ -1286,7 +1297,78 @@
   setInterval(() => { if (!document.hidden) loadNifty(); }, 60e3);
   document.addEventListener("visibilitychange", () => { if (!document.hidden) loadNifty(); });
 
-  $("updated").textContent = PRICES.updated ? "Prices refreshed " + new Date(PRICES.updated).toLocaleString([], { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" }) : "";
+  const stamp = iso => new Date(iso).toLocaleString([], { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" });
+  const setUpdated = () => { $("updated").textContent = PRICES.updated ? "Prices refreshed " + stamp(PRICES.updated) : ""; };
+  setUpdated();
+
+  // ---------- refresh button: pull the newest data without reloading ----------
+  // Tries the GitHub repo first (the scheduled jobs commit there before the site is
+  // republished), then this site's own copy. Files are parsed as JSON, never run.
+  const DATA_SOURCES = ["https://raw.githubusercontent.com/gssdesign/Stockproject/HEAD/", ""];
+  const DATA_FILES = { PICKS: "data/picks.js", PRICES: "data/prices.js", ARCHIVE_INDEX: "data/archive/index.js",
+                       TUNING: "data/tuning.js", FUNDS: "data/funds.js", STYLES: "data/styles.js" };
+  function parseAssigned(text, marker) {
+    const at = text.indexOf(marker);
+    if (at < 0) throw new Error("no " + marker);
+    const start = text.indexOf("{", at), end = text.lastIndexOf("}");
+    return JSON.parse(text.slice(start, end + 1));
+  }
+  const getText = url => fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" })
+    .then(r => { if (!r.ok) throw new Error(r.status + " " + url); return r.text(); });
+  async function fetchAll(base) {
+    const names = Object.keys(DATA_FILES);
+    const texts = await Promise.all(names.map(n => getText(base + DATA_FILES[n]).catch(e => n === "PICKS" || n === "PRICES" ? Promise.reject(e) : null)));
+    const out = {};
+    names.forEach((n, i) => { if (texts[i] != null) out[n] = parseAssigned(texts[i], "window." + n + " ="); });
+    out.ARCHIVE = {};
+    const months = ((out.ARCHIVE_INDEX || {}).months || []).map(m => m.month);
+    await Promise.all(months.map(mo => getText(`${base}data/archive/${mo}.js`)
+      .then(t => { out.ARCHIVE[mo] = parseAssigned(t, `window.ARCHIVE["${mo}"] =`); }).catch(() => {})));
+    return out;
+  }
+  const replaceInPlace = (obj, fresh) => { Object.keys(obj).forEach(k => delete obj[k]); Object.assign(obj, fresh); };
+  function applyData(d) {
+    replaceInPlace(PICKS, d.PICKS);
+    replaceInPlace(PRICES, d.PRICES);
+    PRICES.quotes = PRICES.quotes || {}; PRICES.tracking = PRICES.tracking || {};
+    if (d.ARCHIVE_INDEX) replaceInPlace(AIDX, d.ARCHIVE_INDEX);
+    ["TUNING", "FUNDS", "STYLES"].forEach(n => { if (d[n]) window[n] = d[n]; });
+    window.ARCHIVE = Object.assign(window.ARCHIVE || {}, d.ARCHIVE);
+    Object.keys(ARCH_TRACK).forEach(k => delete ARCH_TRACK[k]);
+    Object.keys(monthLoads).forEach(k => delete monthLoads[k]);
+    Object.values(window.ARCHIVE).forEach(a => Object.assign(ARCH_TRACK, (a && a.tracking) || {}));
+  }
+  let toastTimer;
+  function toast(msg) {
+    let el = document.querySelector(".toast");
+    if (!el) { el = document.createElement("div"); el.className = "toast"; el.setAttribute("role", "status"); document.body.appendChild(el); }
+    el.textContent = msg; el.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, 4000);
+  }
+  const btn = $("refreshBtn");
+  btn.addEventListener("click", async () => {
+    if (btn.disabled) return;
+    btn.disabled = true; btn.classList.add("busy");
+    const before = (PRICES.updated || "") + "|" + PICKS.batches.map(b => b.id).join(",");
+    let fresh = null;
+    for (const base of DATA_SOURCES) {
+      try {
+        const d = await fetchAll(base);
+        if (!fresh || String(d.PRICES.updated || "") > String(fresh.PRICES.updated || "")) fresh = d;
+        if (base) break; // the repo answered: it is the newest source
+      } catch (e) { /* try the next source */ }
+    }
+    loadNifty();
+    if (!fresh) toast("Couldn't reach the data right now. Check your connection and try again.");
+    else {
+      applyData(fresh);
+      render(); setUpdated();
+      const after = (PRICES.updated || "") + "|" + PICKS.batches.map(b => b.id).join(",");
+      toast(after === before ? "Already up to date · prices as of " + stamp(PRICES.updated)
+                             : "Updated · prices as of " + stamp(PRICES.updated));
+    }
+    btn.disabled = false; btn.classList.remove("busy");
+  });
 })();
 </script>
 </body>

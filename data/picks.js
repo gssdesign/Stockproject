@@ -77,7 +77,65 @@ window.PICKS = {
               "Chain Store Age – Walmart beats Street Q3 EPS, sales; boosts full-year guidance",
               "https://chainstoreage.com/walmart-beats-street-q3-eps-sales-boosts-full-year-guidance"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 127.95,
+            "date": "2026-11-20",
+            "researchPrice": 127.95,
+            "researchDate": "2026-11-20",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $2,982M (min $50M), price $127.95"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $116.65, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +29.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+25.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.26% of price (max 4.5% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 2.00 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.26,
+            "sma20": 125.33,
+            "sma50": 116.65,
+            "sma200": 118.99,
+            "rs1m": 15.47,
+            "rs3m": 29.85,
+            "fromHigh52": -5.33,
+            "fromLow52": 25.26,
+            "avgValue20": 2982138042,
+            "extAtr": 0.91
+          }
         },
         {
           "market": "US",
@@ -131,7 +189,65 @@ window.PICKS = {
               "Quartr – McKesson Q2 2027 earnings summary",
               "https://quartr.com/events/mckesson-corporation-mck-q2-2027_3shBRoXq"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1069.43,
+            "date": "2026-11-20",
+            "researchPrice": 1069.43,
+            "researchDate": "2026-11-20",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $756M (min $50M), price $1,069.43"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $974.32, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +32.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+47.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.43% of price (max 4.5% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 2.00 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.43,
+            "sma20": 1045.53,
+            "sma50": 974.32,
+            "sma200": 879.78,
+            "rs1m": 15.47,
+            "rs3m": 32.09,
+            "fromHigh52": -4.64,
+            "fromLow52": 47.78,
+            "avgValue20": 756248528,
+            "extAtr": 0.92
+          }
         },
         {
           "market": "US",
@@ -185,7 +301,65 @@ window.PICKS = {
               "Cboe release via Finviz – Trading volume for October 2026",
               "https://finviz.com/news/416084/cboe-global-markets-reports-trading-volume-for-october-2026"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 357.71,
+            "date": "2026-11-20",
+            "researchPrice": 357.71,
+            "researchDate": "2026-11-20",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $415M (min $50M), price $357.71"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $312.45, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +25.8 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+57.5% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.18% of price (max 4.5% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 2.00 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.18,
+            "sma20": 351.46,
+            "sma50": 312.45,
+            "sma200": 299.23,
+            "rs1m": 18.98,
+            "rs3m": 25.81,
+            "fromHigh52": -5.81,
+            "fromLow52": 57.48,
+            "avgValue20": 414565639,
+            "extAtr": 0.55
+          }
         },
         {
           "market": "IN",
@@ -239,7 +413,65 @@ window.PICKS = {
               "HDFC Sky – Adani Ports cargo volume rises 27 percent in October",
               "https://hdfcsky.com/news/adani-ports-cargo-volume-rises-27-percent-in-october"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1917.0,
+            "date": "2026-11-20",
+            "researchPrice": 1917.0,
+            "researchDate": "2026-11-20",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹514 cr (min ₹100 cr), price ₹1,917.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹1805.16, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +6.8 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+48.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.34% of price (max 4.5% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 2.00 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.34,
+            "sma20": 1868.74,
+            "sma50": 1805.16,
+            "sma200": 1689.0,
+            "rs1m": -3.48,
+            "rs3m": 6.83,
+            "fromHigh52": -3.13,
+            "fromLow52": 48.37,
+            "avgValue20": 5143008610,
+            "extAtr": 1.08
+          }
         },
         {
           "market": "IN",
@@ -293,7 +525,65 @@ window.PICKS = {
               "DSIJ – Lenskart share price jumps 8%; Q2 FY27 profit more than doubles",
               "https://insights.dsij.in/appmindshare/lenskart-share-price-jumps-8-q2-fy27-profit-more-than-doubles-store-expansion-and-manufacturing-scale-boost-margins"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 744.35,
+            "date": "2026-11-20",
+            "researchPrice": 744.35,
+            "researchDate": "2026-11-20",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹411 cr (min ₹100 cr), price ₹744.35"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹684.77, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +9.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+91.5% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.96% of price (max 4.5% for monthly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 2.00 (min 2.0)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.96,
+            "sma20": 702.66,
+            "sma50": 684.77,
+            "sma200": 569.51,
+            "rs1m": 4.8,
+            "rs3m": 9.23,
+            "fromHigh52": -2.41,
+            "fromLow52": 91.5,
+            "avgValue20": 4105522562,
+            "extAtr": 1.89
+          }
         }
       ],
       "marketSources": [

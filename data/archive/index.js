@@ -5,6 +5,54 @@ window.ARCHIVE_INDEX = {
       "month": "2026-10",
       "batches": [
         {
+          "id": "2026-10-08-daily",
+          "horizon": "daily",
+          "date": "2026-10-08",
+          "expires": "2026-10-08",
+          "markets": {
+            "US": {
+              "n": 1,
+              "priced": 1,
+              "finished": 1,
+              "hits": 0,
+              "sumExpected": 3.2013,
+              "sumCloseRet": 0.2147
+            },
+            "IN": {
+              "n": 3,
+              "priced": 3,
+              "finished": 3,
+              "hits": 0,
+              "sumExpected": 10.8145,
+              "sumCloseRet": -7.805
+            }
+          }
+        },
+        {
+          "id": "2026-10-07-daily",
+          "horizon": "daily",
+          "date": "2026-10-07",
+          "expires": "2026-10-07",
+          "markets": {
+            "US": {
+              "n": 1,
+              "priced": 1,
+              "finished": 1,
+              "hits": 0,
+              "sumExpected": 4.2453,
+              "sumCloseRet": -0.5482
+            },
+            "IN": {
+              "n": 2,
+              "priced": 2,
+              "finished": 2,
+              "hits": 0,
+              "sumExpected": 5.3423,
+              "sumCloseRet": 1.3352
+            }
+          }
+        },
+        {
           "id": "2026-10-06-daily",
           "horizon": "daily",
           "date": "2026-10-06",
@@ -69,6 +117,30 @@ window.ARCHIVE_INDEX = {
           }
         },
         {
+          "id": "2026-10-01-weekly",
+          "horizon": "weekly",
+          "date": "2026-10-01",
+          "expires": "2026-10-08",
+          "markets": {
+            "US": {
+              "n": 4,
+              "priced": 4,
+              "finished": 4,
+              "hits": 2,
+              "sumExpected": 28.9911,
+              "sumCloseRet": 15.7631
+            },
+            "IN": {
+              "n": 2,
+              "priced": 2,
+              "finished": 2,
+              "hits": 0,
+              "sumExpected": 12.4093,
+              "sumCloseRet": -12.7001
+            }
+          }
+        },
+        {
           "id": "2026-10-01-daily-v2",
           "horizon": "daily",
           "date": "2026-10-01",
@@ -117,6 +189,39 @@ window.ARCHIVE_INDEX = {
           },
           "superseded": {
             "by": "2026-10-01-daily-v2",
+            "reason": "Replaced on 30 Sep 2026 after the stock-selection review: prices were checked against official exchange closes, and several picks failed the new rule checks (trend, relative strength, falling-knife, earnings-risk) in CRITERIA.md."
+          }
+        }
+      ]
+    },
+    {
+      "month": "2026-09",
+      "batches": [
+        {
+          "id": "2026-09-30-weekly",
+          "horizon": "weekly",
+          "date": "2026-09-30",
+          "expires": "2026-10-07",
+          "markets": {
+            "US": {
+              "n": 5,
+              "priced": 5,
+              "finished": 5,
+              "hits": 1,
+              "sumExpected": 27.6185,
+              "sumCloseRet": 0.3943
+            },
+            "IN": {
+              "n": 5,
+              "priced": 5,
+              "finished": 5,
+              "hits": 0,
+              "sumExpected": 21.7329,
+              "sumCloseRet": -19.8238
+            }
+          },
+          "superseded": {
+            "by": "2026-10-01-weekly",
             "reason": "Replaced on 30 Sep 2026 after the stock-selection review: prices were checked against official exchange closes, and several picks failed the new rule checks (trend, relative strength, falling-knife, earnings-risk) in CRITERIA.md."
           }
         }

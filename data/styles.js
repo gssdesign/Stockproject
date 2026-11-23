@@ -3,7 +3,7 @@
 window.STYLES = {
   "reviewed": "2026-11-23",
   "nextReview": "2026-12-01",
-  "fundamentalsAsOf": "2026-11-22T03:00+00:00",
+  "fundamentalsAsOf": "2026-11-23T07:24+00:00",
   "styles": {
     "buffett": {
       "person": "Warren Buffett",
@@ -61,6 +61,72 @@ window.STYLES = {
           "Pay a fair price for a great business rather than a low price for a mediocre one (the See's Candies lesson).",
           "Berkshire 2007 letter",
           "https://www.berkshirehathaway.com/letters/2007ltr.pdf"
+        ]
+      ]
+    },
+    "agrawal": {
+      "person": "Raamdeo Agrawal",
+      "tagline": "QGLP: quality businesses run by honest managers, growing earnings fast, able to keep doing it for years, bought at a reasonable price for that growth (PEG near 1).",
+      "screen": "Nifty 500, market cap ≥ ₹5,000 cr; 4-year average RoE ≥ 15% with no year below 12%; debt/equity ≤ 1; net profit growth ≥ 15%/yr and revenue ≥ 10%/yr; profitable every year and cash-generative; PEG ≤ 1.5. Buy-below = price at PEG 1 (EPS × profit growth %). Our reading of QGLP, not his numbers.",
+      "disclaimer": "It isn't Raamdeo Agrawal's portfolio or a Motilal Oswal recommendation, and isn't endorsed by or affiliated with him or Motilal Oswal. The screen numbers are our reading of his published QGLP framework.",
+      "principles": [
+        [
+          "QGLP: Quality of business and management, Growth in earnings, Longevity of both, at a reasonable Price.",
+          "Motilal Oswal QGLP",
+          "https://www.motilaloswalmf.com/motilal-oswal-edge/qglp"
+        ],
+        [
+          "Quality business: an industry leader, ideally consumer-facing and in a monopoly, duopoly or oligopoly, with little debt.",
+          "Value Research",
+          "https://www.valueresearchonline.com/web-stories/exploring-the-investing-strategy-of-raamdeo-agrawal/"
+        ],
+        [
+          "Quality management: trustworthy, transparent, and efficient at allocating capital.",
+          "Value Research",
+          "https://valueresearchonline.com/stories/201307/how-to-invest-like-raamdeo-agrawal"
+        ],
+        [
+          "RoE and earnings growth drive value; buying at a PEG below 1 has been a near-infallible formula.",
+          "23rd Wealth Creation Study",
+          "https://www.motilaloswal.com/site/rreports/HTML/636766965804335553/index.htm"
+        ],
+        [
+          "Avoid quality traps (good companies that don't grow); price comes last.",
+          "Value Research interview",
+          "https://www.valueresearchonline.com/stories/225104/price-comes-last-qglp-raamdeo-agrawal-motilal-oswal-interview/"
+        ]
+      ]
+    },
+    "kedia": {
+      "person": "Vijay Kedia",
+      "tagline": "SMILE: small, fast-growing companies with experienced, ambitious, honest promoters and a very large market still ahead, held for many years while the story holds.",
+      "screen": "Nifty 500, market cap ₹1,000–30,000 cr (small in size); revenue and net profit growth each ≥ 15%/yr; 4-year average RoE ≥ 12%; debt/equity ≤ 1; profitable every year; promoter/insider holding ≥ 40%; P/E ≤ 60 and PEG ≤ 2. Buy-below = fair value = price at PEG 1.5 (1.5 × EPS × profit growth %). Our reading of SMILE, not his numbers.",
+      "disclaimer": "It isn't Vijay Kedia's portfolio, and isn't endorsed by or affiliated with him or Kedia Securities. The screen numbers are our reading of his published SMILE framework.",
+      "principles": [
+        [
+          "SMILE: Small in size, Medium in experience, Large in aspiration, Extra-large in market potential.",
+          "BloombergQuint",
+          "https://www.bloombergquint.com/markets/this-dalal-street-veterans-secret-to-investing-is-smile"
+        ],
+        [
+          "Small means a low share of its industry, in a market that can grow a lot, and a realistic plan to take more of it.",
+          "Value Research",
+          "https://www.valueresearchonline.com/stories/54019/how-to-invest-like-vijay-kedia/"
+        ],
+        [
+          "Medium experience: management with roughly 15–20 years in the business, tested by downturns but still adapting.",
+          "Value Research",
+          "https://www.valueresearchonline.com/stories/54019/how-to-invest-like-vijay-kedia/"
+        ],
+        [
+          "Honest management first; hold good businesses for 10–15 years and sell when the story changes, not when the price falls.",
+          "Wikipedia (citing ET, Business Standard)",
+          "https://en.wikipedia.org/wiki/Vijay_Kedia"
+        ],
+        [
+          "Balance valuation against expected returns: good companies are rarely cheap.",
+          "Value Research",
+          "https://www.valueresearchonline.com/stories/54019/how-to-invest-like-vijay-kedia/"
         ]
       ]
     }
@@ -293,188 +359,6 @@ window.STYLES = {
             ]
           ]
         }
-      ],
-      "IN": [
-        {
-          "market": "IN",
-          "symbol": "HEROMOTOCO",
-          "yahoo": "HEROMOTOCO.NS",
-          "name": "Hero Motocorp Limited",
-          "sector": "Consumer Discretionary / Two-wheelers",
-          "currency": "INR",
-          "price": 5536.0,
-          "priceDate": "2026-11-20",
-          "addedOn": "2026-10-05",
-          "addedPrice": 5168.0,
-          "fairValue": 8830.03,
-          "buyBelow": 7064.02,
-          "marginOfSafety": 0.2,
-          "metrics": {
-            "avgRoe": 0.2182929333094143,
-            "netMargin": 0.112040006,
-            "debtEquity": 0.03602809470464144,
-            "pe": 18.474888,
-            "fcfYield": 0.06510736735263807,
-            "revCagr": 0.11723108913184443
-          },
-          "moat": "The world's largest two-wheeler maker by volume, with India's deepest rural dealer network: in commuter motorcycles its brand, low costs and service reach are very hard to match.",
-          "thesis": "A debt-free market leader with consistent profits, trading well below the estimated value of its free cash flow.",
-          "reasons": [
-            "September 2026 sales rose 12% to 7.66 lakh units, with domestic sales up 31% and scooters up 65%; its Vida EV brand dispatched 28,798 units.",
-            "Profitable and free-cash-flow positive every year with almost no debt: consistent earning power.",
-            "A simple, understandable business (affordable motorcycles for India's commuters) with a low-cost, high-volume moat."
-          ],
-          "watch": "Electric two-wheelers could erode the petrol-motorcycle moat, and exports fell 31% in September. Rural demand depends on the monsoon and on interest rates.",
-          "sources": [
-            [
-              "Autocar Professional – Hero MotoCorp wholesales rise 12% to 7.66 lakh units in September",
-              "https://www.autocarpro.in/news/hero-motocorp-wholesales-rise-12-percent-yoy-to-766-lakh-units-in-september-135014"
-            ],
-            [
-              "Rushlane – Hero MotoCorp sales Sep 2026",
-              "https://www.rushlane.com/amp/hero-motocorp-sales-sep-2026-7-66-lakh-total-scooters-grow-12557348.html"
-            ],
-            [
-              "Berkshire Hathaway – Acquisition criteria",
-              "https://www.berkshirehathaway.com/1999ar/acq.html"
-            ]
-          ]
-        },
-        {
-          "market": "IN",
-          "symbol": "ITC",
-          "yahoo": "ITC.NS",
-          "name": "Itc Ltd",
-          "sector": "Consumer Staples / Tobacco & FMCG",
-          "currency": "INR",
-          "price": 299.1,
-          "priceDate": "2026-11-20",
-          "addedOn": "2026-10-05",
-          "addedPrice": 255.9,
-          "fairValue": 176.7,
-          "buyBelow": 141.36,
-          "marginOfSafety": 0.2,
-          "metrics": {
-            "avgRoe": 0.3334037365058712,
-            "netMargin": 0.24441,
-            "debtEquity": 0.033091288739202813,
-            "pe": 19.84738,
-            "fcfYield": 0.04343414661393025,
-            "revCagr": 0.03646483983178639
-          },
-          "moat": "About 80% of India's cigarette market plus a distribution network reaching 7+ million shops, matched only by Hindustan Unilever: a brand-and-distribution moat that funds its growing FMCG brands.",
-          "thesis": "A cash-rich, debt-free consumer franchise with Buffett-style brand power, priced at a moderate earnings multiple. Wait for the buy-below price.",
-          "reasons": [
-            "In FY26 cigarette segment revenue grew 7.5% and segment profit 7.2%, while non-cigarette FMCG revenue grew 7.4% and has passed ₹24,200 crore.",
-            "Debt-free with high returns on equity and steady dividends: consistent earning power from a simple, understandable business.",
-            "Its cigarette cash flows fund packaged foods and personal-care brands, like See's or Coca-Cola's cash funding Berkshire's growth."
-          ],
-          "watch": "Tobacco taxes can rise sharply in any budget, and cigarette volumes are falling. The price is above the buy-below level, so it's a watch-list name for now.",
-          "sources": [
-            [
-              "ITC – Q2 FY2026 results press release",
-              "https://itcportal.com/content/dam/itc-corporate/pdfs/financial-result/quarterly-results-2025-2026/september-2025/ITC-Press-Release-Q2-FY2026.pdf"
-            ],
-            [
-              "ICICI Direct – ITC latest quarterly results analysis",
-              "https://www.icicidirect.com/research/equity/rapid-results/itc-ltd"
-            ],
-            [
-              "Value Research – ITC results preview: core businesses after the hotels demerger",
-              "https://www.valueresearchonline.com/stories/225510/itc-q1-fy26-results-preview-core-business-growth-in-focus/"
-            ]
-          ]
-        },
-        {
-          "market": "IN",
-          "symbol": "INFY",
-          "yahoo": "INFY.NS",
-          "name": "Infosys Limited",
-          "sector": "Technology / IT Services",
-          "currency": "INR",
-          "price": 1098.0,
-          "priceDate": "2026-11-20",
-          "addedOn": "2026-10-05",
-          "addedPrice": 1035.0,
-          "fairValue": 1144.7,
-          "buyBelow": 915.76,
-          "marginOfSafety": 0.2,
-          "metrics": {
-            "avgRoe": 0.3113319833914828,
-            "netMargin": 0.16217,
-            "debtEquity": 0.0988146331493971,
-            "pe": 14.620506,
-            "fcfYield": 0.07778563763821485,
-            "revCagr": 0.03441926382216631
-          },
-          "moat": "One of India's two largest IT-services brands, with long client relationships at global companies: large multi-year contracts and switching costs make revenue sticky.",
-          "thesis": "A debt-free, cash-rich services leader trading near the estimated value of its free cash flow after a long derating.",
-          "reasons": [
-            "Q1 FY27 (reported 23 Jul 2026): revenue $5,082M (+2.4% YoY in constant currency), operating margin 21.1%, and $3.6B of large-deal wins, 61% of them net new.",
-            "Debt-free with high returns on equity and steady dividends and buybacks.",
-            "A people-and-process business: clients pay for delivery at scale, which Buffett's criteria can judge without forecasting technology."
-          ],
-          "watch": "Growth guidance is only 1.5–3% for FY27, and AI may shrink traditional outsourcing work. The price is above the buy-below level. Wait for a better price.",
-          "sources": [
-            [
-              "Infosys – Q1 FY27 results (SEC Form 6-K)",
-              "https://www.sec.gov/Archives/edgar/data/0001067491/000106749126000034/exv99w02.htm"
-            ],
-            [
-              "Infosys – Q1 FY27 press release (SEC Form 6-K)",
-              "https://www.sec.gov/Archives/edgar/data/0001067491/000106749126000038/exv99w01.htm"
-            ],
-            [
-              "Berkshire Hathaway – 1996 letter (circle of competence)",
-              "https://www.berkshirehathaway.com/letters/1996.html"
-            ]
-          ]
-        },
-        {
-          "market": "IN",
-          "symbol": "COALINDIA",
-          "yahoo": "COALINDIA.NS",
-          "name": "Coal India Ltd",
-          "sector": "Energy / Coal",
-          "currency": "INR",
-          "price": 390.0,
-          "priceDate": "2026-11-20",
-          "addedOn": "2026-10-05",
-          "addedPrice": 420.4,
-          "fairValue": 1023.03,
-          "buyBelow": 818.42,
-          "marginOfSafety": 0.2,
-          "metrics": {
-            "avgRoe": 0.39279655824088466,
-            "netMargin": 0.18625,
-            "debtEquity": 0.11815277650435477,
-            "pe": 7.2035465,
-            "fcfYield": 0.12779454357772105,
-            "revCagr": 0.09305839675105099
-          },
-          "moat": "Produces most of India's coal with the country's largest reserves and lowest costs: the low-cost-producer moat Buffett names in his 2007 letter, in a country that still gets most of its power from coal.",
-          "thesis": "A debt-free, very cash-generative low-cost producer trading far below the estimated value of its cash flows, with a high dividend.",
-          "reasons": [
-            "Q1 FY27 revenue grew 8% to ₹46,255 crore and net profit was ₹8,852 crore; it declared an interim dividend of ₹5.50 a share.",
-            "Debt-free, profitable every year, with a free-cash-flow yield above 10%.",
-            "Its cost position and reserves can't be replicated, and India's power demand keeps growing."
-          ],
-          "watch": "Government-controlled (dividends and prices are policy decisions) and coal is in long-term decline as renewables grow, so the moat may not be enduring. Higher risk than the other ideas.",
-          "sources": [
-            [
-              "Upstox – Coal India Q1 FY27 results: net profit ₹8,852 crore, dividend ₹5.5",
-              "https://upstox.com/news/market-news/earnings/coal-india-q1-fy-27-results-net-profit-rises-marginally-to-8-852-crore-yo-y-board-declares-dividend-of-5-5-per-equity-share-for-fy-27/article-197634/"
-            ],
-            [
-              "Kotak Neo – Coal India Q1 FY27 results",
-              "https://www.kotakneo.com/news/stocks/coal-india-q1-fy27-results-revenue-at-rs46255-crore/"
-            ],
-            [
-              "Berkshire Hathaway – 2007 letter (low-cost producer moat)",
-              "https://www.berkshirehathaway.com/letters/2007ltr.pdf"
-            ]
-          ]
-        }
       ]
     },
     "munger": {
@@ -614,95 +498,103 @@ window.STYLES = {
             ]
           ]
         }
-      ],
+      ]
+    },
+    "agrawal": {
       "IN": [
         {
           "market": "IN",
-          "symbol": "EICHERMOT",
-          "yahoo": "EICHERMOT.NS",
-          "name": "Eicher Motors Ltd",
-          "sector": "Consumer Discretionary / Motorcycles",
+          "symbol": "POLYCAB",
+          "yahoo": "POLYCAB.NS",
+          "name": "Polycab India",
+          "sector": "Industrials / Wires & cables",
           "currency": "INR",
-          "price": 8113.0,
+          "addedOn": "2026-11-23",
+          "addedPrice": 7570.0,
+          "price": 7570.0,
           "priceDate": "2026-11-20",
-          "addedOn": "2026-10-05",
-          "addedPrice": 6920.0,
-          "fairValue": 3214.0,
-          "buyBelow": 2892.6,
-          "marginOfSafety": 0.1,
+          "fairValue": 5899.6,
+          "buyBelow": 5899.6,
+          "marginOfSafety": 0.0,
           "metrics": {
-            "avgRoe": 0.21453648004738524,
-            "netMargin": 0.22882,
-            "debtEquity": 0.02047597325115587,
-            "pe": 37.309727,
-            "fcfYield": 0.015846154232944096,
-            "revCagr": 0.174675251484967
+            "avgRoe": 0.20935382959783058,
+            "netMargin": 0.09119,
+            "debtEquity": 0.3748267904537557,
+            "pe": 35.440292,
+            "fcfYield": 0.020789993567088005,
+            "revCagr": 0.26570413643814605,
+            "profitCagr": 0.2811209710668201,
+            "peg": 1.2606776316084984,
+            "promoterHolding": 0.64408994
           },
-          "moat": "Royal Enfield owns the mid-size motorcycle segment in India with a cult brand and a growing export business: a pricing-power moat few bike makers have.",
-          "thesis": "A debt-free brand compounder with high returns and 17% revenue growth, worth owning for decades. Wait for a fairer price.",
+          "moat": "India's largest wires and cables maker, with the widest dealer and electrician network in the trade: scale, brand trust with electricians and backward integration keep it ahead in a fragmented, oligopolistic top tier.",
+          "thesis": "Q (category leader, low debt), G (record quarter, profit +43%) and L (power, housing and data-centre cabling demand for years); P is the weak spot, so it's a wait-for-PEG-1 idea.",
           "reasons": [
-            "Royal Enfield sold a record 1,33,958 motorcycles in September 2026 (+8%); exports rose 17%, and April–September sales were up 20% to 7.09 lakh.",
-            "Debt-free, with high returns on equity and revenue growing about 17% a year.",
-            "Long runway: rising incomes move riders up from commuter bikes, and exports are still small."
+            "Q2 FY27 (reported 15 Oct 2026): revenue +53% to ₹9,899 cr and net profit +43% to ₹990 cr, its highest-ever second quarter; H1 profit +38% to ₹1,787 cr.",
+            "Growth beats the 15% QGLP bar with room: net profit has compounded about 28% a year over the last four reported years.",
+            "A leader in a consumer-facing oligopoly with little debt: the kind of business QGLP's 'Quality' asks for."
           ],
-          "watch": "It's expensive (P/E around 34) and trades far above the buy-below price; competition from Honda, Triumph-Bajaj and Harley-Hero is rising. Wait for a much better price.",
+          "watch": "EBITDA margin fell 139 bps year on year to 14.4% as costs rose faster than revenue; copper price swings and new competition in cables (large conglomerates entering) could squeeze margins. Price is above the PEG-1 buy-below price: wait.",
           "sources": [
             [
-              "Autocar Professional – Royal Enfield records highest-ever September sales at 1.34 lakh units",
-              "https://www.autocarpro.in/news/royal-enfield-records-highest-ever-september-sales-at-134-lakh-units-135002"
+              "Business Today – Polycab India Q2: net profit rises 43%, EBITDA at Rs 1,422 crore (15 Oct 2026)",
+              "https://www.businesstoday.in/markets/stocks/story/polycab-india-q2-earnings-net-profit-rises-ebitda-at-rs-1422-crore-561791-2026-10-15"
             ],
             [
-              "Team-BHP – Royal Enfield posts record sales month, Sep 2026",
-              "https://www.team-bhp.com/news/royal-enfield-posts-record-sales-month-133-lakh-units-sep-2026"
+              "Free Press Journal – Polycab India Q2 net profit jumps 43% to ₹990 crore",
+              "https://www.freepressjournal.in/business/polycab-india-q2-net-profit-jumps-43-to-990-crore-revenue-up-53"
             ],
             [
-              "Screener – Eicher Motors consolidated financials",
-              "https://www.screener.in/company/EICHERMOT/consolidated/"
+              "Motilal Oswal AMC – QGLP philosophy",
+              "https://www.motilaloswalmf.com/motilal-oswal-edge/qglp"
             ]
           ]
         },
         {
           "market": "IN",
-          "symbol": "BRITANNIA",
-          "yahoo": "BRITANNIA.NS",
-          "name": "Britannia Industries Ltd",
-          "sector": "Consumer Staples / Packaged Foods",
+          "symbol": "BAJAJ-AUTO",
+          "yahoo": "BAJAJ-AUTO.NS",
+          "name": "Bajaj Auto",
+          "sector": "Consumer Discretionary / Two- and three-wheelers",
           "currency": "INR",
-          "price": 4900.0,
+          "addedOn": "2026-11-23",
+          "addedPrice": 10765.0,
+          "price": 10765.0,
           "priceDate": "2026-11-20",
-          "addedOn": "2026-10-05",
-          "addedPrice": 4778.0,
-          "fairValue": 1572.37,
-          "buyBelow": 1415.13,
-          "marginOfSafety": 0.1,
+          "fairValue": 9859.2,
+          "buyBelow": 9859.2,
+          "marginOfSafety": 0.0,
           "metrics": {
-            "avgRoe": 0.5490361108984148,
-            "netMargin": 0.13204001,
-            "debtEquity": 0.27368913710991355,
-            "pe": 44.195904,
-            "fcfYield": 0.02038568625380575,
-            "revCagr": 0.056647625193595674
+            "avgRoe": 0.23934649239889885,
+            "netMargin": 0.15996,
+            "debtEquity": 0.5830205971931904,
+            "pe": 22.828499,
+            "fcfYield": 0.006378289112940834,
+            "revCagr": 0.19494168990528205,
+            "profitCagr": 0.21030716644534309,
+            "peg": 1.0854836468890812,
+            "promoterHolding": 0.61091
           },
-          "moat": "One of India's most trusted food brands (Good Day, Marie Gold, NutriChoice) with distribution in millions of shops: brand and reach that compound slowly but surely.",
-          "thesis": "A very high-return consumer brand Munger would admire, but priced well above fair value. A patient watch-list idea.",
+          "moat": "India's largest two- and three-wheeler exporter and the leader in three-wheelers, with premium motorcycle brands (Pulsar, KTM, Triumph) and a global distribution reach that peers lack.",
+          "thesis": "A quality leader that is still growing fast (record quarter, exports +41%, EV volumes more than doubled) at a price close to PEG 1.",
           "reasons": [
-            "Q1 FY27 revenue grew 9.5% to ₹4,964 crore on 9% volume growth, and net profit grew 14.1% to ₹593 crore.",
-            "Return on equity above 50% with little debt, and EBITDA margin expanded to 16.8%.",
-            "Long runway as India's packaged-food consumption grows."
+            "Q2 FY27 (reported 27 Oct 2026): standalone revenue +34% to a record ₹20,003 cr and profit +35% to ₹3,354 cr; consolidated profit +62% to ₹3,436 cr.",
+            "Growth drivers QGLP looks for: exports up 41% and electric-vehicle volumes near 2 lakh units versus about 82,000 a year earlier.",
+            "4-year average RoE about 24% with no year below 21%: sustained returns well above the cost of equity."
           ],
-          "watch": "Valuation is the main risk (P/E around 44, far above the buy-below price); input costs (wheat, sugar, fuel) squeeze margins. Wait for a much better price.",
+          "watch": "Management flagged input-cost inflation and supply constraints. Exports depend on Africa and Latin America currencies; EV competition is intense. Price is a little above the PEG-1 buy-below price.",
           "sources": [
             [
-              "Kotak Neo – Britannia Q1 FY27 results: net profit rises 14%",
-              "https://www.kotakneo.com/news/stocks/britannia-industries-q1-fy-2026-27-results-net-profit-rises/"
+              "Business Standard – Bajaj Auto Q2 net profit rises 62% to ₹3,436 cr on exports, EV sales",
+              "https://www.business-standard.com/s/2gA8m4N"
             ],
             [
-              "Indian Retailer – Britannia profit rises 14% in Q1 FY27",
-              "https://www.indianretailer.com/news/retail-india-news-britannia-profit-rises-14-pc-q1-fy27"
+              "Autocar Professional – Bajaj Auto Q2 net profit rises 35% to Rs 3,354 crore",
+              "https://www.autocarpro.in/news/bajaj-auto-q2-net-profit-rises-35-percent-to-rs-3354-crore-as-revenue-crosses-rs-20000-crore-135494"
             ],
             [
-              "Investywise – Britannia Q1 FY27 earnings call",
-              "https://www.investywise.com/britannia-industries-q1-fy27-earnings-conference-call-transcript/"
+              "Value Research – How to invest like Raamdeo Agrawal",
+              "https://valueresearchonline.com/stories/201307/how-to-invest-like-raamdeo-agrawal"
             ]
           ]
         },
@@ -710,44 +602,387 @@ window.STYLES = {
           "market": "IN",
           "symbol": "HEROMOTOCO",
           "yahoo": "HEROMOTOCO.NS",
-          "name": "Hero Motocorp Limited",
+          "name": "Hero MotoCorp",
           "sector": "Consumer Discretionary / Two-wheelers",
           "currency": "INR",
+          "addedOn": "2026-11-23",
+          "addedPrice": 5536.0,
           "price": 5536.0,
           "priceDate": "2026-11-20",
-          "addedOn": "2026-10-05",
-          "addedPrice": 5168.0,
-          "fairValue": 8830.03,
-          "buyBelow": 7947.03,
-          "marginOfSafety": 0.1,
+          "fairValue": 8059.35,
+          "buyBelow": 8059.35,
+          "marginOfSafety": 0.0,
           "metrics": {
             "avgRoe": 0.2182929333094143,
             "netMargin": 0.112040006,
             "debtEquity": 0.03602809470464144,
-            "pe": 18.474888,
-            "fcfYield": 0.06510736735263807,
-            "revCagr": 0.11723108913184443
+            "pe": 18.524946,
+            "fcfYield": 0.0649314309090387,
+            "revCagr": 0.11723108913184443,
+            "profitCagr": 0.2689588614144012,
+            "peg": 0.6887650365033892,
+            "promoterHolding": 0.37562
           },
-          "moat": "The world's largest two-wheeler maker by volume, with India's deepest rural dealer network.",
-          "thesis": "The only Indian name passing every Munger-style test that also trades below its buy-below price: high returns, no debt, still growing.",
+          "moat": "The world's largest two-wheeler maker by volume, with India's deepest rural dealer network: in commuter motorcycles its brand, low costs and service reach are very hard to match.",
+          "thesis": "A debt-free market leader growing earnings faster than 15% a year, priced below PEG 1: the cheapest growth among the QGLP passers.",
           "reasons": [
-            "September 2026 sales rose 12% to 7.66 lakh units, domestic sales up 31%.",
-            "Debt-free, with return on equity above 20% and revenue growing about 12% a year.",
-            "Trades below the buy-below price: a fair price for a strong business."
+            "Q2 FY27 (reported 28 Oct 2026): consolidated revenue +23% to ₹14,971 cr; scooter volumes +47% to 2.40 lakh units.",
+            "Net profit has compounded about 27% a year over four reported years, against a P/E near 19: a PEG of about 0.7.",
+            "Industry leader with almost no debt (debt/equity about 0.04) and RoE above 17% every year."
           ],
-          "watch": "Inversion: electric two-wheelers from new rivals could break its petrol-bike moat; watch Vida's EV share. Exports are falling.",
+          "watch": "Reported Q2 profit (+41%) included a ₹397 cr one-time gain; standalone profit rose only 4.6%, so underlying growth is slower than it looks. Electric two-wheelers could erode the petrol commuter moat.",
           "sources": [
             [
-              "Autocar Professional – Hero MotoCorp wholesales rise 12% in September",
-              "https://www.autocarpro.in/news/hero-motocorp-wholesales-rise-12-percent-yoy-to-766-lakh-units-in-september-135014"
+              "Autocar Professional – Hero MotoCorp Q2 consolidated net profit rises 41% to Rs 1,861 crore",
+              "https://www.autocarpro.in/news/hero-motocorp-q2-consolidated-net-profit-rises-41-percent-to-rs-1861-crore-135544"
             ],
             [
-              "Bike Advice – Hero September 2026 sales",
-              "https://bikeadvice.in/hero-september-2026-sales-12-yoy-growth-7-66-lakh-units/"
+              "Free Press Journal – Hero MotoCorp Q2 results: net profit jumps 41%",
+              "https://www.freepressjournal.in/business/hero-motocorp-q2-results-net-profit-jumps-41-to-1861-crore-as-revenue-rises-23"
             ],
             [
-              "Munger – A Lesson on Elementary, Worldly Wisdom (USC 1994)",
-              "https://worldlypartners.com/wp-content/uploads/2024/01/1994-lecture-by-charlie-munger-at-usc-a-lesson-on-elementary-worldly-wisdom-as-it-relates-to-investment.pdf"
+              "Motilal Oswal – 23rd Wealth Creation Study (PEG < 1)",
+              "https://www.motilaloswal.com/site/rreports/HTML/636766965804335553/index.htm"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "ACE",
+          "yahoo": "ACE.NS",
+          "name": "Action Construction Equipment",
+          "sector": "Industrials / Cranes & construction equipment",
+          "currency": "INR",
+          "addedOn": "2026-11-23",
+          "addedPrice": 1170.35,
+          "price": 1170.35,
+          "priceDate": "2026-11-20",
+          "fairValue": 1287.9,
+          "buyBelow": 1287.9,
+          "marginOfSafety": 0.0,
+          "metrics": {
+            "avgRoe": 0.228371439501303,
+            "netMargin": 0.14372,
+            "debtEquity": 0.003931092553226562,
+            "pe": 27.619379,
+            "fcfYield": 0.022955214842042774,
+            "revCagr": 0.14960127910833676,
+            "profitCagr": 0.34238062841681427,
+            "peg": 0.8066863808187232,
+            "promoterHolding": 0.66830003
+          },
+          "moat": "India's market leader in mobile pick-and-carry cranes, with a low-cost, made-in-India product range and a dealer network that multinational rivals have not matched in this category.",
+          "thesis": "A debt-free category leader growing profit 30%+ on infrastructure spending, priced below PEG 1.",
+          "reasons": [
+            "Q2 FY27 (reported 12 Nov 2026): consolidated revenue +19% to ₹886 cr; profit before tax excluding a one-off gain +35% to ₹167 cr; H1 profit +51%.",
+            "Margins expanding: consolidated adjusted EBITDA margin 15.1% versus 14.6% a year earlier.",
+            "Net profit compounding about 34% a year over four reported years at a P/E near 28: PEG about 0.8, and no meaningful debt."
+          ],
+          "watch": "Reported Q2 profit included a ₹50 cr one-time gain from selling the heavy-cranes business. Demand is tied to infrastructure and construction cycles; a slowdown in government capex would hit volumes.",
+          "sources": [
+            [
+              "Autocar Professional – ACE reports 82% jump in Q2 net profit (12 Nov 2026)",
+              "https://www.autocarpro.in/news/ace-reports-82-percent-jump-in-q2-net-profit-on-crane-business-restructuring-gain-135883"
+            ],
+            [
+              "The Machine Maker – Action Construction Equipment reports 19.1% revenue growth in Q2 FY27",
+              "https://themachinemaker.com/?p=115754"
+            ],
+            [
+              "Value Research – Exploring the investing strategy of Raamdeo Agrawal",
+              "https://www.valueresearchonline.com/web-stories/exploring-the-investing-strategy-of-raamdeo-agrawal/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "CAPLIPOINT",
+          "yahoo": "CAPLIPOINT.NS",
+          "name": "Caplin Point Laboratories",
+          "sector": "Healthcare / Generic medicines",
+          "currency": "INR",
+          "addedOn": "2026-11-23",
+          "addedPrice": 2029.1,
+          "price": 2029.1,
+          "priceDate": "2026-11-20",
+          "fairValue": 1758.07,
+          "buyBelow": 1758.07,
+          "marginOfSafety": 0.0,
+          "metrics": {
+            "avgRoe": 0.19110318063005774,
+            "netMargin": 0.28882998,
+            "debtEquity": 0.0012854043865470303,
+            "pe": 22.203539,
+            "fcfYield": 0.018031643344264364,
+            "revCagr": 0.1430758903520457,
+            "profitCagr": 0.19447624747915748,
+            "peg": 1.141709555167122,
+            "promoterHolding": 0.73437
+          },
+          "moat": "A dominant supplier of branded generics to Latin America's under-served markets, with its own distribution there, plus a growing US injectables business: a niche few large pharma firms bother to serve.",
+          "thesis": "Debt-free, high-margin (EBITDA ~39%) growth at 15–20% a year; slightly above the PEG-1 price, so a wait idea.",
+          "reasons": [
+            "Q2 FY27 (reported 12 Nov 2026): revenue +18% to ₹630 cr and net profit +14% to ₹182 cr; H1 profit +16%.",
+            "EBITDA margin of 38.7% in Q2 and no debt: quality of business that QGLP rewards.",
+            "Management guides US revenue growth of 20–25% for FY27, a second growth engine beside Latin America."
+          ],
+          "watch": "Q2 profit growth (14%) was just under the 15% bar; receivables from government tenders rose by about ₹70 cr. A US FDA inspection at its sterile-injectables subsidiary is a risk to the US plan. Price is above the PEG-1 buy-below price.",
+          "sources": [
+            [
+              "Trendlyne – Q2FY27 result announced for Caplin Point Laboratories",
+              "https://trendlyne.com/posts/5944932/q2fy27-quarterly-result-announced-for-caplin-point-laboratories-ltd"
+            ],
+            [
+              "Angel One – Caplin Point Q2 FY27: total income up 17.5% (12 Nov 2026)",
+              "https://www.angelone.in/news/stocks/caplin-point-laboratories-share-price-falls-over-3-after-q2-fy27-earnings-results-total-income-up-17-5-yoy"
+            ],
+            [
+              "Motilal Oswal AMC – QGLP philosophy",
+              "https://www.motilaloswalmf.com/motilal-oswal-edge/qglp"
+            ]
+          ]
+        }
+      ]
+    },
+    "kedia": {
+      "IN": [
+        {
+          "market": "IN",
+          "symbol": "PRIVISCL",
+          "yahoo": "PRIVISCL.NS",
+          "name": "Privi Speciality Chemicals",
+          "sector": "Materials / Aroma chemicals",
+          "currency": "INR",
+          "addedOn": "2026-11-23",
+          "addedPrice": 3565.5,
+          "price": 3565.5,
+          "priceDate": "2026-11-20",
+          "fairValue": 4287.15,
+          "buyBelow": 4287.15,
+          "marginOfSafety": 0.0,
+          "metrics": {
+            "avgRoe": 0.13270711801154497,
+            "netMargin": 0.13547,
+            "debtEquity": 0.7230547289881023,
+            "pe": 38.114834,
+            "fcfYield": 0.016219494295864074,
+            "revCagr": 0.1655148370009476,
+            "profitCagr": 1.4521071989417376,
+            "peg": 0.2624794782904266,
+            "promoterHolding": 0.58673
+          },
+          "moat": "India's largest maker and exporter of aroma chemicals, with over 20% global share in ten products and the world's top fragrance houses as customers; backward integration into key raw materials keeps costs low.",
+          "thesis": "S-M-I-L-E fits: a ₹14,000 cr company led by its founder for 40 years, aiming to more than double revenue by FY30, in a global fragrance market where it is still small.",
+          "reasons": [
+            "Q2 FY27 (reported 29 Oct 2026): record quarter, profit +25% to ₹117 cr and total income +14% to ₹773 cr; first-ever interim dividend.",
+            "Large aspiration: management targets ₹5,000 cr revenue by FY29-30 with new capacity due in 2028.",
+            "Medium experience, high skin in the game: founder-chairman Mahesh Babani has run the business since 1985; promoter/insider holding about 59%."
+          ],
+          "watch": "Profit swings with raw-material (crude sulphate turpentine) prices and global fragrance demand; RoE dipped to about 3% in a weak earlier year. Debt/equity of about 0.7 is the highest in this list.",
+          "sources": [
+            [
+              "Indian Chemical News – Privi Speciality Chemicals posts 24.6% jump in Q2 net profit (3 Nov 2026)",
+              "https://www.indianchemicalnews.com/general/privi-speciality-chemicals-posts-246-jump-in-q2-net-profit-to-rs-117-cr-32501"
+            ],
+            [
+              "Investywise – Privi reports strong Q2 FY27 growth, eyes 2x expansion",
+              "https://www.investywise.com/?p=126007"
+            ],
+            [
+              "BloombergQuint – Vijay Kedia's secret to investing is SMILE",
+              "https://www.bloombergquint.com/markets/this-dalal-street-veterans-secret-to-investing-is-smile"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "RRKABEL",
+          "yahoo": "RRKABEL.NS",
+          "name": "R R Kabel",
+          "sector": "Industrials / Wires & cables",
+          "currency": "INR",
+          "addedOn": "2026-11-23",
+          "addedPrice": 1810.2,
+          "price": 1810.2,
+          "priceDate": "2026-11-20",
+          "fairValue": 2673.0,
+          "buyBelow": 2673.0,
+          "marginOfSafety": 0.0,
+          "metrics": {
+            "avgRoe": 0.15818628953057862,
+            "netMargin": 0.05623,
+            "debtEquity": 0.13091509209583174,
+            "pe": 31.161615,
+            "fcfYield": 0.00020337384207721172,
+            "revCagr": 0.20080450807953576,
+            "profitCagr": 0.3737215826354907,
+            "peg": 0.8338189831116465,
+            "promoterHolding": 0.69991994
+          },
+          "moat": "A top-five Indian wires and cables brand with a strong export business, competing on quality and electrician loyalty in a market that is still shifting from unorganised to branded players.",
+          "thesis": "A ₹21,000 cr promoter-run challenger growing faster than the leader (Q2 revenue +52%) in a market with years of runway.",
+          "reasons": [
+            "Q2 FY27 (reported 28 Oct 2026): revenue +52% to ₹3,284 cr and net profit +55% to ₹181 cr; H1 profit +87% to about ₹386 cr.",
+            "Wires and cables margin rose to 9.6% in H1 from 8.4%, and the working-capital cycle improved to 46 days.",
+            "Skin in the game: promoter/insider holding about 70%; management targets break-even in its consumer-electricals arm this year."
+          ],
+          "watch": "It cut its FY27 volume-growth outlook to 14–15% from 16–18%, and net debt has tripled as it builds capacity. Copper prices and price wars with larger rivals can squeeze margins.",
+          "sources": [
+            [
+              "Multibagg – R R Kabel Q2 FY27 profit rises 56%",
+              "https://www.multibagg.ai/market-pulse/articles/rr-kabel-q2-fy27-results-cmvs8l1yf00172lm919mjs6og"
+            ],
+            [
+              "Multibagg – R R Kabel cuts FY27 volume outlook to about 14%-15%",
+              "https://www.multibagg.ai/market-pulse/articles/r-r-kabel-trims-outlook-concall-cmw3ewcwx00aa2mphvd030yk9"
+            ],
+            [
+              "Value Research – How to invest like Vijay Kedia",
+              "https://www.valueresearchonline.com/stories/54019/how-to-invest-like-vijay-kedia/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "LTFOODS",
+          "yahoo": "LTFOODS.NS",
+          "name": "LT Foods",
+          "sector": "Consumer Staples / Packaged foods",
+          "currency": "INR",
+          "addedOn": "2026-11-23",
+          "addedPrice": 432.4,
+          "price": 432.4,
+          "priceDate": "2026-11-20",
+          "fairValue": 448.39,
+          "buyBelow": 448.39,
+          "marginOfSafety": 0.0,
+          "metrics": {
+            "avgRoe": 0.15436382268283128,
+            "netMargin": 0.054229997,
+            "debtEquity": 0.3561705094705128,
+            "pe": 22.437862,
+            "fcfYield": 0.037388557111517284,
+            "revCagr": 0.16467946845351267,
+            "profitCagr": 0.1580813663910825,
+            "peg": 1.4193868962702576,
+            "promoterHolding": 0.61783004
+          },
+          "moat": "Daawat and Royal are leading basmati brands in India, the Middle East, the US and the UK, built over decades with procurement scale that new brands cannot easily copy.",
+          "thesis": "A ₹15,000 cr promoter-run food company turning a commodity into global brands, with an extra-large market (branded rice and ready-to-cook worldwide) and steady double-digit growth.",
+          "reasons": [
+            "Q2 FY27 (reported 27–28 Oct 2026): revenue +17% to ₹3,253 cr and net profit +10% to ₹180 cr; H1 revenue +22% to ₹6,414 cr.",
+            "Growth is broad: India sales +24% and Middle East +24.6% in H1, with new Daawat products launched during the quarter.",
+            "Large aspiration: Daawat targets £100 million of UK revenue over four years, and it bought Hungary's Global Green Europe."
+          ],
+          "watch": "Profit growth (10%) is lagging sales growth (17%) as margins missed guidance; rice procurement costs, export rules and acquisitions are the risks to watch.",
+          "sources": [
+            [
+              "PTI via HDFC Sky – LT Foods Q2 FY27 revenue rises 17%, net profit up 10% (28 Oct 2026)",
+              "https://hdfcsky.com/news/lt-foods-q2-fy27-revenue-rises-17-pc-to-rs-3253-crore-net-profit-up-10-pc"
+            ],
+            [
+              "BW Retail World – LT Foods Q2 revenue rises 17%, India sales grow 24% in H1",
+              "https://bwretailworld.com/fmcg/lt-foods-q2-revenue-rises-17-india-sales-grow-24-in-h1"
+            ],
+            [
+              "BloombergQuint – Vijay Kedia's secret to investing is SMILE",
+              "https://www.bloombergquint.com/markets/this-dalal-street-veterans-secret-to-investing-is-smile"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "SHRIPISTON",
+          "yahoo": "SHRIPISTON.NS",
+          "name": "SPR Auto Technologies (Shriram Pistons)",
+          "sector": "Consumer Discretionary / Auto components",
+          "currency": "INR",
+          "addedOn": "2026-11-23",
+          "addedPrice": 4222.0,
+          "price": 4222.0,
+          "priceDate": "2026-11-20",
+          "fairValue": 4625.79,
+          "buyBelow": 4625.79,
+          "marginOfSafety": 0.0,
+          "metrics": {
+            "avgRoe": 0.2060157906401654,
+            "netMargin": 0.103870004,
+            "debtEquity": 0.6785244513812673,
+            "pe": 32.214863,
+            "fcfYield": 0.022098698519758892,
+            "revCagr": 0.19797782993352064,
+            "profitCagr": 0.23479963109527402,
+            "peg": 1.3720150602335597,
+            "promoterHolding": 0.61858004
+          },
+          "moat": "India's leading maker of pistons, rings and engine valves (formerly Shriram Pistons & Rings), now diversifying into powertrain-neutral parts through acquisitions, with long OEM relationships that are slow to switch.",
+          "thesis": "An ambitious ₹20,000 cr component maker reinventing itself for the EV era (35%+ of revenue now powertrain-agnostic) with fresh capital from a ₹1,000 cr QIP.",
+          "reasons": [
+            "Q2 FY27 (reported 30–31 Oct 2026): consolidated total income +61% to ₹1,675 cr with the acquired Antolin India businesses; profit +14% to ₹162 cr.",
+            "Large aspiration made concrete: powertrain-agnostic products are now over 35% of revenue, up from four legacy engine parts five years ago.",
+            "Raised ₹1,000 cr through a QIP to strengthen the balance sheet; standalone core EBITDA margin about 19.9%, among the best in the industry."
+          ],
+          "watch": "Profit growth (14%) trails revenue growth because of acquisition funding and cost pressure; the legacy engine-parts business shrinks as EVs grow. Integration of acquisitions is the key execution risk.",
+          "sources": [
+            [
+              "Autocar Professional – SPR Auto Q2 net profit reaches Rs 162 crore",
+              "https://www.autocarpro.in/news/spr-auto-q2-net-profit-reaches-rs-162-crore-on-higher-consolidated-revenue-135589"
+            ],
+            [
+              "Investywise – SPR Auto Technologies reports 61% YoY income growth in Q2FY27",
+              "https://www.investywise.com/spr-auto-technologies-q2-h1-fy27-unaudited-financial-results-announced/"
+            ],
+            [
+              "Value Research – How to invest like Vijay Kedia",
+              "https://www.valueresearchonline.com/stories/54019/how-to-invest-like-vijay-kedia/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "FORCEMOT",
+          "yahoo": "FORCEMOT.NS",
+          "name": "Force Motors",
+          "sector": "Consumer Discretionary / Commercial vehicles",
+          "currency": "INR",
+          "addedOn": "2026-11-23",
+          "addedPrice": 20285.0,
+          "price": 20285.0,
+          "priceDate": "2026-11-20",
+          "fairValue": 40814.1,
+          "buyBelow": 40814.1,
+          "marginOfSafety": 0.0,
+          "metrics": {
+            "avgRoe": 0.19905214501275592,
+            "netMargin": 0.118990004,
+            "debtEquity": 0.0,
+            "pe": 22.110743,
+            "fcfYield": 0.02866633684431729,
+            "revCagr": 0.21707060741879713,
+            "profitCagr": 1.085184639270651,
+            "peg": 0.2037509765606391,
+            "promoterHolding": 0.63240004
+          },
+          "moat": "India's largest van maker (Traveller, Urbania) and an engine supplier to Mercedes-Benz and BMW in India: a niche where its engineering and long-standing OEM ties give it a lead.",
+          "thesis": "A debt-free, family-run vehicle maker whose sales are growing 40% a year as Urbania and exports scale up; priced well below PEG 1.5.",
+          "reasons": [
+            "Q2 FY27 (reported 28 Oct 2026): revenue +41% to ₹2,925 cr and operating profit +20% to ₹434 cr, on volumes up about 50%.",
+            "Profit fell 16% to ₹294 cr only because the year-ago quarter had a one-off tax benefit; the company stays debt-free.",
+            "Skin in the game: the promoter family holds about 63%; exports rose 77% in H1 FY26, showing large aspiration beyond India."
+          ],
+          "watch": "Reported profit is down this year (H1 −3%) on the tax base effect; demand for vans depends on tourism and fleet buyers. A history of lean years (RoE as low as about 7%) shows how cyclical the business can be.",
+          "sources": [
+            [
+              "Autocar Professional – Force Motors Q2 net profit drops 16.6% on normalised tax expenses (28 Oct 2026)",
+              "https://www.autocarpro.in/news/force-motors-q2-net-profit-drops-166-percent-to-rs-291-crore-on-normalised-tax-expenses-135535"
+            ],
+            [
+              "Truck Junction – Force Motors sees strong demand for Traveller N range and Urbania",
+              "https://trucks.tractorjunction.com/en/news/force-motors-q2-results-fy2027-revenue-up-41-percent"
+            ],
+            [
+              "Wikipedia – Vijay Kedia (SMILE, citing Economic Times and Business Standard)",
+              "https://en.wikipedia.org/wiki/Vijay_Kedia"
             ]
           ]
         }
@@ -755,7 +990,13 @@ window.STYLES = {
     }
   },
   "notes": {
-    "buffett": {},
-    "munger": {}
+    "buffett": {
+      "IN": "India now uses Raamdeo Agrawal (QGLP) and Vijay Kedia (SMILE) styles instead (23 Nov 2026). Retired India ideas: HEROMOTOCO, ITC, INFY, COALINDIA."
+    },
+    "munger": {
+      "IN": "India now uses Raamdeo Agrawal (QGLP) and Vijay Kedia (SMILE) styles instead (23 Nov 2026). Retired India ideas: EICHERMOT, BRITANNIA, HEROMOTOCO."
+    },
+    "agrawal": {},
+    "kedia": {}
   }
 };

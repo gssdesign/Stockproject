@@ -22,7 +22,7 @@ import time
 
 import yfinance as yf
 
-from marketlib import DATA, load_market, market_of, write_assigned
+from marketlib import DATA, load_market, market_of, read_assigned, write_assigned
 
 OUT = DATA / "fundamentals.js"
 
@@ -276,6 +276,20 @@ def main() -> int:
                 out[t] = f
             if done % 100 == 0:
                 print(f"{done}/{len(stocks)}")
+    # Yahoo rate-limits some requests on every run. Keep a stock's last good entry (up to
+    # 35 days old) rather than silently dropping it, so a missed fetch can't remove a style idea.
+    carried = 0
+    try:
+        prev = read_assigned(OUT, "window.FUNDAMENTALS = ")
+        cutoff = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=35)).isoformat(timespec="minutes")
+        for t, f in (prev.get("stocks") or {}).items():
+            asof = f.get("asOf") or prev.get("generated", "")
+            if t in stocks and t not in out and asof >= cutoff:
+                out[t] = {**f, "asOf": asof}
+                carried += 1
+    except Exception as exc:
+        print(f"warn: previous fundamentals not reused: {exc}", file=sys.stderr)
+    print(f"carried forward {carried} stocks from the previous run")
     screens = {}
     for style, s in STYLES.items():
         screens[style] = {}

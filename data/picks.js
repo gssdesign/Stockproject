@@ -4,6 +4,314 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-11-23-monthly",
+      "horizon": "monthly",
+      "date": "2026-11-23",
+      "horizonDays": 30,
+      "expires": "2026-12-23",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 6910.39,
+          "summary": "Risk-off: the S&P 500 closed at 6,910.39 on 2026-11-20, below its falling 50-day (7,625) and its 200-day (7,349) averages after a 3.7% drop that day (1-month -9.8%). So this list is capped at 3 and leans to steady, defensive leaders that are still rising, plus an exchange that gains from volatility. This catch-up list replaces the 1 Nov list, which was not published because the scheduler stopped; it runs to 23 Dec."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 25800.6,
+          "summary": "Risk-on: the Nifty 50 closed at 25,800.6 on 2026-11-20, above its rising 50-day (23,486) and 200-day (23,998) averages (1-month +13.1%). Many screen leaders have already run past brokers' targets or their catalysts are older than 21 days, so only 2 stocks with fresh, dated news qualify. Catch-up list for the missed 1 Nov run; it runs to 23 Dec."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "WMT",
+          "yahoo": "WMT",
+          "name": "Walmart",
+          "sector": "Consumer Staples",
+          "currency": "USD",
+          "refPrice": 127.95,
+          "refDate": "2026-11-20",
+          "buyLow": 125.78,
+          "buyHigh": 128.67,
+          "target": 137.4,
+          "stop": 122.14,
+          "risk": "Low",
+          "thesis": "Raised its full-year outlook for the third time this year on 19 Nov and keeps gaining share while the wider market sells off.",
+          "reasons": [
+            "Q3 FY27 (reported 19 Nov): revenue +5.2% to $188.8B and adjusted EPS 65¢ vs 64¢ expected; full-year sales growth lifted to 4.9–5.2% from 4–5%.",
+            "US e-commerce grew 23% and advertising 37%, higher-margin businesses that support profit growth.",
+            "Up about 30 pts vs the S&P 500 over 3 months (stock +20%, index -10%), above a rising 50-day average with modest volatility (ATR 2.3%)."
+          ],
+          "data": [
+            [
+              "Close (11/20)",
+              "$127.95"
+            ],
+            [
+              "3-month vs index",
+              "+29.9 pts"
+            ],
+            [
+              "Q3 revenue",
+              "$188.8B (+5.2%)"
+            ],
+            [
+              "FY27 sales growth guide",
+              "4.9–5.2%"
+            ]
+          ],
+          "watch": "No earnings inside this window (next report around February). AP noted the new outlook was more conservative than some analysts hoped; weak holiday-sales data or a deeper market sell-off could pull it toward the stop.",
+          "sources": [
+            [
+              "AP via AJC – Walmart raises outlook for 3rd time this year after a solid quarter",
+              "https://www.ajc.com/news/2026/11/walmart-raises-outlook-for-3rd-time-this-year-after-a-solid-quarter/"
+            ],
+            [
+              "Supermarket News – Walmart raises full-year outlook after strong third-quarter sales",
+              "https://www.supermarketnews.com/finance/walmart-raises-full-year-outlook-after-strong-third-quarter-sales-ecommerce-growth"
+            ],
+            [
+              "Chain Store Age – Walmart beats Street Q3 EPS, sales; boosts full-year guidance",
+              "https://chainstoreage.com/walmart-beats-street-q3-eps-sales-boosts-full-year-guidance"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "MCK",
+          "yahoo": "MCK",
+          "name": "McKesson",
+          "sector": "Health Care",
+          "currency": "USD",
+          "refPrice": 1069.43,
+          "refDate": "2026-11-20",
+          "buyLow": 1049.97,
+          "buyHigh": 1075.92,
+          "target": 1153.76,
+          "stop": 1017.54,
+          "risk": "Low",
+          "thesis": "Fifth straight earnings beat and a raised profit outlook on 4 Nov, in a defensive business that holds up when markets fall.",
+          "reasons": [
+            "Q2 FY27 (4 Nov): revenue about $111B (+8%) and adjusted EPS $11.68 (+18%); FY27 adjusted EPS guidance raised to $45.60–46.40 from $44.20–45.00.",
+            "GLP-1 drug distribution revenue reached $16B (+26%), and about $5B of share buybacks are planned this fiscal year.",
+            "Up 32 pts vs the S&P 500 over 3 months, above a rising 50-day average and about 5% below its 52-week high."
+          ],
+          "data": [
+            [
+              "Close (11/20)",
+              "$1,069.43"
+            ],
+            [
+              "3-month vs index",
+              "+32.1 pts"
+            ],
+            [
+              "Q2 adj. EPS",
+              "$11.68 (+18%)"
+            ],
+            [
+              "FY27 EPS guide",
+              "$45.60–46.40"
+            ]
+          ],
+          "watch": "No earnings inside this window (next report early February). Drug-pricing or tariff headlines can hit distributors; skip if it opens above the buy zone.",
+          "sources": [
+            [
+              "McKesson release (BusinessWire via Finviz) – Fiscal 2027 Q2 results, raises EPS guidance",
+              "https://finviz.com/news/416008/mckesson-reports-fiscal-2027-second-quarter-results-and-raises-full-year-adjusted-eps-guidance"
+            ],
+            [
+              "HME News – McKesson reports increase, raises guidance",
+              "https://www.hmenews.com/article/mckesson-reports-increase-raises-guidance"
+            ],
+            [
+              "Quartr – McKesson Q2 2027 earnings summary",
+              "https://quartr.com/events/mckesson-corporation-mck-q2-2027_3shBRoXq"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "CBOE",
+          "yahoo": "CBOE",
+          "name": "Cboe Global Markets",
+          "sector": "Financials",
+          "currency": "USD",
+          "refPrice": 357.71,
+          "refDate": "2026-11-20",
+          "buyLow": 349.19,
+          "buyHigh": 360.55,
+          "target": 394.63,
+          "stop": 334.99,
+          "risk": "Medium",
+          "thesis": "Options exchanges earn more when markets swing, and October already set records before November's sharp sell-off.",
+          "reasons": [
+            "October 2026 (reported early November): record index-options volume of 6.9M contracts a day, with SPX 0DTE options at a record 3.58M a day.",
+            "The S&P 500 fell 3.7% on 20 Nov and about 10% in a month; volatility like this usually lifts hedging and options trading.",
+            "November volume figures are due in early December, inside this window. The stock is up 26 pts vs the S&P 500 over 3 months, above a rising 50-day average."
+          ],
+          "data": [
+            [
+              "Close (11/20)",
+              "$357.71"
+            ],
+            [
+              "3-month vs index",
+              "+25.8 pts"
+            ],
+            [
+              "Oct index options ADV",
+              "6.9M (record)"
+            ],
+            [
+              "SPX 0DTE ADV",
+              "3.58M (record)"
+            ]
+          ],
+          "watch": "No earnings inside this window. If volatility fades quickly, volume hopes can unwind; reassess when the November volume report comes out in early December.",
+          "sources": [
+            [
+              "Cboe – Market Metrics That Matter: October 2026 derivatives volume highlights",
+              "https://www.cboe.com/insights/posts/market-metrics-that-matter-derivatives-october-2026-volume-highlights"
+            ],
+            [
+              "Mondo Visione – Cboe reports trading volume for October 2026",
+              "https://mondovisione.com/news/cboe-global-markets-reports-trading-volume-for-october-2026-2026114/"
+            ],
+            [
+              "Cboe release via Finviz – Trading volume for October 2026",
+              "https://finviz.com/news/416084/cboe-global-markets-reports-trading-volume-for-october-2026"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "ADANIPORTS",
+          "yahoo": "ADANIPORTS.NS",
+          "name": "Adani Ports and SEZ",
+          "sector": "Services",
+          "currency": "INR",
+          "refPrice": 1917.0,
+          "refDate": "2026-11-20",
+          "buyLow": 1883.4,
+          "buyHigh": 1928.2,
+          "target": 2062.5,
+          "stop": 1827.45,
+          "risk": "Medium",
+          "thesis": "Cargo volumes jumped 27% in October and the next monthly update lands inside this window.",
+          "reasons": [
+            "October 2026 cargo (reported early November): 51 MMT, up 27% year on year, led by dry cargo (+36%) and containers (+21%).",
+            "Year-to-date port cargo is 331 MMT (+16%); the November cargo update is due in early December, inside this window.",
+            "Above a rising 50-day average and 6.8 pts ahead of the Nifty 50 over 3 months, about 3% below its 52-week high."
+          ],
+          "data": [
+            [
+              "Close (11/20)",
+              "₹1,917.00"
+            ],
+            [
+              "3-month vs index",
+              "+6.8 pts"
+            ],
+            [
+              "Oct cargo",
+              "51 MMT (+27%)"
+            ],
+            [
+              "YTD cargo",
+              "331 MMT (+16%)"
+            ]
+          ],
+          "watch": "No results inside this window. Logistics rail volumes are down 10% year to date, and Adani-group headlines can move the stock sharply; skip if it opens above the buy zone.",
+          "sources": [
+            [
+              "PSU Connect – Adani Ports handles 51 MMT cargo in October 2026, up 27%",
+              "https://www.psuconnect.in/corporate-news/adani-ports-handles-51-mmt-cargo-in-october-2026-up-27-year-on-year"
+            ],
+            [
+              "Angel One – Adani Ports in focus after October 2026 cargo volume rises 27%",
+              "https://www.angelone.in/news/stocks/adani-ports-share-price-in-focus-after-october-2026-cargo-volume-rises-27-yoy"
+            ],
+            [
+              "HDFC Sky – Adani Ports cargo volume rises 27 percent in October",
+              "https://hdfcsky.com/news/adani-ports-cargo-volume-rises-27-percent-in-october"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "LENSKART",
+          "yahoo": "LENSKART.NS",
+          "name": "Lenskart Solutions",
+          "sector": "Consumer Services",
+          "currency": "INR",
+          "refPrice": 744.35,
+          "refDate": "2026-11-20",
+          "buyLow": 727.8,
+          "buyHigh": 749.85,
+          "target": 816.05,
+          "stop": 700.2,
+          "risk": "Medium",
+          "thesis": "Profit more than doubled in the September quarter (reported 4 Nov) and the stock is consolidating just below its record high.",
+          "reasons": [
+            "Q2 FY27 (4 Nov): net profit +125% to ₹232.5 cr and revenue +35.7% to ₹2,845 cr; India revenue +35.3%.",
+            "Shares hit a record ₹767.4 after the results and have held near ₹745, while Jefferies and Equirus raised their targets.",
+            "Above a rising 50-day average, 17.9% higher over a month and 9.2 pts ahead of the Nifty 50 over 3 months."
+          ],
+          "data": [
+            [
+              "Close (11/20)",
+              "₹744.35"
+            ],
+            [
+              "3-month vs index",
+              "+9.2 pts"
+            ],
+            [
+              "Q2 net profit",
+              "₹232.5 cr (+125%)"
+            ],
+            [
+              "Q2 revenue",
+              "₹2,845 cr (+35.7%)"
+            ]
+          ],
+          "watch": "No results inside this window. The valuation is rich (some analysts call it fully priced), and share sales by pre-IPO investors could weigh on the price; skip if it opens above the buy zone.",
+          "sources": [
+            [
+              "Inc42 – Lenskart shares jump 11% to all-time high after Q2 profit more than doubles",
+              "https://inc42.com/buzz/lenskart-shares-jump-11-to-all-time-high-after-q2-profit-more-than-doubles/"
+            ],
+            [
+              "YourStory – Lenskart's profit doubles, revenue grows 36% in Q2",
+              "https://yourstory.com/2026/11/lenskart-profit-doubles-revenue-grows-36-pc-in-q2"
+            ],
+            [
+              "DSIJ – Lenskart share price jumps 8%; Q2 FY27 profit more than doubles",
+              "https://insights.dsij.in/appmindshare/lenskart-share-price-jumps-8-q2-fy27-profit-more-than-doubles-store-expansion-and-manufacturing-scale-boost-margins"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "AP via AJC – Walmart raises outlook (US market backdrop, 19 Nov)",
+          "https://www.ajc.com/news/2026/11/walmart-raises-outlook-for-3rd-time-this-year-after-a-solid-quarter/"
+        ],
+        [
+          "Cboe – October 2026 derivatives volume highlights",
+          "https://www.cboe.com/insights/posts/market-metrics-that-matter-derivatives-october-2026-volume-highlights"
+        ],
+        [
+          "YourStory – PhysicsWallah, Lenskart, Nykaa post stellar profits",
+          "https://yourstory.com/2026/11/physicswallah-lenskart-nykaa-post-stellar-profits"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-30-daily",
       "horizon": "daily",
       "date": "2026-10-30",

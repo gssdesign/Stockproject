@@ -4,6 +4,43 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-11-23-weekly",
+      "horizon": "weekly",
+      "date": "2026-11-23",
+      "horizonDays": 7,
+      "expires": "2026-11-30",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 6910.39,
+          "summary": "Risk-off: the S&P 500 closed at 6,910.39 on 2026-11-20, below its falling 50-day average (7,625) after a 3.7% drop that day. No weekly pick this week: the screen's leaders either have no dated catalyst in the last 7 days or inside the week (Thanksgiving shortens it), or their news is already used in the monthly list, and this week's analyst upgrades (UnitedHealth, Humana, Schwab) went to stocks that fail the trend checks. The list is not padded; see the monthly list for current ideas."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 25800.6,
+          "summary": "Risk-on: the Nifty 50 closed at 25,800.6 on 2026-11-20, above its rising 50-day (23,486) and 200-day (23,998) averages. No weekly pick this week: results season ended in mid-November, so the screen's leaders (Divi's, Meesho, Laurus, Lenskart and others) have catalysts older than 7 days, and no fresh order win or broker upgrade inside the rules turned up. The list is not padded; see the monthly list for current ideas."
+        }
+      },
+      "picks": [],
+      "marketSources": [
+        [
+          "CNBC – Stocks making the biggest moves Friday (20 Nov 2026)",
+          "https://www.cnbc.com/2026/11/20/stocks-moving-the-most-today-live-updates.html"
+        ],
+        [
+          "CNBC – Stock market news for Nov. 20, 2026",
+          "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html"
+        ],
+        [
+          "Upstox – Divi's Laboratories hits 52-week high on Q2 earnings",
+          "https://upstox.com/news/market-news/stocks/divi-s-laboratories-shares-hit-52-week-high-on-robust-q2-earnings-analysts-flag-growth-opportunities/article-203214/"
+        ]
+      ]
+    },
+    {
       "id": "2026-11-23-monthly",
       "horizon": "monthly",
       "date": "2026-11-23",

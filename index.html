@@ -85,6 +85,11 @@
   .tabs-top button { border: 0; background: none; color: var(--muted); font-weight: 600; padding: 8px 14px; border-radius: 10px; cursor: pointer; min-height: 40px; }
   .tabs-top button[aria-selected="true"] { background: var(--accent-soft); color: var(--accent); }
   .icon-btn { border: 1px solid var(--line); background: var(--surface); color: var(--muted); border-radius: 10px; width: 40px; height: 40px; cursor: pointer; display: grid; place-items: center; }
+  #refreshBtn.busy svg { animation: spin .9s linear infinite; }
+  #refreshBtn:disabled { cursor: progress; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { #refreshBtn.busy svg { animation: none; opacity: .5; } }
+  .toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 60; background: var(--text); color: var(--bg); font-size: 13.5px; font-weight: 500; padding: 10px 16px; border-radius: 12px; box-shadow: 0 6px 24px rgba(0, 0, 0, .18); max-width: calc(100vw - 32px); text-align: center; }
   .filters { display: flex; gap: 8px; padding: 0 0 10px; flex-wrap: wrap; }
   .seg { display: flex; background: var(--surface-2); border-radius: 12px; padding: 3px; gap: 2px; }
   .seg button { border: 0; background: none; color: var(--muted); font-weight: 600; font-size: 14px; padding: 0 12px; border-radius: 9px; cursor: pointer; min-height: 36px; white-space: nowrap; }
@@ -328,7 +333,12 @@
     .tabbar { display: flex; }
     body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
     .r-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bar { gap: 8px; }
+    .bar .icon-btn { width: 36px; height: 36px; flex: none; }
+    .brand { min-width: 0; gap: 8px; }
+    .style-sel { min-width: 0; max-width: 168px; flex: 0 1 auto; }
   }
+  @media (max-width: 400px) { .style-sel { max-width: 132px; font-size: 12.5px; } }
 </style>
 </head>
 <body>
@@ -445,6 +455,7 @@
         <button role="tab" data-view="funds">Mutual funds</button>
         <button role="tab" data-view="method">How it works</button>
       </nav>
+      <button class="icon-btn" id="refreshBtn" title="Get the latest picks and prices" aria-label="Refresh data"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg></button>
       <button class="icon-btn" id="themeBtn" title="Light or dark" aria-label="Toggle light or dark theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
     </div>
     <div class="filters" id="filters">
@@ -515,6 +526,7 @@
       </table></div>
       <p>Also: at most 2 picks per sector, at most 2 high-risk picks, and no Indian stocks under NSE surveillance (ASM/GSM) or, for daily picks, in the F&amp;O ban list.</p>
       <p><b>Plan B days.</b> If the standard rules leave a market's daily list empty, at least 3 <span class="planb">PLAN B</span> picks are published instead (up to 5, or 3 in a risk-off market; fewer only if fewer stocks qualify). Only the catalyst rule is loosened: sector leadership, a strong leader pulling back to its 20-day average, or news from 4–7 days ago can count. All price and risk checks still apply, entries must be within 1 ATR of the 20-day average, risk is at least Medium, and Plan B results never feed the automatic rule tuning.</p>
+      <p><b>Chart-only days.</b> If even Plan B can't fill a list of 3, the top 3 stocks of a fixed price-trend ranking are published as <span class="planb">CHART-ONLY</span> picks, so every open market gets a daily list. Score = 3-month strength vs the index + 1-month strength − a penalty for being stretched more than 1 ATR above the 20-day average. There's no hand-picking: the only skips allowed are earnings on the day, an exchange surveillance list, or a third stock from one sector. There's no news behind these picks, so they are the lowest-conviction ideas on the site and never feed the automatic rule tuning.</p>
       <h3>Reading a pick</h3>
       <ul>
         <li><b>Status pill</b>: <b>✓ Buy zone</b> means the last close sits inside the buy zone; <b>Wait</b> means it's above (don't chase); <b>Below zone</b> or <b>Below stop</b> means check why or skip.</li>
@@ -593,7 +605,10 @@
   const CHEV = '<svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const CLOSE_LABEL = { daily: "session close", weekly: "week-end close", monthly: "month-end close" };
   const HNAME = { daily: "Daily", weekly: "Weekly", monthly: "Monthly" };
-  const PLANB_BASIS = { sector: "sector leadership", setup: "leader pulling back to its 20-day average", "older-catalyst": "catalyst from 4–7 days ago" };
+  const PLANB_BASIS = { sector: "sector leadership", setup: "leader pulling back to its 20-day average", "older-catalyst": "catalyst from 4–7 days ago", chart: "price trend only (Chart-only ranking)" };
+  // Plan B label; Chart-only picks are Plan B picks ranked on price data alone (CRITERIA.md section 10).
+  const isChart = p => p.planB && p.planBBasis === "chart";
+  const pbTag = p => isChart(p) ? '<span class="planb">CHART-ONLY</span>' : '<span class="planb">PLAN B</span>';
 
   // ---------- helpers ----------
   const $ = id => document.getElementById(id);
@@ -782,7 +797,7 @@
     return `<details class="card pick">
       <summary>
         <div class="p-head"><span class="rank">${i + 1}</span>
-          <span class="p-name"><b>${esc(p.name)}</b><small>${p.planB ? '<span class="planb">PLAN B</span> ' : ""}${esc(p.symbol)} · ${esc(p.sector)}</small></span>
+          <span class="p-name"><b>${esc(p.name)}</b><small>${p.planB ? pbTag(p) + " " : ""}${esc(p.symbol)} · ${esc(p.sector)}</small></span>
           <span class="pill ${pk}">${esc(pt)}</span></div>
         ${ladder(p, lp.price)}
         <div class="levels num">
@@ -797,7 +812,7 @@
       </summary>
       <div class="p-body">
         ${result}
-        ${p.planB ? `<div class="planb-note" style="margin-top:14px"><b>Plan B pick.</b> The standard rules found no stock with a fresh, dated catalyst for this market today, so this comes from the looser fallback rule (basis: ${esc(PLANB_BASIS[p.planBBasis] || p.planBBasis || "—")}). Every price and risk check still applies, but conviction is lower: consider a smaller position.</div>` : ""}
+        ${isChart(p) ? `<div class="planb-note" style="margin-top:14px"><b>Chart-only pick.</b> No stock in this market had a news reason to move today, so this was ranked from price data alone: a strong 3-month trend against the index, not too stretched above its 20-day average. Every price and risk check still applies, but this is the lowest-conviction kind of pick: use a small position or treat it as a watchlist idea.</div>` : p.planB ? `<div class="planb-note" style="margin-top:14px"><b>Plan B pick.</b> The standard rules found no stock with a fresh, dated catalyst for this market today, so this comes from the looser fallback rule (basis: ${esc(PLANB_BASIS[p.planBBasis] || p.planBBasis || "—")}). Every price and risk check still applies, but conviction is lower: consider a smaller position.</div>` : ""}
         <h4>Why buy</h4><ul>${p.reasons.map(r => `<li>${esc(r)}</li>`).join("")}</ul>
         <h4>Trade plan</h4>
         <div class="plan num">
@@ -840,7 +855,8 @@
     $("pickBanner").innerHTML = isCurrent ? "" : `<div class="banner"><span>${batch.superseded
       ? `↺ <b>Replaced list</b> · ${esc(windowLabel(meta))}. ${esc(batch.superseded.reason || "")}`
       : `📁 <b>Past list</b> · ${esc(windowLabel(meta))}`}</span><button class="btn" data-goto="">Back to today</button></div>`;
-    if (list.some(p => p.planB)) $("pickBanner").innerHTML += `<div class="planb-note">⚠️ <b>Plan B list.</b> The standard rules found no ${mktName(state.market)} stock with a fresh, dated reason to move today, so these picks come from a looser fallback rule: same price and risk checks, but the catalyst can be sector leadership, a leader pulling back, or news from up to a week ago. Treat them as lower-conviction ideas and size them smaller.</div>`;
+    if (list.some(isChart)) $("pickBanner").innerHTML += `<div class="planb-note">📈 <b>Chart-only list.</b> No ${mktName(state.market)} stock had a fresh, dated reason to move today, and too few qualified for Plan B, so these are the top 3 stocks by price trend alone, ranked by a fixed formula (strong vs the index, not overstretched). There is no news behind them. These are the lowest-conviction picks on the site: size them small, or just watch them.</div>`;
+    else if (list.some(p => p.planB)) $("pickBanner").innerHTML += `<div class="planb-note">⚠️ <b>Plan B list.</b> The standard rules found no ${mktName(state.market)} stock with a fresh, dated reason to move today, so these picks come from a looser fallback rule: same price and risk checks, but the catalyst can be sector leadership, a leader pulling back, or news from up to a week ago. Treat them as lower-conviction ideas and size them smaller.</div>`;
 
     const now = new Date(), start = d0(batch.date), end = new Date(batch.expires + "T23:59:59");
     let when, prog = "";
@@ -903,7 +919,7 @@
     return { ...o, html: `<details class="res">
       <summary>
         <div class="r-head"><span class="ico">${o.met[0]}</span>
-          <span class="nm"><b>${esc(p.symbol)}</b>${p.planB ? ' <span class="planb">PLAN B</span>' : ""}<small>${esc(o.met[1])}</small></span>
+          <span class="nm"><b>${esc(p.symbol)}</b>${p.planB ? " " + pbTag(p) : ""}<small>${esc(o.met[1])}</small></span>
           <span class="ret num ${cls(o.closeRet)}">${pct(o.closeRet)}<small>${o.close == null ? "" : `${pct(o.vsTarget)} vs target`}</small></span></div>
         <div class="r-grid num">
           <div>Suggested buy<b>${cmp(p.buyLow, c)}–${cmp(p.buyHigh, c).replace(/^[$₹]/, "")}</b></div>
@@ -1286,7 +1302,78 @@
   setInterval(() => { if (!document.hidden) loadNifty(); }, 60e3);
   document.addEventListener("visibilitychange", () => { if (!document.hidden) loadNifty(); });
 
-  $("updated").textContent = PRICES.updated ? "Prices refreshed " + new Date(PRICES.updated).toLocaleString([], { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" }) : "";
+  const stamp = iso => new Date(iso).toLocaleString([], { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" });
+  const setUpdated = () => { $("updated").textContent = PRICES.updated ? "Prices refreshed " + stamp(PRICES.updated) : ""; };
+  setUpdated();
+
+  // ---------- refresh button: pull the newest data without reloading ----------
+  // Tries the GitHub repo first (the scheduled jobs commit there before the site is
+  // republished), then this site's own copy. Files are parsed as JSON, never run.
+  const DATA_SOURCES = ["https://raw.githubusercontent.com/gssdesign/Stockproject/HEAD/", ""];
+  const DATA_FILES = { PICKS: "data/picks.js", PRICES: "data/prices.js", ARCHIVE_INDEX: "data/archive/index.js",
+                       TUNING: "data/tuning.js", FUNDS: "data/funds.js", STYLES: "data/styles.js" };
+  function parseAssigned(text, marker) {
+    const at = text.indexOf(marker);
+    if (at < 0) throw new Error("no " + marker);
+    const start = text.indexOf("{", at), end = text.lastIndexOf("}");
+    return JSON.parse(text.slice(start, end + 1));
+  }
+  const getText = url => fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" })
+    .then(r => { if (!r.ok) throw new Error(r.status + " " + url); return r.text(); });
+  async function fetchAll(base) {
+    const names = Object.keys(DATA_FILES);
+    const texts = await Promise.all(names.map(n => getText(base + DATA_FILES[n]).catch(e => n === "PICKS" || n === "PRICES" ? Promise.reject(e) : null)));
+    const out = {};
+    names.forEach((n, i) => { if (texts[i] != null) out[n] = parseAssigned(texts[i], "window." + n + " ="); });
+    out.ARCHIVE = {};
+    const months = ((out.ARCHIVE_INDEX || {}).months || []).map(m => m.month);
+    await Promise.all(months.map(mo => getText(`${base}data/archive/${mo}.js`)
+      .then(t => { out.ARCHIVE[mo] = parseAssigned(t, `window.ARCHIVE["${mo}"] =`); }).catch(() => {})));
+    return out;
+  }
+  const replaceInPlace = (obj, fresh) => { Object.keys(obj).forEach(k => delete obj[k]); Object.assign(obj, fresh); };
+  function applyData(d) {
+    replaceInPlace(PICKS, d.PICKS);
+    replaceInPlace(PRICES, d.PRICES);
+    PRICES.quotes = PRICES.quotes || {}; PRICES.tracking = PRICES.tracking || {};
+    if (d.ARCHIVE_INDEX) replaceInPlace(AIDX, d.ARCHIVE_INDEX);
+    ["TUNING", "FUNDS", "STYLES"].forEach(n => { if (d[n]) window[n] = d[n]; });
+    window.ARCHIVE = Object.assign(window.ARCHIVE || {}, d.ARCHIVE);
+    Object.keys(ARCH_TRACK).forEach(k => delete ARCH_TRACK[k]);
+    Object.keys(monthLoads).forEach(k => delete monthLoads[k]);
+    Object.values(window.ARCHIVE).forEach(a => Object.assign(ARCH_TRACK, (a && a.tracking) || {}));
+  }
+  let toastTimer;
+  function toast(msg) {
+    let el = document.querySelector(".toast");
+    if (!el) { el = document.createElement("div"); el.className = "toast"; el.setAttribute("role", "status"); document.body.appendChild(el); }
+    el.textContent = msg; el.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, 4000);
+  }
+  const btn = $("refreshBtn");
+  btn.addEventListener("click", async () => {
+    if (btn.disabled) return;
+    btn.disabled = true; btn.classList.add("busy");
+    const before = (PRICES.updated || "") + "|" + PICKS.batches.map(b => b.id).join(",");
+    let fresh = null;
+    for (const base of DATA_SOURCES) {
+      try {
+        const d = await fetchAll(base);
+        if (!fresh || String(d.PRICES.updated || "") > String(fresh.PRICES.updated || "")) fresh = d;
+        if (base) break; // the repo answered: it is the newest source
+      } catch (e) { /* try the next source */ }
+    }
+    loadNifty();
+    if (!fresh) toast("Couldn't reach the data right now. Check your connection and try again.");
+    else {
+      applyData(fresh);
+      render(); setUpdated();
+      const after = (PRICES.updated || "") + "|" + PICKS.batches.map(b => b.id).join(",");
+      toast(after === before ? "Already up to date · prices as of " + stamp(PRICES.updated)
+                             : "Updated · prices as of " + stamp(PRICES.updated));
+    }
+    btn.disabled = false; btn.classList.remove("busy");
+  });
 })();
 </script>
 </body>

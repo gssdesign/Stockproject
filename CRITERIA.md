@@ -154,8 +154,8 @@ a stock that reports during or just before the session.
 
 Extra limits that make up for the weaker catalyst:
 - **At least 3** Plan B picks per market (at most 5; at most 3 in `risk-off`), and never mixed with
-  standard picks for the same market on the same day. Fewer than 3 is allowed only when fewer than
-  3 stocks in the daily screen meet the Plan B limits below; the context summary must then say so.
+  standard picks for the same market on the same day. If fewer than 3 Plan B picks can be
+  published, don't publish a short Plan B list: publish a Chart-only list instead (§10).
 - Entry no more than **1 ATR** above the 20-day average, and 3-month relative strength > 0.
 - `risk` is at least `"Medium"`.
 - Fields: `"planB": true` and `"planBBasis"`: `"sector"`, `"setup"` or `"older-catalyst"`. The thesis
@@ -163,6 +163,38 @@ Extra limits that make up for the weaker catalyst:
 
 `check_batch.py` enforces these limits. Plan B results are shown with their label in Results
 and are left out of the automatic rule tuning (§7), so they never loosen the standard rules.
+
+## 10. Chart-only picks (daily only, the last resort so a list is never empty)
+If an open market's daily list would still be **empty**, meaning no standard picks and fewer than 3
+Plan B picks can be published, publish a **Chart-only** list for that market instead. (Added
+23 Nov 2026 at the owner's request: every open market gets a daily list.) These rest on price
+data alone, with no news reason to move today, so they are the lowest-conviction picks on the
+site. Their record so far is weaker than news-based picks, and the site says so.
+
+Which stocks: exactly the **top 3** of `python3 scripts/levels.py daily --chart US|IN`. That
+ranking takes the daily screen (every §3 hard check passed), keeps stocks with 3-month relative
+strength > 0 and a rising 50-day average, and sorts them by
+
+    score = RS3m + RS1m − 6 × max(0, ATRs above the 20-day average − 1)
+
+Momentum picks the leaders (Jegadeesh & Titman, 1993); the penalty avoids buying a stock already
+stretched far above its 20-day average for a one-session trade (Jegadeesh, 1990). There is no
+judgment in the choice. Skip a ranked stock **only** if it reports earnings during or just before
+the session, is on an NSE ASM/GSM surveillance list or the F&O ban list, or would be a third pick
+from one sector. Name each skip with its reason in the market's context as
+`"chartSkipped": {"TICKER.NS": "reason"}`, then take the next stock. Fewer than 3 only if the
+ranking runs out.
+
+Still required: every hard check (§3), rule-based levels (§4), portfolio rules (§6), `risk` at
+least `"Medium"`. Not required: a catalyst, or 3 news sources. One source is enough: the stock's
+exchange or quote page (e.g. NSE or Yahoo Finance) for the price data used.
+
+Fields: `"planB": true`, `"planBBasis": "chart"`. The thesis starts with "Chart-only:" and states
+the trend in plain words (e.g. "up 23 pts more than the Nifty over 3 months, rising 50-day
+average"). The three reasons give the trend, the relative strength and where the price sits
+against the 20-day average, with figures. The market's context summary says it is a Chart-only list
+and why. Like Plan B, Chart-only results are labelled in Results and excluded from rule tuning (§7).
+`check_batch.py` enforces the ranking, skips, risk and labels.
 
 ## References
 - Bernard, V. & Thomas, J. (1989). Post-earnings-announcement drift. *Journal of Accounting Research*, 27.

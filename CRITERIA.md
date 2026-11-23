@@ -194,7 +194,8 @@ the trend in plain words (e.g. "up 23 pts more than the Nifty over 3 months, ris
 average"). The three reasons give the trend, the relative strength and where the price sits
 against the 20-day average, with figures. The market's context summary says it is a Chart-only list
 and why. Like Plan B, Chart-only results are labelled in Results and excluded from rule tuning (§7).
-`check_batch.py` enforces the ranking, skips, risk and labels.
+`check_batch.py` enforces the ranking, skips, risk and labels, and fails a daily batch that leaves a
+market without picks unless that market's context has `"closed": true` (an exchange holiday).
 
 ## References
 - Bernard, V. & Thomas, J. (1989). Post-earnings-announcement drift. *Journal of Accounting Research*, 27.

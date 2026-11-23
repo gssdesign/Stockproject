@@ -90,6 +90,13 @@ def main() -> int:
 
     for mk in ("US", "IN"):
         lst = [p for p in batch["picks"] if p["market"] == mk]
+        # CRITERIA.md section 10: every open market gets a daily list. Only an exchange
+        # holiday (context.<mk>.closed = true) may leave a market without picks.
+        if horizon == "daily" and not lst and not ((batch.get("context") or {}).get(mk) or {}).get("closed"):
+            ranked = chart_ranking(market, mk)[:CHART_COUNT]
+            problems.append(f"{mk}: no daily picks. Every open market needs a list: if no standard or Plan B list "
+                            f"qualifies, publish the Chart-only top {CHART_COUNT} ({', '.join(ranked) or 'ranking empty'}; "
+                            f"see levels.py daily --chart {mk}). If {mk} is closed today, set context.{mk}.closed = true")
         if len(lst) > 5:
             problems.append(f"{mk}: {len(lst)} picks (max 5)")
         for sector, n in Counter(p.get("sector", "").split("/")[0].strip() for p in lst).items():

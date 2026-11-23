@@ -4,6 +4,212 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-11-23-daily",
+      "horizon": "daily",
+      "date": "2026-11-23",
+      "horizonDays": 1,
+      "expires": "2026-11-23",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 6910.39,
+          "summary": "Risk-off: the S&P 500 closed at 6,910.39 on 2026-11-20, down 3.7% that day and below its falling 50-day average (7,625). This is a Plan B list: no screen stock had a fresh catalyst for today's session, so these are defensive leaders pulling back to their 20-day averages (the 'setup' basis), max 3 in risk-off. The learned daily US target (1.12 ATR) is in force. Thanksgiving is Thursday 26 Nov (market closed)."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 25800.6,
+          "summary": "Risk-on: the Nifty 50 closed at 25,800.6 on 2026-11-20, above its rising 50-day (23,486) and 200-day (23,998) averages. No India daily picks today: no screen stock had fresh news for this session, and a Plan B list needs at least 3 names. Only 2 strong leaders sit on their 20-day average (Laurus Labs, MCX), and the other 2 that meet the Plan B price limits (BSE, Patanjali Foods) have no sector-leadership or 4–7-day-old news we could verify. So we don't publish rather than pad the list."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "KR",
+          "yahoo": "KR",
+          "name": "Kroger",
+          "sector": "Consumer Staples",
+          "currency": "USD",
+          "refPrice": 68.44,
+          "refDate": "2026-11-20",
+          "buyLow": 67.7,
+          "buyHigh": 68.81,
+          "target": 70.34,
+          "stop": 66.86,
+          "risk": "Medium",
+          "thesis": "Plan B (setup): a defensive grocery leader that rose 0.7% on the day the S&P 500 fell 3.7%, sitting right on its 20-day average.",
+          "reasons": [
+            "Up 25.5 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $68.44 on 20 Nov, just 0.1 ATR above its 20-day average ($68.27), a low-risk entry for a leader.",
+            "Gained 0.7% on 20 Nov while the S&P 500 fell 3.7%, the kind of defensive strength that holds up in a risk-off market."
+          ],
+          "data": [
+            [
+              "Close (11/20)",
+              "$68.44"
+            ],
+            [
+              "3-month vs index",
+              "+25.5 pts"
+            ],
+            [
+              "20-day avg",
+              "$68.27"
+            ],
+            [
+              "20 Nov move",
+              "+0.7% (S&P -3.7%)"
+            ]
+          ],
+          "watch": "Plan B: no fresh news, so size it smaller. Skip if it opens outside the buy zone. Q3 results are due in early December, after this session.",
+          "sources": [
+            [
+              "CNBC – Stock market news for Nov. 20, 2026",
+              "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html"
+            ],
+            [
+              "CNBC – Stocks making the biggest moves Friday (20 Nov 2026)",
+              "https://www.cnbc.com/2026/11/20/stocks-moving-the-most-today-live-updates.html"
+            ],
+            [
+              "Yahoo Finance – What investors will be watching this holiday week",
+              "https://finance.yahoo.com/news/delayed-inflation-data-consumer-updates-230221923.html"
+            ]
+          ],
+          "planB": true,
+          "planBBasis": "setup"
+        },
+        {
+          "market": "US",
+          "symbol": "BRK-B",
+          "yahoo": "BRK-B",
+          "name": "Berkshire Hathaway",
+          "sector": "Financials",
+          "currency": "USD",
+          "refPrice": 570.0,
+          "refDate": "2026-11-20",
+          "buyLow": 566.14,
+          "buyHigh": 571.93,
+          "target": 579.89,
+          "stop": 561.8,
+          "risk": "Medium",
+          "thesis": "Plan B (setup): a low-volatility leader with a huge cash pile, holding its 20-day average through the sell-off.",
+          "reasons": [
+            "Up 22.7 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $570.00 on 20 Nov, 0.1 ATR above its 20-day average ($568.89), with the lowest volatility in this list (ATR 1.7%).",
+            "Fell only 0.4% on 20 Nov while the S&P 500 dropped 3.7%."
+          ],
+          "data": [
+            [
+              "Close (11/20)",
+              "$570.00"
+            ],
+            [
+              "3-month vs index",
+              "+22.7 pts"
+            ],
+            [
+              "20-day avg",
+              "$568.89"
+            ],
+            [
+              "ATR",
+              "1.7% of price"
+            ]
+          ],
+          "watch": "Plan B: no fresh news, so size it smaller. Skip if it opens outside the buy zone. The target is small (+1.7%) because the stock moves slowly.",
+          "sources": [
+            [
+              "CNBC – Stock market news for Nov. 20, 2026",
+              "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html"
+            ],
+            [
+              "CNBC – Stocks making the biggest moves Friday (20 Nov 2026)",
+              "https://www.cnbc.com/2026/11/20/stocks-moving-the-most-today-live-updates.html"
+            ],
+            [
+              "Yahoo Finance – What investors will be watching this holiday week",
+              "https://finance.yahoo.com/news/delayed-inflation-data-consumer-updates-230221923.html"
+            ]
+          ],
+          "planB": true,
+          "planBBasis": "setup"
+        },
+        {
+          "market": "US",
+          "symbol": "RSG",
+          "yahoo": "RSG",
+          "name": "Republic Services",
+          "sector": "Industrials",
+          "currency": "USD",
+          "refPrice": 246.59,
+          "refDate": "2026-11-20",
+          "buyLow": 244.63,
+          "buyHigh": 247.57,
+          "target": 251.62,
+          "stop": 242.42,
+          "risk": "Medium",
+          "thesis": "Plan B (setup): a steady waste-collection leader that ended flat on 20 Nov's sell-off, resting on its 20-day average.",
+          "reasons": [
+            "Up 20.2 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $246.59 on 20 Nov, 0.1 ATR above its 20-day average ($246.08).",
+            "Rose 0.04% on 20 Nov while the S&P 500 fell 3.7%; waste collection is a non-cyclical, contract-based business."
+          ],
+          "data": [
+            [
+              "Close (11/20)",
+              "$246.59"
+            ],
+            [
+              "3-month vs index",
+              "+20.2 pts"
+            ],
+            [
+              "20-day avg",
+              "$246.08"
+            ],
+            [
+              "ATR",
+              "2.0% of price"
+            ]
+          ],
+          "watch": "Plan B: no fresh news, so size it smaller. Skip if it opens outside the buy zone.",
+          "sources": [
+            [
+              "CNBC – Stock market news for Nov. 20, 2026",
+              "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html"
+            ],
+            [
+              "CNBC – Stocks making the biggest moves Friday (20 Nov 2026)",
+              "https://www.cnbc.com/2026/11/20/stocks-moving-the-most-today-live-updates.html"
+            ],
+            [
+              "Yahoo Finance – What investors will be watching this holiday week",
+              "https://finance.yahoo.com/news/delayed-inflation-data-consumer-updates-230221923.html"
+            ]
+          ],
+          "planB": true,
+          "planBBasis": "setup"
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – Stock market news for Nov. 20, 2026",
+          "https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html"
+        ],
+        [
+          "CNBC – Stocks making the biggest moves Friday (20 Nov 2026)",
+          "https://www.cnbc.com/2026/11/20/stocks-moving-the-most-today-live-updates.html"
+        ],
+        [
+          "Kotak Neo – Closing Bell, 18 November 2026",
+          "https://www.kotakneo.com/news/market-news/market-wrap-18-november-2026-profit-booking-and-a-drag-in-metal-stocks-pull-benchmarks-down/"
+        ]
+      ]
+    },
+    {
       "id": "2026-11-23-weekly",
       "horizon": "weekly",
       "date": "2026-11-23",

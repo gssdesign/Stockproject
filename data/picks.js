@@ -4,6 +4,213 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-11-24-daily",
+      "horizon": "daily",
+      "date": "2026-11-24",
+      "horizonDays": 1,
+      "expires": "2026-11-24",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7237.17,
+          "summary": "Risk-off: the S&P 500 closed at 7,237.17 on 2026-11-23, up 4.7% in its best day since April 2025 (Nvidia reinstated Jensen Huang), but still below its 50-day average (7,618). This is a Plan B list: no screen stock had a fresh catalyst for today's session, so these are leaders resting on their 20-day averages ('setup' basis), max 3 in risk-off. The learned daily US target (1.12 ATR) is in force."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 25800.6,
+          "summary": "Risk-on: the Nifty 50 last closed at 25,800.6 (2026-11-20 in our data). NSE is closed today, Tue 24 Nov, for Guru Nanak Jayanti, so there are no India daily picks.",
+          "closed": true
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "MAR",
+          "yahoo": "MAR",
+          "name": "Marriott International",
+          "sector": "Consumer Discretionary",
+          "currency": "USD",
+          "refPrice": 415.63,
+          "refDate": "2026-11-23",
+          "buyLow": 411.68,
+          "buyHigh": 417.6,
+          "target": 425.75,
+          "stop": 407.24,
+          "risk": "Medium",
+          "thesis": "Plan B (setup): a travel leader sitting right on its 20-day average after Monday's broad rebound.",
+          "reasons": [
+            "Up 21.9 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $415.63 on 23 Nov, 0.0 ATR from its 20-day average ($415.40), a low-risk entry for a leader.",
+            "Rose 2.2% on 23 Nov as the S&P 500 jumped 4.7%; Thanksgiving-week travel demand is a seasonal tailwind."
+          ],
+          "data": [
+            [
+              "Close (11/23)",
+              "$415.63"
+            ],
+            [
+              "3-month vs index",
+              "+21.9 pts"
+            ],
+            [
+              "20-day avg",
+              "$415.40"
+            ],
+            [
+              "23 Nov move",
+              "+2.2%"
+            ]
+          ],
+          "watch": "Plan B: no fresh stock-specific news, so size it smaller. Skip if it opens outside the buy zone. US markets close Thursday for Thanksgiving and trade a short session Friday.",
+          "sources": [
+            [
+              "Yahoo Finance – Dow, S&P 500, Nasdaq post best day since April 2025 (23 Nov 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-23-dow-sp-500-nasdaq-surge-after-nvidia-reinstates-jensen-huang-182039397.html"
+            ],
+            [
+              "CNBC – Stock market news for Nov. 23, 2026",
+              "https://www.cnbc.com/2026/11/22/stock-market-today-live-updates.html"
+            ],
+            [
+              "Yahoo Finance – Trading Day: Market euphoria as Huang returns to Nvidia",
+              "https://finance.yahoo.com/markets/stocks/articles/trading-day-market-euphoria-huang-220642616.html"
+            ]
+          ],
+          "planB": true,
+          "planBBasis": "setup"
+        },
+        {
+          "market": "US",
+          "symbol": "ALLE",
+          "yahoo": "ALLE",
+          "name": "Allegion",
+          "sector": "Industrials",
+          "currency": "USD",
+          "refPrice": 189.26,
+          "refDate": "2026-11-23",
+          "buyLow": 187.4,
+          "buyHigh": 190.19,
+          "target": 194.03,
+          "stop": 185.31,
+          "risk": "Medium",
+          "thesis": "Plan B (setup): a steady security-products leader holding just above its 20-day average.",
+          "reasons": [
+            "Up 23.7 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $189.26 on 23 Nov, 0.3 ATR from its 20-day average ($187.93), a low-risk entry for a leader.",
+            "Gained 3.1% on 23 Nov's rebound and stayed within 0.3 ATR of its 20-day average."
+          ],
+          "data": [
+            [
+              "Close (11/23)",
+              "$189.26"
+            ],
+            [
+              "3-month vs index",
+              "+23.7 pts"
+            ],
+            [
+              "20-day avg",
+              "$187.93"
+            ],
+            [
+              "23 Nov move",
+              "+3.1%"
+            ]
+          ],
+          "watch": "Plan B: no fresh stock-specific news, so size it smaller. Skip if it opens outside the buy zone. A failed rebound in the wider market would drag it back below the average.",
+          "sources": [
+            [
+              "Yahoo Finance – Dow, S&P 500, Nasdaq post best day since April 2025 (23 Nov 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-23-dow-sp-500-nasdaq-surge-after-nvidia-reinstates-jensen-huang-182039397.html"
+            ],
+            [
+              "CNBC – Stock market news for Nov. 23, 2026",
+              "https://www.cnbc.com/2026/11/22/stock-market-today-live-updates.html"
+            ],
+            [
+              "Yahoo Finance – Trading Day: Market euphoria as Huang returns to Nvidia",
+              "https://finance.yahoo.com/markets/stocks/articles/trading-day-market-euphoria-huang-220642616.html"
+            ]
+          ],
+          "planB": true,
+          "planBBasis": "setup"
+        },
+        {
+          "market": "US",
+          "symbol": "AAPL",
+          "yahoo": "AAPL",
+          "name": "Apple Inc.",
+          "sector": "Information Technology",
+          "currency": "USD",
+          "refPrice": 349.08,
+          "refDate": "2026-11-23",
+          "buyLow": 345.75,
+          "buyHigh": 350.74,
+          "target": 357.6,
+          "stop": 342.01,
+          "risk": "Medium",
+          "thesis": "Plan B (setup): a mega-cap leader on its 20-day average as tech led Monday's rebound.",
+          "reasons": [
+            "Up 18.4 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $349.08 on 23 Nov, 0.2 ATR from its 20-day average ($347.74), a low-risk entry for a leader.",
+            "Tech led the 23 Nov rally (Nasdaq +6.5%); Apple rose 1.9% and is still beating the index over 3 months."
+          ],
+          "data": [
+            [
+              "Close (11/23)",
+              "$349.08"
+            ],
+            [
+              "3-month vs index",
+              "+18.4 pts"
+            ],
+            [
+              "20-day avg",
+              "$347.74"
+            ],
+            [
+              "23 Nov move",
+              "+1.9%"
+            ]
+          ],
+          "watch": "Plan B: no fresh stock-specific news, so size it smaller. Skip if it opens outside the buy zone. Analysts called Monday a 'mechanical bounce' that may not last; reassess if the Nasdaq reverses.",
+          "sources": [
+            [
+              "Yahoo Finance – Dow, S&P 500, Nasdaq post best day since April 2025 (23 Nov 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-23-dow-sp-500-nasdaq-surge-after-nvidia-reinstates-jensen-huang-182039397.html"
+            ],
+            [
+              "CNBC – Stock market news for Nov. 23, 2026",
+              "https://www.cnbc.com/2026/11/22/stock-market-today-live-updates.html"
+            ],
+            [
+              "Yahoo Finance – Trading Day: Market euphoria as Huang returns to Nvidia",
+              "https://finance.yahoo.com/markets/stocks/articles/trading-day-market-euphoria-huang-220642616.html"
+            ]
+          ],
+          "planB": true,
+          "planBBasis": "setup"
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Dow, S&P 500, Nasdaq post best day since April 2025 (23 Nov 2026)",
+          "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-23-dow-sp-500-nasdaq-surge-after-nvidia-reinstates-jensen-huang-182039397.html"
+        ],
+        [
+          "CNBC – Stock market news for Nov. 23, 2026",
+          "https://www.cnbc.com/2026/11/22/stock-market-today-live-updates.html"
+        ],
+        [
+          "Angel One – NSE/BSE holidays, November 2026",
+          "https://www.angelone.in/news/market-updates/stock-market-nse-bse-holidays-this-month-november-2026"
+        ]
+      ]
+    },
+    {
       "id": "2026-11-23-daily",
       "horizon": "daily",
       "date": "2026-11-23",

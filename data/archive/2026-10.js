@@ -4,6 +4,498 @@ window.ARCHIVE = window.ARCHIVE || {};
 window.ARCHIVE["2026-10"] = {
   "batches": [
     {
+      "id": "2026-10-09-daily",
+      "horizon": "daily",
+      "date": "2026-10-09",
+      "horizonDays": 1,
+      "expires": "2026-10-09",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7765.36,
+          "summary": "Risk-on: the S&P 500 closed at 7,765.36 on 2026-10-08 (-0.47%) and the Nasdaq fell 1.25% as AI stocks slid, oil jumped more than 5% and the 10-year yield rose to about 5.35%. One standard pick, Palantir, after Goldman Sachs upgraded it to Buy on 8 Oct; other calls that day were reiterations or on stocks that fail the daily checks, so the list isn't padded."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22231.8,
+          "summary": "Risk-off: the Nifty 50 closed at 22,231.80 on 2026-10-08 (-1.64%) as oil topped $104 and the VIX jumped 10%, well below its 50- and 200-day averages. Plan B list: no stock on the daily screen had a fresh, dated catalyst, so three Plan B ideas (the maximum in a risk-off market) come from the looser rule in CRITERIA.md section 9: 3-month leaders resting on their 20-day averages, in three different sectors. Treat them as lower-conviction. TCS reported Q2 results after the 8 Oct close (revenue ₹73,188 crore, slightly above estimates); this week's weekly list has APL Apollo Tubes."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "PLTR",
+          "yahoo": "PLTR",
+          "name": "Palantir Technologies",
+          "sector": "Information Technology / Software",
+          "currency": "USD",
+          "refPrice": 198.78,
+          "refDate": "2026-10-08",
+          "buyLow": 196.25,
+          "buyHigh": 200.04,
+          "target": 206.04,
+          "stop": 193.41,
+          "risk": "Medium",
+          "thesis": "Goldman Sachs upgraded Palantir to Buy from Neutral with a $230 target on 8 Oct, and the stock rose 2.4% on a day the Nasdaq fell 1.25%.",
+          "reasons": [
+            "Goldman Sachs analyst Gabriela Borges upgraded Palantir to Buy from Neutral on 8 Oct 2026 with a $230 target (about 18% upside), citing an $8B revenue run-rate growing near 100% and new sovereign-AI demand.",
+            "The stock closed up 2.40% at $198.78 on 8 Oct while the Nasdaq fell 1.25% on AI worries, a sign of real buying behind the upgrade.",
+            "It is a strong leader: up 56.8% in 3 months (54.3 pts ahead of the S&P 500), above its 20-, 50- and 200-day averages, 4.2% below its 52-week high and 2.2 ATR above its 20-day average."
+          ],
+          "data": [
+            [
+              "Close (10/08)",
+              "$198.78"
+            ],
+            [
+              "3-month vs index",
+              "+54.3 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.2 ATR"
+            ],
+            [
+              "ATR",
+              "3.18% of price"
+            ]
+          ],
+          "watch": "AI stocks sold off on 8 Oct on doubts about AI revenue, and rising yields (10-year near 5.35%) hit expensive growth stocks hardest; Palantir trades at a high valuation. Skip it if it opens outside $196.25–200.04. Earnings are not until early November.",
+          "sources": [
+            [
+              "The Motley Fool – Why Palantir stock popped on Thursday (Oct 8, 2026)",
+              "https://www.fool.com/investing/2026/10/08/why-palantir-stock-popped-on-thursday/"
+            ],
+            [
+              "GuruFocus – Goldman Sachs upgrades Palantir (PLTR) to Buy with $230 price target",
+              "https://www.gurufocus.com/news/9115911/goldman-sachs-upgrades-palantir-pltr-to-buy-with-230-price-target"
+            ],
+            [
+              "Yahoo Finance – Stock market today: S&P 500, Nasdaq fall for second day in a row as AI trade takes a hit (Oct 8, 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-thursday-october-8-dow-sp-500-nasdaq-080537884.html"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 198.78,
+            "date": "2026-10-08",
+            "researchPrice": 198.78,
+            "researchDate": "2026-10-08",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $4,245M (min $50M), price $198.78"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $184.91"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +15.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+86.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.18% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.18,
+            "sma20": 184.91,
+            "sma50": 175.24,
+            "sma200": 152.26,
+            "rs1m": 15.56,
+            "rs3m": 54.27,
+            "fromHigh52": -4.21,
+            "fromLow52": 86.88,
+            "avgValue20": 4244701385,
+            "extAtr": 2.2
+          }
+        },
+        {
+          "market": "IN",
+          "symbol": "PNB",
+          "yahoo": "PNB.NS",
+          "name": "Punjab National Bank",
+          "sector": "Financial Services / Banks",
+          "currency": "INR",
+          "refPrice": 115.29,
+          "refDate": "2026-10-08",
+          "buyLow": 114.25,
+          "buyHigh": 115.8,
+          "target": 118.3,
+          "stop": 113.05,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): a 3-month leader that rose on 8 Oct while the Nifty fell 1.64%, sitting right on its 20-day average.",
+          "reasons": [
+            "It's a leader: up 8.4% in 3 months, 15.6 pts ahead of the Nifty 50, with a rising 50-day average (₹115.40).",
+            "It held up in a sell-off: +0.61% to ₹115.29 on 8 Oct while the Nifty fell 1.64% and the Midcap 100 fell 2.5%; public-sector banks also outperformed on 7 Oct after the RBI hike.",
+            "The entry is calm: only 0.2 ATR above its 20-day average (₹114.82), with Q2 results not expected until mid-to-late October."
+          ],
+          "data": [
+            [
+              "Close (10/08)",
+              "₹115.29"
+            ],
+            [
+              "3-month vs index",
+              "+15.6 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.2 ATR"
+            ],
+            [
+              "ATR",
+              "2.28% of price"
+            ]
+          ],
+          "watch": "There's no fresh news behind this pick, and the market is falling with oil above $100. It closed just below its 50-day average (₹115.40), which may act as resistance. Skip it if it opens outside ₹114.25–115.80.",
+          "sources": [
+            [
+              "Business Standard – Stock Market Close: Sensex tanks 1,045 pts, Nifty ends at 22,232 as oil tops $104; VIX jumps 10% (Oct 8, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-8-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-rbi-repo-rate-hike-ipo-today-126100800108_1.html"
+            ],
+            [
+              "Upstox News – Top gainers and losers, October 8: AEL tumbles 5%, JSW Steel, ITC, Max Healthcare shares fall 4%",
+              "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-october-8-ael-tumbles-5-jsw-steel-itc-max-healthcare-shares-fall-4-check-list/article-201540/"
+            ],
+            [
+              "Angel One – Top gainers and losers on October 8, 2026: Infosys and Tech Mahindra gain, Adani Enterprises drops over 5%",
+              "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-8-2026-infosys-and-tech-mahindra-gain-while-adani-enterprises-drops-over-5"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 115.29,
+            "date": "2026-10-08",
+            "researchPrice": 115.29,
+            "researchDate": "2026-10-08",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹161 cr (min ₹100 cr), price ₹115.29"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹115.13"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +5.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+17.1% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.43% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.43,
+            "sma20": 115.13,
+            "sma50": 115.33,
+            "sma200": 114.34,
+            "rs1m": 5.15,
+            "rs3m": 16.82,
+            "fromHigh52": -14.69,
+            "fromLow52": 17.05,
+            "avgValue20": 1606376080,
+            "extAtr": 0.06
+          }
+        },
+        {
+          "market": "IN",
+          "symbol": "LAURUSLABS",
+          "yahoo": "LAURUSLABS.NS",
+          "name": "Laurus Labs",
+          "sector": "Healthcare / Pharmaceuticals",
+          "currency": "INR",
+          "refPrice": 1997.9,
+          "refDate": "2026-10-08",
+          "buyLow": 1979.05,
+          "buyHigh": 2007.3,
+          "target": 2052.05,
+          "stop": 1957.9,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): one of the strongest 3-month leaders, pulled back from an all-time high to its 20-day average.",
+          "reasons": [
+            "It's a leader: up 28.2% in 3 months, 35.4 pts ahead of the Nifty 50, with a rising 50-day average (₹1,909.81).",
+            "It touched an all-time high of ₹2,065.20 on 7 Oct and pulled back 2.67% to ₹1,997.90 in the 8 Oct sell-off, now just 0.2 ATR above its 20-day average (₹1,988.67).",
+            "Q2 results are expected in late October (last year's were on 23 Oct), outside today's window."
+          ],
+          "data": [
+            [
+              "Close (10/08)",
+              "₹1,997.90"
+            ],
+            [
+              "3-month vs index",
+              "+35.4 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.2 ATR"
+            ],
+            [
+              "ATR",
+              "2.36% of price"
+            ]
+          ],
+          "watch": "There's no fresh news behind this pick; a close below the 20-day average (₹1,989) would break the setup in a falling market. Skip it if it opens outside ₹1,979.05–2,007.30, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Business Standard – Stock Market Close: Sensex tanks 1,045 pts, Nifty ends at 22,232 as oil tops $104; VIX jumps 10% (Oct 8, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-8-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-rbi-repo-rate-hike-ipo-today-126100800108_1.html"
+            ],
+            [
+              "Upstox News – Top gainers and losers, October 8: AEL tumbles 5%, JSW Steel, ITC, Max Healthcare shares fall 4%",
+              "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-october-8-ael-tumbles-5-jsw-steel-itc-max-healthcare-shares-fall-4-check-list/article-201540/"
+            ],
+            [
+              "Angel One – Top gainers and losers on October 8, 2026: Infosys and Tech Mahindra gain, Adani Enterprises drops over 5%",
+              "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-8-2026-infosys-and-tech-mahindra-gain-while-adani-enterprises-drops-over-5"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1997.9,
+            "date": "2026-10-08",
+            "researchPrice": 1997.9,
+            "researchDate": "2026-10-08",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹341 cr (min ₹100 cr), price ₹1,997.9"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1985.12"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +11.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+137.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.53% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.53,
+            "sma20": 1985.12,
+            "sma50": 1902.01,
+            "sma200": 1374.05,
+            "rs1m": 11.88,
+            "rs3m": 37.9,
+            "fromHigh52": -3.26,
+            "fromLow52": 137.0,
+            "avgValue20": 3411446349,
+            "extAtr": 0.25
+          }
+        },
+        {
+          "market": "IN",
+          "symbol": "COFORGE",
+          "yahoo": "COFORGE.NS",
+          "name": "Coforge",
+          "sector": "Information Technology / IT Services",
+          "currency": "INR",
+          "refPrice": 1814.3,
+          "refDate": "2026-10-08",
+          "buyLow": 1791.85,
+          "buyHigh": 1825.55,
+          "target": 1878.85,
+          "stop": 1766.55,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (no fresh catalyst): a 3-month IT leader resting on its 20-day average, with IT among the few sectors that held up on 8 Oct.",
+          "reasons": [
+            "It's a leader: up 17.7% in 3 months, 25.0 pts ahead of the Nifty 50, with a rising 50-day average.",
+            "It fell only 0.43% to ₹1,814.30 on 8 Oct while the Nifty dropped 1.64%; Infosys and Tech Mahindra were among the few Nifty gainers.",
+            "It sits just 0.2 ATR above its 20-day average (₹1,803.64); its own Q2 results are expected later in October, outside today's window."
+          ],
+          "data": [
+            [
+              "Close (10/08)",
+              "₹1,814.30"
+            ],
+            [
+              "3-month vs index",
+              "+25.0 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.2 ATR"
+            ],
+            [
+              "ATR",
+              "3.09% of price"
+            ]
+          ],
+          "watch": "There's no fresh news behind this pick; it closed below its 50-day average (₹1,837.69), which may cap gains, and TCS's results (after the 8 Oct close) will set the tone for IT stocks today. Skip it if it opens outside ₹1,791.85–1,825.55.",
+          "sources": [
+            [
+              "Business Standard – Stock Market Close: Sensex tanks 1,045 pts, Nifty ends at 22,232 as oil tops $104; VIX jumps 10% (Oct 8, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-8-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-rbi-repo-rate-hike-ipo-today-126100800108_1.html"
+            ],
+            [
+              "Angel One – Top gainers and losers on October 8, 2026: Infosys and Tech Mahindra gain, Adani Enterprises drops over 5%",
+              "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-8-2026-infosys-and-tech-mahindra-gain-while-adani-enterprises-drops-over-5"
+            ],
+            [
+              "Upstox News – Top gainers and losers, October 8: AEL tumbles 5%, JSW Steel, ITC, Max Healthcare shares fall 4%",
+              "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-october-8-ael-tumbles-5-jsw-steel-itc-max-healthcare-shares-fall-4-check-list/article-201540/"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1814.3,
+            "date": "2026-10-08",
+            "researchPrice": 1814.3,
+            "researchDate": "2026-10-08",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹478 cr (min ₹100 cr), price ₹1,814.3"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1803.92"
+            },
+            {
+              "name": "Relative strength",
+              "pass": false,
+              "detail": "1-month return vs index -0.8 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+80.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.33% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.66 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.33,
+            "sma20": 1803.92,
+            "sma50": 1833.48,
+            "sma200": 1524.32,
+            "rs1m": -0.82,
+            "rs3m": 28.9,
+            "fromHigh52": -10.24,
+            "fromLow52": 79.97,
+            "avgValue20": 4782421828,
+            "extAtr": 0.17
+          }
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Stock Market Today, Oct. 8: Tech stocks slide as Treasury yields and oil prices surge",
+          "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-8-212502041.html"
+        ],
+        [
+          "Business Standard – Stock Market Close: Sensex tanks 1,045 pts, Nifty ends at 22,232 as oil tops $104; VIX jumps 10% (Oct 8, 2026)",
+          "https://www.business-standard.com/amp/markets/news/stock-market-live-october-8-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-rbi-repo-rate-hike-ipo-today-126100800108_1.html"
+        ],
+        [
+          "Kotak Neo – TCS Q2 FY 2026-27 results: profit rises 15% to ₹13,884 crore, ₹12 dividend declared",
+          "https://www.kotakneo.com/news/stocks/tcs-q2-fy27-results-profit-rises-15-percent-13884-crore-12-dividend/"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-08-daily",
       "horizon": "daily",
       "date": "2026-10-08",
@@ -5369,6 +5861,76 @@ window.ARCHIVE["2026-10"] = {
       "^NSEI": {
         "markPrice": 22231.8,
         "returnPct": -1.72
+      }
+    },
+    "2026-10-09-daily": {
+      "PLTR": {
+        "status": "Target hit",
+        "exitPrice": 206.04,
+        "exitDate": "2026-10-09",
+        "maxHigh": 209.5800018310547,
+        "minLow": 198.3000030517578,
+        "markPrice": 206.04,
+        "returnPct": 3.65,
+        "periodClose": 209.05,
+        "periodCloseDate": "2026-10-09",
+        "periodFinal": true,
+        "closeReturnPct": 5.17,
+        "targetHit": true,
+        "stopHit": false
+      },
+      "PNB.NS": {
+        "status": "Expired",
+        "exitPrice": 116.9800033569336,
+        "exitDate": "2026-10-09",
+        "maxHigh": 117.94999694824219,
+        "minLow": 114.9000015258789,
+        "markPrice": 116.98,
+        "returnPct": 1.47,
+        "periodClose": 116.98,
+        "periodCloseDate": "2026-10-09",
+        "periodFinal": true,
+        "closeReturnPct": 1.47,
+        "targetHit": false,
+        "stopHit": false
+      },
+      "LAURUSLABS.NS": {
+        "status": "Expired",
+        "exitPrice": 2036.5999755859375,
+        "exitDate": "2026-10-09",
+        "maxHigh": 2048.0,
+        "minLow": 1988.9000244140625,
+        "markPrice": 2036.6,
+        "returnPct": 1.94,
+        "periodClose": 2036.6,
+        "periodCloseDate": "2026-10-09",
+        "periodFinal": true,
+        "closeReturnPct": 1.94,
+        "targetHit": false,
+        "stopHit": false
+      },
+      "COFORGE.NS": {
+        "status": "Target hit",
+        "exitPrice": 1878.85,
+        "exitDate": "2026-10-09",
+        "maxHigh": 1884.0999755859375,
+        "minLow": 1839.0,
+        "markPrice": 1878.85,
+        "returnPct": 3.56,
+        "periodClose": 1867.9,
+        "periodCloseDate": "2026-10-09",
+        "periodFinal": true,
+        "closeReturnPct": 2.95,
+        "targetHit": true,
+        "stopHit": false
+      },
+      "^GSPC": {
+        "markPrice": 7811.54,
+        "returnPct": 0.59
+      },
+      "^NSEI": {
+        "markPrice": 22520.45,
+        "returnPct": 1.3
       }
     }
   }

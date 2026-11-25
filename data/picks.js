@@ -4,6 +4,357 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-11-25-daily",
+      "horizon": "daily",
+      "date": "2026-11-25",
+      "horizonDays": 1,
+      "expires": "2026-11-25",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7201.09,
+          "summary": "Risk-off: the S&P 500 closed at 7,201.09 on 2026-11-24 (-0.5%), below its 50-day average (7,610), as chip stocks fell 7.9% and the Dow rose on a rotation into value. This is a Plan B list: no screen stock had a fresh catalyst for today, so these are leaders resting on their 20-day averages ('setup' basis), max 3 in risk-off. The learned daily US target (1.12 ATR) is in force. Markets close Thursday for Thanksgiving."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 25349.65,
+          "summary": "Risk-on: the Nifty 50 closed at 25,349.65 on 2026-11-23 (-1.75%), still above its 50-day (23,520) and 200-day (23,997) averages. This is a Chart-only list (CRITERIA §10): no stock had fresh news, only 2 met the Plan B setup limits (at least 3 are needed), so these are the top 3 of the momentum ranking with no judgment applied. They are the lowest-conviction picks on the site.",
+          "chartSkipped": {}
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "LLY",
+          "yahoo": "LLY",
+          "name": "Eli Lilly",
+          "sector": "Health Care",
+          "currency": "USD",
+          "refPrice": 1407.59,
+          "refDate": "2026-11-24",
+          "buyLow": 1390.52,
+          "buyHigh": 1416.13,
+          "target": 1451.34,
+          "stop": 1371.31,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (setup): a health-care leader resting on its 20-day average as investors rotated out of chips into defensives.",
+          "reasons": [
+            "Up 24.5 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $1,407.59 on 24 Nov, 0.3 ATR above its 20-day average ($1,394.47).",
+            "Rose 3.2% on 24 Nov while the S&P 500 fell 0.5% and chip stocks dropped 7.9%."
+          ],
+          "data": [
+            [
+              "Close (11/24)",
+              "$1,407.59"
+            ],
+            [
+              "3-month vs index",
+              "+24.5 pts"
+            ],
+            [
+              "20-day avg",
+              "$1,394.47"
+            ],
+            [
+              "24 Nov move",
+              "+3.1%"
+            ]
+          ],
+          "watch": "Plan B: no fresh stock-specific news, so size it smaller. Skip if it opens outside the buy zone. US markets close Thursday for Thanksgiving.",
+          "sources": [
+            [
+              "Yahoo Finance – Dow rises, S&P 500 and Nasdaq decline as chip sector tumbles (24 Nov 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-24-dow-sp-500-nasdaq-chip-stocks-nvidia-140629923.html"
+            ],
+            [
+              "Yahoo Finance – Tech sell-off drags Nasdaq as Dow gains on value rotation (24 Nov)",
+              "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nov-24-221148355.html"
+            ],
+            [
+              "Yahoo Finance – Dow brushes off tech rout, tariff worries to add 423 points",
+              "https://finance.yahoo.com/markets/stocks/articles/dow-brushes-off-tech-rout-211300452.html"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "TYL",
+          "yahoo": "TYL",
+          "name": "Tyler Technologies",
+          "sector": "Information Technology",
+          "currency": "USD",
+          "refPrice": 412.49,
+          "refDate": "2026-11-24",
+          "buyLow": 407.05,
+          "buyHigh": 415.21,
+          "target": 426.43,
+          "stop": 400.93,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (setup): a government-software leader sitting on its 20-day average.",
+          "reasons": [
+            "Up 23.1 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $412.49 on 24 Nov, 0.2 ATR above its 20-day average ($409.90).",
+            "Rose 1.4% on 24 Nov despite the Nasdaq's 1.5% fall; its revenue comes from long public-sector contracts, not chips."
+          ],
+          "data": [
+            [
+              "Close (11/24)",
+              "$412.49"
+            ],
+            [
+              "3-month vs index",
+              "+23.1 pts"
+            ],
+            [
+              "20-day avg",
+              "$409.90"
+            ],
+            [
+              "24 Nov move",
+              "+1.4%"
+            ]
+          ],
+          "watch": "Plan B: no fresh stock-specific news, so size it smaller. Skip if it opens outside the buy zone. US markets close Thursday for Thanksgiving.",
+          "sources": [
+            [
+              "Yahoo Finance – Dow rises, S&P 500 and Nasdaq decline as chip sector tumbles (24 Nov 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-24-dow-sp-500-nasdaq-chip-stocks-nvidia-140629923.html"
+            ],
+            [
+              "Yahoo Finance – Tech sell-off drags Nasdaq as Dow gains on value rotation (24 Nov)",
+              "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nov-24-221148355.html"
+            ],
+            [
+              "Yahoo Finance – Dow brushes off tech rout, tariff worries to add 423 points",
+              "https://finance.yahoo.com/markets/stocks/articles/dow-brushes-off-tech-rout-211300452.html"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "MAS",
+          "yahoo": "MAS",
+          "name": "Masco",
+          "sector": "Industrials",
+          "currency": "USD",
+          "refPrice": 85.1,
+          "refDate": "2026-11-24",
+          "buyLow": 84.1,
+          "buyHigh": 85.6,
+          "target": 87.67,
+          "stop": 82.97,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (setup): a home-products leader holding just above its 20-day average.",
+          "reasons": [
+            "Up 21.8 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $85.10 on 24 Nov, 0.7 ATR above its 20-day average ($83.40).",
+            "Held flat (-0.1%) on 24 Nov as the Dow rose 0.9% on a rotation into value stocks."
+          ],
+          "data": [
+            [
+              "Close (11/24)",
+              "$85.10"
+            ],
+            [
+              "3-month vs index",
+              "+21.8 pts"
+            ],
+            [
+              "20-day avg",
+              "$83.40"
+            ],
+            [
+              "24 Nov move",
+              "-0.1%"
+            ]
+          ],
+          "watch": "Plan B: no fresh stock-specific news, so size it smaller. Skip if it opens outside the buy zone. US markets close Thursday for Thanksgiving.",
+          "sources": [
+            [
+              "Yahoo Finance – Dow rises, S&P 500 and Nasdaq decline as chip sector tumbles (24 Nov 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-24-dow-sp-500-nasdaq-chip-stocks-nvidia-140629923.html"
+            ],
+            [
+              "Yahoo Finance – Tech sell-off drags Nasdaq as Dow gains on value rotation (24 Nov)",
+              "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nov-24-221148355.html"
+            ],
+            [
+              "Yahoo Finance – Dow brushes off tech rout, tariff worries to add 423 points",
+              "https://finance.yahoo.com/markets/stocks/articles/dow-brushes-off-tech-rout-211300452.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "LAURUSLABS",
+          "yahoo": "LAURUSLABS.NS",
+          "name": "Laurus Labs",
+          "sector": "Healthcare",
+          "currency": "INR",
+          "refPrice": 2370.7,
+          "refDate": "2026-11-23",
+          "buyLow": 2338.4,
+          "buyHigh": 2386.85,
+          "target": 2463.55,
+          "stop": 2302.1,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "chart",
+          "thesis": "Chart-only: up 25 pts more than the Nifty 50 over 3 months, with a rising 50-day average (ranked #1 by the momentum score).",
+          "reasons": [
+            "Trend: closed at ₹2,370.70 on 23 Nov, above a rising 50-day average (₹2,126.18).",
+            "Relative strength: +25.3 pts vs the Nifty 50 over 3 months and +6.7 pts over 1 month.",
+            "Position: 0.7 ATR above its 20-day average (₹2,313.59), not stretched."
+          ],
+          "data": [
+            [
+              "Close (11/23)",
+              "₹2,370.70"
+            ],
+            [
+              "3-month vs index",
+              "+25.3 pts"
+            ],
+            [
+              "1-month vs index",
+              "+6.7 pts"
+            ],
+            [
+              "vs 20-day avg",
+              "+0.7 ATR"
+            ]
+          ],
+          "watch": "Chart-only: no news reason to move today, the lowest-conviction kind of pick, so size it small. Skip if it opens outside the buy zone.",
+          "sources": [
+            [
+              "Yahoo Finance – Laurus Labs (LAURUSLABS.NS) quote",
+              "https://finance.yahoo.com/quote/LAURUSLABS.NS/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "DIVISLAB",
+          "yahoo": "DIVISLAB.NS",
+          "name": "Divi's Laboratories",
+          "sector": "Healthcare",
+          "currency": "INR",
+          "refPrice": 11203.0,
+          "refDate": "2026-11-23",
+          "buyLow": 11081.1,
+          "buyHigh": 11263.95,
+          "target": 11553.4,
+          "stop": 10944.0,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "chart",
+          "thesis": "Chart-only: up 26 pts more than the Nifty 50 over 3 months, with a rising 50-day average (ranked #2 by the momentum score).",
+          "reasons": [
+            "Trend: closed at ₹11,203.00 on 23 Nov, above a rising 50-day average (₹9,810.61).",
+            "Relative strength: +26.1 pts vs the Nifty 50 over 3 months and +10.6 pts over 1 month.",
+            "Position: 2.2 ATR above its 20-day average (₹10,538.30), stretched, so the score is penalised."
+          ],
+          "data": [
+            [
+              "Close (11/23)",
+              "₹11,203.00"
+            ],
+            [
+              "3-month vs index",
+              "+26.1 pts"
+            ],
+            [
+              "1-month vs index",
+              "+10.6 pts"
+            ],
+            [
+              "vs 20-day avg",
+              "+2.2 ATR"
+            ]
+          ],
+          "watch": "Chart-only: no news reason to move today, the lowest-conviction kind of pick, so size it small. Skip if it opens outside the buy zone.",
+          "sources": [
+            [
+              "Yahoo Finance – Divi's Laboratories (DIVISLAB.NS) quote",
+              "https://finance.yahoo.com/quote/DIVISLAB.NS/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "MOTILALOFS",
+          "yahoo": "MOTILALOFS.NS",
+          "name": "Motilal Oswal Financial Services",
+          "sector": "Financial Services",
+          "currency": "INR",
+          "refPrice": 1235.0,
+          "refDate": "2026-11-23",
+          "buyLow": 1216.1,
+          "buyHigh": 1244.45,
+          "target": 1289.3,
+          "stop": 1194.85,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "chart",
+          "thesis": "Chart-only: up 22 pts more than the Nifty 50 over 3 months, with a rising 50-day average (ranked #3 by the momentum score).",
+          "reasons": [
+            "Trend: closed at ₹1,235.00 on 23 Nov, above a rising 50-day average (₹1,051.39).",
+            "Relative strength: +22.3 pts vs the Nifty 50 over 3 months and +14.7 pts over 1 month.",
+            "Position: 2.8 ATR above its 20-day average (₹1,103.03), stretched, so the score is penalised."
+          ],
+          "data": [
+            [
+              "Close (11/23)",
+              "₹1,235.00"
+            ],
+            [
+              "3-month vs index",
+              "+22.3 pts"
+            ],
+            [
+              "1-month vs index",
+              "+14.7 pts"
+            ],
+            [
+              "vs 20-day avg",
+              "+2.8 ATR"
+            ]
+          ],
+          "watch": "Chart-only: no news reason to move today, the lowest-conviction kind of pick, so size it small. Skip if it opens outside the buy zone.",
+          "sources": [
+            [
+              "Yahoo Finance – Motilal Oswal Financial Services (MOTILALOFS.NS) quote",
+              "https://finance.yahoo.com/quote/MOTILALOFS.NS/"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Dow rises, S&P 500 and Nasdaq decline as chip sector tumbles (24 Nov 2026)",
+          "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-24-dow-sp-500-nasdaq-chip-stocks-nvidia-140629923.html"
+        ],
+        [
+          "Yahoo Finance – Tech sell-off drags Nasdaq as Dow gains on value rotation (24 Nov)",
+          "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nov-24-221148355.html"
+        ],
+        [
+          "Yahoo Finance – Nifty 50 (^NSEI) quote",
+          "https://finance.yahoo.com/quote/%5ENSEI/"
+        ]
+      ]
+    },
+    {
       "id": "2026-11-24-daily",
       "horizon": "daily",
       "date": "2026-11-24",

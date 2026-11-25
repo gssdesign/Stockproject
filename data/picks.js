@@ -80,7 +80,65 @@ window.PICKS = {
               "Yahoo Finance – Dow brushes off tech rout, tariff worries to add 423 points",
               "https://finance.yahoo.com/markets/stocks/articles/dow-brushes-off-tech-rout-211300452.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1407.59,
+            "date": "2026-11-24",
+            "researchPrice": 1407.59,
+            "researchDate": "2026-11-24",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $4,558M (min $50M), price $1,407.59"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $1394.47"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +16.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+65.5% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.3 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.03% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.03,
+            "sma20": 1394.47,
+            "sma50": 1276.87,
+            "sma200": 1121.25,
+            "rs1m": 16.24,
+            "rs3m": 24.52,
+            "fromHigh52": -4.59,
+            "fromLow52": 65.5,
+            "avgValue20": 4557550736,
+            "extAtr": 0.31
+          }
         },
         {
           "market": "US",
@@ -136,7 +194,65 @@ window.PICKS = {
               "Yahoo Finance – Dow brushes off tech rout, tariff worries to add 423 points",
               "https://finance.yahoo.com/markets/stocks/articles/dow-brushes-off-tech-rout-211300452.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 412.49,
+            "date": "2026-11-24",
+            "researchPrice": 412.49,
+            "researchDate": "2026-11-24",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $353M (min $50M), price $412.49"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $409.9"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +13.0 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+52.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.3% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.3,
+            "sma20": 409.9,
+            "sma50": 371.16,
+            "sma200": 337.89,
+            "rs1m": 12.96,
+            "rs3m": 23.15,
+            "fromHigh52": -12.93,
+            "fromLow52": 52.37,
+            "avgValue20": 353199919,
+            "extAtr": 0.19
+          }
         },
         {
           "market": "US",
@@ -192,7 +308,65 @@ window.PICKS = {
               "Yahoo Finance – Dow brushes off tech rout, tariff worries to add 423 points",
               "https://finance.yahoo.com/markets/stocks/articles/dow-brushes-off-tech-rout-211300452.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 85.1,
+            "date": "2026-11-24",
+            "researchPrice": 85.1,
+            "researchDate": "2026-11-24",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $182M (min $50M), price $85.1"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $83.4"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +18.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+46.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.7 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.95% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.95,
+            "sma20": 83.4,
+            "sma50": 75.63,
+            "sma200": 72.15,
+            "rs1m": 18.9,
+            "rs3m": 21.81,
+            "fromHigh52": -3.14,
+            "fromLow52": 46.32,
+            "avgValue20": 181577165,
+            "extAtr": 0.68
+          }
         },
         {
           "market": "IN",
@@ -240,7 +414,65 @@ window.PICKS = {
               "Yahoo Finance – Laurus Labs (LAURUSLABS.NS) quote",
               "https://finance.yahoo.com/quote/LAURUSLABS.NS/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 2370.7,
+            "date": "2026-11-23",
+            "researchPrice": 2370.7,
+            "researchDate": "2026-11-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹713 cr (min ₹100 cr), price ₹2,370.7"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹2313.59"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +6.7 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+158.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.7 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.41% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.41,
+            "sma20": 2313.59,
+            "sma50": 2126.18,
+            "sma200": 1547.86,
+            "rs1m": 6.66,
+            "rs3m": 25.29,
+            "fromHigh52": -4.71,
+            "fromLow52": 158.26,
+            "avgValue20": 7131952202,
+            "extAtr": 0.71
+          }
         },
         {
           "market": "IN",
@@ -288,7 +520,65 @@ window.PICKS = {
               "Yahoo Finance – Divi's Laboratories (DIVISLAB.NS) quote",
               "https://finance.yahoo.com/quote/DIVISLAB.NS/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 11203.0,
+            "date": "2026-11-23",
+            "researchPrice": 11203.0,
+            "researchDate": "2026-11-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹917 cr (min ₹100 cr), price ₹11,203.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹10538.3"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +10.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+98.4% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.72% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.72,
+            "sma20": 10538.3,
+            "sma50": 9810.61,
+            "sma200": 7660.9,
+            "rs1m": 10.55,
+            "rs3m": 26.11,
+            "fromHigh52": -5.25,
+            "fromLow52": 98.37,
+            "avgValue20": 9171005162,
+            "extAtr": 2.18
+          }
         },
         {
           "market": "IN",
@@ -336,7 +626,65 @@ window.PICKS = {
               "Yahoo Finance – Motilal Oswal Financial Services (MOTILALOFS.NS) quote",
               "https://finance.yahoo.com/quote/MOTILALOFS.NS/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1235.0,
+            "date": "2026-11-23",
+            "researchPrice": 1235.0,
+            "researchDate": "2026-11-23",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹190 cr (min ₹100 cr), price ₹1,235.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1103.03"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +14.7 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+100.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.82% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.82,
+            "sma20": 1103.03,
+            "sma50": 1051.39,
+            "sma200": 899.08,
+            "rs1m": 14.68,
+            "rs3m": 22.26,
+            "fromHigh52": -3.35,
+            "fromLow52": 100.85,
+            "avgValue20": 1904064183,
+            "extAtr": 2.8
+          }
         }
       ],
       "marketSources": [

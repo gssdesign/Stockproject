@@ -179,7 +179,65 @@ window.PICKS = {
               "Yahoo Finance – Motilal Oswal Financial Services (MOTILALOFS.NS) quote",
               "https://finance.yahoo.com/quote/MOTILALOFS.NS/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1230.1,
+            "date": "2026-11-25",
+            "researchPrice": 1230.1,
+            "researchDate": "2026-11-25",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹194 cr (min ₹100 cr), price ₹1,230.1"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1117.87"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +18.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+100.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.72% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.72,
+            "sma20": 1117.87,
+            "sma50": 1055.49,
+            "sma200": 901.46,
+            "rs1m": 18.63,
+            "rs3m": 17.79,
+            "fromHigh52": -3.73,
+            "fromLow52": 100.05,
+            "avgValue20": 1941282966,
+            "extAtr": 2.45
+          }
         },
         {
           "market": "IN",

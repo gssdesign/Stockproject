@@ -73,7 +73,65 @@ window.PICKS = {
               "Yahoo Finance – Laurus Labs (LAURUSLABS.NS) quote",
               "https://finance.yahoo.com/quote/LAURUSLABS.NS/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 2460.0,
+            "date": "2026-11-25",
+            "researchPrice": 2460.0,
+            "researchDate": "2026-11-25",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹731 cr (min ₹100 cr), price ₹2,460.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹2333.65"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +10.6 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+168.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.31% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.31,
+            "sma20": 2333.65,
+            "sma50": 2136.64,
+            "sma200": 1555.34,
+            "rs1m": 10.63,
+            "rs3m": 30.05,
+            "fromHigh52": -1.13,
+            "fromLow52": 167.99,
+            "avgValue20": 7307282698,
+            "extAtr": 1.55
+          }
         },
         {
           "market": "IN",
@@ -169,7 +227,65 @@ window.PICKS = {
               "Yahoo Finance – Punjab National Bank (PNB.NS) quote",
               "https://finance.yahoo.com/quote/PNB.NS/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 148.61,
+            "date": "2026-11-25",
+            "researchPrice": 148.61,
+            "researchDate": "2026-11-25",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹530 cr (min ₹100 cr), price ₹148.61"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹135.77"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +9.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+50.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.06% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.68 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.06,
+            "sma20": 135.77,
+            "sma50": 124.2,
+            "sma200": 115.27,
+            "rs1m": 9.22,
+            "rs3m": 21.05,
+            "fromHigh52": -5.04,
+            "fromLow52": 50.87,
+            "avgValue20": 5300192306,
+            "extAtr": 2.83
+          }
         }
       ],
       "marketSources": [

@@ -4,6 +4,186 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-11-26-daily",
+      "horizon": "daily",
+      "date": "2026-11-26",
+      "horizonDays": 1,
+      "expires": "2026-11-26",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7182.78,
+          "closed": true,
+          "summary": "Risk-off: the S&P 500 closed at 7,182.78 on 2026-11-25, below its 50-day average (7,603). US markets are closed today, Thu 26 Nov, for Thanksgiving (Friday is a shortened session), so there are no US daily picks."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 25819.25,
+          "summary": "Risk-on: the Nifty 50 closed at 25,819.25 on 2026-11-25 (+1.85%), above its rising 50-day (23,568) and 200-day (24,000) averages. This is a Chart-only list (CRITERIA §10): no stock had fresh news, and only 2 met the Plan B setup limits (at least 3 are needed), so these are the top 3 of the momentum ranking with no judgment applied. They are the lowest-conviction picks on the site.",
+          "chartSkipped": {}
+        }
+      },
+      "picks": [
+        {
+          "market": "IN",
+          "symbol": "LAURUSLABS",
+          "yahoo": "LAURUSLABS.NS",
+          "name": "Laurus Labs",
+          "sector": "Healthcare",
+          "currency": "INR",
+          "refPrice": 2460.0,
+          "refDate": "2026-11-25",
+          "buyLow": 2427.45,
+          "buyHigh": 2476.25,
+          "target": 2553.55,
+          "stop": 2390.85,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "chart",
+          "thesis": "Chart-only: up 30 pts more than the Nifty 50 over 3 months, with a rising 50-day average (ranked #1 by the momentum score).",
+          "reasons": [
+            "Trend: closed at ₹2,460.00 on 2026-11-25, above a rising 50-day average (₹2,136.64).",
+            "Relative strength: +30.1 pts vs the Nifty 50 over 3 months and +10.6 pts over 1 month.",
+            "Position: 1.6 ATR above its 20-day average (₹2,333.65), stretched, so the score is penalised."
+          ],
+          "data": [
+            [
+              "Close (11/25)",
+              "₹2,460.00"
+            ],
+            [
+              "3-month vs index",
+              "+30.1 pts"
+            ],
+            [
+              "1-month vs index",
+              "+10.6 pts"
+            ],
+            [
+              "vs 20-day avg",
+              "+1.6 ATR"
+            ]
+          ],
+          "watch": "Chart-only: no news reason to move today, the lowest-conviction kind of pick, so size it small. Skip if it opens outside the buy zone.",
+          "sources": [
+            [
+              "Yahoo Finance – Laurus Labs (LAURUSLABS.NS) quote",
+              "https://finance.yahoo.com/quote/LAURUSLABS.NS/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "MOTILALOFS",
+          "yahoo": "MOTILALOFS.NS",
+          "name": "Motilal Oswal Financial Services",
+          "sector": "Financial Services",
+          "currency": "INR",
+          "refPrice": 1230.1,
+          "refDate": "2026-11-25",
+          "buyLow": 1211.8,
+          "buyHigh": 1239.25,
+          "target": 1282.7,
+          "stop": 1191.25,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "chart",
+          "thesis": "Chart-only: up 18 pts more than the Nifty 50 over 3 months, with a rising 50-day average (ranked #2 by the momentum score).",
+          "reasons": [
+            "Trend: closed at ₹1,230.10 on 2026-11-25, above a rising 50-day average (₹1,055.49).",
+            "Relative strength: +17.8 pts vs the Nifty 50 over 3 months and +18.6 pts over 1 month.",
+            "Position: 2.5 ATR above its 20-day average (₹1,117.87), stretched, so the score is penalised."
+          ],
+          "data": [
+            [
+              "Close (11/25)",
+              "₹1,230.10"
+            ],
+            [
+              "3-month vs index",
+              "+17.8 pts"
+            ],
+            [
+              "1-month vs index",
+              "+18.6 pts"
+            ],
+            [
+              "vs 20-day avg",
+              "+2.5 ATR"
+            ]
+          ],
+          "watch": "Chart-only: no news reason to move today, the lowest-conviction kind of pick, so size it small. Skip if it opens outside the buy zone.",
+          "sources": [
+            [
+              "Yahoo Finance – Motilal Oswal Financial Services (MOTILALOFS.NS) quote",
+              "https://finance.yahoo.com/quote/MOTILALOFS.NS/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "PNB",
+          "yahoo": "PNB.NS",
+          "name": "Punjab National Bank",
+          "sector": "Financial Services",
+          "currency": "INR",
+          "refPrice": 148.61,
+          "refDate": "2026-11-25",
+          "buyLow": 146.8,
+          "buyHigh": 149.5,
+          "target": 153.85,
+          "stop": 144.75,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "chart",
+          "thesis": "Chart-only: up 21 pts more than the Nifty 50 over 3 months, with a rising 50-day average (ranked #3 by the momentum score).",
+          "reasons": [
+            "Trend: closed at ₹148.61 on 2026-11-25, above a rising 50-day average (₹124.20).",
+            "Relative strength: +21.1 pts vs the Nifty 50 over 3 months and +9.2 pts over 1 month.",
+            "Position: 2.8 ATR above its 20-day average (₹135.77), stretched, so the score is penalised."
+          ],
+          "data": [
+            [
+              "Close (11/25)",
+              "₹148.61"
+            ],
+            [
+              "3-month vs index",
+              "+21.1 pts"
+            ],
+            [
+              "1-month vs index",
+              "+9.2 pts"
+            ],
+            [
+              "vs 20-day avg",
+              "+2.8 ATR"
+            ]
+          ],
+          "watch": "Chart-only: no news reason to move today, the lowest-conviction kind of pick, so size it small. Skip if it opens outside the buy zone.",
+          "sources": [
+            [
+              "Yahoo Finance – Punjab National Bank (PNB.NS) quote",
+              "https://finance.yahoo.com/quote/PNB.NS/"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Nifty 50 (^NSEI) quote",
+          "https://finance.yahoo.com/quote/%5ENSEI/"
+        ],
+        [
+          "Wright Research – NSE F&O ban list",
+          "https://www.wrightresearch.in/stocks/fo-ban-list/"
+        ]
+      ]
+    },
+    {
       "id": "2026-11-25-daily",
       "horizon": "daily",
       "date": "2026-11-25",

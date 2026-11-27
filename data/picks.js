@@ -80,7 +80,65 @@ window.PICKS = {
               "Yahoo Finance – How major US stock indexes fared Wednesday 11/25/2026",
               "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-211718440.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 491.01,
+            "date": "2026-11-25",
+            "researchPrice": 491.01,
+            "researchDate": "2026-11-25",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $647M (min $50M), price $491.01"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $489.4"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +16.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+38.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.26% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.26,
+            "sma20": 489.4,
+            "sma50": 463.2,
+            "sma200": 444.75,
+            "rs1m": 16.11,
+            "rs3m": 24.18,
+            "fromHigh52": -11.77,
+            "fromLow52": 38.71,
+            "avgValue20": 646755409,
+            "extAtr": 0.1
+          }
         },
         {
           "market": "US",
@@ -136,7 +194,65 @@ window.PICKS = {
               "Yahoo Finance – How major US stock indexes fared Wednesday 11/25/2026",
               "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-211718440.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1086.81,
+            "date": "2026-11-25",
+            "researchPrice": 1086.81,
+            "researchDate": "2026-11-25",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $2,862M (min $50M), price $1,086.81"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $1072.25"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +16.5 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+28.8% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 1.76% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.50 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 1.76,
+            "sma20": 1072.25,
+            "sma50": 997.98,
+            "sma200": 980.53,
+            "rs1m": 16.53,
+            "rs3m": 23.37,
+            "fromHigh52": -3.28,
+            "fromLow52": 28.76,
+            "avgValue20": 2862048198,
+            "extAtr": 0.76
+          }
         },
         {
           "market": "US",
@@ -192,7 +308,65 @@ window.PICKS = {
               "Yahoo Finance – How major US stock indexes fared Wednesday 11/25/2026",
               "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-211718440.html"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 59.78,
+            "date": "2026-11-25",
+            "researchPrice": 59.78,
+            "researchDate": "2026-11-25",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $534M (min $50M), price $59.78"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $59.33"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +33.1 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+36.3% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.2 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.69% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.49 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.69,
+            "sma20": 59.33,
+            "sma50": 51.82,
+            "sma200": 54.42,
+            "rs1m": 33.11,
+            "rs3m": 20.78,
+            "fromHigh52": -15.1,
+            "fromLow52": 36.27,
+            "avgValue20": 533712300,
+            "extAtr": 0.2
+          }
         },
         {
           "market": "IN",
@@ -336,7 +510,65 @@ window.PICKS = {
               "Yahoo Finance – Motilal Oswal Financial Services (MOTILALOFS.NS) quote",
               "https://finance.yahoo.com/quote/MOTILALOFS.NS/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1215.25,
+            "date": "2026-11-26",
+            "researchPrice": 1215.25,
+            "researchDate": "2026-11-26",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹196 cr (min ₹100 cr), price ₹1,215.25"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1130.18"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +16.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+97.6% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.75% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.75,
+            "sma20": 1130.18,
+            "sma50": 1059.5,
+            "sma200": 903.81,
+            "rs1m": 16.44,
+            "rs3m": 15.87,
+            "fromHigh52": -4.9,
+            "fromLow52": 97.63,
+            "avgValue20": 1961876139,
+            "extAtr": 1.87
+          }
         }
       ],
       "marketSources": [

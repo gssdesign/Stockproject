@@ -4,6 +4,498 @@ window.ARCHIVE = window.ARCHIVE || {};
 window.ARCHIVE["2026-10"] = {
   "batches": [
     {
+      "id": "2026-10-12-daily",
+      "horizon": "daily",
+      "date": "2026-10-12",
+      "horizonDays": 1,
+      "expires": "2026-10-12",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7811.54,
+          "summary": "Risk-on: the S&P 500 closed at 7,811.54 on 2026-10-09, near its record. One standard pick, Cboe Global Markets, after Morgan Stanley's double upgrade on 9 Oct; other recent calls were older than 3 days or on stocks that fail the daily checks, so the list isn't padded. Stock markets are open on Columbus Day (bond markets are closed); big-bank earnings start on 13 Oct and CPI is due this week."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22520.45,
+          "summary": "Risk-off: the Nifty 50 closed at 22,520.45 on 2026-10-09 (+1.30%), rebounding on IT stocks and easing oil but still below its 50- and 200-day averages. Plan B list: no stock on the daily screen had a fresh, dated catalyst, so three Plan B ideas (the maximum in a risk-off market) come from CRITERIA.md section 9: 3-month leaders resting near their 20-day averages, in three different sectors. Treat them as lower-conviction. HCLTech reports Q2 results after today's close."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "CBOE",
+          "yahoo": "CBOE",
+          "name": "Cboe Global Markets",
+          "sector": "Financials / Exchanges",
+          "currency": "USD",
+          "refPrice": 304.16,
+          "refDate": "2026-10-09",
+          "buyLow": 299.47,
+          "buyHigh": 306.51,
+          "target": 317.65,
+          "stop": 294.19,
+          "risk": "Medium",
+          "thesis": "Morgan Stanley double-upgraded Cboe to Overweight from Underweight on 9 Oct ($358 target, from $258) after it renewed its exclusive S&P 500 options licence through 2051.",
+          "reasons": [
+            "Morgan Stanley moved Cboe from Underweight straight to Overweight on 9 Oct 2026 and raised its target to $358 from $258, citing the renewed S&P Dow Jones Indices contract that keeps Cboe's exclusive right to list S&P 500 index options through 2051.",
+            "The stock rose 3.43% to $304.16 on 9 Oct, its first session after the upgrade, still 18% below its 52-week high of $371.18, so the removal of the licence-renewal risk has room to be priced in.",
+            "It passes every daily check: above its 20-day average ($273.59), 2.9 pts ahead of the S&P 500 over the past month, and up 33.9% from its 52-week low."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "$304.16"
+            ],
+            [
+              "1-month vs index",
+              "+2.9 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+2.6 ATR"
+            ],
+            [
+              "ATR",
+              "3.86% of price"
+            ]
+          ],
+          "watch": "It jumped on the upgrade and is 2.6 ATR above its 20-day average, so it could give some back; it only just moved back above its 50-day ($286.89) and 200-day ($288.03) averages. US markets are open on Columbus Day, but bond markets are closed and volume may be light. Q3 results are not due today. Skip it if it opens outside $299.47–306.51.",
+          "sources": [
+            [
+              "CNBC – This exchange stock is a buy on renewed options deal, Morgan Stanley says (Oct 9, 2026)",
+              "https://www.cnbc.com/2026/10/09/this-exchange-stock-is-a-buy-on-renewed-options-deal-morgan-stanley-says.html"
+            ],
+            [
+              "MarketScreener – Cboe Global Markets shares rise after Morgan Stanley upgrade (Oct 9, 2026)",
+              "https://www.marketscreener.com/news/cboe-global-markets-shares-rise-after-morgan-stanley-upgrade-ce785ddcdb8cf521"
+            ],
+            [
+              "Seeking Alpha – Cboe Global double upgraded at Morgan Stanley (Oct 9, 2026)",
+              "https://seekingalpha.com/news/4651775-cboe-global-double-upgraded-at-morgan-stanley-gemini-space-station-downgraded"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 304.16,
+            "date": "2026-10-09",
+            "researchPrice": 304.16,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $344M (min $50M), price $304.16"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg $273.59"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +2.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+33.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.6 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.86% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.86,
+            "sma20": 273.59,
+            "sma50": 286.89,
+            "sma200": 288.03,
+            "rs1m": 2.9,
+            "rs3m": 5.81,
+            "fromHigh52": -18.06,
+            "fromLow52": 33.9,
+            "avgValue20": 343819076,
+            "extAtr": 2.61
+          }
+        },
+        {
+          "market": "IN",
+          "symbol": "AUROPHARMA",
+          "yahoo": "AUROPHARMA.NS",
+          "name": "Aurobindo Pharma",
+          "sector": "Healthcare / Pharmaceuticals",
+          "currency": "INR",
+          "refPrice": 1693.0,
+          "refDate": "2026-10-09",
+          "buyLow": 1677.6,
+          "buyHigh": 1700.7,
+          "target": 1737.3,
+          "stop": 1660.25,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on its 20-day average): a 3-month pharma leader that bounced 2.9% on 9 Oct as pharma and hospital stocks led the market, and still sits right on its 20-day average.",
+          "reasons": [
+            "It's a leader: up 8.2% in 3 months, 15.2 pts ahead of the Nifty 50, with its 50-day average (₹1,656.65) well above its 200-day (₹1,427.24) and 2.7% below its 52-week high.",
+            "It rose 2.92% to ₹1,693 on 9 Oct as the Nifty rebounded 1.30%, with pharma and hospital stocks among the leaders (Apollo Hospitals +4.7%).",
+            "The entry is calm: only 0.1 ATR above its 20-day average (₹1,688.49), so the stop sits close to support."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "₹1,693.00"
+            ],
+            [
+              "3-month vs index",
+              "+15.2 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.1 ATR"
+            ],
+            [
+              "ATR",
+              "2.28% of price"
+            ]
+          ],
+          "watch": "There's no fresh company news behind this pick; it's a lower-conviction setup in a risk-off market. US pricing pressure on generics or an FDA observation could hit it, and a close below its 20-day average (₹1,688) breaks the setup. Q2 results are not due today. Skip it if it opens outside ₹1,677.60–1,700.70, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Upstox News – Top gainers and losers, October 9: Apollo Hospitals jumps 5%, ITC rallies 4%, BSE falls over 1%",
+              "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-october-9-apollo-hospitals-jumps-5-itc-rallies-4-bse-falls-over-1-check-list/article-201611/"
+            ],
+            [
+              "Business Standard – Stock Market Close: Broad-based buying helps Sensex rebound 879 pts; Nifty at 22,536; IT pack shines (Oct 9, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-9-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-it-stocks-today-126100900099_1.html"
+            ],
+            [
+              "Angel One – Top gainers and losers on October 9, 2026: Apollo Hospitals and ITC gain, while BSE drops over 1%",
+              "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-9-2026-apollo-hospitals-and-itc-gain-while-bse-drops-over-1"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 1693.0,
+            "date": "2026-10-09",
+            "researchPrice": 1693.0,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹135 cr (min ₹100 cr), price ₹1,693.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹1688.49"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +4.8 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+58.7% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.28% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.28,
+            "sma20": 1688.49,
+            "sma50": 1656.65,
+            "sma200": 1427.24,
+            "rs1m": 4.78,
+            "rs3m": 15.17,
+            "fromHigh52": -2.7,
+            "fromLow52": 58.7,
+            "avgValue20": 1350720528,
+            "extAtr": 0.12
+          }
+        },
+        {
+          "market": "IN",
+          "symbol": "BHEL",
+          "yahoo": "BHEL.NS",
+          "name": "Bharat Heavy Electricals",
+          "sector": "Capital Goods / Power Equipment",
+          "currency": "INR",
+          "refPrice": 433.6,
+          "refDate": "2026-10-09",
+          "buyLow": 427.95,
+          "buyHigh": 436.4,
+          "target": 449.8,
+          "stop": 421.65,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on its 20-day average): a 3-month capital-goods leader holding above its rising 50-day average, 0.5 ATR above its 20-day average.",
+          "reasons": [
+            "It's a leader: up 9.7% in 3 months, 16.7 pts ahead of the Nifty 50, with its 50-day average (₹422.19) far above its 200-day (₹350.21).",
+            "It held up through the 8 Oct sell-off and rose 0.93% to ₹433.60 on 9 Oct as broad-based buying lifted the Nifty 1.30%; it's 4.9% below its 52-week high.",
+            "The entry is calm: 0.5 ATR above its 20-day average (₹426.21), so the setup has a nearby floor."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "₹433.60"
+            ],
+            [
+              "3-month vs index",
+              "+16.7 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.5 ATR"
+            ],
+            [
+              "ATR",
+              "3.25% of price"
+            ]
+          ],
+          "watch": "There's no fresh company news behind this pick. Q2 results are expected around 14 Oct, so traders may hold back ahead of them; public-sector stocks swing with government-order news. A close below its 20-day average (₹426) breaks the setup. Skip it if it opens outside ₹427.95–436.40, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Business Standard – Stock Market Close: Broad-based buying helps Sensex rebound 879 pts; Nifty at 22,536; IT pack shines (Oct 9, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-9-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-it-stocks-today-126100900099_1.html"
+            ],
+            [
+              "Kotak Neo – Closing Bell, 9 October 2026: Markets recover after sell-off as IT stocks, easing oil prices boost sentiment",
+              "https://www.kotakneo.com/news/market-news/sensex-and-nifty-recover-after-sharp-sell-off/"
+            ],
+            [
+              "Upstox News – Top gainers and losers, October 9: Apollo Hospitals jumps 5%, ITC rallies 4%, BSE falls over 1%",
+              "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-october-9-apollo-hospitals-jumps-5-itc-rallies-4-bse-falls-over-1-check-list/article-201611/"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 433.6,
+            "date": "2026-10-09",
+            "researchPrice": 433.6,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹372 cr (min ₹100 cr), price ₹433.6"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹426.21"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +7.4 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+88.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.5 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.25% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.25,
+            "sma20": 426.21,
+            "sma50": 422.19,
+            "sma200": 350.21,
+            "rs1m": 7.43,
+            "rs3m": 16.67,
+            "fromHigh52": -4.9,
+            "fromLow52": 88.9,
+            "avgValue20": 3722005075,
+            "extAtr": 0.53
+          }
+        },
+        {
+          "market": "IN",
+          "symbol": "MCX",
+          "yahoo": "MCX.NS",
+          "name": "Multi Commodity Exchange of India",
+          "sector": "Financial Services / Exchanges",
+          "currency": "INR",
+          "refPrice": 3318.2,
+          "refDate": "2026-10-09",
+          "buyLow": 3272.1,
+          "buyHigh": 3341.25,
+          "target": 3450.65,
+          "stop": 3220.3,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (leader on its 20-day average): a strong 3-month leader that rose 1.9% on 9 Oct and sits 0.4 ATR above its 20-day average, with commodity volatility (oil above $100) supporting trading volumes.",
+          "reasons": [
+            "It's a leader: up 19.8% in 3 months, 26.7 pts ahead of the Nifty 50, with a rising 50-day average (₹3,136.06) and 4.7% below its 52-week high.",
+            "It rose 1.92% to ₹3,318.20 on 9 Oct in the Nifty's 1.30% rebound, recovering from the 8 Oct sell-off.",
+            "The entry is calm: 0.4 ATR above its 20-day average (₹3,275.60); volatile oil and metal prices tend to lift commodity-exchange volumes."
+          ],
+          "data": [
+            [
+              "Close (10/09)",
+              "₹3,318.20"
+            ],
+            [
+              "3-month vs index",
+              "+26.7 pts"
+            ],
+            [
+              "Distance from 20-day avg",
+              "+0.4 ATR"
+            ],
+            [
+              "ATR",
+              "3.47% of price"
+            ]
+          ],
+          "watch": "There's no fresh company news behind this pick, and capital-market stocks are sensitive to SEBI rule changes; BSE, a peer, fell 1.4% on 9 Oct. A close below its 20-day average (₹3,276) breaks the setup. Q2 results are not due today. Skip it if it opens outside ₹3,272.10–3,341.25, and keep the size smaller than a standard pick.",
+          "sources": [
+            [
+              "Angel One – Top gainers and losers on October 9, 2026: Apollo Hospitals and ITC gain, while BSE drops over 1%",
+              "https://www.angelone.in/news/market-updates/top-gainers-and-losers-on-october-9-2026-apollo-hospitals-and-itc-gain-while-bse-drops-over-1"
+            ],
+            [
+              "Business Standard – Stock Market Close: Broad-based buying helps Sensex rebound 879 pts; Nifty at 22,536; IT pack shines (Oct 9, 2026)",
+              "https://www.business-standard.com/amp/markets/news/stock-market-live-october-9-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-it-stocks-today-126100900099_1.html"
+            ],
+            [
+              "Kotak Neo – Closing Bell, 9 October 2026: Markets recover after sell-off as IT stocks, easing oil prices boost sentiment",
+              "https://www.kotakneo.com/news/market-news/sensex-and-nifty-recover-after-sharp-sell-off/"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 3318.2,
+            "date": "2026-10-09",
+            "researchPrice": 3318.2,
+            "researchDate": "2026-10-09",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹621 cr (min ₹100 cr), price ₹3,318.2"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹3275.6"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +4.0 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+107.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+0.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.47% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.47,
+            "sma20": 3275.6,
+            "sma50": 3136.06,
+            "sma200": 2775.32,
+            "rs1m": 4.01,
+            "rs3m": 26.73,
+            "fromHigh52": -4.69,
+            "fromLow52": 107.91,
+            "avgValue20": 6208001442,
+            "extAtr": 0.37
+          }
+        }
+      ],
+      "marketSources": [
+        [
+          "CNBC – This exchange stock is a buy on renewed options deal, Morgan Stanley says (Oct 9, 2026)",
+          "https://www.cnbc.com/2026/10/09/this-exchange-stock-is-a-buy-on-renewed-options-deal-morgan-stanley-says.html"
+        ],
+        [
+          "Business Standard – Stock Market Close: Broad-based buying helps Sensex rebound 879 pts; Nifty at 22,536; IT pack shines (Oct 9, 2026)",
+          "https://www.business-standard.com/amp/markets/news/stock-market-live-october-9-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-it-stocks-today-126100900099_1.html"
+        ],
+        [
+          "Kotak Neo – Closing Bell, 9 October 2026: Markets recover after sell-off as IT stocks, easing oil prices boost sentiment",
+          "https://www.kotakneo.com/news/market-news/sensex-and-nifty-recover-after-sharp-sell-off/"
+        ]
+      ]
+    },
+    {
       "id": "2026-10-09-daily",
       "horizon": "daily",
       "date": "2026-10-09",
@@ -1734,6 +2226,272 @@ window.ARCHIVE["2026-10"] = {
           "https://cnbc.com/2026/10/02/stock-market-next-week-outlook-for-oct-5-9-2026-.html"
         ]
       ]
+    },
+    {
+      "id": "2026-10-05-weekly",
+      "horizon": "weekly",
+      "date": "2026-10-05",
+      "horizonDays": 7,
+      "expires": "2026-10-12",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7722.72,
+          "summary": "Risk-on: the S&P 500 closed at 7,722.72 on 2026-10-02 (+0.73%), above its 50-day (7,658) and 200-day (7,226) averages, after September payrolls came in at just 29,000 jobs (unemployment 4.2%), pulling the 10-year yield to about 5.18% and cutting the odds of an October Fed hike to roughly 20%. This week brings the September FOMC minutes (Wed 7 Oct), ISM services and the first big earnings (PepsiCo 8 Oct, Delta 9 Oct). Only one stock combined a fresh, dated catalyst with a clean chart: Target (HSBC upgrade to Buy, 30 Sep). Accenture fell 6.3% on 2 Oct after its record post-earnings jump and now fails the volatility check; NetApp and AMD are too stretched after big runs; the refiners spiked with no company news. Data note: the US 2 Oct closes only reached the snapshot this morning (05 Oct 00:43 UTC); all levels use them. No learned rule changes are in force yet (fewer than 20 finished weekly picks)."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 22421.95,
+          "summary": "Risk-off: the Nifty 50 closed at 22,421.95 on 2026-10-01, well below its 50-day (23,870) and 200-day (24,356) averages after an eighth straight weekly fall, its longest losing run in about 25 years (3-month −7.6%). Key events this week: the RBI policy decision on Wed 7 Oct (most economists in a Reuters poll expect a 25 bp repo hike to 5.50%) and TCS's Q2 results on 8 Oct, which open the earnings season. In a market this weak only a stock with hard, fresh numbers qualifies, so there is one pick: APL Apollo Tubes on its record Q2 volumes. The snapshot is current for India (NSE was closed 2 Oct). No learned rule changes are in force yet."
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "TGT",
+          "yahoo": "TGT",
+          "name": "Target Corporation",
+          "sector": "Consumer Staples / Retail",
+          "currency": "USD",
+          "refPrice": 156.0,
+          "refDate": "2026-10-02",
+          "buyLow": 154.12,
+          "buyHigh": 156.94,
+          "target": 163.98,
+          "stop": 150.84,
+          "risk": "Low–Medium",
+          "thesis": "HSBC's 30 Sep double-notch call (Hold to Buy, target $125 to $190) on a traffic-led recovery lands on a 3-month leader that has pulled back to its 20-day average.",
+          "reasons": [
+            "On 30 Sep HSBC upgraded Target to Buy from Hold and lifted its target to $190 from $125, citing comparable sales up 3.8% driven by more store visits, not higher prices, and EPS about 5% above expectations excluding a $994M tariff refund.",
+            "It's beating the S&P 500 by 21.3 pts over 3 months, and after a 4.5% dip over the past month it sits at $156.00 (2 Oct), just 0.4 ATR below its 20-day average ($157.64) and above a rising 50-day ($155.68).",
+            "Low volatility for a weekly hold (ATR 2.4%), and no earnings until mid-November, so there's no binary event in the window. Softer rate-hike odds after the weak jobs report also help consumer names."
+          ],
+          "data": [
+            [
+              "Close (10/02)",
+              "$156.00"
+            ],
+            [
+              "3-month vs index",
+              "+21.3 pts"
+            ],
+            [
+              "HSBC target",
+              "$190 (Buy, 09/30)"
+            ],
+            [
+              "ATR",
+              "2.41% of price"
+            ]
+          ],
+          "watch": "A hot ISM services print or hawkish Fed minutes (7 Oct) could revive rate-hike fears and hit consumer stocks. The past month's relative strength is negative, so if it closes below the 50-day average (~$155.7) the setup is weakening. Skip it if it opens outside $154.12–156.94.",
+          "sources": [
+            [
+              "CNBC – Target has been on fire this year. HSBC sees more upside ahead (Sep 30, 2026)",
+              "https://www.cnbc.com/2026/09/30/target-has-been-on-fire-this-year-hsbc-sees-more-upside-ahead.html"
+            ],
+            [
+              "Yahoo Finance – Target upgraded at HSBC as \"traffic-driven recovery is underway\"",
+              "https://finance.yahoo.com/markets/stocks/articles/target-upgraded-hsbc-footfall-points-122607131.html"
+            ],
+            [
+              "Investing.com – HSBC upgrades Target stock rating on earnings recovery potential",
+              "https://www.investing.com/news/analyst-ratings/hsbc-upgrades-target-stock-rating-on-earnings-recovery-potential-93CH-4925668"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 156.0,
+            "date": "2026-10-02",
+            "researchPrice": 156.0,
+            "researchDate": "2026-10-02",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value $549M (min $50M), price $156.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg $155.68, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +21.2 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+87.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-0.4 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.41% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.41,
+            "sma20": 157.64,
+            "sma50": 155.68,
+            "sma200": 128.81,
+            "rs1m": -5.24,
+            "rs3m": 21.25,
+            "fromHigh52": -8.64,
+            "fromLow52": 86.96,
+            "avgValue20": 549131992,
+            "extAtr": -0.44
+          }
+        },
+        {
+          "market": "IN",
+          "symbol": "APLAPOLLO",
+          "yahoo": "APLAPOLLO.NS",
+          "name": "APL Apollo Tubes",
+          "sector": "Capital Goods / Steel Tubes",
+          "currency": "INR",
+          "refPrice": 2115.7,
+          "refDate": "2026-10-01",
+          "buyLow": 2085.75,
+          "buyHigh": 2130.65,
+          "target": 2242.9,
+          "stop": 2033.4,
+          "risk": "Medium",
+          "thesis": "Record Q2 FY27 sales volume (9.63 lakh tonnes, +13% YoY, 1 Oct) on a 3-month leader that has pulled back below its 20-day average with the market.",
+          "reasons": [
+            "On 1 Oct APL Apollo reported its highest-ever quarterly sales volume, 963,143 tonnes in Q2 FY27, up 13% YoY and 29% QoQ, beating the previous record of 924,881 tonnes (Q4 FY26). The APL Apollo brand alone grew to 774,751 tonnes from 653,680.",
+            "It's beating the Nifty by 24.9 pts over 3 months and is still above a rising 50-day average (₹2,099), although it fell 3.4% to ₹2,115.70 on 1 Oct with the broad sell-off.",
+            "Volume growth feeds directly into Q2 results (due later in October), and the shares are 8% below their 52-week high of ₹2,301, so there's room to recover if the market steadies."
+          ],
+          "data": [
+            [
+              "Close (10/01)",
+              "₹2,115.7"
+            ],
+            [
+              "3-month vs index",
+              "+24.9 pts"
+            ],
+            [
+              "Q2 FY27 volume",
+              "9.63 lakh t (+13% YoY, record)"
+            ],
+            [
+              "ATR",
+              "2.83% of price"
+            ]
+          ],
+          "watch": "Risk-off market: Nifty is down 8 weeks in a row, FIIs are selling, and an RBI rate hike on 7 Oct could hit rate-sensitive construction demand. Exit on the stop (₹2,033.40), which sits just below the 50-day average. Skip it if it opens outside ₹2,085.75–2,130.65.",
+          "sources": [
+            [
+              "CNBC-TV18 via TradingView – APL Apollo Tubes Q2 sales volume (Oct 1, 2026)",
+              "https://www.tradingview.com/news/cnbctv:57efc2cb1094b:0/"
+            ],
+            [
+              "Free Press Journal – APL Apollo Tubes reports 13% YoY growth in Q2FY27 sales volume to 9.63 lakh tonnes",
+              "https://www.freepressjournal.in/business/apl-apollo-tubes-reports-13-yoy-growth-in-q2fy27-sales-volume-to-963-lakh-tonnes"
+            ],
+            [
+              "IANS – Market outlook: RBI policy stance, Q2 earnings key triggers next week (Oct 4, 2026)",
+              "https://ianslive.in/market-outlook-rbi-policy-stance-q2-earnings-key-triggers-next-week--20261004110048"
+            ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 2115.7,
+            "date": "2026-10-01",
+            "researchPrice": 2115.7,
+            "researchDate": "2026-10-01",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹132 cr (min ₹100 cr), price ₹2,115.7"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 50-day avg ₹2099.29, 50-day avg rising"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "3-month return vs index +24.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+25.5% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "-1.1 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.83% of price (max 5.0% for weekly)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.80 (min 1.8)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.83,
+            "sma20": 2181.99,
+            "sma50": 2099.29,
+            "sma200": 1988.56,
+            "rs1m": 2.52,
+            "rs3m": 24.87,
+            "fromHigh52": -8.07,
+            "fromLow52": 25.54,
+            "avgValue20": 1317795208,
+            "extAtr": -1.11
+          }
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Stock market today, Oct 2: stocks rally as Fed rate-hike expectations fade",
+          "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-2-dow-sp-500-nasdaq-september-jobs-report-080623878.html"
+        ],
+        [
+          "WTOP/AP – Wall Street week ahead: Fed minutes, unemployment data, consumer sentiment",
+          "https://wtop.com/national/2026/10/wall-street-week-ahead-fed-minutes-unemployment-data-consumer-sentiment-update"
+        ],
+        [
+          "Outlook Money – Stock market outlook next week: RBI MPC decision, Q2 earnings, FII outflows",
+          "https://www.outlookmoney.com/invest/key-factors-set-to-affect-stock-market-next-week-rbi-policy-q2-earnings-and-fii-outflows-in-focus"
+        ]
+      ],
+      "superseded": {
+        "by": "2026-10-01-weekly",
+        "reason": "Withdrawn on 5 Oct 2026: it was published while the 1 Oct weekly list was still running (until 8 Oct). Weekly and monthly lists now stay fixed for their whole window, so the 1 Oct list remains the current weekly list."
+      }
     },
     {
       "id": "2026-10-05-daily",
@@ -5931,6 +6689,116 @@ window.ARCHIVE["2026-10"] = {
       "^NSEI": {
         "markPrice": 22520.45,
         "returnPct": 1.3
+      }
+    },
+    "2026-10-12-daily": {
+      "CBOE": {
+        "status": "Expired",
+        "exitPrice": 297.3800048828125,
+        "exitDate": "2026-10-12",
+        "maxHigh": 310.989990234375,
+        "minLow": 296.9800109863281,
+        "markPrice": 297.38,
+        "returnPct": -2.23,
+        "periodClose": 297.38,
+        "periodCloseDate": "2026-10-12",
+        "periodFinal": true,
+        "closeReturnPct": -2.23,
+        "targetHit": false,
+        "stopHit": false
+      },
+      "AUROPHARMA.NS": {
+        "status": "Expired",
+        "exitPrice": 1706.9000244140625,
+        "exitDate": "2026-10-12",
+        "maxHigh": 1715.0,
+        "minLow": 1681.0,
+        "markPrice": 1706.9,
+        "returnPct": 0.82,
+        "periodClose": 1706.9,
+        "periodCloseDate": "2026-10-12",
+        "periodFinal": true,
+        "closeReturnPct": 0.82,
+        "targetHit": false,
+        "stopHit": false
+      },
+      "BHEL.NS": {
+        "status": "Expired",
+        "exitPrice": 439.8999938964844,
+        "exitDate": "2026-10-12",
+        "maxHigh": 441.20001220703125,
+        "minLow": 433.1000061035156,
+        "markPrice": 439.9,
+        "returnPct": 1.45,
+        "periodClose": 439.9,
+        "periodCloseDate": "2026-10-12",
+        "periodFinal": true,
+        "closeReturnPct": 1.45,
+        "targetHit": false,
+        "stopHit": false
+      },
+      "MCX.NS": {
+        "status": "Expired",
+        "exitPrice": 3390.0,
+        "exitDate": "2026-10-12",
+        "maxHigh": 3415.0,
+        "minLow": 3335.5,
+        "markPrice": 3390.0,
+        "returnPct": 2.16,
+        "periodClose": 3390.0,
+        "periodCloseDate": "2026-10-12",
+        "periodFinal": true,
+        "closeReturnPct": 2.16,
+        "targetHit": false,
+        "stopHit": false
+      },
+      "^GSPC": {
+        "markPrice": 7807.24,
+        "returnPct": -0.06
+      },
+      "^NSEI": {
+        "markPrice": 22363.35,
+        "returnPct": -0.7
+      }
+    },
+    "2026-10-05-weekly": {
+      "TGT": {
+        "status": "Stopped out",
+        "exitPrice": 150.84,
+        "exitDate": "2026-10-07",
+        "maxHigh": 156.10000610351562,
+        "minLow": 150.4600067138672,
+        "markPrice": 150.84,
+        "returnPct": -3.31,
+        "periodClose": 153.62,
+        "periodCloseDate": "2026-10-12",
+        "periodFinal": true,
+        "closeReturnPct": -1.53,
+        "targetHit": false,
+        "stopHit": true
+      },
+      "APLAPOLLO.NS": {
+        "status": "Stopped out",
+        "exitPrice": 2033.4,
+        "exitDate": "2026-10-09",
+        "maxHigh": 2170.0,
+        "minLow": 2026.199951171875,
+        "markPrice": 2033.4,
+        "returnPct": -3.89,
+        "periodClose": 2157.4,
+        "periodCloseDate": "2026-10-12",
+        "periodFinal": true,
+        "closeReturnPct": 1.97,
+        "targetHit": false,
+        "stopHit": true
+      },
+      "^GSPC": {
+        "markPrice": 7807.24,
+        "returnPct": 1.09
+      },
+      "^NSEI": {
+        "markPrice": 22363.35,
+        "returnPct": -0.26
       }
     }
   }

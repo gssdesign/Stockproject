@@ -5,6 +5,30 @@ window.ARCHIVE_INDEX = {
       "month": "2026-10",
       "batches": [
         {
+          "id": "2026-10-12-daily",
+          "horizon": "daily",
+          "date": "2026-10-12",
+          "expires": "2026-10-12",
+          "markets": {
+            "US": {
+              "n": 1,
+              "priced": 1,
+              "finished": 1,
+              "hits": 0,
+              "sumExpected": 4.4352,
+              "sumCloseRet": -2.2291
+            },
+            "IN": {
+              "n": 3,
+              "priced": 3,
+              "finished": 3,
+              "hits": 0,
+              "sumExpected": 10.3444,
+              "sumCloseRet": 4.4378
+            }
+          }
+        },
+        {
           "id": "2026-10-09-daily",
           "horizon": "daily",
           "date": "2026-10-09",
@@ -98,6 +122,34 @@ window.ARCHIVE_INDEX = {
               "sumExpected": 2.9893,
               "sumCloseRet": -0.3976
             }
+          }
+        },
+        {
+          "id": "2026-10-05-weekly",
+          "horizon": "weekly",
+          "date": "2026-10-05",
+          "expires": "2026-10-12",
+          "markets": {
+            "US": {
+              "n": 1,
+              "priced": 1,
+              "finished": 1,
+              "hits": 0,
+              "sumExpected": 5.1154,
+              "sumCloseRet": -1.5256
+            },
+            "IN": {
+              "n": 1,
+              "priced": 1,
+              "finished": 1,
+              "hits": 0,
+              "sumExpected": 6.0122,
+              "sumCloseRet": 1.971
+            }
+          },
+          "superseded": {
+            "by": "2026-10-01-weekly",
+            "reason": "Withdrawn on 5 Oct 2026: it was published while the 1 Oct weekly list was still running (until 8 Oct). Weekly and monthly lists now stay fixed for their whole window, so the 1 Oct list remains the current weekly list."
           }
         },
         {

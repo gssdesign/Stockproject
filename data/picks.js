@@ -4,6 +4,357 @@
 window.PICKS = {
   "batches": [
     {
+      "id": "2026-11-27-daily",
+      "horizon": "daily",
+      "date": "2026-11-27",
+      "horizonDays": 1,
+      "expires": "2026-11-27",
+      "criteriaVersion": "2026-09-30",
+      "context": {
+        "US": {
+          "benchmark": "^GSPC",
+          "benchmarkName": "S&P 500",
+          "benchmarkRef": 7182.78,
+          "summary": "Risk-off: the S&P 500 closed at 7,182.78 on 2026-11-25 (-0.25%, after being down 3.2% intraday on hot PCE inflation and new tariffs), below its 50-day average (7,603). This is a Plan B list: no screen stock had a fresh catalyst for today, so these are leaders resting on their 20-day averages ('setup' basis), max 3 in risk-off. Today is a half-day session (close 1 p.m. ET). The learned daily US target (1.12 ATR) is in force."
+        },
+        "IN": {
+          "benchmark": "^NSEI",
+          "benchmarkName": "Nifty 50",
+          "benchmarkRef": 25884.5,
+          "summary": "Risk-on: the Nifty 50 closed at 25,884.50 on 2026-11-26, above its rising 50-day (23,616) and 200-day (24,004) averages. This is a Chart-only list (CRITERIA §10): no stock had fresh news and only 1 met the Plan B setup limits (at least 3 are needed), so these are the top 3 of the momentum ranking with no judgment applied. They are the lowest-conviction picks on the site.",
+          "chartSkipped": {}
+        }
+      },
+      "picks": [
+        {
+          "market": "US",
+          "symbol": "HCA",
+          "yahoo": "HCA",
+          "name": "HCA Healthcare",
+          "sector": "Health Care",
+          "currency": "USD",
+          "refPrice": 491.01,
+          "refDate": "2026-11-25",
+          "buyLow": 484.6,
+          "buyHigh": 494.21,
+          "target": 507.43,
+          "stop": 477.39,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (setup): a hospital-operator leader sitting right on its 20-day average.",
+          "reasons": [
+            "Up 24.2 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $491.01 on 2026-11-25, 0.1 ATR above its 20-day average ($489.40).",
+            "Rose 1.9% on 25 Nov while the S&P 500 dipped 0.3% after a 3.2% intraday drop on hot PCE inflation and new tariffs."
+          ],
+          "data": [
+            [
+              "Close (11/25)",
+              "$491.01"
+            ],
+            [
+              "3-month vs index",
+              "+24.2 pts"
+            ],
+            [
+              "20-day avg",
+              "$489.40"
+            ],
+            [
+              "25/11 move",
+              "+1.9%"
+            ]
+          ],
+          "watch": "Plan B: no fresh stock-specific news, so size it smaller. Skip if it opens outside the buy zone. Today is a half-day session (US close 1 p.m. ET).",
+          "sources": [
+            [
+              "Yahoo Finance – Dow erases losses to end positive, S&P 500 and Nasdaq recover ground (25 Nov 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-november-25-dow-sp-500-nasdaq-pce-inflation-data-091428237.html"
+            ],
+            [
+              "CNBC – Stock market news for Nov. 25, 2026",
+              "https://www.cnbc.com/2026/11/24/stock-market-today-live-updates-.html"
+            ],
+            [
+              "Yahoo Finance – How major US stock indexes fared Wednesday 11/25/2026",
+              "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-211718440.html"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "COST",
+          "yahoo": "COST",
+          "name": "Costco",
+          "sector": "Consumer Staples",
+          "currency": "USD",
+          "refPrice": 1086.81,
+          "refDate": "2026-11-25",
+          "buyLow": 1079.15,
+          "buyHigh": 1090.64,
+          "target": 1106.44,
+          "stop": 1070.53,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (setup): a low-volatility retail leader holding above its 20-day average into the holiday shopping weekend.",
+          "reasons": [
+            "Up 23.4 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $1,086.81 on 2026-11-25, 0.8 ATR above its 20-day average ($1,072.25).",
+            "The lowest-volatility pick here (ATR 1.8%), which suits a risk-off market and today's short session."
+          ],
+          "data": [
+            [
+              "Close (11/25)",
+              "$1,086.81"
+            ],
+            [
+              "3-month vs index",
+              "+23.4 pts"
+            ],
+            [
+              "20-day avg",
+              "$1,072.25"
+            ],
+            [
+              "25/11 move",
+              "-0.5%"
+            ]
+          ],
+          "watch": "Plan B: no fresh stock-specific news, so size it smaller. Skip if it opens outside the buy zone. Today is a half-day session (US close 1 p.m. ET).",
+          "sources": [
+            [
+              "Yahoo Finance – Dow erases losses to end positive, S&P 500 and Nasdaq recover ground (25 Nov 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-november-25-dow-sp-500-nasdaq-pce-inflation-data-091428237.html"
+            ],
+            [
+              "CNBC – Stock market news for Nov. 25, 2026",
+              "https://www.cnbc.com/2026/11/24/stock-market-today-live-updates-.html"
+            ],
+            [
+              "Yahoo Finance – How major US stock indexes fared Wednesday 11/25/2026",
+              "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-211718440.html"
+            ]
+          ]
+        },
+        {
+          "market": "US",
+          "symbol": "FISV",
+          "yahoo": "FISV",
+          "name": "Fiserv",
+          "sector": "Financials",
+          "currency": "USD",
+          "refPrice": 59.78,
+          "refDate": "2026-11-25",
+          "buyLow": 58.9,
+          "buyHigh": 60.22,
+          "target": 62.04,
+          "stop": 57.9,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "setup",
+          "thesis": "Plan B (setup): a payments leader resting just above its 20-day average.",
+          "reasons": [
+            "Up 20.8 pts vs the S&P 500 over 3 months with a rising 50-day average.",
+            "Closed at $59.78 on 2026-11-25, 0.2 ATR above its 20-day average ($59.33).",
+            "Rose 2.0% on 25 Nov while the S&P 500 dipped 0.3%; payment volumes are a Black Friday theme."
+          ],
+          "data": [
+            [
+              "Close (11/25)",
+              "$59.78"
+            ],
+            [
+              "3-month vs index",
+              "+20.8 pts"
+            ],
+            [
+              "20-day avg",
+              "$59.33"
+            ],
+            [
+              "25/11 move",
+              "+2.0%"
+            ]
+          ],
+          "watch": "Plan B: no fresh stock-specific news, so size it smaller. Skip if it opens outside the buy zone. Today is a half-day session (US close 1 p.m. ET).",
+          "sources": [
+            [
+              "Yahoo Finance – Dow erases losses to end positive, S&P 500 and Nasdaq recover ground (25 Nov 2026)",
+              "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-november-25-dow-sp-500-nasdaq-pce-inflation-data-091428237.html"
+            ],
+            [
+              "CNBC – Stock market news for Nov. 25, 2026",
+              "https://www.cnbc.com/2026/11/24/stock-market-today-live-updates-.html"
+            ],
+            [
+              "Yahoo Finance – How major US stock indexes fared Wednesday 11/25/2026",
+              "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-211718440.html"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "LAURUSLABS",
+          "yahoo": "LAURUSLABS.NS",
+          "name": "Laurus Labs",
+          "sector": "Healthcare",
+          "currency": "INR",
+          "refPrice": 2505.0,
+          "refDate": "2026-11-26",
+          "buyLow": 2472.75,
+          "buyHigh": 2521.15,
+          "target": 2597.75,
+          "stop": 2436.45,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "chart",
+          "thesis": "Chart-only: up 32 pts more than the Nifty 50 over 3 months, with a rising 50-day average (ranked #1 by the momentum score).",
+          "reasons": [
+            "Trend: closed at ₹2,505.00 on 2026-11-26, above a rising 50-day average (₹2,147.84).",
+            "Relative strength: +32.2 pts vs the Nifty 50 over 3 months and +7.9 pts over 1 month.",
+            "Position: 1.9 ATR above its 20-day average (₹2,351.80), stretched, so the score is penalised."
+          ],
+          "data": [
+            [
+              "Close (11/26)",
+              "₹2,505.00"
+            ],
+            [
+              "3-month vs index",
+              "+32.2 pts"
+            ],
+            [
+              "1-month vs index",
+              "+7.9 pts"
+            ],
+            [
+              "vs 20-day avg",
+              "+1.9 ATR"
+            ]
+          ],
+          "watch": "Chart-only: no news reason to move today, the lowest-conviction kind of pick, so size it small. Skip if it opens outside the buy zone.",
+          "sources": [
+            [
+              "Yahoo Finance – Laurus Labs (LAURUSLABS.NS) quote",
+              "https://finance.yahoo.com/quote/LAURUSLABS.NS/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "DIVISLAB",
+          "yahoo": "DIVISLAB.NS",
+          "name": "Divi's Laboratories",
+          "sector": "Healthcare",
+          "currency": "INR",
+          "refPrice": 11631.0,
+          "refDate": "2026-11-26",
+          "buyLow": 11506.7,
+          "buyHigh": 11693.15,
+          "target": 11988.35,
+          "stop": 11366.85,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "chart",
+          "thesis": "Chart-only: up 30 pts more than the Nifty 50 over 3 months, with a rising 50-day average (ranked #2 by the momentum score).",
+          "reasons": [
+            "Trend: closed at ₹11,631.00 on 2026-11-26, above a rising 50-day average (₹9,899.03).",
+            "Relative strength: +30.0 pts vs the Nifty 50 over 3 months and +14.8 pts over 1 month.",
+            "Position: 2.8 ATR above its 20-day average (₹10,777.90), stretched, so the score is penalised."
+          ],
+          "data": [
+            [
+              "Close (11/26)",
+              "₹11,631.00"
+            ],
+            [
+              "3-month vs index",
+              "+30.0 pts"
+            ],
+            [
+              "1-month vs index",
+              "+14.8 pts"
+            ],
+            [
+              "vs 20-day avg",
+              "+2.8 ATR"
+            ]
+          ],
+          "watch": "Chart-only: no news reason to move today, the lowest-conviction kind of pick, so size it small. Skip if it opens outside the buy zone.",
+          "sources": [
+            [
+              "Yahoo Finance – Divi's Laboratories (DIVISLAB.NS) quote",
+              "https://finance.yahoo.com/quote/DIVISLAB.NS/"
+            ]
+          ]
+        },
+        {
+          "market": "IN",
+          "symbol": "MOTILALOFS",
+          "yahoo": "MOTILALOFS.NS",
+          "name": "Motilal Oswal Financial Services",
+          "sector": "Financial Services",
+          "currency": "INR",
+          "refPrice": 1215.25,
+          "refDate": "2026-11-26",
+          "buyLow": 1197.0,
+          "buyHigh": 1224.35,
+          "target": 1267.7,
+          "stop": 1176.5,
+          "risk": "Medium",
+          "planB": true,
+          "planBBasis": "chart",
+          "thesis": "Chart-only: up 16 pts more than the Nifty 50 over 3 months, with a rising 50-day average (ranked #3 by the momentum score).",
+          "reasons": [
+            "Trend: closed at ₹1,215.25 on 2026-11-26, above a rising 50-day average (₹1,059.50).",
+            "Relative strength: +15.9 pts vs the Nifty 50 over 3 months and +16.4 pts over 1 month.",
+            "Position: 1.9 ATR above its 20-day average (₹1,130.18), stretched, so the score is penalised."
+          ],
+          "data": [
+            [
+              "Close (11/26)",
+              "₹1,215.25"
+            ],
+            [
+              "3-month vs index",
+              "+15.9 pts"
+            ],
+            [
+              "1-month vs index",
+              "+16.4 pts"
+            ],
+            [
+              "vs 20-day avg",
+              "+1.9 ATR"
+            ]
+          ],
+          "watch": "Chart-only: no news reason to move today, the lowest-conviction kind of pick, so size it small. Skip if it opens outside the buy zone.",
+          "sources": [
+            [
+              "Yahoo Finance – Motilal Oswal Financial Services (MOTILALOFS.NS) quote",
+              "https://finance.yahoo.com/quote/MOTILALOFS.NS/"
+            ]
+          ]
+        }
+      ],
+      "marketSources": [
+        [
+          "Yahoo Finance – Dow erases losses to end positive, S&P 500 and Nasdaq recover ground (25 Nov 2026)",
+          "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-november-25-dow-sp-500-nasdaq-pce-inflation-data-091428237.html"
+        ],
+        [
+          "CNBC – Stock market news for Nov. 25, 2026",
+          "https://www.cnbc.com/2026/11/24/stock-market-today-live-updates-.html"
+        ],
+        [
+          "Yahoo Finance – Nifty 50 (^NSEI) quote",
+          "https://finance.yahoo.com/quote/%5ENSEI/"
+        ]
+      ]
+    },
+    {
       "id": "2026-11-26-daily",
       "horizon": "daily",
       "date": "2026-11-26",

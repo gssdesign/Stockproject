@@ -414,7 +414,65 @@ window.PICKS = {
               "Yahoo Finance – Laurus Labs (LAURUSLABS.NS) quote",
               "https://finance.yahoo.com/quote/LAURUSLABS.NS/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 2505.0,
+            "date": "2026-11-26",
+            "researchPrice": 2505.0,
+            "researchDate": "2026-11-26",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹737 cr (min ₹100 cr), price ₹2,505.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹2351.8"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +7.9 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+172.9% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+1.9 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 3.22% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 3.22,
+            "sma20": 2351.8,
+            "sma50": 2147.84,
+            "sma200": 1563.09,
+            "rs1m": 7.91,
+            "rs3m": 32.21,
+            "fromHigh52": -0.48,
+            "fromLow52": 172.89,
+            "avgValue20": 7370272838,
+            "extAtr": 1.9
+          }
         },
         {
           "market": "IN",
@@ -462,7 +520,65 @@ window.PICKS = {
               "Yahoo Finance – Divi's Laboratories (DIVISLAB.NS) quote",
               "https://finance.yahoo.com/quote/DIVISLAB.NS/"
             ]
-          ]
+          ],
+          "verified": {
+            "source": "Yahoo Finance daily close",
+            "close": 11631.0,
+            "date": "2026-11-26",
+            "researchPrice": 11631.0,
+            "researchDate": "2026-11-26",
+            "diffPct": 0.0,
+            "status": "ok"
+          },
+          "checks": [
+            {
+              "name": "Liquidity",
+              "pass": true,
+              "detail": "20-day avg traded value ₹929 cr (min ₹100 cr), price ₹11,631.0"
+            },
+            {
+              "name": "Trend",
+              "pass": true,
+              "detail": "close above 20-day avg ₹10777.9"
+            },
+            {
+              "name": "Relative strength",
+              "pass": true,
+              "detail": "1-month return vs index +14.8 pts (min +0.0)"
+            },
+            {
+              "name": "Not a falling knife",
+              "pass": true,
+              "detail": "+106.0% above 52-week low"
+            },
+            {
+              "name": "Not overextended",
+              "pass": true,
+              "detail": "+2.8 ATR from 20-day avg (max +3.0)"
+            },
+            {
+              "name": "Volatility fits horizon",
+              "pass": true,
+              "detail": "ATR 2.67% of price (max 4.0% for daily)"
+            },
+            {
+              "name": "Reward vs risk",
+              "pass": true,
+              "detail": "R:R 1.67 (min 1.5)"
+            }
+          ],
+          "metricsAtPick": {
+            "atrPct": 2.67,
+            "sma20": 10777.9,
+            "sma50": 9899.03,
+            "sma200": 7717.61,
+            "rs1m": 14.76,
+            "rs3m": 30.02,
+            "fromHigh52": -1.63,
+            "fromLow52": 105.95,
+            "avgValue20": 9288238553,
+            "extAtr": 2.75
+          }
         },
         {
           "market": "IN",
